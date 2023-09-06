@@ -29,8 +29,7 @@ public class PostImageController {
 
     @DeleteMapping("/image/post/{postId}")
     public R<String> deleteImagesByPostId(@PathVariable("postId") Long postId){
-
-   postImageService.
+        postImageService.
                 remove(new LambdaQueryWrapper<PostImage>().eq(PostImage::getPostId, postId));
         return R.success("Success");
     }

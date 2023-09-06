@@ -20,16 +20,13 @@ public class PostController {
     PostService postService;
 
     @PostMapping("/post")
-    public R<String> upLoadPost(@RequestBody @Validated Post post) {
+    public R<String> upLoadPost(@RequestBody @Validated Post post) {/*
         postService.save(post);
-
-/*        post.setPostTime(System.currentTimeMillis());
+        post.setPostTime(System.currentTimeMillis());
         post.setUserId(BaseContext.getCurrentId());
-        post.setCoverImage(post.getImages().get(0).getImageUrl());
-        if (post.getEstimateDate() == null) {
+        if (post == null) {
             //立刻上传Post
             post.setPublishTime(System.currentTimeMillis());
-            postService.addPostAndSyncSocket(post);
         } else {
             // 获取日期时间戳
             long targetTime = post.getEstimateDate().getTime();
