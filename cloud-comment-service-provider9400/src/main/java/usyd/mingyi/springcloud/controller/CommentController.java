@@ -1,7 +1,7 @@
 package usyd.mingyi.springcloud.controller;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +19,7 @@ public class CommentController {
 
     @PostMapping("/comment/{postId}")
     public R<Comment> addComment(@PathVariable("postId") Long postId, @RequestBody Comment comment) {
+
         comment.setPostId(postId);
         comment.setCommentTime(System.currentTimeMillis());
         comment.setUserId(BaseContext.getCurrentId());
@@ -27,6 +28,15 @@ public class CommentController {
             throw new CustomException("添加失败");
         }
         return R.success(comment);
+    }
+    @GetMapping("/comment/count")
+    public R<Long> countCommentReceived(){
+        Long userId = BaseContext.getCurrentId();
+
+        Long count = commentService.count(new LambdaQueryWrapper<Comment>()
+                .eq(Comment::getTargetUserId, userId)
+                .eq(Comment::getIsRead,false));
+        return  R.success(count);
     }
 
     @GetMapping("/comments/{postId}")
@@ -37,12 +47,18 @@ public class CommentController {
 
 
     @GetMapping("/comments/tome")
-    @ResponseBody
     public R<IPage<Comment>> getAllCommentsToMyPost(@RequestParam("current") Long current,
                                                       @RequestParam("pageSize") Integer pageSize){
 
         return R.success(commentService.getCommentsToMe(BaseContext.getCurrentId(),current,pageSize));
     }
+
+    @GetMapping("/comment/read/{id}")
+    public R<String> markCommentAsRead(@PathVariable("id") Long commentId){
+        commentService.markAsRead(commentId,BaseContext.getCurrentId());
+        return R.success("Success");
+    }
+
 
 
 }

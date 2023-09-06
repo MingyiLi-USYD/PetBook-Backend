@@ -25,6 +25,8 @@ public class Comment implements Serializable {
     private Long postId;
     @JsonFormat(shape = JsonFormat.Shape.STRING)
     private Long userId;
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
+    private Long targetUserId; //冗余字段
     private Long commentTime;
     private String commentContent;
     private Long commentLove;
