@@ -1,0 +1,19 @@
+spring:
+  profiles:
+    active: dev
+
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: user-service
+          uri: lb://user-service-consumer
+          predicates:
+            - Path=/consumer/user/**
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

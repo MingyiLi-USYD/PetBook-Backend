@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$/cloud-api-commons/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-api-commons/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-comment-service-provider9400/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-comment-service-provider9400/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-friend-service-provider9300/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-friend-service-provider9300/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-gateway9257/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-gateway9257/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-pet-service-consumer8100/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-pet-service-consumer8100/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-pet-service-provider9100/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-pet-service-provider9100/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-post-service-provider9200/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-post-service-provider9200/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-socket-service-provider9700/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-socket-service-provider9700/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-uaa7000/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-uaa7000/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-user-service-consumer8001/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-user-service-consumer8001/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-user-service-provider9001/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-user-service-provider9001/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-user-service-provider9002/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-user-service-provider9002/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>
