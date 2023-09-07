@@ -3,15 +3,19 @@ package usyd.mingyi.springcloud.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import usyd.mingyi.springcloud.pojo.Friendship;
 
-public interface FriendshipService extends IService<Friendship> {
+import java.util.List;
 
-/*    List<FriendshipDto> getAllFriends(Long id);//根据用户id获取用户所有的friends
-    List<FriendshipDto> getAllFriends(Long id,Long [] ids);//根据用户id获取用户所有的friends
+public interface FriendshipService extends IService<Friendship> {
     int checkFriendshipStatus(Long fromId, Long toId);
     void deleteUser(Long fromId,Long toId);
-    void deleteUserSyncSocket(Long fromId,Long toId);
+    List<Friendship> getAllFriends(Long id);//根据用户id获取用户所有的friends
 
-    FriendshipDto getFriendshipByIds(Long userId, Long friendId);
+    List<Friendship> getAllFriends(Long id,Long [] ids);//根据用户id获取用户所有的friends
 
-    Boolean isFriend(Long userId,Long friendId);*/
+    Boolean isFriend(Long userId,Long friendId);
+
+
+    Friendship getFriendship(Long userId, Long friendId);
+
+
 }

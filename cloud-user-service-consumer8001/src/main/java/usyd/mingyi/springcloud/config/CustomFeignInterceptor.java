@@ -16,18 +16,9 @@ public class CustomFeignInterceptor {
             // 在这里可以修改请求
             // 例如，你可以添加请求头或修改请求参数
             template.header("X-UserId", String.valueOf(BaseContext.getCurrentId()));
+            template.header("X-Username", String.valueOf(BaseContext.getCurrentId()));
 
         };
     }
-/*    @Bean
-    ResponseInterceptor responseInterceptor(){
-
-        return new ResponseInterceptor() {
-            @Override
-            public Object aroundDecode(InvocationContext invocationContext) throws IOException {
-                return null;
-            }
-        };
-    }*/
 
 }

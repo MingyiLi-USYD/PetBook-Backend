@@ -11,7 +11,7 @@
     <modules>
         <module>cloud-gateway9257</module>
         <module>cloud-api-commons</module>
-        <module>cloud-user-service-provider9001</module>
+        <module>cloud-user-service-provider9000</module>
         <module>cloud-user-service-consumer8001</module>
         <module>cloud-pet-service-provider9100</module>
         <module>cloud-pet-service-consumer8100</module>
