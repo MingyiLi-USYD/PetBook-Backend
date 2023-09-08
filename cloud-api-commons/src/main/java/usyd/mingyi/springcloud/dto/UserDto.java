@@ -24,5 +24,4 @@ public class UserDto extends User {
     private Integer MentionsReceived;
     private Integer CommentsReceived;
     private Integer LovesReceived;
-
 }

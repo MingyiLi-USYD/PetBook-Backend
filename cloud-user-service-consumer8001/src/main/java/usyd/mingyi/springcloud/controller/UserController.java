@@ -1,6 +1,5 @@
 package usyd.mingyi.springcloud.controller;
 
-import cn.hutool.core.lang.func.Func1;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +18,8 @@ import usyd.mingyi.springcloud.utils.FieldUtils;
 import usyd.mingyi.springcloud.utils.ResultHandler;
 
 import java.util.List;
-import java.util.function.Function;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
 
 @RestController
 @Slf4j
@@ -30,22 +30,21 @@ public class UserController {
     FriendServiceFeign friendServiceFeign;
     @GetMapping("/user/{userId}")
     public R<User> getUser(@PathVariable("userId") Long userId){
-      //return   userServiceFeign.getUserById(userId);
-        return null;
+      return   userServiceFeign.getUserById(userId);
     }
 
     @GetMapping("/user/init")
     public R<UserDto> initUserInfo() {
-       // R<User> currentUser = userServiceFeign.getCurrentUser();
-        R<User> currentUser = userServiceFeign.getCurrentUser();
 
-        System.out.println(currentUser);
+
+       // R<User> currentUser = userServiceFeign.getCurrentUser();
+        User currentUser = userServiceFeign.getCurrentUser();
        // R<List<FriendRequest>> resFriendRequest = friendServiceFeign.getFriendRequestList();
+        System.out.println(currentUser);
         R<List<Friendship>> resFriendship = friendServiceFeign.getFriendshipList();
         List<Friendship> friendshipList = resFriendship.getData();
         List<Long> userIds = FieldUtils.extractField(friendshipList, Friendship::getFriendId);
-         R<List<User>>  userListByIds = userServiceFeign.getUserListByIds(userIds);
-        List<User> userList = userListByIds.getData();
+        List<User>  userList = userServiceFeign.getUserListByIds(userIds);
 
         List<FriendshipDto> friendshipDtos = ResultHandler.mergeObjectLists(friendshipList,
                 userList,
@@ -58,7 +57,6 @@ public class UserController {
         userDto.setFriendshipDtoList(friendshipDtos);
         return R.success(userDto);
     }
-
 
 
 

@@ -1,12 +1,9 @@
 package usyd.mingyi.springcloud.config;
-import feign.InvocationContext;
+
 import feign.RequestInterceptor;
-import feign.ResponseInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import usyd.mingyi.springcloud.utils.BaseContext;
-
-import java.io.IOException;
 
 @Configuration
 public class CustomFeignInterceptor {
@@ -17,7 +14,6 @@ public class CustomFeignInterceptor {
             // 例如，你可以添加请求头或修改请求参数
             template.header("X-UserId", String.valueOf(BaseContext.getCurrentId()));
             template.header("X-Username", String.valueOf(BaseContext.getCurrentId()));
-
         };
     }
 
