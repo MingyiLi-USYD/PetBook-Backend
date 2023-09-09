@@ -73,30 +73,26 @@ public class UserController {
 
     @GetMapping("/user/init2")
     public R<UserDto> promise() throws ExecutionException, InterruptedException {
-/*        CompletableFuture<User> userCompletableFuture = CompletableFuture.supplyAsync(() -> userServiceFeign.getCurrentUser(), customThreadPool);
 
-        CompletableFuture<List<Friendship>> friendshipFuture = CompletableFuture.supplyAsync(() -> friendServiceFeign.getFriendshipList(),customThreadPool);
 
-        CompletableFuture<List<FriendRequest>> friendRequestFuture = CompletableFuture.supplyAsync(() -> friendServiceFeign.getFriendRequestList(),customThreadPool);*/
-       // CompletableFuture<Void> voidCompletableFuture = CompletableFuture.allOf(friendshipFuture, friendRequestFuture,userCompletableFuture);
-        CompletableFuture<User> userCompletableFuture = Promise.buildTask(userServiceFeign::getCurrentUser);
-        CompletableFuture<List<FriendshipDto>> friendshipDtoFuture = Promise.buildTask(() -> friendServiceFeign.getFriendshipList()).thenApply(friendshipList -> {
+
+        Promise<User> userPromise = Promise.buildPromise(userServiceFeign::getCurrentUser);
+        Promise<List<FriendshipDto>> friendshipDtoPromise = Promise.buildPromise(friendServiceFeign::getFriendshipList).then(friendshipList -> {
             List<Long> friendUserIds = FieldUtils.extractField(friendshipList, Friendship::getFriendId);
             List<User> friendshipUserList = userServiceFeign.getUserListByIds(friendUserIds);
             return FriendshipHandler.handleUserInfo(friendshipList, friendshipUserList);
         });
+        Promise<List<FriendRequest>> friendRequestPromise = Promise.buildPromise(friendServiceFeign::getFriendRequestList);
+        Promise.all(userPromise,friendshipDtoPromise,friendRequestPromise).join();
 
-        CompletableFuture<List<FriendRequest>> friendRequestFuture = Promise.buildTask(() -> friendServiceFeign.getFriendRequestList());
-        CompletableFuture<Void> voidCompletableFuture = Promise.PromiseAll(friendshipDtoFuture, friendRequestFuture, userCompletableFuture);
-        voidCompletableFuture.join();
 
         try {
-            // 获取它们的结果
-            List<FriendshipDto> resFriendship = friendshipDtoFuture.get();
-            List<FriendRequest> userListByIds = friendRequestFuture.get();
-            User user = userCompletableFuture.get();
+            List<FriendRequest> userListByIds = friendRequestPromise.get();
+            List<FriendshipDto> friendshipDtos = friendshipDtoPromise.get();
+            User user = userPromise.get();
             System.out.println(user);
-            System.out.println(resFriendship);
+            System.out.println(friendshipDtos);
+
             System.out.println(userListByIds);
             // 在这里处理数据
         } catch (InterruptedException | ExecutionException e) {
