@@ -63,8 +63,4 @@ public class ResultHandler {
         return objectDtos;
     }
 
-
-
-
-
 }

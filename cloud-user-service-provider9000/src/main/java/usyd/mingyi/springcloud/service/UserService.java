@@ -2,7 +2,13 @@ package usyd.mingyi.springcloud.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import usyd.mingyi.springcloud.pojo.User;
 
+import java.io.Serializable;
+import java.util.Collection;
+import java.util.List;
+
 public interface UserService extends IService<User> {
+
+
  /*   User getUserByUsername(String username);
 
 

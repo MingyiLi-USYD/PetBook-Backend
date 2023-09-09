@@ -41,7 +41,7 @@ public class PostController {
     }
 
     @GetMapping("/post/{postId}")
-    public R<Post> getPost(@PathVariable Long postId) {
+    public R<Post> getPost(@PathVariable("postId") Long postId) {
         Post post = postService.getById(postId);
         if (!post.getVisible() && !post.getUserId().equals(BaseContext.getCurrentId())) {
             throw new CustomException("This post is currently invisible");

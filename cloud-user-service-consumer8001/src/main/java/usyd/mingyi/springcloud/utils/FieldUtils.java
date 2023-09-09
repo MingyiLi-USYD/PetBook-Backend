@@ -25,10 +25,4 @@ public class FieldUtils {
         return fieldValues;
     }
 
-    public static <T,S> List<S> extractField(R<List<T>> response, Function<T, S> fieldExtractor) {
-        if (response.getCode().equals(1)) {
-            return extractField(response.getData(),fieldExtractor);
-        }
-        return new ArrayList<>();
-    }
 }
