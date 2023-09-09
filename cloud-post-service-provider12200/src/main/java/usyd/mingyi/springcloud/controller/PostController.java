@@ -98,12 +98,20 @@ public class PostController {
         return R.success(posts);
     }
 
+/*
+    @GetMapping("/posts/ids/{userId}")
+    public R<List<Long>> getPostIds(@PathVariable("userId") Long userId) {
+        List<Post> posts = postService.getPostsByUserIdVisible(userId);
+        return R.success(posts.stream().map());
+    }
+*/
 
     @GetMapping("/posts/ids")
     public R<List<Post>> getPostsByIds(@RequestBody List<Long> ids) {
         List<Post> postsByIds = postService.getPostsByIds(ids);
         return R.success(postsByIds);
     }
+
 
 
 

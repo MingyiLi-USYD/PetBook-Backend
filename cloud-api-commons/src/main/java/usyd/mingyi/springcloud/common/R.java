@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Data
-
 public class R<T> implements Serializable {
 
 

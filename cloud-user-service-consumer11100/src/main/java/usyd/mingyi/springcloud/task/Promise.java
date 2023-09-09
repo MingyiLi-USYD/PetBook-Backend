@@ -12,7 +12,7 @@ import java.util.function.Supplier;
 
 public class Promise<T> {
 
-    public final static Executor customThreadPool = Executors.newCachedThreadPool();
+    public final static Executor customThreadPool = AsyncConfig.customThreadPool;
     CompletableFuture<T> completableFuture;
 
     public CompletableFuture<T> getCompletableFuture() {
@@ -57,12 +57,17 @@ public class Promise<T> {
                 .toArray(CompletableFuture[]::new);
         return CompletableFuture.allOf(cfs);
     }
-    public static Void await(Promise<?>... promises){
+    public static Void awaitAll(Promise<?>... promises){
         return all(promises).join();
     }
 
     public  T get() throws ExecutionException, InterruptedException {
         return this.getCompletableFuture().get();
+    }
+
+    public Promise<T> await(){
+        this.completableFuture.join();
+        return this;
     }
 
 

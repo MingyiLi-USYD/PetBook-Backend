@@ -18,6 +18,7 @@ import usyd.mingyi.springcloud.service.PetServiceFeign;
 import usyd.mingyi.springcloud.service.PostServiceFeign;
 import usyd.mingyi.springcloud.service.UserServiceFeign;
 import usyd.mingyi.springcloud.task.Promise;
+import usyd.mingyi.springcloud.utils.BaseContext;
 import usyd.mingyi.springcloud.utils.FieldUtils;
 
 import java.util.List;
@@ -34,6 +35,10 @@ public class UserController {
     PostServiceFeign postServiceFeign;
     @Autowired
     PetServiceFeign petServiceFeign;
+    @Autowired
+    FriendshipHandler friendshipHandler;
+    @Autowired
+    FriendRequestHandler friendRequestHandler;
 
 
 
@@ -45,59 +50,39 @@ public class UserController {
     }
 
     @GetMapping("/user/init")
-    public R<UserDto> initUserInfo() {
+    public R<UserDto> initUserInfo() throws ExecutionException, InterruptedException {
+        Long currentId = BaseContext.getCurrentId();
+        log.info(currentId.toString());
 
-        User currentUser = userServiceFeign.getCurrentUser();
-        List<FriendRequest> friendRequestList = friendServiceFeign.getFriendRequestList();
-        List<Friendship> friendshipList = friendServiceFeign.getFriendshipList();
-        List<Post> postList = postServiceFeign.getMyPosts();
-        List<Pet> petList = petServiceFeign.getPetList();
+        Promise<User> userPromise = Promise.buildPromise(userServiceFeign::getCurrentUser);
 
-        List<Long> friendUserIds = FieldUtils.extractField(friendshipList, Friendship::getFriendId);
-        List<User>  friendshipUserList = userServiceFeign.getUserListByIds(friendUserIds);
-        List<FriendshipDto> friendshipDtos = FriendshipHandler.handleUserInfo(friendshipList, friendshipUserList);
+        Promise<List<FriendshipDto>> friendshipDtosPromise =
+                Promise.buildPromise(friendServiceFeign::getFriendshipList).then(friendshipHandler::convert);
 
-        List<Long> requestUserIds = FieldUtils.extractField(friendRequestList, FriendRequest::getMyId);
-        List<User>  friendRequestUserList= userServiceFeign.getUserListByIds(requestUserIds);
-        List<FriendRequestDto> friendRequestDtos = FriendRequestHandler.handleUserInfo(friendRequestList, friendRequestUserList);
+        Promise<List<FriendRequestDto>> friendRequestDtosPromise
+                = Promise.buildPromise(friendServiceFeign::getFriendRequestList).then(friendRequestHandler::convert);
+
+        Promise<List<Post>> postPromise = Promise.buildPromise(postServiceFeign::getMyPosts);
+        Promise<List<Pet>> petPromise = Promise.buildPromise(petServiceFeign::getPetList);
+
+        Promise.awaitAll(userPromise,friendshipDtosPromise,friendRequestDtosPromise,petPromise,postPromise);
+
 
 
         UserDto userDto = new UserDto();
+        User currentUser = userPromise.get();
         BeanUtils.copyProperties(currentUser,userDto);
-        userDto.setFriendshipDtoList(friendshipDtos);
-        userDto.setFriendRequestDtoList(friendRequestDtos);
-        userDto.setPostList(postList);
-        userDto.setPetList(petList);
+        userDto.setFriendshipDtoList(friendshipDtosPromise.get());
+        userDto.setFriendRequestDtoList(friendRequestDtosPromise.get());
+        userDto.setPostList(postPromise.get());
+        userDto.setPetList(petPromise.get());
         return R.success(userDto);
     }
 
     @GetMapping("/user/init2")
-    public R<UserDto> promise() throws ExecutionException, InterruptedException {
-
-
-
-        Promise<User> userPromise = Promise.buildPromise(userServiceFeign::getCurrentUser);
-        Promise<List<FriendshipDto>> friendshipDtoPromise = Promise.buildPromise(friendServiceFeign::getFriendshipList).then(friendshipList -> {
-            List<Long> friendUserIds = FieldUtils.extractField(friendshipList, Friendship::getFriendId);
-            List<User> friendshipUserList = userServiceFeign.getUserListByIds(friendUserIds);
-            return FriendshipHandler.handleUserInfo(friendshipList, friendshipUserList);
-        });
-        Promise<List<FriendRequest>> friendRequestPromise = Promise.buildPromise(friendServiceFeign::getFriendRequestList);
-        Promise.all(userPromise,friendshipDtoPromise,friendRequestPromise).join();
-
-
-        try {
-            List<FriendRequest> userListByIds = friendRequestPromise.get();
-            List<FriendshipDto> friendshipDtos = friendshipDtoPromise.get();
-            User user = userPromise.get();
-            System.out.println(user);
-            System.out.println(friendshipDtos);
-
-            System.out.println(userListByIds);
-            // 在这里处理数据
-        } catch (InterruptedException | ExecutionException e) {
-            e.printStackTrace();
-        }
+    public R<UserDto> promise()  {
+        User currentUser = userServiceFeign.getCurrentUser();
+        System.out.println(currentUser);
         return null;
 
     }

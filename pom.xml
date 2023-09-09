@@ -20,6 +20,7 @@
         <module>cloud-friend-service-provider12400</module>
         <module>cloud-comment-service-provider9400</module>
         <module>cloud-socket-service-provider9700</module>
+        <module>cloud-interaction-service-provider12600</module>
     </modules>
 
     <properties>

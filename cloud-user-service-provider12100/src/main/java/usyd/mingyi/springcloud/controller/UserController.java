@@ -53,6 +53,7 @@ public class UserController {
 
     @GetMapping("/currentUser")
     public R<User> getCurrentUser() {
+        log.info(BaseContext.getCurrentId().toString());
         Long currentId = BaseContext.getCurrentId();
         User user = userService.getById(currentId);
         if (user == null) {
