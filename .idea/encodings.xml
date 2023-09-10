@@ -15,6 +15,8 @@
     <file url="file://$PROJECT_DIR$/cloud-pet-service-consumer8100/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud-pet-service-provider12300/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud-pet-service-provider12300/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-post-service-consumer11200/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-post-service-consumer11200/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud-post-service-provider12200/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud-post-service-provider12200/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud-socket-service-provider9700/src/main/java" charset="UTF-8" />

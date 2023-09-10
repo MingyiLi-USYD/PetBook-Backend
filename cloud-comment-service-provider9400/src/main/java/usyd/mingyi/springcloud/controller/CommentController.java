@@ -29,8 +29,8 @@ public class CommentController {
         }
         return R.success(comment);
     }
-    @GetMapping("/comment/count")
-    public R<Long> countCommentReceived(){
+    @GetMapping("/comments/received/count")
+    public R<Long> countCommentsReceived(){
         Long userId = BaseContext.getCurrentId();
 
         Long count = commentService.count(new LambdaQueryWrapper<Comment>()
@@ -46,18 +46,21 @@ public class CommentController {
     }
 
 
-    @GetMapping("/comments/tome")
+    @GetMapping("/comments")
     public R<IPage<Comment>> getAllCommentsToMyPost(@RequestParam("current") Long current,
                                                       @RequestParam("pageSize") Integer pageSize){
-
         return R.success(commentService.getCommentsToMe(BaseContext.getCurrentId(),current,pageSize));
     }
+
+
 
     @GetMapping("/comment/read/{id}")
     public R<String> markCommentAsRead(@PathVariable("id") Long commentId){
         commentService.markAsRead(commentId,BaseContext.getCurrentId());
         return R.success("Success");
     }
+
+
 
 
 

@@ -1,6 +1,8 @@
 package usyd.mingyi.springcloud.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.github.yulichang.wrapper.MPJLambdaWrapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -32,6 +34,12 @@ public class UserController {
             throw new CustomException("No user found");
         }
         return R.success(user);
+    }
+
+    @GetMapping("/users")
+    public R<Page<User>> getAllUser(@RequestParam("current") Long current
+            , @RequestParam("size") Long size, @RequestParam("keywords") String keywords) {
+        return R.success(userService.getPageUserList(current,size,keywords));
     }
 
     @GetMapping("/users/byIds")

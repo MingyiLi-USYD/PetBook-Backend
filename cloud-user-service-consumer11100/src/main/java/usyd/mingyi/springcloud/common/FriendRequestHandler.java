@@ -14,6 +14,7 @@ import java.util.List;
 public class FriendRequestHandler {
     @Autowired
     UserServiceFeign userServiceFeign;
+
     public static List<FriendRequestDto> handleUserInfo(List<FriendRequest> friendRequestList, List<User> userList) {
         return ResultHandler.mergeObjectLists(friendRequestList,
                 userList,
@@ -22,6 +23,8 @@ public class FriendRequestHandler {
                 FriendRequestDto::new,
                 User::getUserId);
     }
+
+    //下面是接收一个List<FriendRequest> 然后转化为List<FriendRequestDto>类型 并且查询数据库把Dto中的用户信息补齐
 
     public  List<FriendRequestDto> convert(List<FriendRequest> friendRequestList) {
         List<Long> requestUserIds = FieldUtils.extractField(friendRequestList, FriendRequest::getMyId);

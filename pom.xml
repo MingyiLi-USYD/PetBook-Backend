@@ -21,6 +21,7 @@
         <module>cloud-comment-service-provider9400</module>
         <module>cloud-socket-service-provider9700</module>
         <module>cloud-interaction-service-provider12600</module>
+        <module>cloud-post-service-consumer11200</module>
     </modules>
 
     <properties>

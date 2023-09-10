@@ -21,6 +21,7 @@ public class Mention implements Serializable {
     private Long mentionId;
     private Long postId;
     private Long userId;
+    private Long targetUserId;
     private Boolean isRead;
     @TableField(fill = FieldFill.INSERT)
     @JsonIgnore
@@ -35,8 +36,9 @@ public class Mention implements Serializable {
     @JsonIgnore
     private Long updateUser;
 
-    public Mention(Long postId, Long userId) {
+    public Mention(Long postId, Long userId,Long targetUserId) {
         this.postId = postId;
         this.userId = userId;
+        this.targetUserId = targetUserId;
     }
 }

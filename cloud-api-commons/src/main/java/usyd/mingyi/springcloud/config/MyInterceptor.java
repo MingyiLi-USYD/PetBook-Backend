@@ -7,6 +7,7 @@ import usyd.mingyi.springcloud.utils.BaseContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
 public class MyInterceptor implements HandlerInterceptor {
 
     @Override
@@ -14,7 +15,7 @@ public class MyInterceptor implements HandlerInterceptor {
         // 在请求处理之前拦截，提取请求头信息
         String username = request.getHeader("X-Username");
         String userId = request.getHeader("X-UserId");
-        if(username==null||userId==null){
+        if (username == null || userId == null) {
             //处理错误
         }
         BaseContext.setCurrentId(Long.valueOf(userId));
@@ -29,6 +30,6 @@ public class MyInterceptor implements HandlerInterceptor {
 
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
-       BaseContext.clearCurrentId();
+        BaseContext.clearCurrentId();
     }
 }

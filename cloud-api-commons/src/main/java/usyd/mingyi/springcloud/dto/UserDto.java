@@ -21,7 +21,7 @@ public class UserDto extends User {
     private List<String> subscribeIdList;
     private List<String> subscriberIdList;
     private List<String> loveIdList;
-    private Integer MentionsReceived;
-    private Integer CommentsReceived;
-    private Integer LovesReceived;
+    private Long MentionsReceived;
+    private Long CommentsReceived;
+    private Long LovesReceived;
 }

@@ -25,6 +25,8 @@ public class LovePost implements Serializable {
     private Long userId;
     @JsonFormat(shape = JsonFormat.Shape.STRING)
     private Long postId;
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
+    private Long postUserId;
     private Boolean isRead;
     private Boolean isCanceled;
     @TableField(fill = FieldFill.INSERT)

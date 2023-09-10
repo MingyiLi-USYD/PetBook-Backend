@@ -24,7 +24,7 @@ public class FriendshipHandler {
                 FriendshipDto::new,
                 User::getUserId);
     }
-
+    //下面是接收一个List<Friendship> 然后转化为List<FriendshipDto>类型 并且查询数据库把Dto中的用户信息补齐
     public  List<FriendshipDto> convert(List<Friendship> friendshipList) {
         List<Long> friendUserIds = FieldUtils.extractField(friendshipList, Friendship::getFriendId);
         List<User>  friendshipUserList = userServiceFeign.getUserListByIds(friendUserIds);
