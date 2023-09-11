@@ -20,14 +20,14 @@ public class PostImageController {
     PostImageService postImageService;
 
 
-    @GetMapping("/image/post/{postId}")
+    @GetMapping("/images/post/{postId}")
     public R<List<PostImage>> getImagesByPostId(@PathVariable("postId") Long postId){
         List<PostImage> postImages = postImageService.
                 list(new LambdaQueryWrapper<PostImage>().eq(PostImage::getPostId, postId));
         return R.success(postImages);
     }
 
-    @DeleteMapping("/image/post/{postId}")
+    @DeleteMapping("/images/post/{postId}")
     public R<String> deleteImagesByPostId(@PathVariable("postId") Long postId){
         postImageService.
                 remove(new LambdaQueryWrapper<PostImage>().eq(PostImage::getPostId, postId));

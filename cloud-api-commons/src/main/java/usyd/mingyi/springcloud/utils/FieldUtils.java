@@ -22,5 +22,15 @@ public class FieldUtils {
         }
         return fieldValues;
     }
+    public static <T, S> List<S> extractField(List<T> objects, Function<T, S> fieldExtractor,boolean distinct) {
+        if(!distinct){
+            return extractField(objects,fieldExtractor);
+        }
+        //Set<T> ts = new HashSet<>(objects); 可以通过set的特性去重
+        List<T> distinctObjects = objects.stream()
+                .distinct()
+                .toList();
+       return   extractField(distinctObjects,fieldExtractor);
+    }
 
 }

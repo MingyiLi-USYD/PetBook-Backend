@@ -35,6 +35,9 @@ public class Post implements Serializable {
     private Boolean visible;
     private Long viewCount;
     private String coverImage;
+    @TableLogic
+    private Boolean isDeleted;
+
     @TableField(fill = FieldFill.INSERT)
     @JsonIgnore
     private LocalDateTime createTime;

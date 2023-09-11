@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import usyd.mingyi.springcloud.common.CustomException;
 import usyd.mingyi.springcloud.common.R;
 import usyd.mingyi.springcloud.pojo.Pet;
+import usyd.mingyi.springcloud.service.PetImageService;
 import usyd.mingyi.springcloud.service.PetService;
 import usyd.mingyi.springcloud.utils.BaseContext;
 
@@ -18,6 +19,7 @@ public class PetController {
     @Autowired
     PetService petService;
 
+
     @PostMapping("/pet")
     public R<String> addPet(@RequestBody Pet pet) {
 /*        for (int i = 0; i < 1000000; i++) {
@@ -29,6 +31,25 @@ public class PetController {
             return R.success("成功了");
         }else {
             return R.error("插入失败");
+        }
+    }
+
+    @PutMapping("/pet")
+    public R<String> updatePet(@RequestBody Pet pet) {
+        if(pet.getPetId()==null){
+            throw new CustomException("宠物id未知");
+        }
+        Pet targetPet = petService.getById(pet.getPetId());
+
+        if (targetPet == null) return R.error("No such pet");
+
+        if (!targetPet.getUserId().equals(BaseContext.getCurrentId())) {
+            return R.error("No right to update this pet");
+        }
+        if (petService.updateById(pet)) {
+            return R.success("Update Success");
+        } else {
+            return R.error("Fail to update");
         }
     }
 
@@ -49,22 +70,10 @@ public class PetController {
         return R.success("Delete success");
     }
 
-    @PutMapping("/pet/{petId}")
-    public R<String> updatePet(@PathVariable("petId") Long petId, @RequestBody Pet pet) {
-        Pet targetPet = petService.getById(petId);
-        if (targetPet == null) return R.error("No such pet");
-        if (!targetPet.getUserId().equals(BaseContext.getCurrentId())) {
-            return R.error("No right to update this pet");
-        }
-        if (petService.updateById(pet)) {
-            return R.success("Update Success");
-        } else {
-            return R.error("Fail to update");
-        }
-    }
 
 
-    @GetMapping("/pet/my")
+
+    @GetMapping("/pets/my")
     public R<List<Pet>> getPetList() {
         long id = BaseContext.getCurrentId();
         List<Pet> petList = petService.getPetList(id);

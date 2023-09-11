@@ -14,14 +14,15 @@
         <module>cloud-user-service-provider12100</module>
         <module>cloud-user-service-consumer11100</module>
         <module>cloud-pet-service-provider12300</module>
-        <module>cloud-pet-service-consumer8100</module>
         <module>cloud-uaa7000</module>
         <module>cloud-post-service-provider12200</module>
         <module>cloud-friend-service-provider12400</module>
-        <module>cloud-comment-service-provider9400</module>
+        <module>cloud-comment-service-provider12500</module>
         <module>cloud-socket-service-provider9700</module>
         <module>cloud-interaction-service-provider12600</module>
         <module>cloud-post-service-consumer11200</module>
+        <module>cloud-pet-service-consumer11300</module>
+        <module>cloud-friend-service-consumer11400</module>
     </modules>
 
     <properties>
@@ -32,10 +33,22 @@
         <lombok.version>1.2.17</lombok.version>
         <mybatis-plus-join.version>1.4.4.1</mybatis-plus-join.version>
         <mybatis-plus.version>3.5.2</mybatis-plus.version>
+        <mapstruct.version>1.4.1.Final</mapstruct.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct</artifactId>
+                <version>${mapstruct.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct-processor</artifactId>
+                <version>1.4.1.Final</version>
+                <scope>provided</scope>
+            </dependency>
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>transmittable-thread-local</artifactId>

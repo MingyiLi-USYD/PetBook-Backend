@@ -18,7 +18,9 @@ import usyd.mingyi.springcloud.utils.BaseContext;
 
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @Slf4j
@@ -43,7 +45,7 @@ public class UserController {
     }
 
     @GetMapping("/users/byIds")
-    public R<List<User>> getUserListByIds(@RequestParam("ids") @NotNull List<Long> ids ) {
+    public R<List<User>> getUserListByIds(@RequestParam("ids") @NotNull Collection<Long> ids ) {
         if (ids.isEmpty()) {
             return R.success(new ArrayList<>());
         }

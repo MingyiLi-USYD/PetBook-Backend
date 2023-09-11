@@ -11,7 +11,7 @@ public interface PetService extends IService<Pet> {
     List<Pet> getPetList(Long userId);
     void deletePet(Long petId,Long useId);
     PetImage saveImageForPet(Long petId, Long userId, PetImage petImage);
-    void  deleteImageForPet(Long petId,Long userId,Long imageId);
+    void  deleteImageForPet(Long imageId);
 
 
 }

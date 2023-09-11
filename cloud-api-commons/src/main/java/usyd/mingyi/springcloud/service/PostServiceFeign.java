@@ -6,6 +6,8 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 import usyd.mingyi.springcloud.config.FeignConfig;
 import usyd.mingyi.springcloud.pojo.Post;
+import usyd.mingyi.springcloud.pojo.PostImage;
+
 import java.util.List;
 
 @FeignClient(value = "post-service-provider", configuration = FeignConfig.class)
@@ -36,5 +38,12 @@ public interface PostServiceFeign {
 
     @GetMapping("/posts/ids")
     List<Post> getPostsByIds(@RequestBody List<Long> ids);
+
+    //下面是图片相关的
+    @GetMapping("/images/post/{postId}")
+    List<PostImage> getImagesByPostId(@PathVariable("postId") Long postId);
+
+    @DeleteMapping("/images/post/{postId}")
+    String deleteImagesByPostId(@PathVariable("postId") Long postId);
 
 }

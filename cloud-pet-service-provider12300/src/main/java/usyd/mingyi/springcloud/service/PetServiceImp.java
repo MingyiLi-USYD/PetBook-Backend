@@ -12,6 +12,7 @@ import usyd.mingyi.springcloud.mapper.PetImageMapper;
 import usyd.mingyi.springcloud.mapper.PetMapper;
 import usyd.mingyi.springcloud.pojo.Pet;
 import usyd.mingyi.springcloud.pojo.PetImage;
+import usyd.mingyi.springcloud.utils.BaseContext;
 
 
 import java.util.List;
@@ -63,20 +64,18 @@ public class PetServiceImp extends ServiceImpl<PetMapper, Pet> implements PetSer
     }
 
     @Override
-    public void deleteImageForPet(Long petId, Long userId, Long imageId) {
+    public void deleteImageForPet(Long imageId) {
         //因为mybatis 不支持optional 需要手动判断空
         PetImage petImage = petImageMapper.selectById(imageId);
-        if(petImage==null){
+        if(petImage==null) {
             throw new CustomException("No such image found");
         }
-        if(!petImage.getPetId().equals(petId)){
-            throw new CustomException("Image is not belong to this pet");
-        }
-        Pet pet = petMapper.selectById(petId);
+
+        Pet pet = petMapper.selectById(petImage.getPetId());
         if(pet==null){
             throw new CustomException("没有此宠物");
         }
-        if(!pet.getUserId().equals(userId)){
+        if(!pet.getUserId().equals(BaseContext.getCurrentId())){
             throw new CustomException("No right to delete image for the pet");
         }
         petImageMapper.deleteById(imageId);
