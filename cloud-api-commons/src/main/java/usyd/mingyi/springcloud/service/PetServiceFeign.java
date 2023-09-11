@@ -2,7 +2,7 @@ package usyd.mingyi.springcloud.service;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
-import usyd.mingyi.springcloud.config.rest.FeignConfig;
+import usyd.mingyi.springcloud.config.FeignConfig;
 import usyd.mingyi.springcloud.pojo.Pet;
 
 import java.util.List;

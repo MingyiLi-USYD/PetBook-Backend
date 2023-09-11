@@ -1,14 +1,11 @@
-package usyd.mingyi.springcloud.config.rest;
+package usyd.mingyi.springcloud.config;
 
 import feign.FeignException;
 import feign.Response;
-import feign.Util;
-import feign.codec.DecodeException;
 import feign.codec.Decoder;
 import org.springframework.cloud.openfeign.support.SpringDecoder;
 import usyd.mingyi.springcloud.common.CustomException;
 import usyd.mingyi.springcloud.common.R;
-import usyd.mingyi.springcloud.utils.JsonUtil;
 
 import java.io.IOException;
 import java.lang.reflect.Method;

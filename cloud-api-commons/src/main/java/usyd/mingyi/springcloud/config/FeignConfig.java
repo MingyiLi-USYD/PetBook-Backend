@@ -1,4 +1,4 @@
-package usyd.mingyi.springcloud.config.rest;
+package usyd.mingyi.springcloud.config;
 
 import feign.codec.Decoder;
 import feign.optionals.OptionalDecoder;

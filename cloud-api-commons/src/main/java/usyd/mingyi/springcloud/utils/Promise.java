@@ -1,15 +1,10 @@
-package usyd.mingyi.springcloud.task;
-
+package usyd.mingyi.springcloud.utils;
 import com.alibaba.ttl.threadpool.TtlExecutors;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
-import usyd.mingyi.springcloud.utils.BaseContext;
-
 import java.util.Arrays;
-import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executor;
-import java.util.concurrent.Executors;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
@@ -52,10 +47,10 @@ public class Promise<T> {
         this(supplier,customThreadPool);
     }
 
-    public Promise(Supplier<T> supplier,Executor executor) {
+    public Promise(Supplier<T> supplier, Executor executor) {
         this.completableFuture = CompletableFuture.supplyAsync(supplier, executor);
     }
-    public  Promise(CompletableFuture<T> completableFuture) {
+    public Promise(CompletableFuture<T> completableFuture) {
         this.completableFuture = completableFuture;
     }
 

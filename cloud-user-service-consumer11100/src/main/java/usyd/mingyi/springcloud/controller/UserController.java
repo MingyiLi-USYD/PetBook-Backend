@@ -1,7 +1,6 @@
 package usyd.mingyi.springcloud.controller;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.github.yulichang.wrapper.MPJLambdaWrapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,14 +14,15 @@ import usyd.mingyi.springcloud.common.R;
 import usyd.mingyi.springcloud.dto.FriendRequestDto;
 import usyd.mingyi.springcloud.dto.FriendshipDto;
 import usyd.mingyi.springcloud.dto.UserDto;
-import usyd.mingyi.springcloud.pojo.*;
+import usyd.mingyi.springcloud.pojo.Pet;
+import usyd.mingyi.springcloud.pojo.Post;
+import usyd.mingyi.springcloud.pojo.User;
 import usyd.mingyi.springcloud.service.*;
-import usyd.mingyi.springcloud.task.Promise;
 import usyd.mingyi.springcloud.utils.BaseContext;
-import usyd.mingyi.springcloud.utils.FieldUtils;
+import usyd.mingyi.springcloud.utils.Promise;
 
 import java.util.List;
-import java.util.concurrent.*;
+import java.util.concurrent.ExecutionException;
 
 @RestController
 @Slf4j
@@ -45,10 +45,8 @@ public class UserController {
     FriendRequestHandler friendRequestHandler;
 
 
-
-
     @GetMapping("/user/{userId}")
-    public R<User> getUser(@PathVariable("userId") Long userId){
+    public R<User> getUser(@PathVariable("userId") Long userId) {
 
         User userById = userServiceFeign.getUserById(userId);
         return R.success(userById);
@@ -85,15 +83,15 @@ public class UserController {
         Promise<Long> commentReceivedCountPromise = Promise.buildPromise(commentServiceFeign::countCommentsReceived);
 
         Promise.awaitAll(
-                userPromise,friendshipDtosPromise,friendRequestDtosPromise,
-                petPromise,postPromise,lovedPostIdsPromise,loveReceivedCountPromise,
-                mentionReceivedCountPromise,commentReceivedCountPromise
+                userPromise, friendshipDtosPromise, friendRequestDtosPromise,
+                petPromise, postPromise, lovedPostIdsPromise, loveReceivedCountPromise,
+                mentionReceivedCountPromise, commentReceivedCountPromise
         );
 
 
         UserDto userDto = new UserDto();
         User currentUser = userPromise.get();
-        BeanUtils.copyProperties(currentUser,userDto);
+        BeanUtils.copyProperties(currentUser, userDto);
         userDto.setFriendshipDtoList(friendshipDtosPromise.get());
         userDto.setFriendRequestDtoList(friendRequestDtosPromise.get());
         userDto.setPostList(postPromise.get());
@@ -120,7 +118,6 @@ public class UserController {
         return R.success(page);*/
         return null;
     }
-
 
 
 }

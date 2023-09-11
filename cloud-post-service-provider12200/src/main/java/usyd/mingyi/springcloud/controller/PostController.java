@@ -1,6 +1,7 @@
 package usyd.mingyi.springcloud.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
@@ -77,11 +78,11 @@ public class PostController {
 
 
     @GetMapping("/posts")
-    public R<IPage<Post>> selectPage(@RequestParam("current") Long current,
+    public R<Page<Post>> selectPage(@RequestParam("current") Long current,
                                      @RequestParam("pageSize") Integer pageSize,
                                      @RequestParam(value = "order",required = false) Integer order,
                                      @RequestParam(value = "keywords",required = false)String keywords){
-        IPage<Post> allPosts = postService.getAllPosts(current, pageSize, order,keywords);
+        Page<Post> allPosts = postService.getAllPosts(current, pageSize, order,keywords);
            return R.success(allPosts);
     }
 

@@ -2,12 +2,13 @@ package usyd.mingyi.springcloud.service;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
-import usyd.mingyi.springcloud.config.rest.FeignConfig;
+import usyd.mingyi.springcloud.config.FeignConfig;
 import usyd.mingyi.springcloud.pojo.FriendRequest;
 import usyd.mingyi.springcloud.pojo.Friendship;
 
 import java.util.List;
-@FeignClient(value = "friend-service-provider",configuration = FeignConfig.class)
+
+@FeignClient(value = "friend-service-provider", configuration = FeignConfig.class)
 public interface FriendServiceFeign {
     @GetMapping("/friends/status/{id}")
     Integer getFriendshipStatus(@PathVariable("id") Long toId);

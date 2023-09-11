@@ -3,7 +3,8 @@ package usyd.mingyi.springcloud.service;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
-import usyd.mingyi.springcloud.config.rest.FeignConfig;
+
+import usyd.mingyi.springcloud.config.FeignConfig;
 import usyd.mingyi.springcloud.pojo.Comment;
 
 @FeignClient(value = "comment-service-provider",configuration = FeignConfig.class)

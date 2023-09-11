@@ -1,10 +1,11 @@
 server:
-  port: 12100
-
+  port: 11200
+  servlet:
+    context-path: /consumer
 
 spring:
   application:
-    name: user-service-provider
+    name: post-service-consumer
   cloud:
     nacos:
       config:

@@ -6,10 +6,9 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
-import usyd.mingyi.springcloud.config.rest.FeignConfig;
+import usyd.mingyi.springcloud.config.FeignConfig;
 import usyd.mingyi.springcloud.pojo.LovePost;
 import usyd.mingyi.springcloud.pojo.Mention;
-
 import java.util.List;
 
 @FeignClient(value = "interaction-service-provider",configuration = FeignConfig.class)

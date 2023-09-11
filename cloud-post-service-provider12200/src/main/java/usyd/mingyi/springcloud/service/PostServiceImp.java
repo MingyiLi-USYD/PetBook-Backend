@@ -21,8 +21,8 @@ public class PostServiceImp extends ServiceImpl<PostMapper, Post> implements Pos
 
 
     @Override
-    public IPage<Post> getAllPosts(Long currPage, Integer pageSize, Integer order, String keyword) {
-        IPage<Post> page = new Page<>(currPage, pageSize);
+    public Page<Post> getAllPosts(Long currPage, Integer pageSize, Integer order, String keyword) {
+        Page<Post> page = new Page<>(currPage, pageSize);
          return   this.page(page,new LambdaQueryWrapper<Post>()
                  .eq(Post::getVisible,true)
                  .orderByDesc(order == 1, Post::getPostTime)
