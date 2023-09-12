@@ -18,7 +18,6 @@ public class SubcommentController {
     SubcommentService subcommentService;
 
     @PostMapping("/subcomment")
-    @ResponseBody
     public R<Subcomment> addSubcomment(@RequestBody Subcomment subcomment){
         Long id = BaseContext.getCurrentId();
         subcomment.setUserId(id);

@@ -1,17 +1,13 @@
 package usyd.mingyi.springcloud.controller;
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.github.yulichang.wrapper.MPJLambdaWrapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import usyd.mingyi.springcloud.common.CustomException;
 import usyd.mingyi.springcloud.common.R;
-import usyd.mingyi.springcloud.mapper.UserMapper;
 import usyd.mingyi.springcloud.pojo.User;
 import usyd.mingyi.springcloud.service.UserService;
 import usyd.mingyi.springcloud.utils.BaseContext;
@@ -20,7 +16,7 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.Set;
+
 
 @RestController
 @Slf4j
@@ -29,10 +25,11 @@ import java.util.Set;
 public class UserController {
     @Autowired
     UserService userService;
+
     @GetMapping("/user/{userId}")
     public R<User> getUserById(@PathVariable("userId") Long userId) {
         User user = userService.getById(userId);
-        if (user==null){
+        if (user == null) {
             throw new CustomException("No user found");
         }
         return R.success(user);
@@ -41,11 +38,11 @@ public class UserController {
     @GetMapping("/users")
     public R<Page<User>> getAllUser(@RequestParam("current") Long current
             , @RequestParam("size") Long size, @RequestParam("keywords") String keywords) {
-        return R.success(userService.getPageUserList(current,size,keywords));
+        return R.success(userService.getPageUserList(current, size, keywords));
     }
 
     @GetMapping("/users/byIds")
-    public R<List<User>> getUserListByIds(@RequestParam("ids") @NotNull Collection<Long> ids ) {
+    public R<List<User>> getUserListByIds(@RequestParam("ids") @NotNull Collection<Long> ids) {
         if (ids.isEmpty()) {
             return R.success(new ArrayList<>());
         }

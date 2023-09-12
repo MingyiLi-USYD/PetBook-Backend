@@ -1,10 +1,8 @@
 package usyd.mingyi.springcloud.component;
 
 import org.mapstruct.Mapper;
-import usyd.mingyi.springcloud.dto.PetDto;
-import usyd.mingyi.springcloud.dto.PostDto;
-import usyd.mingyi.springcloud.pojo.Pet;
-import usyd.mingyi.springcloud.pojo.Post;
+import usyd.mingyi.springcloud.dto.*;
+import usyd.mingyi.springcloud.pojo.*;
 
 import java.util.List;
 
@@ -15,7 +13,16 @@ public interface PoConvertToDto {
     //因为是继承关系
     PostDto postToPostDto(Post post);
 
+    FriendshipDto friendshipToFriendshipDto(Friendship friendship);
+    FriendRequestDto friendRequestToFriendRequestDto(FriendRequest friendRequest);
+
     List<PostDto> postToPostDto(List<Post> post);
 
     PetDto petToPetDto(Pet pet);
+
+    CommentDto commentToCommentDto(Comment comment);
+
+
+
+
 }

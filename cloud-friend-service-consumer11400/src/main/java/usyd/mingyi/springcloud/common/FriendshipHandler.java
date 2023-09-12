@@ -2,6 +2,7 @@ package usyd.mingyi.springcloud.common;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.stereotype.Component;
 import usyd.mingyi.springcloud.dto.FriendshipDto;
 import usyd.mingyi.springcloud.pojo.Friendship;
@@ -13,7 +14,6 @@ import usyd.mingyi.springcloud.utils.ResultHandler;
 import java.util.List;
 
 @Component
-@ConditionalOnBean(UserServiceFeign.class)
 public class FriendshipHandler {
     @Autowired
     UserServiceFeign userServiceFeign;

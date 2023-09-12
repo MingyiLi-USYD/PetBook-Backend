@@ -1,9 +1,9 @@
 package usyd.mingyi.springcloud.service;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
-
 import usyd.mingyi.springcloud.config.FeignConfig;
 import usyd.mingyi.springcloud.pojo.Comment;
 
@@ -16,10 +16,10 @@ public interface CommentServiceFeign {
     Long countCommentsReceived();
 
     @GetMapping("/comments/{postId}")
-    IPage<Comment> getCommentsByPostId(@RequestParam("currPage") Long currPage, @RequestParam("pageSize") Integer pageSize, @PathVariable("postId") Long postId);
+    Page<Comment> getCommentsByPostId(@RequestParam("currPage") Long currPage, @RequestParam("pageSize") Integer pageSize, @PathVariable("postId") Long postId);
 
     @GetMapping("/comments")
-    IPage<Comment> getAllCommentsToMyPost(@RequestParam("current") Long current, @RequestParam("pageSize") Integer pageSize);
+    Page<Comment> getAllCommentsToMyPost(@RequestParam("current") Long current, @RequestParam("pageSize") Integer pageSize);
 
     @GetMapping("/comment/read/{id}")
     String markCommentAsRead(@PathVariable("id") Long commentId);

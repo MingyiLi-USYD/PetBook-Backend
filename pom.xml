@@ -23,6 +23,8 @@
         <module>cloud-post-service-consumer11200</module>
         <module>cloud-pet-service-consumer11300</module>
         <module>cloud-friend-service-consumer11400</module>
+        <module>cloud-comment-service-consumer11500</module>
+        <module>cloud-interaction-service-consumer11600</module>
     </modules>
 
     <properties>

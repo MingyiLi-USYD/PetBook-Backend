@@ -3,6 +3,8 @@
   <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
     <file url="file://$PROJECT_DIR$/cloud-api-commons/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud-api-commons/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-comment-service-consumer11500/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-comment-service-consumer11500/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud-comment-service-provider12500/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud-comment-service-provider12500/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud-friend-service-consumer11400/src/main/java" charset="UTF-8" />
@@ -11,6 +13,8 @@
     <file url="file://$PROJECT_DIR$/cloud-friend-service-provider12400/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud-gateway9257/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud-gateway9257/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-interaction-service-consumer11600/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-interaction-service-consumer11600/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud-interaction-service-provider12600/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud-interaction-service-provider12600/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud-pet-service-consumer11300/src/main/java" charset="UTF-8" />

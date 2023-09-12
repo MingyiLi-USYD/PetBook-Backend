@@ -2,6 +2,7 @@ package usyd.mingyi.springcloud.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -40,14 +41,14 @@ public class CommentController {
     }
 
     @GetMapping("/comments/{postId}")
-    public R<IPage<Comment>> getCommentsByPostId(@RequestParam("currPage") Long currPage, @RequestParam("pageSize") Integer pageSize, @PathVariable("postId") Long postId) {
-        IPage<Comment> commentsByPostId = commentService.getCommentsByPostId(currPage,pageSize,postId);
+    public R<Page<Comment>> getCommentsByPostId(@RequestParam("currPage") Long currPage, @RequestParam("pageSize") Integer pageSize, @PathVariable("postId") Long postId) {
+        Page<Comment> commentsByPostId = commentService.getCommentsByPostId(currPage,pageSize,postId);
         return R.success(commentsByPostId);
     }
 
 
     @GetMapping("/comments")
-    public R<IPage<Comment>> getAllCommentsToMyPost(@RequestParam("current") Long current,
+    public R<Page<Comment>> getAllCommentsToMyPost(@RequestParam("current") Long current,
                                                       @RequestParam("pageSize") Integer pageSize){
         return R.success(commentService.getCommentsToMe(BaseContext.getCurrentId(),current,pageSize));
     }
