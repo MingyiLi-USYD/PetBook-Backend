@@ -21,8 +21,9 @@ public class Subcomment implements Serializable {
     private Long commentId;
     @JsonFormat(shape = JsonFormat.Shape.STRING)
     private Long userId;
+    private Long targetUserId;
     private Long subcommentTime;
     private String subcommentContent;
     private Long subcommentLove;
-    private String targetNickname;
+    //private String targetNickname;
 }

@@ -3,6 +3,10 @@
   <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
     <file url="file://$PROJECT_DIR$/cloud-api-commons/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud-api-commons/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-chat-service-consumer11700/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-chat-service-consumer11700/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-chat-service-provider12700/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-chat-service-provider12700/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud-comment-service-consumer11500/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud-comment-service-consumer11500/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud-comment-service-provider12500/src/main/java" charset="UTF-8" />
@@ -27,8 +31,8 @@
     <file url="file://$PROJECT_DIR$/cloud-post-service-consumer11200/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud-post-service-provider12200/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud-post-service-provider12200/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/cloud-socket-service-provider9700/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/cloud-socket-service-provider9700/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-socket-service-provider12800/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-socket-service-provider12800/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud-uaa7000/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud-uaa7000/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud-user-service-consumer11100/src/main/java" charset="UTF-8" />

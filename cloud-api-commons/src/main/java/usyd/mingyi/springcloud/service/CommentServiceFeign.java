@@ -6,6 +6,9 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 import usyd.mingyi.springcloud.config.FeignConfig;
 import usyd.mingyi.springcloud.pojo.Comment;
+import usyd.mingyi.springcloud.pojo.Subcomment;
+
+import java.util.List;
 
 @FeignClient(value = "comment-service-provider",configuration = FeignConfig.class)
 public interface CommentServiceFeign {
@@ -23,4 +26,13 @@ public interface CommentServiceFeign {
 
     @GetMapping("/comment/read/{id}")
     String markCommentAsRead(@PathVariable("id") Long commentId);
+
+    @PostMapping("/subcomment")
+    Subcomment addSubcomment(@RequestBody Subcomment subcomment);
+
+    @GetMapping("/subcomments/{commentId}")
+    List<Subcomment> getSubcommentsByCommentId(@PathVariable("commentId") Long commentId);
+
+    @GetMapping("/subcomments/limit/{commentId}")
+    List<Subcomment> getSubcommentsByCommentIdLimit(@PathVariable("commentId") Long commentId);
 }

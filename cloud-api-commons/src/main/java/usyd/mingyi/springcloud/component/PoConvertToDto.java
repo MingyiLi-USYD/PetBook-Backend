@@ -1,5 +1,6 @@
 package usyd.mingyi.springcloud.component;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.mapstruct.Mapper;
 import usyd.mingyi.springcloud.dto.*;
 import usyd.mingyi.springcloud.pojo.*;
@@ -22,7 +23,25 @@ public interface PoConvertToDto {
 
     CommentDto commentToCommentDto(Comment comment);
 
+    SubcommentDto subcommentToSubcommentDto(Subcomment subcomment);
 
+    List<SubcommentDto> subcommentsToSubcommentDtos(List<Subcomment> subcomments);
+
+    Page<CommentDto> convertPage(Page<Comment> commentPage);
+
+    //LovePost 与 LovePostDto转化
+    LovePostDto lovePostToLovePostDto(LovePost lovePost);
+
+    List<LovePostDto> lovePostsToLovePostDtos(List<LovePost> lovePosts);
+
+    Page<LovePostDto> convertLovePostPage(Page<LovePost> lovePostPage);
+
+    //Mention 与 MentionDto转化
+    MentionDto mentionToMentionDto(Mention mention);
+
+    List<MentionDto> mentionsToMentionDtos(List<Mention> mentions);
+
+    Page<MentionDto> convertMentionPage(Page<Mention> mentionPage);
 
 
 }

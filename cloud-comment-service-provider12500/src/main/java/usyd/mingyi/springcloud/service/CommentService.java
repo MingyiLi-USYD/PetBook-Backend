@@ -1,6 +1,5 @@
 package usyd.mingyi.springcloud.service;
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 import usyd.mingyi.springcloud.pojo.Comment;
@@ -11,6 +10,7 @@ public interface CommentService extends IService<Comment> {
     Page<Comment> getCommentsToMe(Long userId,Long current,Integer pageSize);
 
     void markAsRead(Long commentId,Long userId);
+    void saveSubcommentAndMarkAsRead(Subcomment subcomment);
 
     //void saveSubcommentAndMarkAsRead(Subcomment subcomment);
 /*
@@ -20,8 +20,8 @@ public interface CommentService extends IService<Comment> {
 
 
 
-    void saveSubcommentAndMarkAsRead(SubcommentDto subcomment);
-    void saveCommentAndMarkAsRead(Comment comment,Long mentionId);
+
+
     Integer countCommentsReceived(Long userId);
 */
 

@@ -1,9 +1,11 @@
 server:
-  port: 9700
+  port: 11700
+  servlet:
+    context-path: /consumer
 
 spring:
   application:
-    name: socket-service-provider
+    name: chat-service-consumer
   cloud:
     nacos:
       config:

@@ -6,18 +6,18 @@ import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import usyd.mingyi.springcloud.common.CommentHandler;
-import usyd.mingyi.springcloud.common.CommentMapper;
 import usyd.mingyi.springcloud.common.R;
 import usyd.mingyi.springcloud.component.PoConvertToDto;
 import usyd.mingyi.springcloud.dto.CommentDto;
-import usyd.mingyi.springcloud.dto.SubcommentDto;
 import usyd.mingyi.springcloud.pojo.Comment;
+import usyd.mingyi.springcloud.pojo.Subcomment;
 import usyd.mingyi.springcloud.pojo.User;
 import usyd.mingyi.springcloud.service.CommentServiceFeign;
 import usyd.mingyi.springcloud.service.UserServiceFeign;
 import usyd.mingyi.springcloud.utils.FieldUtils;
 
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 
 @RestController
 @Slf4j
@@ -28,8 +28,7 @@ public class CommentController {
     PoConvertToDto poConvertToDto;
     @Autowired
     UserServiceFeign userServiceFeign;
-    @Autowired
-    CommentMapper commentMapper;
+;
 
     @PostMapping("/comment/{postId}")
     public R<CommentDto> addComment(@PathVariable("postId") Long postId, @RequestBody Comment comment) {
@@ -40,7 +39,7 @@ public class CommentController {
     }
 
     @GetMapping("/comments/{postId}")
-    public R<Page<CommentDto>> getCommentsByPostId(@RequestParam("currPage") Long currPage,
+    public R<Page<CommentDto>> getCommentsByPostId(@RequestParam("current") Long currPage,
                                                    @RequestParam("pageSize") Integer pageSize,
                                                    @PathVariable("postId") Long postId) {
         Page<Comment> commentPage = commentServiceFeign.getCommentsByPostId(currPage, pageSize, postId);
@@ -49,25 +48,23 @@ public class CommentController {
 
     @GetMapping("/comments")
     public R<Page<CommentDto>> getAllCommentsToMyPost(@RequestParam("current") Long current,
-                                                      @RequestParam("pageSize") Integer pageSize){
+                                                      @RequestParam("pageSize") Integer pageSize) {
 
         Page<Comment> commentPage = commentServiceFeign.getAllCommentsToMyPost(current, pageSize);
         return getCommentDtoPage(commentPage);
     }
 
     @GetMapping("/comment/read/{id}")
-    public R<String> markCommentAsRead(@PathVariable("id") Long commentId){
+    public R<String> markCommentAsRead(@PathVariable("id") Long commentId) {
         String res = commentServiceFeign.markCommentAsRead(commentId);
         return R.success(res);
     }
 
     @PostMapping("/comment/reply")
-    @ResponseBody
-    public R<String> replyComment(@RequestBody SubcommentDto subcommentDto){
+    public R<String> replyComment(@RequestBody Subcomment subcomment) {
 
         return R.success("Success");
     }
-
 
     @NotNull
     private R<Page<CommentDto>> getCommentDtoPage(Page<Comment> commentPage) {
@@ -75,11 +72,27 @@ public class CommentController {
         List<Long> userIds = FieldUtils.extractField(records, Comment::getUserId);
         List<User> userListByIds = userServiceFeign.getUserListByIds(userIds);
         List<CommentDto> commentDtos = CommentHandler.handleUserInfo(records, userListByIds);
-        Page<CommentDto> commentDtoPage = commentMapper.convertPage(commentPage);
+/*        commentDtos.forEach(commentDto -> {
+            commentDto.setSubcommentDtos(
+                    commentServiceFeign.getSubcommentsByCommentIdLimit(commentDto.getCommentId()));
+        });*/
+/*
+        records.stream().map(comment -> {
+            CommentDto commentDto = poConvertToDto.commentToCommentDto(comment);
+            User user = null;
+            commentDto.setCommentUser(user);
+            CompletableFuture<User> completableFuture=
+                    CompletableFuture.supplyAsync(()->userServiceFeign.getUserById(commentDto.getUserId()));
+            user=completableFuture
+        });
+*/
+
+
+
+        Page<CommentDto> commentDtoPage = poConvertToDto.convertPage(commentPage);
         commentDtoPage.setRecords(commentDtos);
         return R.success(commentDtoPage);
     }
-
 
 
 }

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import usyd.mingyi.springcloud.common.CustomException;
 import usyd.mingyi.springcloud.common.R;
 import usyd.mingyi.springcloud.pojo.Comment;
+import usyd.mingyi.springcloud.pojo.Subcomment;
 import usyd.mingyi.springcloud.service.CommentService;
 import usyd.mingyi.springcloud.utils.BaseContext;
 
@@ -58,6 +59,16 @@ public class CommentController {
     @GetMapping("/comment/read/{id}")
     public R<String> markCommentAsRead(@PathVariable("id") Long commentId){
         commentService.markAsRead(commentId,BaseContext.getCurrentId());
+        return R.success("Success");
+    }
+
+    @PostMapping("/comment/reply")
+    @ResponseBody
+    public R<String> replyComment(@RequestBody Subcomment subcommentDto){
+        Long id = BaseContext.getCurrentId();
+        subcommentDto.setUserId(id);
+        subcommentDto.setSubcommentTime(System.currentTimeMillis());
+        commentService.saveSubcommentAndMarkAsRead(subcommentDto);
         return R.success("Success");
     }
 
