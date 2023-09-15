@@ -58,7 +58,6 @@ public class PushServer implements InitializingBean {
         socketConfig.setTcpNoDelay(true);
         socketConfig.setSoLinger(0);
         config.setSocketConfig(socketConfig);
-
         SocketIOServer server = new SocketIOServer(config);
         server.addListeners(eventListenner);
         server.start();

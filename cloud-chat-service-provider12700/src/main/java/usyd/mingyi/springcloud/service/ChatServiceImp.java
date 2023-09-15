@@ -2,38 +2,55 @@ package usyd.mingyi.springcloud.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
-
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import usyd.mingyi.springcloud.entity.ChatMessage;
+import usyd.mingyi.springcloud.mongodb.entity.CloudMessage;
+import usyd.mingyi.springcloud.mongodb.service.CloudMessageService;
+import usyd.mingyi.springcloud.utils.CommonUtils;
+
+import java.util.List;
+import java.util.Map;
 
 
 @Service
 @Slf4j
 public class ChatServiceImp implements ChatService {
-/*    @Autowired
-    private ObjectMapper objectMapper;
 
     @Autowired
-    private  RabbitTemplate rabbitTemplate;
+    private CloudMessageService cloudMessageService;
 
+
+    // 生成聊天ID
+    @Override
+    public CloudMessage retrieveDataFromMongoDB(String fromId, String toId) {
+        return cloudMessageService.getCloudMessageById(CommonUtils.combineId(fromId,toId));
+    }
+
+    @Override
+    public CloudMessage retrieveDataFromMongoDB(Long fromId, Long toId) {
+        return retrieveDataFromMongoDB(String.valueOf(fromId),String.valueOf(toId));
+    }
+
+    @Override
+    public List<CloudMessage> retrieveAllDataFromMongoDB(String userId) {
+        return cloudMessageService.getChatRecords(userId);
+    }
+
+    @Override
+    public List<CloudMessage> retrievePartlyDataFromMongoDB(String userId,  Map<String,Long> localStorage) {
+        return cloudMessageService.getChatRecordsPartly(userId,localStorage);
+    }
 
     public void sendMsgToQueue(ChatMessage chatMessage){
 
-        try {
-            String correlationId = UUID.randomUUID().toString();
-            String messageString = objectMapper.writeValueAsString(chatMessage);
-            MessageProperties properties = new MessageProperties();
-            properties.setDeliveryMode(MessageDeliveryMode.PERSISTENT);
-            properties.setHeader(Max_Retry,new AtomicInteger(3));
-            Message message = new Message(messageString.getBytes(), properties);
-            properties.setReceivedExchange(MQConfig.MESSAGE_EXCHANGE);
-            properties.setReceivedRoutingKey("#");
-            messages.put(correlationId,message);
-            rabbitTemplate.send(MQConfig.MESSAGE_EXCHANGE, "#", message,new CorrelationData(correlationId));
-        }catch (Exception e){
-            throw new CustomException(e.getMessage());
-        }
+    }
 
-    }*/
+    @Override
+    public void saveMsgInCloud(ChatMessage chatMessage) {
+        cloudMessageService.insertMsg(chatMessage);
+    }
+
 
 }

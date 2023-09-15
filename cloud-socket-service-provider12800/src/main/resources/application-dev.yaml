@@ -47,5 +47,7 @@ socketio:
   pingInterval: 25000
 
 serverId: 101
-queueName: "QUEUE${serverId}"
+chatQueue: "CHAT_QUEUE${serverId}"
+serviceQueue: "SERVICE_QUEUE${serverId}"
+systemQueue: "SYSTEM_QUEUE${serverId}"
 
