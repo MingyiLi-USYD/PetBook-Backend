@@ -42,9 +42,9 @@ public class JwtUtils {
                     .setSigningKey(secretKey)
                     .parseClaimsJws(jwt);
 
-            // 提取 user_name
+            // 提取 username
             Claims body = claimsJws.getBody();
-            return body.get("user_name", String.class);
+            return body.get("username", String.class);
         } catch (Exception e) {
             // 提取失败，返回 null 或抛出异常，根据需要处理
             return null;
