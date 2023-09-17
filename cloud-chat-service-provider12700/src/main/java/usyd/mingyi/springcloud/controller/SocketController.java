@@ -25,7 +25,7 @@ public class SocketController {
     }
     @PostMapping("/sendServiceMessage")
     R<String> sendServiceMessage(@RequestBody ServiceMessage serviceMessage){
-       // socketService.asyncChatMessageToClient(chatMessage);
+        socketService.asyncServiceMessageToClient(serviceMessage);
         return R.success("成功");
     }
     @PostMapping("/sendSystemMessage")
@@ -33,4 +33,6 @@ public class SocketController {
         //socketService.asyncChatMessageToClient(chatMessage);
         return R.success("成功");
     }
+
+
 }

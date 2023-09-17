@@ -7,6 +7,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
+import usyd.mingyi.springcloud.entity.SystemMessage;
+import usyd.mingyi.springcloud.entity.SystemMessageType;
+import usyd.mingyi.springcloud.service.ChatServiceFeign;
 
 
 @Component
@@ -16,14 +19,10 @@ public class EventListener {
     @Qualifier("redisDecorator")
     private CacheManager clientCache;
 
-/*
-    public final RealTimeService realTimeService;
-
     @Autowired
-    public EventListener(RealTimeService realTimeService) {
-        this.realTimeService = realTimeService;
-    }
-*/
+    private ChatServiceFeign chatServiceFeign;
+
+
 
     /**
      * 客户端连接
@@ -89,12 +88,10 @@ public class EventListener {
         clientCache.saveUserClient(userId,client);
     }
 
-/*
     public void afterSaveToCache(String userId){
         //通知好友上线
-        ServiceMessage serviceMessage = new ServiceMessage(userId, System.currentTimeMillis(), null, ServiceMessageType.FRIEND_ONLINE);
-        realTimeService.remindFriends(serviceMessage);
+        SystemMessage systemMessage = new SystemMessage(userId, System.currentTimeMillis(),null,SystemMessageType.FRIEND_ONLINE,null);
+        chatServiceFeign.sendSystemMessage(systemMessage);
     }
-*/
 
 }
