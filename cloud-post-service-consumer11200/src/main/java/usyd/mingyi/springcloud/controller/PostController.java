@@ -9,8 +9,10 @@ import org.springframework.web.bind.annotation.*;
 import usyd.mingyi.springcloud.common.PostHandler;
 import usyd.mingyi.springcloud.common.R;
 import usyd.mingyi.springcloud.component.PoConvertToDto;
+import usyd.mingyi.springcloud.dto.LovePostDto;
 import usyd.mingyi.springcloud.dto.PostDto;
 import usyd.mingyi.springcloud.pojo.Post;
+import usyd.mingyi.springcloud.pojo.PostImage;
 import usyd.mingyi.springcloud.pojo.User;
 import usyd.mingyi.springcloud.service.PostServiceFeign;
 import usyd.mingyi.springcloud.service.UserServiceFeign;
@@ -29,9 +31,14 @@ public class PostController {
     PoConvertToDto poConvertToDto;
     @GetMapping("/post/{postId}")
     public R<PostDto> getPost(@PathVariable Long postId) {
+        //可以使用promise 并发查询 但是这里并发量不大 串行查询就行了
         Post post = postServiceFeign.getPost(postId);
+        List<PostImage> images = postServiceFeign.getImagesByPostId(postId);
+
         User userById = userServiceFeign.getUserById(post.getUserId());
         PostDto postDto = poConvertToDto.postToPostDto(post);
+
+        postDto.setImages(images);
         postDto.setPostUser(userById);
         return R.success(postDto);
     }
@@ -65,15 +72,12 @@ public class PostController {
     }
 
 
-    @GetMapping("/my/posts")
+    @GetMapping("/posts/my")
     public R<List<PostDto>> getMyPosts() {
         List<Post> myPosts = postServiceFeign.getMyPosts();
         List<PostDto> postDtos = poConvertToDto.postToPostDto(myPosts);
-        System.out.println(postDtos);
         postDtos.forEach(postDto -> postDto.setImages(postServiceFeign.getImagesByPostId(postDto.getPostId())));
         return R.success(postDtos);
     }
-
-
 
 }

@@ -29,7 +29,9 @@ public class PetServiceImp extends ServiceImpl<PetMapper, Pet> implements PetSer
     @Override
     public List<Pet> getPetList(Long userId) {
         MPJLambdaWrapper<Pet> wrapper = new MPJLambdaWrapper<>();
-        wrapper.eq(Pet::getUserId,userId);
+        wrapper.eq(Pet::getUserId,userId)
+                .eq(!userId.equals(BaseContext.getCurrentId())
+                        ,Pet::getPetVisible,true);//非本人调用此方法就需要满足宠物没有被隐藏的前提
         return petMapper.selectList(wrapper);
     }
 

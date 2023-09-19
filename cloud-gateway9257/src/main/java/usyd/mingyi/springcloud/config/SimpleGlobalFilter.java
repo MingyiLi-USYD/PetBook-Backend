@@ -1,5 +1,6 @@
 package usyd.mingyi.springcloud.config;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.core.Ordered;
@@ -10,13 +11,15 @@ import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
 @Component
+@Slf4j
 public class SimpleGlobalFilter implements GlobalFilter, Ordered {
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
+
         String requestPath = exchange.getRequest().getPath().toString();
 
         // 如果请求路径是以 /uaa/ 开头的，直接放行
-        if (requestPath.startsWith("/uaa/")) {
+        if (requestPath.startsWith("/oauth/token")||requestPath.startsWith("/socket.io")) {
             return chain.filter(exchange);
         }
 

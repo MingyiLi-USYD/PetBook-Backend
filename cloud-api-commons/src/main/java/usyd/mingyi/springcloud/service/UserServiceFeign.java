@@ -1,7 +1,9 @@
 package usyd.mingyi.springcloud.service;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
+import usyd.mingyi.springcloud.common.R;
 import usyd.mingyi.springcloud.config.FeignConfig;
 import usyd.mingyi.springcloud.pojo.User;
 
@@ -21,6 +23,10 @@ public interface UserServiceFeign {
 
     @GetMapping("/users/byIds")
     List<User> getUserListByIds(@RequestParam("ids") Collection<Long> ids);
+
+    @GetMapping("/users")
+    Page<User> getAllUser(@RequestParam("current") Long current
+            , @RequestParam("size") Long size, @RequestParam("keywords") String keywords) ;
 
     @GetMapping("/currentUser") // 与UserController中的映射一致
     User getCurrentUser();

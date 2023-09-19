@@ -66,7 +66,6 @@ public class PetController {
     public R<String> deletePet(@PathVariable("petId") Long petId) {
         Long userId = BaseContext.getCurrentId();
         petService.deletePet(petId,userId);
-
         return R.success("Delete success");
     }
 
@@ -75,8 +74,13 @@ public class PetController {
 
     @GetMapping("/pets/my")
     public R<List<Pet>> getPetList() {
-        long id = BaseContext.getCurrentId();
-        List<Pet> petList = petService.getPetList(id);
+        Long userId = BaseContext.getCurrentId();
+        List<Pet> petList = petService.getPetList(userId);
+        return R.success(petList);
+    }
+    @GetMapping("/pets/{userId}")
+    public R<List<Pet>> getPetListByUserId(@PathVariable("userId") Long userId) {;
+        List<Pet> petList = petService.getPetList(userId);
         return R.success(petList);
     }
 }

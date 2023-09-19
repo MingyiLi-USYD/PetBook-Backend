@@ -1,7 +1,9 @@
 package usyd.mingyi.springcloud.utils;
 
+import com.alibaba.ttl.TransmittableThreadLocal;
+
 public class BaseContext {
-    private static ThreadLocal<Long> threadLocal = new ThreadLocal<>();
+    private static final ThreadLocal<Long> threadLocal = new TransmittableThreadLocal<>();
 
     public static void setCurrentId(Long id){
         threadLocal.set(id);

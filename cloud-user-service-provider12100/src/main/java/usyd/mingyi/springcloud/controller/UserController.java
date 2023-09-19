@@ -35,15 +35,6 @@ public class UserController {
         return R.success(user);
     }
 
-/*    @GetMapping("/authIgnore/user/{userId}")
-    public R<User> getUserByStringId(@PathVariable("userId") String userId) {
-        User user = userService.getById(Long.valueOf(userId));
-        if (user == null) {
-            throw new CustomException("No user found");
-        }
-        return R.success(user);
-    }*/
-
     @GetMapping("/users")
     public R<Page<User>> getAllUser(@RequestParam("current") Long current
             , @RequestParam("size") Long size, @RequestParam("keywords") String keywords) {

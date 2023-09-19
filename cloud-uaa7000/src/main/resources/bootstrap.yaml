@@ -4,7 +4,7 @@ server:
 
 spring:
   application:
-    name: user-authentication
+    name: user-authentication-service
   cloud:
     nacos:
       config:

@@ -1,8 +1,5 @@
 server:
   port: 11300
-  servlet:
-    context-path: /consumer
-
 spring:
   application:
     name: pet-service-consumer

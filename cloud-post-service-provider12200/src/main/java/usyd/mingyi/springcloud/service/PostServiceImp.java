@@ -7,6 +7,9 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
+import usyd.mingyi.springcloud.common.CustomException;
 import usyd.mingyi.springcloud.mapper.PostMapper;
 import usyd.mingyi.springcloud.pojo.Post;
 
@@ -25,6 +28,7 @@ public class PostServiceImp extends ServiceImpl<PostMapper, Post> implements Pos
         Page<Post> page = new Page<>(currPage, pageSize);
          return   this.page(page,new LambdaQueryWrapper<Post>()
                  .eq(Post::getVisible,true)
+                 .like(keyword!=null,Post::getPostContent,keyword)
                  .orderByDesc(order == 1, Post::getPostTime)
                  .orderByDesc(order == 2, Post::getLove));
 
@@ -45,5 +49,37 @@ public class PostServiceImp extends ServiceImpl<PostMapper, Post> implements Pos
         return this.listByIds(postIds);
     }
 
+
+    @Override
+    @Transactional(propagation = Propagation.REQUIRED )
+    public Post changeLoveNumber(Long postId, Integer delta){
+        int maxRetries = 3;
+        int retries = 0;
+        while (retries < maxRetries) {
+            Post post = this.getById(postId);
+            if (post == null) {
+                throw new CustomException("Not found post");
+            }
+            // Modify the post data
+            post.setLove(post.getLove() + delta);
+
+            boolean b = this.updateById(post);
+
+            if (b) {
+                return post; // Update succeeded
+            }
+
+            // Update failed, retry after a short sleep
+            retries++;
+            try {
+                Thread.sleep(5); // Sleep for 5 milliseconds
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt(); // Restore interrupted status
+            }
+        }
+
+        // Max retries exceeded, throw an exception
+        throw new CustomException("Failed to update post after multiple retries");
+    }
 
 }

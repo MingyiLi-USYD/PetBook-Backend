@@ -1,7 +1,5 @@
 server:
   port: 11700
-  servlet:
-    context-path: /consumer
 
 spring:
   application:

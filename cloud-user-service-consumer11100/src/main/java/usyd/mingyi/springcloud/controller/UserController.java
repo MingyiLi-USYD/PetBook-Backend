@@ -105,7 +105,43 @@ public class UserController {
         return R.success(userDto);
     }
 
-    @GetMapping("/currentUser")
+
+    @GetMapping("/user/profile/{userId}")
+    public R<UserDto> userProfile(@PathVariable("userId") Long userId) throws ExecutionException, InterruptedException {
+
+        Promise<User> userPromise = Promise.buildPromise(()->userServiceFeign.getUserById(userId));
+
+
+        Promise<List<Post>> postPromise = Promise.buildPromise(()->postServiceFeign.getPostsByUserId(userId));
+
+        Promise<List<Pet>> petPromise = Promise.buildPromise(()->petServiceFeign.getPetList());
+
+        Promise<List<Long>> lovedPostIdsPromise = Promise.buildPromise(interactionServiceFeign::getAllLovedPostsId);
+
+        Promise<List<String>> subscribesPromise =
+                Promise.buildPromise(interactionServiceFeign::getAllSubscribesInIds);
+
+        Promise<List<String>> subscribersPromise =
+                Promise.buildPromise(interactionServiceFeign::getAllSubscribersInIds);
+
+        Promise.awaitAll(
+                userPromise, petPromise, postPromise,
+                lovedPostIdsPromise,subscribesPromise,subscribersPromise
+        );
+
+
+        UserDto userDto = new UserDto();
+        User currentUser = userPromise.get();
+        BeanUtils.copyProperties(currentUser, userDto);
+        userDto.setPostList(postPromise.get());
+        userDto.setPetList(petPromise.get());
+        userDto.setLoveIdList(lovedPostIdsPromise.get().stream().map(String::valueOf).toList());
+        userDto.setSubscribeIdList(subscribesPromise.get());
+        userDto.setSubscriberIdList(subscribersPromise.get());
+        return R.success(userDto);
+    }
+
+    @GetMapping("/user/currentUser")
     public R<User> getCurrentUser() {
         User user = userServiceFeign.getCurrentUser();
         return R.success(user);
@@ -114,9 +150,8 @@ public class UserController {
     @GetMapping("/users")
     public R<Page<User>> getAllUser(@RequestParam("current") Long current
             , @RequestParam("size") Long size, @RequestParam("keywords") String keywords) {
-/*        userServiceFeign
-        return R.success(page);*/
-        return null;
+
+        return R.success(userServiceFeign.getAllUser(current,size,keywords));
     }
 
 

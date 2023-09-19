@@ -4,6 +4,8 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import usyd.mingyi.springcloud.common.CustomException;
@@ -81,7 +83,7 @@ public class PostController {
     public R<Page<Post>> selectPage(@RequestParam("current") Long current,
                                      @RequestParam("pageSize") Integer pageSize,
                                      @RequestParam(value = "order",required = false) Integer order,
-                                     @RequestParam(value = "keywords",required = false)String keywords){
+                                     @RequestParam(value = "keywords",required = false) String keywords){
         Page<Post> allPosts = postService.getAllPosts(current, pageSize, order,keywords);
            return R.success(allPosts);
     }
@@ -99,18 +101,16 @@ public class PostController {
         return R.success(posts);
     }
 
-/*
-    @GetMapping("/posts/ids/{userId}")
-    public R<List<Long>> getPostIds(@PathVariable("userId") Long userId) {
-        List<Post> posts = postService.getPostsByUserIdVisible(userId);
-        return R.success(posts.stream().map());
-    }
-*/
 
     @GetMapping("/posts/ids")
     public R<List<Post>> getPostsByIds(@RequestBody List<Long> ids) {
         List<Post> postsByIds = postService.getPostsByIds(ids);
         return R.success(postsByIds);
+    }
+
+    @GetMapping("/post/changeLove")
+    public R<Post> changeLoveOfPostOptimistic(@RequestParam("postId") Long postId,@RequestParam("delta") Integer delta) {
+            return R.success(postService.changeLoveNumber(postId,delta));
     }
 
 

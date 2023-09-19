@@ -1,8 +1,5 @@
 server:
   port: 11200
-  servlet:
-    context-path: /consumer
-
 spring:
   application:
     name: post-service-consumer

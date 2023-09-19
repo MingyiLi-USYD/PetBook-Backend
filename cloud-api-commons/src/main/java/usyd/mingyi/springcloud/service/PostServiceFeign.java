@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
+import usyd.mingyi.springcloud.common.R;
 import usyd.mingyi.springcloud.config.FeignConfig;
 import usyd.mingyi.springcloud.pojo.Post;
 import usyd.mingyi.springcloud.pojo.PostImage;
@@ -38,6 +39,10 @@ public interface PostServiceFeign {
 
     @GetMapping("/posts/ids")
     List<Post> getPostsByIds(@RequestBody List<Long> ids);
+
+
+    @GetMapping("/post/changeLove")
+    Post changeLoveOfPostOptimistic(@RequestParam("postId") Long postId, @RequestParam("delta") Integer delta);
 
     //下面是图片相关的
     @GetMapping("/images/post/{postId}")

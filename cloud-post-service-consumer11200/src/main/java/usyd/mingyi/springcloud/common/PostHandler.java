@@ -1,8 +1,6 @@
 package usyd.mingyi.springcloud.common;
 
-import usyd.mingyi.springcloud.dto.FriendshipDto;
 import usyd.mingyi.springcloud.dto.PostDto;
-import usyd.mingyi.springcloud.pojo.Friendship;
 import usyd.mingyi.springcloud.pojo.Post;
 import usyd.mingyi.springcloud.pojo.User;
 import usyd.mingyi.springcloud.utils.ResultHandler;

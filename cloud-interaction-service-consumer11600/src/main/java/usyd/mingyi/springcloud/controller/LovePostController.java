@@ -32,6 +32,7 @@ public class LovePostController {
     public R<Page<LovePostDto>> LovePostsToMe(@RequestParam("current") Long current,
                                               @RequestParam("pageSize") Integer pageSize) {
         Page<LovePost> lovePostPage = interactionServiceFeign.LovePostsToMe(current, pageSize);
+
         Page<LovePostDto> lovePostDtoPage = poConvertToDto.convertLovePostPage(lovePostPage);
         lovePostDtoPage.getRecords().forEach(lovePostDto -> {
             lovePostDto.setUserInfo(userServiceFeign.getUserById(lovePostDto.getUserId()));
@@ -45,14 +46,16 @@ public class LovePostController {
         return R.success(interactionServiceFeign.markAsRead(lovePostId));
     }
 
-    @GetMapping("/love/{postId}")
+    @GetMapping("/lovePost/{postId}")
     public R<String> love(@PathVariable("postId") Long postId) {
         Post post = postServiceFeign.getPost(postId);
+        postServiceFeign.changeLoveOfPostOptimistic(postId,1);
         return R.success(interactionServiceFeign.love(postId, post.getUserId()));
     }
-    @DeleteMapping("/love/{postId}")
+    @DeleteMapping("/lovePost/{postId}")
     public R<String> cancelLove(@PathVariable("postId") Long postId) {
         Post post = postServiceFeign.getPost(postId);
+        postServiceFeign.changeLoveOfPostOptimistic(postId,-1);
         return R.success(interactionServiceFeign.cancelLove(postId, post.getUserId()));
     }
 }

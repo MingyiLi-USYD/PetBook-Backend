@@ -3,3 +3,4 @@ spring:
     loadbalancer:
       service-discovery:
         timeout: 5000
+

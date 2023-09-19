@@ -57,7 +57,7 @@ public class OAuth2Config extends AuthorizationServerConfigurerAdapter {
                 .secret(bCryptPasswordEncoder.encode("secret"))
                 .authorizedGrantTypes("refresh_token", "authorization_code",
                         "password", "client_credentials")
-                .accessTokenValiditySeconds(3600)
+                .accessTokenValiditySeconds(72000)
                 .scopes("all")
                 .autoApprove(false)
                 .redirectUris("http://www.baidu.com");

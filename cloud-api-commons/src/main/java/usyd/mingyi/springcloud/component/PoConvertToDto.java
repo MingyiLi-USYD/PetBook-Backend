@@ -4,7 +4,6 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.mapstruct.Mapper;
 import usyd.mingyi.springcloud.dto.*;
 import usyd.mingyi.springcloud.pojo.*;
-
 import java.util.List;
 
 @Mapper(componentModel = "spring")
@@ -37,6 +36,7 @@ public interface PoConvertToDto {
     Page<LovePostDto> convertLovePostPage(Page<LovePost> lovePostPage);
 
     //Mention 与 MentionDto转化
+
     MentionDto mentionToMentionDto(Mention mention);
 
     List<MentionDto> mentionsToMentionDtos(List<Mention> mentions);

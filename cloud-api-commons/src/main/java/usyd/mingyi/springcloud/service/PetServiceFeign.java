@@ -2,6 +2,7 @@ package usyd.mingyi.springcloud.service;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
+import usyd.mingyi.springcloud.common.R;
 import usyd.mingyi.springcloud.config.FeignConfig;
 import usyd.mingyi.springcloud.pojo.Pet;
 import usyd.mingyi.springcloud.pojo.PetImage;
@@ -24,6 +25,9 @@ public interface PetServiceFeign {
 
     @GetMapping("/pets/my")
     List<Pet> getPetList();
+
+    @GetMapping("/pets/{userId}")
+    List<Pet> getPetListByUserId(@PathVariable("userId") Long userId);
 
     //下面是宠物图片相关的
     @PostMapping("/image/pet/{petId}")

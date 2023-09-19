@@ -1,8 +1,5 @@
 server:
   port: 11400
-  servlet:
-    context-path: /consumer
-
 spring:
   application:
     name: friend-service-consumer

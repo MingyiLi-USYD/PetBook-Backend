@@ -45,6 +45,7 @@ public class PushServer implements InitializingBean {
     @Override
     public void afterPropertiesSet() throws Exception {
         Configuration config = new Configuration();
+       // config.setContext("/serverSocket/socket.io");
         config.setPort(serverPort);
         config.setHostname(serverHost);
         config.setBossThreads(bossCount);

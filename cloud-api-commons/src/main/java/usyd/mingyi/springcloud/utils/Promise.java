@@ -20,14 +20,19 @@ public class Promise<T> {
         executor.setCorePoolSize(10); // 核心线程数
         executor.setMaxPoolSize(20); // 最大线程数
         executor.setQueueCapacity(50); // 队列容量
-        executor.setTaskDecorator(task->()->{
+        executor.setTaskDecorator(task->{
+                    Long currentId = BaseContext.getCurrentId();
+
+                    return ()->{
+                       BaseContext.setCurrentId(currentId);
                     try {
                         task.run();
                     }finally {
                         BaseContext.clearCurrentId();
-                        //其实也可以在try中把父线程的ThreadLocal副本拷进子线程 然后就可以不用阿里的TransmittableThreadLocal
+                        //其实也可以在try前把父线程的ThreadLocal副本拷进子线程 然后就可以不用阿里的TransmittableThreadLocal
                     }
-                }
+                };
+        }
 
         );
         executor.setThreadNamePrefix("CustomThreadPool-"); // 线程名前缀
