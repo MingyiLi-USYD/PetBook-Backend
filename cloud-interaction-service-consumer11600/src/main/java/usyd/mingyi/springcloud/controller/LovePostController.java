@@ -1,6 +1,7 @@
 package usyd.mingyi.springcloud.controller;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import io.seata.spring.annotation.GlobalTransactional;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -54,6 +55,7 @@ public class LovePostController {
 
     //需要分布式事务
     @GetMapping("/lovePost/{postId}")
+    @GlobalTransactional
     public R<String> love(@PathVariable("postId") Long postId) {
 
         Post post = postServiceFeign.getPostByPostId(postId);
@@ -68,6 +70,7 @@ public class LovePostController {
         return R.success(res);
     }
     @DeleteMapping("/lovePost/{postId}")
+    @GlobalTransactional
     public R<String> cancelLove(@PathVariable("postId") Long postId) {
         Post post = postServiceFeign.getPostByPostId(postId);
         postServiceFeign.changeLoveOfPostOptimistic(postId,-1);
