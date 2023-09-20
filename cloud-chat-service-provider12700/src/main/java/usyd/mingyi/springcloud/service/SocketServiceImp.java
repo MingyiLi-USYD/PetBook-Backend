@@ -64,7 +64,7 @@ public class SocketServiceImp implements SocketService {
             }
             String serverId = (String) hashOperations.get(toId); //同时 serverId也是routingKey
 
-            rabbitTemplate.convertAndSend(CHAT_EXCHANGE, serverId, serviceMessage);
+            rabbitTemplate.convertAndSend(SERVICE_EXCHANGE, serverId, serviceMessage);
         }
 
     }

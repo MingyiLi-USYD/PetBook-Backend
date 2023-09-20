@@ -19,7 +19,7 @@ public class FriendRequestHandler {
         return ResultHandler.mergeObjectLists(friendRequestList,
                 userList,
                 FriendRequestDto::setFriendInfo,
-                FriendRequestDto::getFriendInfo,
+                FriendRequestDto::getMyId,
                 FriendRequestDto::new,
                 User::getUserId);
     }
@@ -29,6 +29,7 @@ public class FriendRequestHandler {
     public  List<FriendRequestDto> convert(List<FriendRequest> friendRequestList) {
         List<Long> requestUserIds = FieldUtils.extractField(friendRequestList, FriendRequest::getMyId);
         List<User>  friendRequestUserList= userServiceFeign.getUserListByIds(requestUserIds);
-        return FriendRequestHandler.handleUserInfo(friendRequestList, friendRequestUserList);
+        List<FriendRequestDto> friendRequestDtos = FriendRequestHandler.handleUserInfo(friendRequestList, friendRequestUserList);
+        return friendRequestDtos;
     }
 }

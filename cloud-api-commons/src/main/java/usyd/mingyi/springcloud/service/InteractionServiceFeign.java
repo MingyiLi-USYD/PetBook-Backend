@@ -2,10 +2,8 @@ package usyd.mingyi.springcloud.service;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+import usyd.mingyi.springcloud.common.R;
 import usyd.mingyi.springcloud.config.FeignConfig;
 import usyd.mingyi.springcloud.pojo.LovePost;
 import usyd.mingyi.springcloud.pojo.Mention;
@@ -35,6 +33,9 @@ public interface InteractionServiceFeign {
     String cancelLove(@PathVariable("postId") Long postId, @RequestParam("postUserId") Long postUserId);
 
     //下面是跟被post mention的操作
+
+    @PostMapping("/mention")
+    String addMention(@RequestBody Mention mention);
     @GetMapping("/mentions")
     Page<Mention> getAllMentionedPosts(@RequestParam("current") Long current,
                                        @RequestParam("pageSize") Integer pageSize);

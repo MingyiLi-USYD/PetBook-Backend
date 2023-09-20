@@ -19,7 +19,7 @@ public class FriendRequestHandler {
         return ResultHandler.mergeObjectLists(friendRequestList,
                 userList,
                 FriendRequestDto::setFriendInfo,
-                FriendRequestDto::getFriendInfo,
+                FriendRequestDto::getMyId,
                 FriendRequestDto::new,
                 User::getUserId);
     }

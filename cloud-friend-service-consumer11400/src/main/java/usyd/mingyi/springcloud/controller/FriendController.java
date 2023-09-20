@@ -30,7 +30,7 @@ public class FriendController {
     ChatServiceFeign chatServiceFeign;
 
 
-    @GetMapping("/friends/status/{id}")
+    @GetMapping("/friend/status/{id}")
     public R<Integer> getFriendshipStatus(@PathVariable("id") Long toId) {
         return R.success(friendServiceFeign.getFriendshipStatus(toId));
     }
@@ -49,7 +49,7 @@ public class FriendController {
         return R.success( friendshipHandler.convert(friendshipList));
     }
 
-    @DeleteMapping("/friends/{id}")
+    @DeleteMapping("/friend/{id}")
     public R<String> deleteFriendFromList(@PathVariable("id") Long toId) {
         friendServiceFeign.deleteFriendship(toId);
         Long currentId = BaseContext.getCurrentId();

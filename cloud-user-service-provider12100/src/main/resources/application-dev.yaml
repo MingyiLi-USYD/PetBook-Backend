@@ -4,4 +4,8 @@ spring:
     password: 123456
     url: jdbc:mysql://192.168.239.151:30002/db02?useUnicode=true&characterEncoding=utf-8
     driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+
+
+
 

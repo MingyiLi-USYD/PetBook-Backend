@@ -7,6 +7,7 @@ import usyd.mingyi.springcloud.common.R;
 import usyd.mingyi.springcloud.pojo.FriendRequest;
 import usyd.mingyi.springcloud.pojo.Friendship;
 import usyd.mingyi.springcloud.service.FriendRequestService;
+import usyd.mingyi.springcloud.service.FriendshipService;
 import usyd.mingyi.springcloud.utils.BaseContext;
 
 import java.util.List;
@@ -17,6 +18,8 @@ public class FriendRequestController {
 
     @Autowired
     FriendRequestService friendRequestService;
+    @Autowired
+    FriendshipService friendshipService;
 
     @GetMapping("/friendRequests")
     public R<List<FriendRequest>> getFriendRequestList(){
@@ -44,9 +47,8 @@ public class FriendRequestController {
     @GetMapping("/friendRequest/{id}")
     public R<Friendship> approveFriendRequest(@PathVariable("id") Long toId) {
         Long currentId = BaseContext.getCurrentId();
-        //friendRequestService.approveRequestAndGetSyncSocket(currentId, toId);
         friendRequestService.approveRequest(currentId, toId);
-        return R.success(null);
+        return R.success(friendshipService.getFriendship(currentId,toId));
     }
 
     @DeleteMapping("/friendRequest/{id}")

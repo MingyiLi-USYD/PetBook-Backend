@@ -12,6 +12,7 @@ import usyd.mingyi.springcloud.common.R;
 import usyd.mingyi.springcloud.component.PoConvertToDto;
 import usyd.mingyi.springcloud.dto.LovePostDto;
 import usyd.mingyi.springcloud.dto.PostDto;
+import usyd.mingyi.springcloud.pojo.Mention;
 import usyd.mingyi.springcloud.pojo.Post;
 import usyd.mingyi.springcloud.pojo.PostImage;
 import usyd.mingyi.springcloud.pojo.User;
@@ -43,7 +44,7 @@ public class PostController {
 
 
     @PostMapping("/post")  //需要分布式事务
-    public R<Post> addPost(@RequestBody @Valid Post post,@RequestParam("mentions")Long[] userIds) {
+    public R<String> addPost(@RequestBody @Valid Post post,@RequestParam("mentions")Long[] userIds) {
 
         for (Long userId : userIds) {
             int friendshipStatus = friendServiceFeign.getFriendshipStatus(userId); //检查之间是否是好友
@@ -54,13 +55,18 @@ public class PostController {
         }
         if(!post.getIsDelay()){// 表示不需要定时上传   所以说立刻发布
             Post saved = postServiceFeign.upLoadPost(post);
+            for (Long userId : userIds) {
+                Mention mention = new Mention();
+                mention.setPostId(saved.getPostId());
+                mention.setUserId(BaseContext.getCurrentId());
+                mention.setTargetUserId(userId);
+                interactionServiceFeign.addMention(mention);
+            }
+        }else {//需要延迟上传 通过MQ死信队列完成
 
         }
 
-
-
-
-        return R.success(null);
+        return R.success("上传成功");
     }
 
 

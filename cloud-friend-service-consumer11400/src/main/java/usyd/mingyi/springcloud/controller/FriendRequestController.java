@@ -37,6 +37,10 @@ public class FriendRequestController {
     @PostMapping("/friendRequest/{id}")
     public R<String> sendFriendRequest(@PathVariable("id") Long toId, @RequestParam("msg") String msg) {
         String res = friendServiceFeign.sendFriendRequest(toId, msg);
+        Long currentId = BaseContext.getCurrentId();
+        ServiceMessage serviceMessage = new ServiceMessage(currentId,System.currentTimeMillis(),
+                toId, ServiceMessageType.ADD_FRIEND);
+        chatServiceFeign.sendServiceMessage(serviceMessage);
         return R.success(res);
     }
 

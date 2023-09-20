@@ -14,6 +14,7 @@ import usyd.mingyi.springcloud.common.R;
 import usyd.mingyi.springcloud.dto.FriendRequestDto;
 import usyd.mingyi.springcloud.dto.FriendshipDto;
 import usyd.mingyi.springcloud.dto.UserDto;
+import usyd.mingyi.springcloud.pojo.FriendRequest;
 import usyd.mingyi.springcloud.pojo.Pet;
 import usyd.mingyi.springcloud.pojo.Post;
 import usyd.mingyi.springcloud.pojo.User;
@@ -55,6 +56,7 @@ public class UserController {
 
     @GetMapping("/user/init")
     public R<UserDto> initUserInfo() throws ExecutionException, InterruptedException {
+
         Long currentId = BaseContext.getCurrentId();
         log.info(currentId.toString());
         Promise<User> userPromise = Promise.buildPromise(userServiceFeign::getCurrentUser);

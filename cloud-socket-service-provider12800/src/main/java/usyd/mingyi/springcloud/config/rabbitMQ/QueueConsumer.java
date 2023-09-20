@@ -2,25 +2,22 @@ package usyd.mingyi.springcloud.config.rabbitMQ;
 
 import com.corundumstudio.socketio.SocketIOClient;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.amqp.core.Message;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import usyd.mingyi.springcloud.component.CacheManager;
-import usyd.mingyi.springcloud.dto.FriendshipDto;
-import usyd.mingyi.springcloud.entity.*;
+import usyd.mingyi.springcloud.entity.ChatMessage;
+import usyd.mingyi.springcloud.entity.ResponseMessage;
+import usyd.mingyi.springcloud.entity.ServiceMessage;
+import usyd.mingyi.springcloud.entity.SystemMessage;
 import usyd.mingyi.springcloud.pojo.Friendship;
 import usyd.mingyi.springcloud.pojo.User;
 import usyd.mingyi.springcloud.service.FriendServiceFeign;
 import usyd.mingyi.springcloud.service.UserServiceFeign;
 import usyd.mingyi.springcloud.utils.BaseContext;
-
-import java.util.List;
 import java.util.Map;
 import java.util.stream.Stream;
-
 import static usyd.mingyi.springcloud.entity.ServiceMessageType.FRIEND_OFFLINE;
 import static usyd.mingyi.springcloud.entity.ServiceMessageType.FRIEND_ONLINE;
 
@@ -38,7 +35,7 @@ public class QueueConsumer {
 
     @RabbitListener(queues = "${chatQueue}")
     public void receiveChatMessage(ChatMessage chatMessage) {
-        if(chatMessage==null||chatMessage.getFromId()==null){
+        if (chatMessage == null || chatMessage.getFromId() == null) {
             //记录日志
             return;
         }
@@ -55,14 +52,17 @@ public class QueueConsumer {
         }
         BaseContext.clearCurrentId();
     }
+
     @RabbitListener(queues = "${serviceQueue}")
     public void receiveServiceMessage(ServiceMessage serviceMessage) {
+        BaseContext.setCurrentId(Long.valueOf(serviceMessage.getFromId()));
         if (serviceMessage.getType() == FRIEND_ONLINE ||
                 serviceMessage.getType() == FRIEND_OFFLINE) {
             syncOnAndOffToClient(serviceMessage);
         } else {
             syncFriendOperationToClient(serviceMessage);
         }
+        BaseContext.clearCurrentId();
     }
 
     @RabbitListener(queues = "${systemQueue}")
@@ -89,6 +89,7 @@ public class QueueConsumer {
 
         });
     }
+
     public void syncFriendOperationToClient(ServiceMessage serviceMessage) {
         User user = userServiceFeign.getUserById(Long.valueOf(serviceMessage.getFromId()));
         if (user == null) {
