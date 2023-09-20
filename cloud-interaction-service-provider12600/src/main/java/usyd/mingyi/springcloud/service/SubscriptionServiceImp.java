@@ -9,6 +9,7 @@ import usyd.mingyi.springcloud.mapper.SubscriptionMapper;
 import usyd.mingyi.springcloud.pojo.Subscription;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class SubscriptionServiceImp extends ServiceImpl<SubscriptionMapper, Subscription> implements SubscriptionService  {
@@ -28,6 +29,6 @@ public class SubscriptionServiceImp extends ServiceImpl<SubscriptionMapper, Subs
                         new LambdaQueryWrapper<Subscription>().eq(field,userId)
                 )
                 .stream().map(Subscription::getSubscribedUserId)
-                .map(String::valueOf).toList();
+                .map(String::valueOf).collect(Collectors.toList());
     }
 }

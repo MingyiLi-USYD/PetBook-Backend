@@ -10,6 +10,7 @@ import usyd.mingyi.springcloud.service.LovePostService;
 import usyd.mingyi.springcloud.utils.BaseContext;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @Slf4j
@@ -32,7 +33,7 @@ public class LovePostController {
         Long currentId = BaseContext.getCurrentId();
         log.info(currentId.toString());
         return R.success(lovePostService.getLovePosts(currentId)
-                .stream().map(LovePost::getPostId).toList());
+                .stream().map(LovePost::getPostId).collect(Collectors.toList()));
     }
 
     @GetMapping("/lovePost/read/{id}")

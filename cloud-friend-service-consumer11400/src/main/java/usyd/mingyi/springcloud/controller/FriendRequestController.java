@@ -8,11 +8,15 @@ import usyd.mingyi.springcloud.common.R;
 import usyd.mingyi.springcloud.component.PoConvertToDto;
 import usyd.mingyi.springcloud.dto.FriendRequestDto;
 import usyd.mingyi.springcloud.dto.FriendshipDto;
+import usyd.mingyi.springcloud.entity.ServiceMessage;
+import usyd.mingyi.springcloud.entity.ServiceMessageType;
 import usyd.mingyi.springcloud.pojo.FriendRequest;
 import usyd.mingyi.springcloud.pojo.Friendship;
 import usyd.mingyi.springcloud.pojo.User;
+import usyd.mingyi.springcloud.service.ChatServiceFeign;
 import usyd.mingyi.springcloud.service.FriendServiceFeign;
 import usyd.mingyi.springcloud.service.UserServiceFeign;
+import usyd.mingyi.springcloud.utils.BaseContext;
 
 import java.util.List;
 
@@ -25,6 +29,8 @@ public class FriendRequestController {
     FriendRequestHandler friendRequestHandler;
     @Autowired
     UserServiceFeign userServiceFeign;
+    @Autowired
+    ChatServiceFeign chatServiceFeign;
     @Autowired
     PoConvertToDto poConvertToDto;
 
@@ -41,11 +47,19 @@ public class FriendRequestController {
         User userById = userServiceFeign.getUserById(friendId);
         FriendshipDto friendshipDto = poConvertToDto.friendshipToFriendshipDto(friendship);
         friendshipDto.setFriendInfo(userById);
+        Long currentId = BaseContext.getCurrentId();
+        ServiceMessage serviceMessage = new ServiceMessage(currentId,System.currentTimeMillis(),
+                toId, ServiceMessageType.AGREE_ADD_FRIEND);
+        chatServiceFeign.sendServiceMessage(serviceMessage);
         return R.success(friendshipDto);
     }
     @DeleteMapping("/friendRequest/{id}")
     public R<String> rejectFriendRequest(@PathVariable("id") Long toId) {
         String res = friendServiceFeign.rejectFriendRequest(toId);
+        Long currentId = BaseContext.getCurrentId();
+        ServiceMessage serviceMessage = new ServiceMessage(currentId,System.currentTimeMillis(),
+                toId, ServiceMessageType.REJECT_ADD_FRIEND);
+        chatServiceFeign.sendServiceMessage(serviceMessage);
         return R.success(res);
     }
 

@@ -6,6 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import usyd.mingyi.springcloud.common.CustomException;
 import usyd.mingyi.springcloud.common.PostHandler;
 import usyd.mingyi.springcloud.common.R;
 import usyd.mingyi.springcloud.component.PoConvertToDto;
@@ -14,10 +15,14 @@ import usyd.mingyi.springcloud.dto.PostDto;
 import usyd.mingyi.springcloud.pojo.Post;
 import usyd.mingyi.springcloud.pojo.PostImage;
 import usyd.mingyi.springcloud.pojo.User;
+import usyd.mingyi.springcloud.service.FriendServiceFeign;
+import usyd.mingyi.springcloud.service.InteractionServiceFeign;
 import usyd.mingyi.springcloud.service.PostServiceFeign;
 import usyd.mingyi.springcloud.service.UserServiceFeign;
+import usyd.mingyi.springcloud.utils.BaseContext;
 import usyd.mingyi.springcloud.utils.FieldUtils;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -28,11 +33,41 @@ public class PostController {
     @Autowired
     UserServiceFeign userServiceFeign;
     @Autowired
+    FriendServiceFeign friendServiceFeign;
+    @Autowired
+    InteractionServiceFeign interactionServiceFeign;
+
+    @Autowired
     PoConvertToDto poConvertToDto;
+
+
+
+    @PostMapping("/post")  //需要分布式事务
+    public R<Post> addPost(@RequestBody @Valid Post post,@RequestParam("mentions")Long[] userIds) {
+
+        for (Long userId : userIds) {
+            int friendshipStatus = friendServiceFeign.getFriendshipStatus(userId); //检查之间是否是好友
+            if(friendshipStatus!=1){
+                //1代表是好友 只要不上1 就不是好友 拒绝此次操作
+                throw new CustomException("提及的人存在非好友");
+            }
+        }
+        if(!post.getIsDelay()){// 表示不需要定时上传   所以说立刻发布
+            Post saved = postServiceFeign.upLoadPost(post);
+
+        }
+
+
+
+
+        return R.success(null);
+    }
+
+
     @GetMapping("/post/{postId}")
     public R<PostDto> getPost(@PathVariable Long postId) {
         //可以使用promise 并发查询 但是这里并发量不大 串行查询就行了
-        Post post = postServiceFeign.getPost(postId);
+        Post post = postServiceFeign.getPostByPostId(postId);
         List<PostImage> images = postServiceFeign.getImagesByPostId(postId);
 
         User userById = userServiceFeign.getUserById(post.getUserId());

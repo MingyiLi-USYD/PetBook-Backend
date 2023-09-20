@@ -10,6 +10,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
@@ -22,12 +25,14 @@ public class Comment implements Serializable {
     @JsonFormat(shape = JsonFormat.Shape.STRING)
     private Long commentId;
     @JsonFormat(shape = JsonFormat.Shape.STRING)
+    @NotNull
     private Long postId;
     @JsonFormat(shape = JsonFormat.Shape.STRING)
     private Long userId;
     @JsonFormat(shape = JsonFormat.Shape.STRING)
     private Long targetUserId; //冗余字段
     private Long commentTime;
+    @NotBlank(message = "评论不能为空")
     private String commentContent;
     private Long commentLove;
     private Boolean isRead;

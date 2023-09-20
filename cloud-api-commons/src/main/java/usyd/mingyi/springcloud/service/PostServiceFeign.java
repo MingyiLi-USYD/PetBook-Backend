@@ -14,10 +14,10 @@ import java.util.List;
 @FeignClient(value = "post-service-provider", configuration = FeignConfig.class)
 public interface PostServiceFeign {
     @PostMapping("/post")
-    String upLoadPost(@RequestBody Post post);
+    Post upLoadPost(@RequestBody Post post);
 
     @GetMapping("/post/{postId}")
-    Post getPost(@PathVariable("postId") Long postId);
+    Post getPostByPostId(@PathVariable("postId") Long postId);
 
     @PutMapping("/post/{postId}")
     String changeVisibility(@PathVariable("postId") Long postId, @RequestParam("visibility") Boolean visibility);

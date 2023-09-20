@@ -1,4 +1,5 @@
 package usyd.mingyi.springcloud.pojo;
+
 import com.baomidou.mybatisplus.annotation.*;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -20,36 +21,56 @@ public class Post implements Serializable {
     @TableId("post_id")
     @JsonFormat(shape = JsonFormat.Shape.STRING)
     private Long postId;
+
     @JsonFormat(shape = JsonFormat.Shape.STRING)
     private Long userId;
+
     private Long love;
+
     @NotBlank(message = "Must have content")
     private String postContent;
+
     @NotBlank(message = "Must define tag")
     private String postTag;
+
     @NotBlank(message = "Must have title")
     private String postTitle;
+
     private Long postTime; //sava timestamp
+
     private Long publishTime;
+    @NotNull(message = "Must define if delay")
+    private Boolean isDelay;
+
     @NotNull(message = "Must define visibility")
     private Boolean visible;
+
     private Long viewCount;
+
     private String coverImage;
+
     @TableLogic
     private Boolean isDeleted;
 
     @TableField(fill = FieldFill.INSERT)
     @JsonIgnore
     private LocalDateTime createTime;
+
+
     @TableField(fill = FieldFill.INSERT_UPDATE)
     @JsonIgnore
     private LocalDateTime updateTime;
+
+
     @TableField(fill = FieldFill.INSERT)
     @JsonIgnore
     private Long createUser;
+
     @TableField(fill = FieldFill.INSERT_UPDATE)
     @JsonIgnore
     private Long updateUser;
+
     @Version
     private Integer version;
+
 }

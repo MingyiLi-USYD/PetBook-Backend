@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c94f14d2-c5cb-4c95-82ee-9d780f0022b5" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-api-commons/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-api-commons/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-api-commons/src/main/java/usyd/mingyi/springcloud/component/PoConvertToDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-api-commons/src/main/java/usyd/mingyi/springcloud/component/PoConvertToDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-api-commons/src/main/java/usyd/mingyi/springcloud/pojo/Comment.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-api-commons/src/main/java/usyd/mingyi/springcloud/pojo/Comment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-api-commons/src/main/java/usyd/mingyi/springcloud/pojo/Mention.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-api-commons/src/main/java/usyd/mingyi/springcloud/pojo/Mention.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-api-commons/src/main/java/usyd/mingyi/springcloud/pojo/Post.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-api-commons/src/main/java/usyd/mingyi/springcloud/pojo/Post.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-api-commons/src/main/java/usyd/mingyi/springcloud/service/CommentServiceFeign.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-api-commons/src/main/java/usyd/mingyi/springcloud/service/CommentServiceFeign.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-api-commons/src/main/java/usyd/mingyi/springcloud/service/PostServiceFeign.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-api-commons/src/main/java/usyd/mingyi/springcloud/service/PostServiceFeign.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-api-commons/src/main/java/usyd/mingyi/springcloud/utils/FieldUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-api-commons/src/main/java/usyd/mingyi/springcloud/utils/FieldUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-chat-service-consumer11700/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-chat-service-consumer11700/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-chat-service-consumer11700/src/main/resources/bootstrap.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-chat-service-consumer11700/src/main/resources/bootstrap.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-chat-service-provider12700/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-chat-service-provider12700/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-chat-service-provider12700/src/main/resources/bootstrap.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-chat-service-provider12700/src/main/resources/bootstrap.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-comment-service-consumer11500/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-comment-service-consumer11500/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-comment-service-consumer11500/src/main/java/usyd/mingyi/springcloud/controller/CommentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-comment-service-consumer11500/src/main/java/usyd/mingyi/springcloud/controller/CommentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-comment-service-consumer11500/src/main/resources/bootstrap.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-comment-service-consumer11500/src/main/resources/bootstrap.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-comment-service-provider12500/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-comment-service-provider12500/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-comment-service-provider12500/src/main/java/usyd/mingyi/springcloud/controller/CommentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-comment-service-provider12500/src/main/java/usyd/mingyi/springcloud/controller/CommentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-comment-service-provider12500/src/main/resources/bootstrap.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-comment-service-provider12500/src/main/resources/bootstrap.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-friend-service-consumer11400/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-friend-service-consumer11400/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-friend-service-consumer11400/src/main/java/usyd/mingyi/springcloud/controller/FriendController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-friend-service-consumer11400/src/main/java/usyd/mingyi/springcloud/controller/FriendController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-friend-service-consumer11400/src/main/java/usyd/mingyi/springcloud/controller/FriendRequestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-friend-service-consumer11400/src/main/java/usyd/mingyi/springcloud/controller/FriendRequestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-friend-service-consumer11400/src/main/resources/bootstrap.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-friend-service-consumer11400/src/main/resources/bootstrap.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-friend-service-provider12400/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-friend-service-provider12400/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-friend-service-provider12400/src/main/resources/bootstrap.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-friend-service-provider12400/src/main/resources/bootstrap.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-gateway9257/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway9257/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-gateway9257/src/main/resources/bootstrap.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway9257/src/main/resources/bootstrap.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-interaction-service-consumer11600/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-interaction-service-consumer11600/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-interaction-service-consumer11600/src/main/java/usyd/mingyi/springcloud/controller/LovePostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-interaction-service-consumer11600/src/main/java/usyd/mingyi/springcloud/controller/LovePostController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-interaction-service-consumer11600/src/main/java/usyd/mingyi/springcloud/controller/MentionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-interaction-service-consumer11600/src/main/java/usyd/mingyi/springcloud/controller/MentionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-interaction-service-consumer11600/src/main/resources/bootstrap.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-interaction-service-consumer11600/src/main/resources/bootstrap.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-interaction-service-provider12600/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-interaction-service-provider12600/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-interaction-service-provider12600/src/main/java/usyd/mingyi/springcloud/controller/LovePostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-interaction-service-provider12600/src/main/java/usyd/mingyi/springcloud/controller/LovePostController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-interaction-service-provider12600/src/main/java/usyd/mingyi/springcloud/controller/MentionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-interaction-service-provider12600/src/main/java/usyd/mingyi/springcloud/controller/MentionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-interaction-service-provider12600/src/main/java/usyd/mingyi/springcloud/service/MentionServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-interaction-service-provider12600/src/main/java/usyd/mingyi/springcloud/service/MentionServiceImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-interaction-service-provider12600/src/main/java/usyd/mingyi/springcloud/service/SubscriptionServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-interaction-service-provider12600/src/main/java/usyd/mingyi/springcloud/service/SubscriptionServiceImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-interaction-service-provider12600/src/main/resources/bootstrap.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-interaction-service-provider12600/src/main/resources/bootstrap.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-pet-service-consumer11300/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-pet-service-consumer11300/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-pet-service-consumer11300/src/main/resources/bootstrap.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-pet-service-consumer11300/src/main/resources/bootstrap.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-pet-service-provider12300/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-pet-service-provider12300/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-pet-service-provider12300/src/main/resources/bootstrap.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-pet-service-provider12300/src/main/resources/bootstrap.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-post-service-consumer11200/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-post-service-consumer11200/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-post-service-consumer11200/src/main/java/usyd/mingyi/springcloud/controller/PostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-post-service-consumer11200/src/main/java/usyd/mingyi/springcloud/controller/PostController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-post-service-consumer11200/src/main/resources/bootstrap.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-post-service-consumer11200/src/main/resources/bootstrap.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-post-service-provider12200/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-post-service-provider12200/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-post-service-provider12200/src/main/java/usyd/mingyi/springcloud/controller/PostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-post-service-provider12200/src/main/java/usyd/mingyi/springcloud/controller/PostController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-post-service-provider12200/src/main/resources/bootstrap.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-post-service-provider12200/src/main/resources/bootstrap.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-socket-service-provider12800/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-socket-service-provider12800/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-socket-service-provider12800/src/main/resources/bootstrap.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-socket-service-provider12800/src/main/resources/bootstrap.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-uaa7000/src/main/resources/bootstrap.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-uaa7000/src/main/resources/bootstrap.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-user-service-consumer11100/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-user-service-consumer11100/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-user-service-consumer11100/src/main/java/usyd/mingyi/springcloud/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-user-service-consumer11100/src/main/java/usyd/mingyi/springcloud/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-user-service-consumer11100/src/main/resources/bootstrap.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-user-service-consumer11100/src/main/resources/bootstrap.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-user-service-provider12100/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-user-service-provider12100/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-user-service-provider12100/src/main/resources/bootstrap.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-user-service-provider12100/src/main/resources/bootstrap.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="$PROJECT_DIR$/../../Environment/apache-maven-3.8.6" />
+        <option name="userSettingsFile" value="D:\Environment\apache-maven-3.8.6\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="MavenRunner">
+    <option name="skipTests" value="true" />
+  </component>
+  <component name="ProjectId" id="2VeLlQ3fvWROFFDmeCUInJD3mFx" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/WorkSpace/PetBook/cloud-api-commons/src/main/java/usyd/mingyi/springcloud",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "MavenSettings",
+    "spring.configuration.checksum": "352f71b18cea58a7947bedfcb9ad60a1",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\WorkSpace\PetBook\cloud-api-commons\src\main\java\usyd\mingyi\springcloud" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.ChatServiceMain11700">
+    <configuration name="ChatServiceMain11700" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="cloud-chat-service-consumer11700" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="usyd.mingyi.springcloud.ChatServiceMain11700" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ChatServiceMain12700" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="cloud-chat-service-provider12700" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="usyd.mingyi.springcloud.ChatServiceMain12700" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CommentServiceMain11500" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="cloud-comment-service-consumer11500" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="usyd.mingyi.springcloud.CommentServiceMain11500" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CommentServiceMain12500" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="cloud-comment-service-provider12500" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="usyd.mingyi.springcloud.CommentServiceMain12500" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FriendServiceMain11400" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="cloud-friend-service-consumer11400" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="usyd.mingyi.springcloud.FriendServiceMain11400" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FriendServiceMain12400" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="cloud-friend-service-provider12400" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="usyd.mingyi.springcloud.FriendServiceMain12400" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GatewayMain9257" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="cloud-gateway9257" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="usyd.mingyi.springcloud.GatewayMain9257" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="InteractionServiceMain11600" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="cloud-interaction-service-consumer11600" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="usyd.mingyi.springcloud.InteractionServiceMain11600" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="InteractionServiceMain12600" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="cloud-interaction-service-provider12600" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="usyd.mingyi.springcloud.InteractionServiceMain12600" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PetServiceMain11300" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="cloud-pet-service-consumer11300" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="usyd.mingyi.springcloud.PetServiceMain11300" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PetServiceMain12300" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="cloud-pet-service-provider12300" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="usyd.mingyi.springcloud.PetServiceMain12300" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PostServiceMain11200" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="cloud-post-service-consumer11200" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="usyd.mingyi.springcloud.PostServiceMain11200" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PostServiceMain12200" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="cloud-post-service-provider12200" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="usyd.mingyi.springcloud.PostServiceMain12200" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SocketServiceMain12800" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="cloud-socket-service-provider12800" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="usyd.mingyi.springcloud.SocketServiceMain12800" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserAuthenticationMain7000" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="cloud-uaa7000" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="usyd.mingyi.springcloud.UserAuthenticationMain7000" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServiceMain11100" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="cloud-user-service-consumer11100" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="usyd.mingyi.springcloud.UserServiceMain11100" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServiceMain12100" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="cloud-user-service-provider12100" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="usyd.mingyi.springcloud.UserServiceMain12100" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c94f14d2-c5cb-4c95-82ee-9d780f0022b5" name="Changes" comment="" />
+      <created>1695191750602</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1695191750602</updated>
+      <workItem from="1695191751769" duration="1119000" />
+      <workItem from="1695192887718" duration="1603000" />
+      <workItem from="1695194500759" duration="708000" />
+      <workItem from="1695195220225" duration="381000" />
+      <workItem from="1695195608560" duration="8364000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

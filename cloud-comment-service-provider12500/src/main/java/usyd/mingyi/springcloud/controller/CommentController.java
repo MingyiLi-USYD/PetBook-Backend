@@ -19,10 +19,8 @@ public class CommentController {
     @Autowired
     CommentService commentService;
 
-    @PostMapping("/comment/{postId}")
-    public R<Comment> addComment(@PathVariable("postId") Long postId, @RequestBody Comment comment) {
-
-        comment.setPostId(postId);
+    @PostMapping("/comment")
+    public R<Comment> addComment(@RequestBody Comment comment) {
         comment.setCommentTime(System.currentTimeMillis());
         comment.setUserId(BaseContext.getCurrentId());
         boolean success = commentService.save(comment);

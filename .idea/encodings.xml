@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
+  <component name="Encoding">
     <file url="file://$PROJECT_DIR$/cloud-api-commons/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud-api-commons/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud-chat-service-consumer11700/src/main/java" charset="UTF-8" />
@@ -23,8 +23,6 @@
     <file url="file://$PROJECT_DIR$/cloud-interaction-service-provider12600/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud-pet-service-consumer11300/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud-pet-service-consumer11300/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/cloud-pet-service-consumer8100/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/cloud-pet-service-consumer8100/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud-pet-service-provider12300/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud-pet-service-provider12300/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud-post-service-consumer11200/src/main/java" charset="UTF-8" />
@@ -39,10 +37,7 @@
     <file url="file://$PROJECT_DIR$/cloud-user-service-consumer11100/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud-user-service-provider12100/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud-user-service-provider12100/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/cloud-user-service-provider9002/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/cloud-user-service-provider9002/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
-    <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

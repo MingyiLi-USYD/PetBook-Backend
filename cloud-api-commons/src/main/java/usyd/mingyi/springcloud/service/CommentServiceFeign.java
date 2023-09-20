@@ -12,8 +12,8 @@ import java.util.List;
 
 @FeignClient(value = "comment-service-provider",configuration = FeignConfig.class)
 public interface CommentServiceFeign {
-    @PostMapping("/comment/{postId}")
-    Comment addComment(@PathVariable("postId") Long postId, @RequestBody Comment comment);
+    @PostMapping("/comment")
+    Comment addComment(@RequestBody Comment comment);
 
     @GetMapping("/comments/received/count")
     Long countCommentsReceived();

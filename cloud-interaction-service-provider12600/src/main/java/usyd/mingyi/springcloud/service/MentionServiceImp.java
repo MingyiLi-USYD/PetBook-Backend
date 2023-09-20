@@ -44,6 +44,9 @@ public class MentionServiceImp extends ServiceImpl<MentionMapper, Mention> imple
     @Override
     public Long countMentionsReceived(Long userId) {
         LambdaQueryWrapper<Mention> query = new LambdaQueryWrapper<>();
-        return this.count(query.eq(Mention::getTargetUserId,userId));
+        return this.count(
+                query.eq(Mention::getTargetUserId,userId)
+                .eq(Mention::getIsRead, false)
+        );
     }
 }

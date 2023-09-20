@@ -6,16 +6,21 @@ import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import usyd.mingyi.springcloud.common.CommentHandler;
+import usyd.mingyi.springcloud.common.CustomException;
 import usyd.mingyi.springcloud.common.R;
 import usyd.mingyi.springcloud.component.PoConvertToDto;
 import usyd.mingyi.springcloud.dto.CommentDto;
+import usyd.mingyi.springcloud.entity.ServiceMessage;
+import usyd.mingyi.springcloud.entity.ServiceMessageType;
 import usyd.mingyi.springcloud.pojo.Comment;
+import usyd.mingyi.springcloud.pojo.Post;
 import usyd.mingyi.springcloud.pojo.Subcomment;
 import usyd.mingyi.springcloud.pojo.User;
-import usyd.mingyi.springcloud.service.CommentServiceFeign;
-import usyd.mingyi.springcloud.service.UserServiceFeign;
+import usyd.mingyi.springcloud.service.*;
+import usyd.mingyi.springcloud.utils.BaseContext;
 import usyd.mingyi.springcloud.utils.FieldUtils;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
@@ -24,17 +29,39 @@ import java.util.concurrent.CompletableFuture;
 public class CommentController {
     @Autowired
     CommentServiceFeign commentServiceFeign;
+
+    @Autowired
+    PostServiceFeign postServiceFeign;
+
+    @Autowired
+    InteractionServiceFeign interactionServiceFeign;
+
+    @Autowired
+    ChatServiceFeign chatServiceFeign;
+
     @Autowired
     PoConvertToDto poConvertToDto;
+
     @Autowired
     UserServiceFeign userServiceFeign;
 ;
 
-    @PostMapping("/comment/{postId}")
-    public R<CommentDto> addComment(@PathVariable("postId") Long postId, @RequestBody Comment comment) {
-        Comment commentRes = commentServiceFeign.addComment(postId, comment);
+    @PostMapping("/comment")
+    public R<CommentDto> addComment(@RequestBody @Valid Comment comment) {
+        Post post = postServiceFeign.getPostByPostId(comment.getPostId());
+        if(post==null){
+            throw new CustomException("Post 不存在");
+        }
+        Comment commentRes = commentServiceFeign.addComment(comment);
         CommentDto commentDto = poConvertToDto.commentToCommentDto(commentRes);
         commentDto.setCommentUser(userServiceFeign.getCurrentUser());
+
+        //socket推送消息
+        Long currentId = BaseContext.getCurrentId();
+        ServiceMessage serviceMessage = new ServiceMessage(currentId,System.currentTimeMillis(),
+                post.getUserId(), ServiceMessageType.NEW_COMMENT);
+        chatServiceFeign.sendServiceMessage(serviceMessage);
+
         return R.success(commentDto);
     }
 
@@ -59,6 +86,7 @@ public class CommentController {
         String res = commentServiceFeign.markCommentAsRead(commentId);
         return R.success(res);
     }
+
 
     @PostMapping("/comment/reply")
     public R<String> replyComment(@RequestBody Subcomment subcomment) {

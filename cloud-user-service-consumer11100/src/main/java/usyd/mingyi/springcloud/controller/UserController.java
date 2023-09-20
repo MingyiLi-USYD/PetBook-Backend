@@ -23,6 +23,7 @@ import usyd.mingyi.springcloud.utils.Promise;
 
 import java.util.List;
 import java.util.concurrent.ExecutionException;
+import java.util.stream.Collectors;
 
 @RestController
 @Slf4j
@@ -96,7 +97,7 @@ public class UserController {
         userDto.setFriendRequestDtoList(friendRequestDtosPromise.get());
         userDto.setPostList(postPromise.get());
         userDto.setPetList(petPromise.get());
-        userDto.setLoveIdList(lovedPostIdsPromise.get().stream().map(String::valueOf).toList());
+        userDto.setLoveIdList(lovedPostIdsPromise.get().stream().map(String::valueOf).collect(Collectors.toList()));
         userDto.setLovesReceived(loveReceivedCountPromise.get());
         userDto.setMentionsReceived(mentionReceivedCountPromise.get());
         userDto.setSubscribeIdList(subscribesPromise.get());
@@ -135,7 +136,7 @@ public class UserController {
         BeanUtils.copyProperties(currentUser, userDto);
         userDto.setPostList(postPromise.get());
         userDto.setPetList(petPromise.get());
-        userDto.setLoveIdList(lovedPostIdsPromise.get().stream().map(String::valueOf).toList());
+        userDto.setLoveIdList(lovedPostIdsPromise.get().stream().map(String::valueOf).collect(Collectors.toList()));
         userDto.setSubscribeIdList(subscribesPromise.get());
         userDto.setSubscriberIdList(subscribersPromise.get());
         return R.success(userDto);

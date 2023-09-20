@@ -14,6 +14,7 @@ import usyd.mingyi.springcloud.pojo.Post;
 import usyd.mingyi.springcloud.service.PostService;
 import usyd.mingyi.springcloud.utils.BaseContext;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -23,24 +24,25 @@ public class PostController {
     PostService postService;
 
     @PostMapping("/post")
-    public R<String> upLoadPost(@RequestBody @Validated Post post) {/*
-        postService.save(post);
+    public R<Post> upLoadPost(@RequestBody @Valid Post post) {
         post.setPostTime(System.currentTimeMillis());
         post.setUserId(BaseContext.getCurrentId());
-        if (post == null) {
+
+        if (!post.getIsDelay()) {
             //立刻上传Post
             post.setPublishTime(System.currentTimeMillis());
+            postService.save(post);
         } else {
             // 获取日期时间戳
-            long targetTime = post.getEstimateDate().getTime();
+            long targetTime =1;
             //放入MQ死信队列 设置TTL
             long currentTimeMillis = System.currentTimeMillis();
             long TTL = targetTime - currentTimeMillis;
             post.setPublishTime(targetTime);
             //放入消息队列
         }
-        log.info("上传文件");*/
-        return R.success("Successfully upload");
+        log.info("上传文件");
+        return R.success(post);
     }
 
     @GetMapping("/post/{postId}")

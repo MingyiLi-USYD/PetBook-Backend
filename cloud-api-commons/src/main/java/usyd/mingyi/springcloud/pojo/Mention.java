@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,6 +19,7 @@ import java.time.LocalDateTime;
 @TableName("mention")
 public class Mention implements Serializable {
     @TableId
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
     private Long mentionId;
     private Long postId;
     private Long userId;

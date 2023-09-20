@@ -3,6 +3,7 @@ package usyd.mingyi.springcloud.utils;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class FieldUtils {
 
@@ -29,7 +30,7 @@ public class FieldUtils {
         //Set<T> ts = new HashSet<>(objects); 可以通过set的特性去重
         List<T> distinctObjects = objects.stream()
                 .distinct()
-                .toList();
+                .collect(Collectors.toList());
        return   extractField(distinctObjects,fieldExtractor);
     }
 
