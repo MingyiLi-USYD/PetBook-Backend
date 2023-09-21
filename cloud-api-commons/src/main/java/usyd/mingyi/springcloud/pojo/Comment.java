@@ -30,6 +30,7 @@ public class Comment implements Serializable {
     @JsonFormat(shape = JsonFormat.Shape.STRING)
     private Long userId;
     @JsonFormat(shape = JsonFormat.Shape.STRING)
+    @NotNull
     private Long targetUserId; //冗余字段
     private Long commentTime;
     @NotBlank(message = "评论不能为空")

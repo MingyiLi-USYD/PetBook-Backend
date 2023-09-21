@@ -15,6 +15,9 @@ public interface CommentServiceFeign {
     @PostMapping("/comment")
     Comment addComment(@RequestBody Comment comment);
 
+    @GetMapping("/comment/{commentId}")
+    Comment getCommentByCommentId(@PathVariable("commentId") Long commentId);
+
     @GetMapping("/comments/received/count")
     Long countCommentsReceived();
 

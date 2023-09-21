@@ -3,6 +3,7 @@ package usyd.mingyi.springcloud.controller;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import usyd.mingyi.springcloud.common.CustomException;
 import usyd.mingyi.springcloud.common.R;
@@ -44,6 +45,7 @@ public class LovePostController {
     }
 
     @GetMapping("/love/{postId}")
+    @Transactional //分支事务
     public R<String> love(@PathVariable("postId") Long postId,@RequestParam("postUserId") Long postUserId) {
         Long userId = BaseContext.getCurrentId();
         lovePostService.lovePost(userId,postId,postUserId);
@@ -52,11 +54,9 @@ public class LovePostController {
 
     @DeleteMapping("/love/{postId}")
     public R<String> cancelLove(@PathVariable("postId") Long postId,@RequestParam("postUserId") Long postUserId) {
-        throw new CustomException("故意出错");
-    /*    Long userId = BaseContext.getCurrentId();
-
+        Long userId = BaseContext.getCurrentId();
         lovePostService.cancelLovePost(userId,postId,postUserId);
 
-        return R.success("success");*/
+        return R.success("success");
     }
 }

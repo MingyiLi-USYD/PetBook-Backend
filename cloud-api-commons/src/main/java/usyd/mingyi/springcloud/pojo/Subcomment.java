@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 @Data
@@ -18,11 +19,14 @@ public class Subcomment implements Serializable {
     @TableId
     private Long subcommentId;
     @JsonFormat(shape = JsonFormat.Shape.STRING)
+
     private Long commentId;
     @JsonFormat(shape = JsonFormat.Shape.STRING)
     private Long userId;
+    @NotNull
     private Long targetUserId;
     private Long subcommentTime;
+    @NotNull
     private String subcommentContent;
     private Long subcommentLove;
     //private String targetNickname;

@@ -29,6 +29,15 @@ public class CommentController {
         }
         return R.success(comment);
     }
+
+    @GetMapping("/comment/{commentId}")
+    public R<Comment> getCommentByCommentId(@PathVariable("commentId")Long commentId) {
+        Comment comment = commentService.getById(commentId);
+        if(comment==null){
+            throw new CustomException("没找到这个comment");
+        }
+        return R.success(comment);
+    }
     @GetMapping("/comments/received/count")
     public R<Long> countCommentsReceived(){
         Long userId = BaseContext.getCurrentId();
