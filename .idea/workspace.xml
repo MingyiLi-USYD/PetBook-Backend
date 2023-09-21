@@ -5,7 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c94f14d2-c5cb-4c95-82ee-9d780f0022b5" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/cloud-uaa7000/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-uaa7000/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jenkinsfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-chat-service-consumer11700/dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-chat-service-provider12700/dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-comment-service-consumer11500/dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-comment-service-provider12500/dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-friend-service-consumer11400/dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-friend-service-provider12400/dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-gateway9257/dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-interaction-service-consumer11600/dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-interaction-service-provider12600/dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-pet-service-consumer11300/dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-pet-service-provider12300/dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-post-service-consumer11200/dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-post-service-provider12200/dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-uaa7000/dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-user-service-consumer11100/dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-user-service-provider12100/dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-socket-service-provider12800/src/main/resources/bootstrap.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-socket-service-provider12800/src/main/resources/bootstrap.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +63,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "cicd",
-    "last_opened_file_path": "D:/WorkSpace/PetBook/cloud-api-commons",
+    "last_opened_file_path": "D:/WorkSpace/PetBook/cloud-chat-service-consumer11700",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -62,9 +81,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\WorkSpace\PetBook\cloud-api-commons" />
-      <recent name="D:\WorkSpace\PetBook\cloud-socket-service-provider12800" />
-      <recent name="D:\WorkSpace\PetBook\cloud-api-commons\src\main\java\usyd\mingyi\springcloud" />
+      <recent name="D:\WorkSpace\PetBook\cloud-chat-service-consumer11700" />
+      <recent name="D:\WorkSpace\PetBook\cloud-chat-service-provider12700" />
+      <recent name="D:\WorkSpace\PetBook\cloud-comment-service-consumer11500" />
+      <recent name="D:\WorkSpace\PetBook\cloud-comment-service-provider12500" />
+      <recent name="D:\WorkSpace\PetBook\cloud-friend-service-consumer11400" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -233,7 +254,7 @@
       <workItem from="1695215926622" duration="956000" />
       <workItem from="1695220359604" duration="10000" />
       <workItem from="1695224088509" duration="1718000" />
-      <workItem from="1695254278879" duration="18385000" />
+      <workItem from="1695254278879" duration="23346000" />
     </task>
     <servers />
   </component>
