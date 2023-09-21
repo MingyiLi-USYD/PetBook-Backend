@@ -2,18 +2,18 @@ spring:
   cloud:
     nacos:
       config:
-        server-addr: 192.168.239.151:31500
+        server-addr: nacos-headless.petbook:8848
         file-extension: yaml
       discovery:
-        server-addr: 192.168.239.151:31500
+        server-addr: nacos-headless.petbook:8848
   datasource:
     username: root
     password: 123456
-    url: jdbc:mysql://192.168.239.151:30002/db02?useUnicode=true&characterEncoding=utf-8
+    url: jdbc:mysql://mysql-write.petbook:3306/db02?useUnicode=true&characterEncoding=utf-8
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   redis:
-    host: localhost
+    host: redis-master.petbook
     port: 6379
     database: 0
     timeout: 1800000
@@ -23,26 +23,26 @@ spring:
         max-wait: -1
         max-idle: 8
         min-idle: 0
-    password: 123456
-    
+    password: mingyi
+
   rabbitmq:
     port: 5672
-    host: localhost
-    username: root
-    password: 123456
+    host: rabbitmq.petbook
+    username: mingyi
+    password: mingyi
     publisher-confirm-type: correlated
 seata:
   config:
     type: nacos
     nacos:
-      server-addr: 192.168.239.151:31500
+      server-addr: nacos-headless.petbook:8848
       group: SEATA_GROUP
       data-id: seataServer.properties
   registry:
     type: nacos
     nacos:
-      application: seata-server
-      server-addr: 192.168.239.151:31500
+      application: seata-server-k8s
+      server-addr: nacos-headless.petbook:8848
       group: SEATA_GROUP
       namespace: ""
       cluster: default

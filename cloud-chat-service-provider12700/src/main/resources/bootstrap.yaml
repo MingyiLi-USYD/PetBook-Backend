@@ -1,16 +1,5 @@
 server:
   port: 12700
-
-
 spring:
   application:
     name: chat-service-provider
-  cloud:
-    nacos:
-      config:
-        server-addr: 192.168.239.151:31500
-        #server-addr: localhost:3000
-        file-extension: yaml
-      discovery:
-        server-addr: 192.168.239.151:31500
-        #server-addr: localhost:3000

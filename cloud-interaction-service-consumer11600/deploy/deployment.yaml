@@ -1,0 +1,57 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: interaction-service-consumer
+  namespace: petbook
+  labels:
+    app: interaction-service-consumer
+    version: v1
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: interaction-service-consumer
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: interaction-service-consumer
+        version: v1
+    spec:
+      containers:
+        - image: $REGISTRY/$DOCKERHUB_NAMESPACE/interaction-service-consumer:latest
+          name: interaction-service-consumer
+          livenessProbe:
+            httpGet:
+              path: /actuator/health
+              port: 8080
+            initialDelaySeconds: 90
+            timeoutSeconds: 5
+            failureThreshold: 5
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /actuator/health
+              port: 8080
+            initialDelaySeconds: 90
+            timeoutSeconds: 5
+            failureThreshold: 5
+            periodSeconds: 10
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          imagePullPolicy: Always
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      schedulerName: default-scheduler
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 25%
+      maxSurge: 25%
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 600

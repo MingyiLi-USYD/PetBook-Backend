@@ -5,14 +5,85 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c94f14d2-c5cb-4c95-82ee-9d780f0022b5" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-chat-service-consumer11700/src/main/resources/application-prod.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-chat-service-provider12700/src/main/resources/application-prod.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-comment-service-consumer11500/src/main/resources/application-prod.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-comment-service-provider12500/src/main/resources/application-prod.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-friend-service-consumer11400/src/main/resources/application-prod.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-friend-service-provider12400/src/main/resources/application-prod.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-gateway9257/src/main/resources/application-prod.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-interaction-service-consumer11600/deploy/deployment.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-interaction-service-consumer11600/deploy/service.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-interaction-service-provider12600/src/main/resources/application-prod.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-pet-service-consumer11300/src/main/resources/application-prod.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-pet-service-provider12300/src/main/resources/application-prod.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-post-service-consumer11200/src/main/resources/application-prod.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-post-service-provider12200/src/main/resources/application-prod.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-socket-service-provider12800/src/main/resources/application-prod.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-uaa7000/src/main/resources/application-prod.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-user-service-consumer11100/src/main/resources/application-prod.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-user-service-provider12100/src/main/resources/application-prod.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-api-commons/dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-api-commons/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-api-commons/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-interaction-service-consumer11600/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-interaction-service-consumer11600/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jenkinsfile" beforeDir="false" afterPath="$PROJECT_DIR$/Jenkinsfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-chat-service-consumer11700/dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-chat-service-consumer11700/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-chat-service-consumer11700/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-chat-service-consumer11700/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-chat-service-consumer11700/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-chat-service-consumer11700/src/main/resources/application-dev.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-chat-service-consumer11700/src/main/resources/bootstrap.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-chat-service-consumer11700/src/main/resources/bootstrap.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-chat-service-provider12700/dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-chat-service-provider12700/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-chat-service-provider12700/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-chat-service-provider12700/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-chat-service-provider12700/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-chat-service-provider12700/src/main/resources/application-dev.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-chat-service-provider12700/src/main/resources/bootstrap.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-chat-service-provider12700/src/main/resources/bootstrap.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-comment-service-consumer11500/dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-comment-service-consumer11500/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-comment-service-consumer11500/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-comment-service-consumer11500/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-comment-service-consumer11500/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-comment-service-consumer11500/src/main/resources/application-dev.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-comment-service-consumer11500/src/main/resources/bootstrap.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-comment-service-consumer11500/src/main/resources/bootstrap.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-comment-service-provider12500/dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-comment-service-provider12500/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-comment-service-provider12500/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-comment-service-provider12500/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-comment-service-provider12500/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-comment-service-provider12500/src/main/resources/application-dev.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-comment-service-provider12500/src/main/resources/bootstrap.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-comment-service-provider12500/src/main/resources/bootstrap.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-friend-service-consumer11400/dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-friend-service-consumer11400/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-friend-service-consumer11400/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-friend-service-consumer11400/src/main/resources/application-dev.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-friend-service-consumer11400/src/main/resources/bootstrap.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-friend-service-consumer11400/src/main/resources/bootstrap.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-friend-service-provider12400/dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-friend-service-provider12400/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-friend-service-provider12400/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-friend-service-provider12400/src/main/resources/application-dev.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-friend-service-provider12400/src/main/resources/bootstrap.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-friend-service-provider12400/src/main/resources/bootstrap.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-gateway9257/dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway9257/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-gateway9257/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway9257/src/main/resources/application-dev.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-gateway9257/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway9257/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-gateway9257/src/main/resources/bootstrap.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway9257/src/main/resources/bootstrap.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-interaction-service-consumer11600/dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-interaction-service-consumer11600/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-interaction-service-provider12600/dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-interaction-service-provider12600/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-interaction-service-provider12600/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-interaction-service-provider12600/src/main/resources/application-dev.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-interaction-service-provider12600/src/main/resources/bootstrap.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-interaction-service-provider12600/src/main/resources/bootstrap.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-pet-service-consumer11300/dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-pet-service-consumer11300/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-pet-service-consumer11300/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-pet-service-consumer11300/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-pet-service-consumer11300/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-pet-service-consumer11300/src/main/resources/application-dev.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-pet-service-consumer11300/src/main/resources/bootstrap.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-pet-service-consumer11300/src/main/resources/bootstrap.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-pet-service-provider12300/dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-pet-service-provider12300/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-pet-service-provider12300/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-pet-service-provider12300/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-pet-service-provider12300/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-pet-service-provider12300/src/main/resources/application-dev.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-pet-service-provider12300/src/main/resources/bootstrap.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-pet-service-provider12300/src/main/resources/bootstrap.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-post-service-consumer11200/dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-post-service-consumer11200/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-post-service-consumer11200/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-post-service-consumer11200/src/main/resources/application-dev.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-post-service-consumer11200/src/main/resources/bootstrap.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-post-service-consumer11200/src/main/resources/bootstrap.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-post-service-provider12200/dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-post-service-provider12200/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-post-service-provider12200/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-post-service-provider12200/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-post-service-provider12200/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-post-service-provider12200/src/main/resources/application-dev.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-post-service-provider12200/src/main/resources/bootstrap.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-post-service-provider12200/src/main/resources/bootstrap.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-socket-service-provider12800/dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-socket-service-provider12800/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-socket-service-provider12800/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-socket-service-provider12800/src/main/resources/application-dev.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-socket-service-provider12800/src/main/resources/bootstrap.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-socket-service-provider12800/src/main/resources/bootstrap.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-uaa7000/dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-uaa7000/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-uaa7000/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-uaa7000/src/main/resources/application-dev.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-uaa7000/src/main/resources/bootstrap.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-uaa7000/src/main/resources/bootstrap.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-user-service-consumer11100/dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-user-service-consumer11100/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-user-service-consumer11100/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-user-service-consumer11100/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-user-service-consumer11100/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-user-service-consumer11100/src/main/resources/application-dev.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-user-service-consumer11100/src/main/resources/bootstrap.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-user-service-consumer11100/src/main/resources/bootstrap.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-user-service-provider12100/dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-user-service-provider12100/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cloud-user-service-provider12100/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-user-service-provider12100/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-user-service-provider12100/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-user-service-provider12100/src/main/resources/application-dev.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-user-service-provider12100/src/main/resources/bootstrap.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-user-service-provider12100/src/main/resources/bootstrap.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +123,7 @@
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "cicd",
     "jdk.selected.JAVA_MODULE": "17",
-    "last_opened_file_path": "D:/WorkSpace/PetBook",
+    "last_opened_file_path": "D:/WorkSpace/PetBook/cloud-interaction-service-consumer11600",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -71,11 +142,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\WorkSpace\PetBook\cloud-chat-service-consumer11700" />
-      <recent name="D:\WorkSpace\PetBook\cloud-chat-service-provider12700" />
-      <recent name="D:\WorkSpace\PetBook\cloud-comment-service-consumer11500" />
-      <recent name="D:\WorkSpace\PetBook\cloud-comment-service-provider12500" />
-      <recent name="D:\WorkSpace\PetBook\cloud-friend-service-consumer11400" />
+      <recent name="D:\WorkSpace\PetBook\cloud-interaction-service-consumer11600" />
+      <recent name="D:\WorkSpace\PetBook\cloud-chat-service-consumer11700\src\main\resources" />
+      <recent name="D:\WorkSpace\PetBook\cloud-socket-service-provider12800\src\main\resources" />
+      <recent name="D:\WorkSpace\PetBook\cloud-chat-service-provider12700\src\main\resources" />
+      <recent name="D:\WorkSpace\PetBook\cloud-comment-service-consumer11500\src\main\resources" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -110,13 +181,6 @@
     <configuration name="CommentServiceMain12500" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="cloud-comment-service-provider12500" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="usyd.mingyi.springcloud.CommentServiceMain12500" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="DemoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="demo" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="usyd.mingyi.springcloud.demo.DemoApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -213,7 +277,6 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Spring Boot.DemoApplication" />
       <item itemvalue="Spring Boot.ChatServiceMain11700" />
       <item itemvalue="Spring Boot.CommentServiceMain12500" />
       <item itemvalue="Spring Boot.ChatServiceMain12700" />
@@ -256,7 +319,8 @@
       <workItem from="1695289206069" duration="3423000" />
       <workItem from="1695297743050" duration="1178000" />
       <workItem from="1695298936586" duration="684000" />
-      <workItem from="1695299851528" duration="2472000" />
+      <workItem from="1695299851528" duration="2573000" />
+      <workItem from="1695302769911" duration="6970000" />
     </task>
     <servers />
   </component>

@@ -33,7 +33,7 @@ pipeline {
                 agent none
                 steps {
                     container('maven') {
-                        sh 'docker build -t gateway:latest -f cloud-gateway9257/dockerfile cloud-gateway9257/'
+                        sh 'docker build -t gateway:latest -f cloud-gateway9257/Dockerfile cloud-gateway9257/'
                     }
                 }
             }
@@ -42,7 +42,7 @@ pipeline {
                 agent none
                 steps {
                     container('maven') {
-                        sh 'docker build -t uaa:latest -f cloud-uaa7000/dockerfile cloud-uaa7000/'
+                        sh 'docker build -t uaa:latest -f cloud-uaa7000/Dockerfile cloud-uaa7000/'
                     }
                 }
             }
@@ -52,7 +52,7 @@ pipeline {
                 agent none
                 steps {
                     container('maven') {
-                        sh 'docker build -t socket-service-provider:latest -f cloud-socket-service-provider12800/dockerfile cloud-socket-service-provider12800/'
+                        sh 'docker build -t socket-service-provider:latest -f cloud-socket-service-provider12800/Dockerfile cloud-socket-service-provider12800/'
                     }
                 }
             }
@@ -61,7 +61,7 @@ pipeline {
                 agent none
                 steps {
                     container('maven') {
-                        sh 'docker build -t user-service-provider:latest -f cloud-user-service-provider12100/dockerfile cloud-user-service-provider12100/'
+                        sh 'docker build -t user-service-provider:latest -f cloud-user-service-provider12100/Dockerfile cloud-user-service-provider12100/'
                     }
                 }
             }
@@ -70,7 +70,7 @@ pipeline {
                 agent none
                 steps {
                     container('maven') {
-                        sh 'docker build -t user-service-consumer:latest -f cloud-user-service-consumer11100/dockerfile cloud-user-service-consumer11100/'
+                        sh 'docker build -t user-service-consumer:latest -f cloud-user-service-consumer11100/Dockerfile cloud-user-service-consumer11100/'
                     }
                 }
             }
@@ -79,7 +79,7 @@ pipeline {
                 agent none
                 steps {
                     container('maven') {
-                        sh 'docker build -t pet-service-provider:latest -f cloud-pet-service-provider12300/dockerfile cloud-pet-service-provider12300/'
+                        sh 'docker build -t pet-service-provider:latest -f cloud-pet-service-provider12300/Dockerfile cloud-pet-service-provider12300/'
                     }
                 }
             }
@@ -88,7 +88,7 @@ pipeline {
                 agent none
                 steps {
                     container('maven') {
-                        sh 'docker build -t post-service-provider:latest -f cloud-post-service-provider12200/dockerfile cloud-post-service-provider12200/'
+                        sh 'docker build -t post-service-provider:latest -f cloud-post-service-provider12200/Dockerfile cloud-post-service-provider12200/'
                     }
                 }
             }
@@ -96,7 +96,7 @@ pipeline {
                 agent none
                 steps {
                     container('maven') {
-                        sh 'docker build -t friend-service-provider:latest -f cloud-friend-service-provider12400/dockerfile cloud-friend-service-provider12400/'
+                        sh 'docker build -t friend-service-provider:latest -f cloud-friend-service-provider12400/Dockerfile cloud-friend-service-provider12400/'
                     }
                 }
             }
@@ -105,7 +105,7 @@ pipeline {
                 agent none
                 steps {
                     container('maven') {
-                        sh 'docker build -t comment-service-provider:latest -f cloud-comment-service-provider12500/dockerfile cloud-comment-service-provider12500/'
+                        sh 'docker build -t comment-service-provider:latest -f cloud-comment-service-provider12500/Dockerfile cloud-comment-service-provider12500/'
                     }
                 }
             }
@@ -114,7 +114,7 @@ pipeline {
                 agent none
                 steps {
                     container('maven') {
-                        sh 'docker build -t interaction-service-provider:latest -f cloud-interaction-service-provider12600/dockerfile cloud-interaction-service-provider12600/'
+                        sh 'docker build -t interaction-service-provider:latest -f cloud-interaction-service-provider12600/Dockerfile cloud-interaction-service-provider12600/'
                     }
                 }
             }
@@ -123,7 +123,7 @@ pipeline {
                 agent none
                 steps {
                     container('maven') {
-                        sh 'docker build -t post-service-consumer:latest -f cloud-post-service-consumer11200/dockerfile cloud-post-service-consumer11200/'
+                        sh 'docker build -t post-service-consumer:latest -f cloud-post-service-consumer11200/Dockerfile cloud-post-service-consumer11200/'
                     }
                 }
             }
@@ -132,7 +132,7 @@ pipeline {
                 agent none
                 steps {
                     container('maven') {
-                        sh 'docker build -t pet-service-consumer:latest -f cloud-pet-service-consumer11300/dockerfile cloud-pet-service-consumer11300/'
+                        sh 'docker build -t pet-service-consumer:latest -f cloud-pet-service-consumer11300/Dockerfile cloud-pet-service-consumer11300/'
                     }
                 }
             }
@@ -140,7 +140,7 @@ pipeline {
                 agent none
                 steps {
                     container('maven') {
-                        sh 'docker build -t friend-service-consumer:latest -f cloud-friend-service-consumer11400/dockerfile cloud-friend-service-consumer11400/'
+                        sh 'docker build -t friend-service-consumer:latest -f cloud-friend-service-consumer11400/Dockerfile cloud-friend-service-consumer11400/'
                     }
                 }
             }
@@ -149,7 +149,7 @@ pipeline {
                 agent none
                 steps {
                     container('maven') {
-                        sh 'docker build -t comment-service-consumer:latest -f cloud-comment-service-consumer11500/dockerfile cloud-comment-service-consumer11500/'
+                        sh 'docker build -t comment-service-consumer:latest -f cloud-comment-service-consumer11500/Dockerfile cloud-comment-service-consumer11500/'
                     }
                 }
             }
@@ -158,7 +158,7 @@ pipeline {
                 agent none
                 steps {
                     container('maven') {
-                        sh 'docker build -t interaction-service-consumer:latest -f cloud-interaction-service-consumer11600/dockerfile cloud-interaction-service-consumer11600/'
+                        sh 'docker build -t interaction-service-consumer:latest -f cloud-interaction-service-consumer11600/Dockerfile cloud-interaction-service-consumer11600/'
                     }
                 }
             }
@@ -167,7 +167,7 @@ pipeline {
                 agent none
                 steps {
                     container('maven') {
-                        sh 'docker build -t chat-service-provider:latest -f cloud-chat-service-provider12700/dockerfile cloud-chat-service-provider12700/'
+                        sh 'docker build -t chat-service-provider:latest -f cloud-chat-service-provider12700/Dockerfile cloud-chat-service-provider12700/'
                     }
                 }
             }
@@ -176,7 +176,7 @@ pipeline {
                 agent none
                 steps {
                     container('maven') {
-                        sh 'docker build -t chat-service-consumer:latest -f cloud-chat-service-consumer11700/dockerfile cloud-chat-service-consumer11700/'
+                        sh 'docker build -t chat-service-consumer:latest -f cloud-chat-service-consumer11700/Dockerfile cloud-chat-service-consumer11700/'
                     }
                 }
             }
@@ -412,27 +412,18 @@ pipeline {
       }
     }
 
-    stage('deploy to dev') {
-      steps {
-        container('maven') {
-          input(id: 'deploy-to-dev', message: 'deploy to dev?')
-          withCredentials([kubeconfigContent(credentialsId : 'KUBECONFIG_CREDENTIAL_ID' ,variable : 'KUBECONFIG_CONFIG' ,)]) {
-            sh 'mkdir -p ~/.kube/'
-            sh 'echo "$KUBECONFIG_CONFIG" > ~/.kube/config'
-            sh 'envsubst < deploy/dev-ol/deploy.yaml | kubectl apply -f -'
-          }
-
-        }
-
-      }
+    stage('default-4') {
+         parallel {
+                stage('interaction-service-consumer部署到prod环境') {
+                    agent none
+                    steps {
+                        kubernetesDeploy(configs: 'cloud-interaction-service-consumer11600/deploy/**', enableConfigSubstitution: true, kubeconfigId: "$KUBECONFIG_CREDENTIAL_ID")
+                    }
+                }
+         }
     }
 
-    stage('deploy to production') {
-      agent none
-      steps {
-        kubernetesDeploy(enableConfigSubstitution: true, deleteResource: false, kubeconfigId: "$KUBECONFIG_CREDENTIAL_ID", configs: 'deploy/**', dockerCredentials: [])
-      }
-    }
+
 
   }
   environment {

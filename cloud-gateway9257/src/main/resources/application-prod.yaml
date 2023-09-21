@@ -5,7 +5,7 @@ spring:
         timeout: 5000
     nacos:
       config:
-        server-addr: 192.168.239.151:31500
+        server-addr: nacos-headless.petbook:8848
         file-extension: yaml
       discovery:
-        server-addr: 192.168.239.151:31500
+        server-addr: nacos-headless.petbook:8848
