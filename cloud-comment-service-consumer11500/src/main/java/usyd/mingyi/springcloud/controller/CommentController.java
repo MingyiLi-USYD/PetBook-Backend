@@ -10,6 +10,7 @@ import usyd.mingyi.springcloud.common.CustomException;
 import usyd.mingyi.springcloud.common.R;
 import usyd.mingyi.springcloud.component.PoConvertToDto;
 import usyd.mingyi.springcloud.dto.CommentDto;
+import usyd.mingyi.springcloud.dto.SubcommentDto;
 import usyd.mingyi.springcloud.entity.ServiceMessage;
 import usyd.mingyi.springcloud.entity.ServiceMessageType;
 import usyd.mingyi.springcloud.pojo.Comment;
@@ -96,29 +97,26 @@ public class CommentController {
 
     @NotNull
     private R<Page<CommentDto>> getCommentDtoPage(Page<Comment> commentPage) {
-        List<Comment> records = commentPage.getRecords();
-        List<Long> userIds = FieldUtils.extractField(records, Comment::getUserId);
-        List<User> userListByIds = userServiceFeign.getUserListByIds(userIds);
-        List<CommentDto> commentDtos = CommentHandler.handleUserInfo(records, userListByIds);
-/*        commentDtos.forEach(commentDto -> {
-            commentDto.setSubcommentDtos(
-                    commentServiceFeign.getSubcommentsByCommentIdLimit(commentDto.getCommentId()));
-        });*/
-/*
-        records.stream().map(comment -> {
-            CommentDto commentDto = poConvertToDto.commentToCommentDto(comment);
-            User user = null;
-            commentDto.setCommentUser(user);
-            CompletableFuture<User> completableFuture=
-                    CompletableFuture.supplyAsync(()->userServiceFeign.getUserById(commentDto.getUserId()));
-            user=completableFuture
-        });
-*/
-
-
+        //发起了很多次查询 后期考虑后期加入缓存机制  或者一次性查出多条数据再合并
 
         Page<CommentDto> commentDtoPage = poConvertToDto.convertPage(commentPage);
-        commentDtoPage.setRecords(commentDtos);
+        commentDtoPage.getRecords().forEach(commentDto -> {
+            commentDto.setCommentUser(userServiceFeign.getUserById(commentDto.getUserId()));
+            List<Subcomment> subcomments =
+                    commentServiceFeign.getSubcommentsByCommentIdLimit(commentDto.getCommentId());
+            List<SubcommentDto> subcommentDtos = poConvertToDto.subcommentsToSubcommentDtos(subcomments);
+            subcommentDtos.forEach(subcommentDto ->{
+                subcommentDto.setSubcommentUser(userServiceFeign.getUserById(subcommentDto.getUserId()));
+                        if (subcommentDto.getIsReply()) {
+                            subcommentDto.setRelpyUser(userServiceFeign.getUserById(subcommentDto.getReplyUserId()));
+                        }
+            }
+
+            );
+            commentDto.setSubcommentDtos(subcommentDtos);
+            commentDto.setSubcommentsLength(commentServiceFeign.countSubcommentSize(commentDto.getCommentId()));
+        });
+
         return R.success(commentDtoPage);
     }
 

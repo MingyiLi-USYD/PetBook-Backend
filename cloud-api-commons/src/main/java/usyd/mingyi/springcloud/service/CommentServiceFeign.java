@@ -38,4 +38,8 @@ public interface CommentServiceFeign {
 
     @GetMapping("/subcomments/limit/{commentId}")
     List<Subcomment> getSubcommentsByCommentIdLimit(@PathVariable("commentId") Long commentId);
+
+
+    @GetMapping("/subcomment/count/{commentId}")
+    Long countSubcommentSize(@PathVariable("commentId") Long commentId);
 }

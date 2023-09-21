@@ -9,7 +9,7 @@ spring:
           enabled: true
       routes:
         - id: socket-io-route
-          uri: ws://localhost:8888/socket.io/
+          uri: lb:ws://socket-service-provider/socket.io/
           predicates:
             - Path=/socket.io/**
 

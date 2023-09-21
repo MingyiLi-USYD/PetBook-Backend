@@ -15,6 +15,6 @@ import java.util.List;
 public class CommentDto extends Comment {
     private User commentUser;
     private List<SubcommentDto> subcommentDtos;
-    private Integer subcommentsLength;
+    private Long subcommentsLength;
     private Post relevantPost;
 }

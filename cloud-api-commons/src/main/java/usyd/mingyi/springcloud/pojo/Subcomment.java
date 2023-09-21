@@ -29,5 +29,7 @@ public class Subcomment implements Serializable {
     @NotNull
     private String subcommentContent;
     private Long subcommentLove;
-    //private String targetNickname;
+    private Boolean isReply;
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
+    private Long replyUserId;
 }

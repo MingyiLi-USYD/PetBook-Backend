@@ -12,4 +12,5 @@ import usyd.mingyi.springcloud.pojo.User;
 @AllArgsConstructor
 public class SubcommentDto extends Subcomment {
     private User subcommentUser;
+    private User relpyUser;
 }
