@@ -27,7 +27,7 @@ metadata:
     app: interaction-service-provider
     version: v1
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: interaction-service-provider

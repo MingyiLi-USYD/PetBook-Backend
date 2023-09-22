@@ -3,6 +3,7 @@ pipeline {
         node {
             label 'jdk11'
         }
+
     }
     stages {
         stage('打印') {
@@ -11,6 +12,7 @@ pipeline {
                 echo "SERVICE 参数的值是: ${params.SERVICE}"
             }
         }
+
         stage('拉取代码') {
             agent none
             steps {
@@ -21,6 +23,7 @@ pipeline {
 
             }
         }
+
         stage('打包项目') {
             agent none
             steps {
@@ -31,7 +34,14 @@ pipeline {
 
             }
         }
+
         stage('构建镜像') {
+            when {
+                expression {
+                    !params.SKIP_PUSH
+                }
+
+            }
             parallel {
                 stage('构建gateway') {
                     agent none
@@ -39,13 +49,16 @@ pipeline {
                         expression {
                             return params.SERVICE == 'all' || params.SERVICE == 'cloud-gateway9257'
                         }
+
                     }
                     steps {
                         container('maven') {
                             sh 'docker build -t gateway:latest -f cloud-gateway9257/Dockerfile cloud-gateway9257/'
                         }
+
                     }
                 }
+
                 stage('构建uaa') {
                     agent none
                     when {
@@ -58,8 +71,10 @@ pipeline {
                         container('maven') {
                             sh 'docker build -t uaa:latest -f cloud-uaa7000/Dockerfile cloud-uaa7000/'
                         }
+
                     }
                 }
+
                 stage('构建socket-service-provider') {
                     agent none
                     when {
@@ -72,19 +87,23 @@ pipeline {
                         container('maven') {
                             sh 'docker build -t socket-service-provider:latest -f cloud-socket-service-provider12800/Dockerfile cloud-socket-service-provider12800/'
                         }
+
                     }
                 }
+
                 stage('构建user-service-provider') {
                     agent none
                     when {
                         expression {
                             return params.SERVICE == 'all' || params.SERVICE == 'cloud-user-service-provider12100'
                         }
+
                     }
                     steps {
                         container('maven') {
                             sh 'docker build -t user-service-provider:latest -f cloud-user-service-provider12100/Dockerfile cloud-user-service-provider12100/'
                         }
+
                     }
                 }
 
@@ -94,11 +113,13 @@ pipeline {
                         expression {
                             return params.SERVICE == 'all' || params.SERVICE == 'cloud-user-service-consumer11100'
                         }
+
                     }
                     steps {
                         container('maven') {
                             sh 'docker build -t user-service-consumer:latest -f cloud-user-service-consumer11100/Dockerfile cloud-user-service-consumer11100/'
                         }
+
                     }
                 }
 
@@ -108,11 +129,13 @@ pipeline {
                         expression {
                             return params.SERVICE == 'all' || params.SERVICE == 'cloud-pet-service-provider12300'
                         }
+
                     }
                     steps {
                         container('maven') {
                             sh 'docker build -t pet-service-provider:latest -f cloud-pet-service-provider12300/Dockerfile cloud-pet-service-provider12300/'
                         }
+
                     }
                 }
 
@@ -122,11 +145,13 @@ pipeline {
                         expression {
                             return params.SERVICE == 'all' || params.SERVICE == 'cloud-post-service-provider12200'
                         }
+
                     }
                     steps {
                         container('maven') {
                             sh 'docker build -t post-service-provider:latest -f cloud-post-service-provider12200/Dockerfile cloud-post-service-provider12200/'
                         }
+
                     }
                 }
 
@@ -136,11 +161,13 @@ pipeline {
                         expression {
                             return params.SERVICE == 'all' || params.SERVICE == 'cloud-friend-service-provider12400'
                         }
+
                     }
                     steps {
                         container('maven') {
                             sh 'docker build -t friend-service-provider:latest -f cloud-friend-service-provider12400/Dockerfile cloud-friend-service-provider12400/'
                         }
+
                     }
                 }
 
@@ -150,11 +177,13 @@ pipeline {
                         expression {
                             return params.SERVICE == 'all' || params.SERVICE == 'cloud-comment-service-provider12500'
                         }
+
                     }
                     steps {
                         container('maven') {
                             sh 'docker build -t comment-service-provider:latest -f cloud-comment-service-provider12500/Dockerfile cloud-comment-service-provider12500/'
                         }
+
                     }
                 }
 
@@ -164,11 +193,13 @@ pipeline {
                         expression {
                             return params.SERVICE == 'all' || params.SERVICE == 'cloud-interaction-service-provider12600'
                         }
+
                     }
                     steps {
                         container('maven') {
                             sh 'docker build -t interaction-service-provider:latest -f cloud-interaction-service-provider12600/Dockerfile cloud-interaction-service-provider12600/'
                         }
+
                     }
                 }
 
@@ -178,11 +209,13 @@ pipeline {
                         expression {
                             return params.SERVICE == 'all' || params.SERVICE == 'cloud-post-service-consumer11200'
                         }
+
                     }
                     steps {
                         container('maven') {
                             sh 'docker build -t post-service-consumer:latest -f cloud-post-service-consumer11200/Dockerfile cloud-post-service-consumer11200/'
                         }
+
                     }
                 }
 
@@ -192,11 +225,13 @@ pipeline {
                         expression {
                             return params.SERVICE == 'all' || params.SERVICE == 'cloud-pet-service-consumer11300'
                         }
+
                     }
                     steps {
                         container('maven') {
                             sh 'docker build -t pet-service-consumer:latest -f cloud-pet-service-consumer11300/Dockerfile cloud-pet-service-consumer11300/'
                         }
+
                     }
                 }
 
@@ -206,11 +241,13 @@ pipeline {
                         expression {
                             return params.SERVICE == 'all' || params.SERVICE == 'cloud-friend-service-consumer11400'
                         }
+
                     }
                     steps {
                         container('maven') {
                             sh 'docker build -t friend-service-consumer:latest -f cloud-friend-service-consumer11400/Dockerfile cloud-friend-service-consumer11400/'
                         }
+
                     }
                 }
 
@@ -282,6 +319,12 @@ pipeline {
         }
 
         stage('default-3') {
+            when {
+                expression {
+                     !params.SKIP_PUSH
+                }
+
+            }
             parallel {
                 stage('推送socket-service-provider镜像') {
                     agent none
@@ -293,7 +336,7 @@ pipeline {
                     }
                     steps {
                         container('maven') {
-                            withCredentials([usernamePassword(credentialsId: 'docker-io-registry', usernameVariable: 'DOCKER_USER_VAR', passwordVariable: 'DOCKER_PWD_VAR',)]) {
+                            withCredentials([usernamePassword(credentialsId : 'docker-io-registry' ,usernameVariable : 'DOCKER_USER_VAR' ,passwordVariable : 'DOCKER_PWD_VAR' ,)]) {
                                 sh 'echo "$DOCKER_PWD_VAR" | docker login $REGISTRY -u "$DOCKER_USER_VAR" --password-stdin'
                                 sh 'docker tag socket-service-provider:latest $REGISTRY/$DOCKERHUB_NAMESPACE/socket-service-provider:latest'
                                 sh 'docker push  $REGISTRY/$DOCKERHUB_NAMESPACE/socket-service-provider:latest'
@@ -643,19 +686,13 @@ pipeline {
             }
         }
 
-
-        stage('打包并部署子工程') {
+        stage('deploy to dev') {
             agent none
-            when {
-                expression {
-                    return params.SERVICE == 'all' || !params.SERVICE.startsWith('all-')
-                }
-            }
             steps {
                 script {
                     if (params.SERVICE == 'all') {
                         // 部署所有服务
-                        def allServices = [
+                        def services = [
                                 'cloud-gateway9257',
                                 'cloud-uaa7000',
                                 'cloud-socket-service-provider12800',
@@ -674,16 +711,16 @@ pipeline {
                                 'cloud-chat-service-provider12700',
                                 'cloud-chat-service-consumer11700'
                         ]
-                        allServices.each { service ->
-                            deployService(service)
-                        }
+                        deployServices(services)
                     } else {
-                        // 部署选择的单个服务
-                        deployService(params.SERVICE)
+                        // 部署单个服务
+                        deployServices([params.SERVICE])
                     }
                 }
+
             }
         }
+
     }
     environment {
         DOCKER_CREDENTIAL_ID = 'dockerhub-id'
@@ -695,24 +732,19 @@ pipeline {
         APP_NAME = 'devops-java-sample'
     }
     parameters {
-        choice(name: 'SERVICE', choices: ['all', 'cloud-gateway9257', 'cloud-uaa7000',
-                                          'cloud-socket-service-provider12800', 'cloud-user-service-provider12100',
-                                          'cloud-user-service-consumer11100', 'cloud-pet-service-provider12300',
-                                          'cloud-post-service-provider12200', 'cloud-friend-service-provider12400',
-                                          'cloud-comment-service-provider12500', 'cloud-interaction-service-provider12600',
-                                          'cloud-post-service-consumer11200', 'cloud-pet-service-consumer11300',
-                                          'cloud-friend-service-consumer11400', 'cloud-comment-service-consumer11500',
-                                          'cloud-interaction-service-consumer11600', 'cloud-chat-service-provider12700',
-                                          'cloud-chat-service-consumer11700'], description: '请选择要部署的服务')
+        choice(name: 'SERVICE', choices: ['all','cloud-gateway9257', 'cloud-uaa7000', 'cloud-socket-service-provider12800', 'cloud-user-service-provider12100', 'cloud-user-service-consumer11100', 'cloud-pet-service-provider12300', 'cloud-post-service-provider12200', 'cloud-friend-service-provider12400', 'cloud-comment-service-provider12500', 'cloud-interaction-service-provider12600', 'cloud-post-service-consumer11200', 'cloud-pet-service-consumer11300', 'cloud-friend-service-consumer11400', 'cloud-comment-service-consumer11500', 'cloud-interaction-service-consumer11600', 'cloud-chat-service-provider12700', 'cloud-chat-service-consumer11700'], description: '请选择要部署的服务')
+        booleanParam(name: 'SKIP_PUSH', defaultValue: false, description: '是否跳过推送')
     }
-
-
 }
 
-def deployService(service) {
+def deployServices(serviceList) {
     container('maven') {
-        withCredentials([kubeconfigFile(credentialsId: env.KUBECONFIG_CREDENTIAL_ID, variable: 'KUBECONFIG')]) {
-            sh "envsubst < ${service}/deploy/deployment.yaml | kubectl apply -f -"
+        withCredentials([
+                kubeconfigFile(credentialsId: env.KUBECONFIG_CREDENTIAL_ID, variable: 'KUBECONFIG')
+        ]) {
+            serviceList.each { service ->
+                sh "envsubst < ${service}/deploy/deployment.yaml | kubectl apply -f -"
+            }
         }
     }
 }
