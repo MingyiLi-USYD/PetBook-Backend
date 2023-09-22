@@ -5,9 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c94f14d2-c5cb-4c95-82ee-9d780f0022b5" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/cloud-chat-service-consumer11700/deploy/deployment.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-chat-service-provider12700/deploy/deployment.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-comment-service-consumer11500/deploy/deployment.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-comment-service-provider12500/deploy/deployment.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-friend-service-consumer11400/deploy/deployment.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-friend-service-provider12400/deploy/deployment.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-gateway9257/deploy/deployment.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-interaction-service-provider12600/deploy/deployment.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-pet-service-consumer11300/deploy/deployment.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-pet-service-provider12300/deploy/deployment.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-post-service-consumer11200/deploy/deployment.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-post-service-provider12200/deploy/deployment.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-socket-service-provider12800/deploy/deployment.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-uaa7000/deploy/deployment.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-user-service-consumer11100/deploy/deployment.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-user-service-provider12100/deploy/deployment.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Jenkinsfile" beforeDir="false" afterPath="$PROJECT_DIR$/Jenkinsfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-interaction-service-consumer11600/deploy/deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-interaction-service-consumer11600/deploy/deployment.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-socket-service-provider12800/src/main/resources/application-prod.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-socket-service-provider12800/src/main/resources/application-prod.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,41 +53,41 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;cicd&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/WorkSpace/PetBook/cloud-interaction-service-consumer11600&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;9ead7500269e9903b525c8d6a25bf3b2&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "cicd",
+    "jdk.selected.JAVA_MODULE": "17",
+    "last_opened_file_path": "D:/WorkSpace/PetBook/cloud-chat-service-consumer11700",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.fileTypes",
+    "spring.configuration.checksum": "9ead7500269e9903b525c8d6a25bf3b2",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\WorkSpace\PetBook\cloud-interaction-service-consumer11600" />
-      <recent name="D:\WorkSpace\PetBook\cloud-chat-service-consumer11700\src\main\resources" />
-      <recent name="D:\WorkSpace\PetBook\cloud-socket-service-provider12800\src\main\resources" />
-      <recent name="D:\WorkSpace\PetBook\cloud-chat-service-provider12700\src\main\resources" />
-      <recent name="D:\WorkSpace\PetBook\cloud-comment-service-consumer11500\src\main\resources" />
+      <recent name="D:\WorkSpace\PetBook\cloud-chat-service-consumer11700" />
+      <recent name="D:\WorkSpace\PetBook\cloud-chat-service-provider12700" />
+      <recent name="D:\WorkSpace\PetBook\cloud-comment-service-consumer11500" />
+      <recent name="D:\WorkSpace\PetBook\cloud-comment-service-provider12500" />
+      <recent name="D:\WorkSpace\PetBook\cloud-friend-service-consumer11400" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -249,7 +266,8 @@
       <workItem from="1695310256571" duration="2466000" />
       <workItem from="1695314769539" duration="5157000" />
       <workItem from="1695353666669" duration="620000" />
-      <workItem from="1695356582353" duration="1640000" />
+      <workItem from="1695356582353" duration="2463000" />
+      <workItem from="1695359182690" duration="4885000" />
     </task>
     <servers />
   </component>

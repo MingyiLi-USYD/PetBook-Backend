@@ -50,7 +50,7 @@ socketio:
   # Ping消息间隔（毫秒），默认25秒。客户端向服务器发送一条心跳消息间隔
   pingInterval: 25000
 
-serverId: 101
+serverId: ${SERVER_ID}
 chatQueue: "CHAT_QUEUE${serverId}"
 serviceQueue: "SERVICE_QUEUE${serverId}"
 systemQueue: "SYSTEM_QUEUE${serverId}"

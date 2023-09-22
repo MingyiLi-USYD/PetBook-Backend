@@ -15,11 +15,11 @@
         <module>cloud-post-service-provider12200</module>
         <module>cloud-friend-service-provider12400</module>
         <module>cloud-comment-service-provider12500</module>
-        <module>cloud-interaction-service-provider12600</module>
         <module>cloud-post-service-consumer11200</module>
         <module>cloud-pet-service-consumer11300</module>
         <module>cloud-friend-service-consumer11400</module>
         <module>cloud-comment-service-consumer11500</module>
+        <module>cloud-interaction-service-provider12600</module>
         <module>cloud-interaction-service-consumer11600</module>
         <module>cloud-chat-service-provider12700</module>
         <module>cloud-chat-service-consumer11700</module>
