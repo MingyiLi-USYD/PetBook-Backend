@@ -19,7 +19,7 @@ spec:
         version: v1
     spec:
       containers:
-        - image: $REGISTRY/$DOCKERHUB_NAMESPACE/interaction-service-consumer:latest
+        - image: 'docker.io/mingyiusyd/interaction-service-consumer:latest'
           name: interaction-service-consumer
           livenessProbe:
             httpGet:
