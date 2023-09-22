@@ -38,14 +38,15 @@ spec:
         app: interaction-service-consumer
         version: v1
     spec:
+
       containers:
-        - image: 'docker.io/mingyiusyd/interaction-service-consumer:latest'
+        - image: $REGISTRY/$DOCKERHUB_NAMESPACE/interaction-service-consumer:latest
           name: interaction-service-consumer
           livenessProbe:
             httpGet:
               path: /actuator/health
               port: 8080
-            initialDelaySeconds: 90
+            initialDelaySeconds: 30
             timeoutSeconds: 5
             failureThreshold: 5
             periodSeconds: 10
@@ -53,7 +54,7 @@ spec:
             httpGet:
               path: /actuator/health
               port: 8080
-            initialDelaySeconds: 90
+            initialDelaySeconds: 30
             timeoutSeconds: 5
             failureThreshold: 5
             periodSeconds: 10

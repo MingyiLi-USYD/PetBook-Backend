@@ -6,8 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="c94f14d2-c5cb-4c95-82ee-9d780f0022b5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jenkinsfile" beforeDir="false" afterPath="$PROJECT_DIR$/Jenkinsfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cloud-interaction-service-consumer11600/deploy/deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-interaction-service-consumer11600/deploy/deployment.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-interaction-service-consumer11600/deploy/service.yaml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -248,6 +248,8 @@
       <workItem from="1695310047361" duration="202000" />
       <workItem from="1695310256571" duration="2466000" />
       <workItem from="1695314769539" duration="5157000" />
+      <workItem from="1695353666669" duration="620000" />
+      <workItem from="1695356582353" duration="1640000" />
     </task>
     <servers />
   </component>

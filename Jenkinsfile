@@ -601,20 +601,20 @@ pipeline {
       }
     }
 
-    stage('default-4') {
-      parallel {
-        stage('interaction-service-consumer部署到prod环境') {
-          agent none
-          steps {
-            container('maven') {
-              kubernetesDeploy(enableConfigSubstitution: true, deleteResource: false, kubeconfigId: "$KUBECONFIG_CREDENTIAL_ID", configs: 'cloud-interaction-service-consumer11600/deploy/**/*.yaml', dockerCredentials: [])
-            }
-
-          }
-        }
-
-      }
+    stage('deploy to dev') {
+             steps {
+                 container ('maven') {
+                      withCredentials([
+                          kubeconfigFile(
+                          credentialsId: env.KUBECONFIG_CREDENTIAL_ID,
+                          variable: 'KUBECONFIG')
+                          ]) {
+                          sh 'envsubst < cloud-interaction-service-consumer11600/deploy/deployment.yaml | kubectl apply -f -'
+                      }
+                 }
+             }
     }
+
 
   }
   environment {
