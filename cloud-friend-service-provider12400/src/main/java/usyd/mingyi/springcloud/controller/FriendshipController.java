@@ -7,7 +7,9 @@ import usyd.mingyi.springcloud.common.R;
 import usyd.mingyi.springcloud.pojo.Friendship;
 import usyd.mingyi.springcloud.service.FriendshipService;
 import usyd.mingyi.springcloud.utils.BaseContext;
+import usyd.mingyi.springcloud.utils.FieldUtils;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -36,7 +38,20 @@ public class FriendshipController {
     public R<List<Friendship>> getFriendshipList() {
         Long currentId = BaseContext.getCurrentId();
         List<Friendship> allFriends = friendService.getAllFriends(currentId);
+        if (allFriends==null){
+            return R.success(new ArrayList<>());
+        }
         return R.success(allFriends);
+    }
+
+    @GetMapping("/friends/ids")
+    public R<List<Long>> getFriendshipIdList() {
+        Long currentId = BaseContext.getCurrentId();
+        List<Friendship> allFriends = friendService.getAllFriends(currentId);
+        if(allFriends==null){
+            return R.success(new ArrayList<>());
+        }
+        return R.success(FieldUtils.extractField(allFriends,Friendship::getFriendId,true));
     }
 
     @PostMapping("/friends/byIds")

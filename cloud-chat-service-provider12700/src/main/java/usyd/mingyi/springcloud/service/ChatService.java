@@ -10,8 +10,9 @@ import java.util.Map;
 public interface ChatService {
     CloudMessage retrieveDataFromMongoDB(String fromId, String toId);
     CloudMessage retrieveDataFromMongoDB(Long fromId, Long toId);
-    List<CloudMessage> retrieveAllDataFromMongoDB(String userId);
-    List<CloudMessage>  retrievePartlyDataFromMongoDB(String userId, Map<String,Long> localStorage);
+    Map<String,CloudMessage> retrieveAllDataFromMongoDB(String userId);
+    Map<String,CloudMessage> retrievePartlyDataFromMongoDB(String userId, Map<String,Long> localStorage);
+    Map<String,CloudMessage> retrieveUnreadDataFromMongoDB(String userId, List<String> friendIds);
 
     void saveMsgInCloud(ChatMessage chatMessage);
 }

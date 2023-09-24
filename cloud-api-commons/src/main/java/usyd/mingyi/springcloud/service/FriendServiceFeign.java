@@ -19,6 +19,9 @@ public interface FriendServiceFeign {
     @GetMapping("/friends")
     List<Friendship> getFriendshipList();
 
+    @GetMapping("/friends/ids")
+    List<Long> getFriendshipIdList();
+
     @PostMapping("/friends/byIds")
     List<Friendship> getFriendshipListByIds(@RequestBody Long[] ids);
 

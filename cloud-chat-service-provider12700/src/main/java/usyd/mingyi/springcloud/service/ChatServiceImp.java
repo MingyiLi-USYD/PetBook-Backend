@@ -34,18 +34,20 @@ public class ChatServiceImp implements ChatService {
     }
 
     @Override
-    public List<CloudMessage> retrieveAllDataFromMongoDB(String userId) {
+    public Map<String,CloudMessage> retrieveAllDataFromMongoDB(String userId) {
         return cloudMessageService.getChatRecords(userId);
     }
 
     @Override
-    public List<CloudMessage> retrievePartlyDataFromMongoDB(String userId,  Map<String,Long> localStorage) {
+    public Map<String,CloudMessage> retrievePartlyDataFromMongoDB(String userId,  Map<String,Long> localStorage) {
         return cloudMessageService.getChatRecordsPartly(userId,localStorage);
     }
 
-    public void sendMsgToQueue(ChatMessage chatMessage){
-
+    @Override
+    public Map<String,CloudMessage> retrieveUnreadDataFromMongoDB(String userId, List<String> friendIds) {
+        return cloudMessageService.getChatRecordsUnread(userId,friendIds);
     }
+
 
     @Override
     public void saveMsgInCloud(ChatMessage chatMessage) {

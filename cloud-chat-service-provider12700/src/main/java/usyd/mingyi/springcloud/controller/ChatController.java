@@ -10,6 +10,8 @@ import usyd.mingyi.springcloud.mongodb.entity.CloudMessage;
 import usyd.mingyi.springcloud.service.ChatService;
 import usyd.mingyi.springcloud.utils.BaseContext;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -40,17 +42,26 @@ public class ChatController {
     }
 
     @GetMapping("/chat/retrieve/all")
-    public R<List<CloudMessage>> getAllMessages(){
+    public R<Map<String,CloudMessage>> getAllMessages(){
         Long currentId = BaseContext.getCurrentId();
         return  R.success(chatService.retrieveAllDataFromMongoDB(String.valueOf(currentId)));
     }
     @PostMapping("/chat/retrieve/partly")
-    public R<List<CloudMessage>> getPartly(@RequestBody Map<String,Long> localStorage){
-        Long currentId = BaseContext.getCurrentId();
+    public R<Map<String,CloudMessage>> getPartly(@RequestBody Map<String,Long> localStorage){
+
        if(!localStorage.isEmpty()){
           return R.success(chatService.retrievePartlyDataFromMongoDB(String.valueOf(BaseContext.getCurrentId()),localStorage));
        }
-        return null;
+        return R.success(new HashMap<>());
+    }
+
+    @PostMapping("/chat/retrieve/unread")
+    public R<Map<String,CloudMessage>> getUnread(@RequestBody List<String> ids){
+
+        if(!ids.isEmpty()){
+            return R.success(chatService.retrieveUnreadDataFromMongoDB(String.valueOf(BaseContext.getCurrentId()),ids));
+        }
+        return R.success(new HashMap<>());
     }
 
 }

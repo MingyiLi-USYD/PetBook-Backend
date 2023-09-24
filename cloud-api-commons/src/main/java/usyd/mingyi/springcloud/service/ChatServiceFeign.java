@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import usyd.mingyi.springcloud.config.FeignConfig;
 import usyd.mingyi.springcloud.entity.ChatMessage;
-import usyd.mingyi.springcloud.entity.RequestMessage;
 import usyd.mingyi.springcloud.entity.ServiceMessage;
 import usyd.mingyi.springcloud.entity.SystemMessage;
 import usyd.mingyi.springcloud.pojo.CloudMessage;
@@ -37,8 +36,11 @@ public interface ChatServiceFeign {
     CloudMessage getMessages(@PathVariable("id") Long toId);
 
     @GetMapping("/chat/retrieve/all")
-    List<CloudMessage> getAllMessages();
+    Map<String,CloudMessage> getAllMessages();
 
     @PostMapping("/chat/retrieve/partly")
-    List<CloudMessage> getPartly(@RequestBody Map<String, Long> localStorage);
+    Map<String,CloudMessage> getPartly(@RequestBody Map<String, Long> localStorage);
+
+    @PostMapping("/chat/retrieve/unread")
+    Map<String,CloudMessage> getUnread(@RequestBody List<String> ids);
 }

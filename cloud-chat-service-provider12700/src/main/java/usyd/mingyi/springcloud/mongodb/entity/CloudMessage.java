@@ -10,6 +10,8 @@ import usyd.mingyi.springcloud.entity.ChatMessage;
 import usyd.mingyi.springcloud.pojo.User;
 
 import java.util.List;
+import java.util.Map;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -18,7 +20,8 @@ public class CloudMessage {
     @Id
     private String id;
     private Long latestTime;
-    private List<String> participates;
+    private String latestMsg;
+    private Map<String,Long> participates;
     private List<ChatMessage> chatList;
     private User chatUser;
     private Long unRead;

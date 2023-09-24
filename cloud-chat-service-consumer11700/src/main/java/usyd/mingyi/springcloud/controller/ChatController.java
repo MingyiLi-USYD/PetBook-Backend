@@ -7,14 +7,19 @@ import usyd.mingyi.springcloud.common.CustomException;
 import usyd.mingyi.springcloud.common.R;
 import usyd.mingyi.springcloud.entity.ChatMessage;
 import usyd.mingyi.springcloud.pojo.CloudMessage;
+import usyd.mingyi.springcloud.pojo.Friendship;
 import usyd.mingyi.springcloud.pojo.User;
 import usyd.mingyi.springcloud.service.ChatService;
 import usyd.mingyi.springcloud.service.ChatServiceFeign;
+import usyd.mingyi.springcloud.service.FriendServiceFeign;
 import usyd.mingyi.springcloud.service.UserServiceFeign;
 import usyd.mingyi.springcloud.utils.BaseContext;
+import usyd.mingyi.springcloud.utils.FieldUtils;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 
 @RestController
@@ -26,6 +31,9 @@ public class ChatController {
 
      @Autowired
      UserServiceFeign userServiceFeign;
+
+     @Autowired
+     FriendServiceFeign friendServiceFeign;
 
 
 
@@ -48,28 +56,56 @@ public class ChatController {
     }
 
     @GetMapping("/chat/retrieve/all")
-    public R<List<CloudMessage>> getAllMessages(){
+    public R<Map<String,CloudMessage>> getAllMessages(){
         Long currentId = BaseContext.getCurrentId();
-        List<CloudMessage> cloudMessages = chatServiceFeign.getAllMessages();
-        cloudMessages.forEach(cloudMessage -> {
-            List<String> participates = cloudMessage.getParticipates();
-            for (int i = 0; i < participates.size(); i++) {
-                if(participates.get(i)!=null&&!participates.get(i).equals(String.valueOf(currentId))){
-                    User user = userServiceFeign.getUserById(Long.valueOf(participates.get(i)));
-                    cloudMessage.setChatUser(user);
-                    break;
-                }
-            }
-        });
+        Map<String,CloudMessage> cloudMessages = chatServiceFeign.getAllMessages();
+
+        for (Map.Entry<String, CloudMessage> entry : cloudMessages.entrySet()) {
+            String friendId = entry.getKey();
+            User friend = userServiceFeign.getUserById(Long.valueOf(friendId));
+            entry.getValue().setChatUser(friend);
+        }
+
         return  R.success(cloudMessages);
     }
     @PostMapping("/chat/retrieve/partly")
-    public R<List<CloudMessage>> getPartly(@RequestBody Map<String,Long> localStorage){
-/*        Long currentId = BaseContext.getCurrentId();
-        if(!localStorage.isEmpty()){
-            return R.success(chatService.retrievePartlyDataFromMongoDB(String.valueOf(BaseContext.getCurrentId()),localStorage));
-        }*/
-        return null;
+    public R<Map<String,CloudMessage>> getPartly(@RequestBody Map<String,Long> localStorage){
+        Long currentId = BaseContext.getCurrentId();
+
+        //先查本地有的
+        Map<String,CloudMessage> cloudMessages = chatServiceFeign.getPartly(localStorage);
+
+        //再查出所有好友
+        //然后去重刚才已经查的
+        List<Long> friendshipIdList = friendServiceFeign.getFriendshipIdList();
+        Set<String> strings = localStorage.keySet();
+        List<String> friendshipStringIdList = friendshipIdList
+                .stream().map(String::valueOf).collect(Collectors.toList());
+        friendshipStringIdList.removeAll(strings);
+        //查好友中未读>0的
+        Map<String,CloudMessage> unread = chatServiceFeign.getUnread(friendshipStringIdList);
+        //合并
+        Map<String, CloudMessage> mergedCloudMessages = mergeMapCloudMessage(unread, cloudMessages);
+        //补齐好友的具体信息
+        for (Map.Entry<String, CloudMessage> entry : mergedCloudMessages.entrySet()) {
+            String friendId = entry.getKey();
+            User friend = userServiceFeign.getUserById(Long.valueOf(friendId));
+            entry.getValue().setChatUser(friend);
+        }
+
+        return R.success(mergedCloudMessages);
+
     }
+
+    private Map<String,CloudMessage> mergeMapCloudMessage(Map<String,CloudMessage> source,Map<String,CloudMessage> target){
+        for (Map.Entry<String, CloudMessage> entry : source.entrySet()) {
+            String key = entry.getKey();
+            if(!target.containsKey(key)){
+                target.put(key,entry.getValue());
+            }
+        }
+        return target;
+    }
+
 
 }
