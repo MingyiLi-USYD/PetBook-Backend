@@ -23,6 +23,8 @@
         <module>cloud-interaction-service-consumer11600</module>
         <module>cloud-chat-service-provider12700</module>
         <module>cloud-chat-service-consumer11700</module>
+        <module>cloud-api-bases</module>
+        <module>cloud-object-storage-service</module>
     </modules>
 
     <parent>

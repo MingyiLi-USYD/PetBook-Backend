@@ -2,6 +2,7 @@ spring:
   profiles:
     active: dev
 
+
   cloud:
     gateway:
       discovery:
@@ -16,7 +17,7 @@ spring:
         - id: user-authentication-service
           uri: lb://user-authentication-service
           predicates:
-            - Path=/oauth/token
+            - Path=/oauth/**
 
         - id: user-service
           uri: lb://user-service-consumer

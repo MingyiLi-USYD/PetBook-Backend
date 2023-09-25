@@ -5,3 +5,6 @@ server:
 spring:
   application:
     name: user-authentication-service
+myapp:
+  webconfig:
+    enabled: false

@@ -1,0 +1,5 @@
+server:
+  port: 12900
+spring:
+  application:
+    name: object-storage-service

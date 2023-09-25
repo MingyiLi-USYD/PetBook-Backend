@@ -1,12 +1,8 @@
 package usyd.mingyi.springcloud.controller;
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import usyd.mingyi.springcloud.common.CustomException;
 import usyd.mingyi.springcloud.common.R;
@@ -34,7 +30,7 @@ public class PostController {
             postService.save(post);
         } else {
             // 获取日期时间戳
-            long targetTime =1;
+            long targetTime = 1;
             //放入MQ死信队列 设置TTL
             long currentTimeMillis = System.currentTimeMillis();
             long TTL = targetTime - currentTimeMillis;
@@ -61,7 +57,7 @@ public class PostController {
         if (!post.getUserId().equals(BaseContext.getCurrentId())) {
             return R.error("No right to access");
         } else {
-              post.setVisible(visibility);
+            post.setVisible(visibility);
             if (postService.updateById(post)) {
                 return R.success("Update success");
             } else {
@@ -73,21 +69,20 @@ public class PostController {
     @DeleteMapping("/post/{postId}")
     public R<String> deletePost(@PathVariable("postId") Long postId) {
         Post post = postService.getById(postId);
-       if(post==null||!post.getUserId().equals(BaseContext.getCurrentId())){
-           throw new CustomException("没有找到");
-       }
+        if (post == null || !post.getUserId().equals(BaseContext.getCurrentId())) {
+            throw new CustomException("没有找到");
+        }
         return R.success("Successfully delete post");
     }
 
 
-
     @GetMapping("/posts")
     public R<Page<Post>> selectPage(@RequestParam("current") Long current,
-                                     @RequestParam("pageSize") Integer pageSize,
-                                     @RequestParam(value = "order",required = false) Integer order,
-                                     @RequestParam(value = "keywords",required = false) String keywords){
-        Page<Post> allPosts = postService.getAllPosts(current, pageSize, order,keywords);
-           return R.success(allPosts);
+                                    @RequestParam("pageSize") Integer pageSize,
+                                    @RequestParam(value = "order", required = false) Integer order,
+                                    @RequestParam(value = "keywords", required = false) String keywords) {
+        Page<Post> allPosts = postService.getAllPosts(current, pageSize, order, keywords);
+        return R.success(allPosts);
     }
 
     @GetMapping("/posts/my")
@@ -111,12 +106,9 @@ public class PostController {
     }
 
     @GetMapping("/post/changeLove")
-    public R<Post> changeLoveOfPostOptimistic(@RequestParam("postId") Long postId,@RequestParam("delta") Integer delta) {
-            return R.success(postService.changeLoveNumber(postId,delta));
+    public R<Post> changeLoveOfPostOptimistic(@RequestParam("postId") Long postId, @RequestParam("delta") Integer delta) {
+        return R.success(postService.changeLoveNumber(postId, delta));
     }
-
-
-
 
 
 }

@@ -2,25 +2,21 @@ package usyd.mingyi.springcloud.controller;
 
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import io.seata.spring.annotation.GlobalTransactional;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import usyd.mingyi.springcloud.common.CustomException;
 import usyd.mingyi.springcloud.common.PostHandler;
 import usyd.mingyi.springcloud.common.R;
 import usyd.mingyi.springcloud.component.PoConvertToDto;
-import usyd.mingyi.springcloud.dto.LovePostDto;
 import usyd.mingyi.springcloud.dto.PostDto;
-import usyd.mingyi.springcloud.pojo.Mention;
 import usyd.mingyi.springcloud.pojo.Post;
 import usyd.mingyi.springcloud.pojo.PostImage;
 import usyd.mingyi.springcloud.pojo.User;
-import usyd.mingyi.springcloud.service.FriendServiceFeign;
-import usyd.mingyi.springcloud.service.InteractionServiceFeign;
-import usyd.mingyi.springcloud.service.PostServiceFeign;
-import usyd.mingyi.springcloud.service.UserServiceFeign;
-import usyd.mingyi.springcloud.utils.BaseContext;
+import usyd.mingyi.springcloud.service.*;
 import usyd.mingyi.springcloud.utils.FieldUtils;
 
 import javax.validation.Valid;
@@ -37,14 +33,18 @@ public class PostController {
     FriendServiceFeign friendServiceFeign;
     @Autowired
     InteractionServiceFeign interactionServiceFeign;
+    @Autowired
+    ObjectStorageServiceFeign objectStorageServiceFeign;
 
     @Autowired
     PoConvertToDto poConvertToDto;
 
-
-
     @PostMapping("/post")  //需要分布式事务
-    public R<String> addPost(@RequestBody @Valid Post post,@RequestParam("mentions")Long[] userIds) {
+    @GlobalTransactional
+    public R<String> addPost( @Valid Post post,
+                             @RequestParam("images") List<MultipartFile> images,
+                              @RequestParam("mentions")List<Long> userIds
+                            ) {
 
         for (Long userId : userIds) {
             int friendshipStatus = friendServiceFeign.getFriendshipStatus(userId); //检查之间是否是好友
@@ -54,21 +54,16 @@ public class PostController {
             }
         }
         if(!post.getIsDelay()){// 表示不需要定时上传   所以说立刻发布
-            Post saved = postServiceFeign.upLoadPost(post);
-            for (Long userId : userIds) {
-                Mention mention = new Mention();
-                mention.setPostId(saved.getPostId());
-                mention.setUserId(BaseContext.getCurrentId());
-                mention.setTargetUserId(userId);
-                interactionServiceFeign.addMention(mention);
-            }
+
+            //Post saved = postServiceFeign.upLoadPost(post);
+            List<String> imageUrlList = objectStorageServiceFeign.savePostImages(images.toArray(MultipartFile[]::new));
+            System.out.println(imageUrlList);
         }else {//需要延迟上传 通过MQ死信队列完成
 
         }
 
         return R.success("上传成功");
     }
-
 
     @GetMapping("/post/{postId}")
     public R<PostDto> getPost(@PathVariable Long postId) {

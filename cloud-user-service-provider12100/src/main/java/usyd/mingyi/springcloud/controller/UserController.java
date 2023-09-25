@@ -69,4 +69,14 @@ public class UserController {
         return R.success(user);
     }
 
+    @GetMapping("/user/thirdPart")
+    public R<User> register(@PathVariable("userId") Long userId) {
+        User user = userService.getById(userId);
+        if (user == null) {
+            throw new CustomException("No user found");
+        }
+        return R.success(user);
+    }
+
+
 }

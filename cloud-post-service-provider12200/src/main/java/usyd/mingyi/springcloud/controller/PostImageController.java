@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 import usyd.mingyi.springcloud.common.R;
 import usyd.mingyi.springcloud.pojo.PostImage;
 import usyd.mingyi.springcloud.service.PostImageService;
-
 import java.util.List;
 
 @RestController
@@ -21,14 +20,23 @@ public class PostImageController {
 
 
     @GetMapping("/images/post/{postId}")
-    public R<List<PostImage>> getImagesByPostId(@PathVariable("postId") Long postId){
+    public R<List<PostImage>> getImagesByPostId(@PathVariable("postId") Long postId) {
         List<PostImage> postImages = postImageService.
                 list(new LambdaQueryWrapper<PostImage>().eq(PostImage::getPostId, postId));
         return R.success(postImages);
     }
 
+/*
+    @GetMapping("/images/post/{postId}")
+    public R<List<PostImage>> up(@PathVariable("postId") Long postId) {
+        List<PostImage> postImages = postImageService.
+                list(new LambdaQueryWrapper<PostImage>().eq(PostImage::getPostId, postId));
+        return R.success(postImages);
+    }
+*/
+
     @DeleteMapping("/images/post/{postId}")
-    public R<String> deleteImagesByPostId(@PathVariable("postId") Long postId){
+    public R<String> deleteImagesByPostId(@PathVariable("postId") Long postId) {
         postImageService.
                 remove(new LambdaQueryWrapper<PostImage>().eq(PostImage::getPostId, postId));
         return R.success("Success");

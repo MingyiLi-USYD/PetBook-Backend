@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/cloud-api-bases/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud-api-commons/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud-api-commons/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud-chat-service-consumer11700/src/main/java" charset="UTF-8" />
@@ -21,6 +22,7 @@
     <file url="file://$PROJECT_DIR$/cloud-interaction-service-consumer11600/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud-interaction-service-provider12600/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud-interaction-service-provider12600/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-object-storage-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud-pet-service-consumer11300/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud-pet-service-consumer11300/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud-pet-service-provider12300/src/main/java" charset="UTF-8" />

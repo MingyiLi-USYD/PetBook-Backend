@@ -10,6 +10,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
+
+
 @Component
 @Slf4j
 public class SimpleGlobalFilter implements GlobalFilter, Ordered {
@@ -19,7 +21,7 @@ public class SimpleGlobalFilter implements GlobalFilter, Ordered {
         String requestPath = exchange.getRequest().getPath().toString();
 
         // 如果请求路径是以 /uaa/ 开头的，直接放行
-        if (requestPath.startsWith("/oauth/token")||requestPath.startsWith("/socket.io")) {
+        if (requestPath.startsWith("/oauth")||requestPath.startsWith("/socket.io")) {
             return chain.filter(exchange);
         }
 
@@ -28,36 +30,33 @@ public class SimpleGlobalFilter implements GlobalFilter, Ordered {
         // 从请求头中获取 "Authorization" 字段的值
         String authorizationHeader = headers.getFirst(HttpHeaders.AUTHORIZATION);
 
-        if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
-            // 提取 Bearer Token
-            String bearerToken = authorizationHeader.substring(7); // 去掉 "Bearer " 前缀
-
+        try {
             // 验证 JWT Token 合法性
-            boolean isValidToken = JwtUtils.validateJwt(bearerToken);
+            boolean isValidToken = JWTUtils.verify(authorizationHeader);
 
             if (isValidToken) {
-                String username = JwtUtils.extractUserName(bearerToken);
-                String userId = JwtUtils.extractUserId(bearerToken);
+                String username = JWTUtils.getUsername(authorizationHeader);
+                String userId = String.valueOf(JWTUtils.getUserId(authorizationHeader));
+                String role = JWTUtils.getRole(authorizationHeader);
+
                 // 将用户信息添加到请求头
                 exchange = exchange.mutate()
                         .request(exchange.getRequest()
                                 .mutate()
                                 .header("X-Username", username)
                                 .header("X-UserId", userId)
+                                .header("X-role",role)
                                 .build())
                         .build();
                 // Token 合法，继续请求链
                 return chain.filter(exchange);
-            } else {
-                // Token 不合法，返回 401 错误
-                exchange.getResponse().setStatusCode(HttpStatus.UNAUTHORIZED);
-                return exchange.getResponse().setComplete();
-            }
-        } else {
-            // 没有 Authorization 头，返回 401 错误
-            exchange.getResponse().setStatusCode(HttpStatus.UNAUTHORIZED);
-            return exchange.getResponse().setComplete();
+          }
+        }catch (Exception e){
+
         }
+
+        exchange.getResponse().setStatusCode(HttpStatus.UNAUTHORIZED);
+        return exchange.getResponse().setComplete();
     }
 
     @Override
