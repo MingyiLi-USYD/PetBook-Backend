@@ -41,24 +41,27 @@ public class PostController {
 
     @PostMapping("/post")  //需要分布式事务
     @GlobalTransactional
-    public R<String> addPost( @Valid Post post,
-                             @RequestParam("images") List<MultipartFile> images,
-                              @RequestParam("mentions")List<Long> userIds
-                            ) {
+    public R<String> addPost(@Valid Post post,
+                             @RequestParam("images") MultipartFile[] images,
+                             @RequestParam("mentions") List<Long> userIds
+    ) {
 
         for (Long userId : userIds) {
             int friendshipStatus = friendServiceFeign.getFriendshipStatus(userId); //检查之间是否是好友
-            if(friendshipStatus!=1){
+            if (friendshipStatus != 1) {
                 //1代表是好友 只要不上1 就不是好友 拒绝此次操作
                 throw new CustomException("提及的人存在非好友");
             }
         }
-        if(!post.getIsDelay()){// 表示不需要定时上传   所以说立刻发布
+        if (!post.getIsDelay()) {// 表示不需要定时上传   所以说立刻发布
 
-            //Post saved = postServiceFeign.upLoadPost(post);
-            List<String> imageUrlList = objectStorageServiceFeign.savePostImages(images.toArray(MultipartFile[]::new));
+            Post saved = postServiceFeign.upLoadPost(post);
+            List<String> imageUrlList = objectStorageServiceFeign.savePostImages(images);
+            for (String s : imageUrlList) {
+
+            }
             System.out.println(imageUrlList);
-        }else {//需要延迟上传 通过MQ死信队列完成
+        } else {//需要延迟上传 通过MQ死信队列完成
 
         }
 
@@ -87,22 +90,22 @@ public class PostController {
 
     @PutMapping("/post/{postId}")
     public R<String> changeVisibility(@PathVariable("postId") Long postId, @RequestParam("visibility") Boolean visibility) {
-        return R.success( postServiceFeign.changeVisibility(postId,visibility));
+        return R.success(postServiceFeign.changeVisibility(postId, visibility));
 
     }
 
     @GetMapping("/posts")
     public R<Page<PostDto>> getPostsWithPagination(@RequestParam("current") Long current,
-                                                    @RequestParam("pageSize") Integer pageSize,
-                                                    @RequestParam(value = "order",required = false) Integer order,
-                                                    @RequestParam(value = "keywords",required = false)String keywords) {
-        Page<Post> postPage = postServiceFeign.selectPage(current, pageSize, order,keywords);
+                                                   @RequestParam("pageSize") Integer pageSize,
+                                                   @RequestParam(value = "order", required = false) Integer order,
+                                                   @RequestParam(value = "keywords", required = false) String keywords) {
+        Page<Post> postPage = postServiceFeign.selectPage(current, pageSize, order, keywords);
         List<Post> records = postPage.getRecords();
-        List<Long> userId = FieldUtils.extractField(records, Post::getUserId,true);
+        List<Long> userId = FieldUtils.extractField(records, Post::getUserId, true);
         List<User> userListByIds = userServiceFeign.getUserListByIds(userId);
         List<PostDto> postDtos = PostHandler.handleUserInfo(records, userListByIds);
         Page<PostDto> postDtoPage = new Page<>();
-        BeanUtils.copyProperties(postPage,postDtoPage);
+        BeanUtils.copyProperties(postPage, postDtoPage);
         postDtoPage.setRecords(postDtos);
         return R.success(postDtoPage);
     }
