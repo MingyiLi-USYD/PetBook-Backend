@@ -18,7 +18,7 @@ spec:
   sessionAffinity: None
 ---
 
-kind: Deployment
+kind: StatefulSet
 apiVersion: apps/v1
 metadata:
   name: object-storage-service
@@ -73,13 +73,9 @@ spec:
       schedulerName: default-scheduler
       volumes: # 定义 Volume，将宿主机目录与容器内部目录关联
         - name: nfs-petbook-image
-          hostPath:
-            path: /nfs/data/petbook/image  # 宿主机上的目录路径
-  strategy:
-    type: RollingUpdate
-    rollingUpdate:
-      maxUnavailable: 25%
-      maxSurge: 25%
-  revisionHistoryLimit: 10
-  progressDeadlineSeconds: 600
+          persistentVolumeClaim:
+            claimName: petbook-image
+  serviceName: object-storage-service
+
+
 
