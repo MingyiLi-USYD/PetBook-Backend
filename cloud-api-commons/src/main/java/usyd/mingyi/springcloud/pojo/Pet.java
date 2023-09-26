@@ -8,6 +8,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -24,15 +25,14 @@ public class Pet implements Serializable {
     private Long userId;
     private String petName;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date birthday;
     private String category;
     private String petAvatar;
     private String petDescription;
-    private String avatarFile;
     private Boolean petVisible;
     @TableLogic
     private Boolean isDeleted;
-
     @TableField(fill = FieldFill.INSERT)
     @JsonIgnore
     private LocalDateTime createTime;

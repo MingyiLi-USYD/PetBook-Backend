@@ -4,12 +4,14 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import usyd.mingyi.springcloud.common.R;
 import usyd.mingyi.springcloud.pojo.PetImage;
 import usyd.mingyi.springcloud.service.PetImageService;
 import usyd.mingyi.springcloud.service.PetService;
 import usyd.mingyi.springcloud.utils.BaseContext;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -23,10 +25,10 @@ public class PetImageController {
 
 
 
-    @PostMapping("/image/pet/{petId}")
-    public R<PetImage> uploadImage(@PathVariable("petId") Long petId, @RequestBody @Validated PetImage petImage) {
+    @PostMapping("/images/pet")
+    public R<PetImage> uploadImage(@RequestBody @Valid PetImage petImage) {
         Long currentId = BaseContext.getCurrentId();
-        PetImage newPetImage = petService.saveImageForPet(petId, currentId, petImage);
+        PetImage newPetImage = petService.saveImageForPet(currentId, petImage);
         return R.success(newPetImage);
     }
 
@@ -35,7 +37,7 @@ public class PetImageController {
         return R.success(petImageService.getAllPetImages(petId));
     }
 
-    @DeleteMapping("/pet/image/{imageId}")
+    @DeleteMapping("/images/pet/{imageId}")
     public R<String> deleteImageByImageId(@PathVariable("imageId") Long imageId) {
         petService.deleteImageForPet(imageId);
         return R.success("Success to delete this image");

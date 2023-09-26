@@ -52,7 +52,8 @@ public class PetServiceImp extends ServiceImpl<PetMapper, Pet> implements PetSer
     }
 
     @Override
-    public PetImage saveImageForPet(Long petId, Long userId, PetImage petImage) {
+    public PetImage saveImageForPet(Long userId, PetImage petImage) {
+        Long petId = petImage.getPetId();
         Pet pet = petMapper.selectById(petId);
         if(pet==null){
             throw new CustomException("No such pet found");
@@ -81,7 +82,7 @@ public class PetServiceImp extends ServiceImpl<PetMapper, Pet> implements PetSer
             throw new CustomException("No right to delete image for the pet");
         }
         petImageMapper.deleteById(imageId);
-        //然后把firebase云端上的图片删掉
+
     }
 
 }

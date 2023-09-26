@@ -11,7 +11,7 @@ import java.util.List;
 @FeignClient(value = "pet-service-provider", configuration = FeignConfig.class)
 public interface PetServiceFeign {
     @PostMapping("/pet")
-    String addPet(@RequestBody Pet pet);
+    Pet addPet(@RequestBody Pet pet);
 
     @PutMapping("/pet")
     String updatePet(@RequestBody Pet pet);
@@ -30,12 +30,14 @@ public interface PetServiceFeign {
     List<Pet> getPetListByUserId(@PathVariable("userId") Long userId);
 
     //下面是宠物图片相关的
-    @PostMapping("/image/pet/{petId}")
-    PetImage uploadImage(@PathVariable("petId") Long petId, @RequestBody PetImage petImage);
+    @PostMapping("/images/pet")
+    PetImage uploadImage(@RequestBody PetImage petImage);
 
     @GetMapping("/images/pet/{petId}")
     List<PetImage> getPetImages(@PathVariable("petId") Long petId);
 
-    @DeleteMapping("/pet/image/{imageId}")
+    @DeleteMapping("/images/pet/{imageId}")
     String deleteImageByImageId(@PathVariable("imageId") Long imageId);
+
+
 }

@@ -91,6 +91,22 @@ pipeline {
                     }
                 }
 
+                stage('构建object-storage-service') {
+                    agent none
+                    when {
+                        expression {
+                            return params.SERVICE == 'all' || params.SERVICE == 'cloud-object-storage-service12900'
+                        }
+
+                    }
+                    steps {
+                        container('maven') {
+                            sh 'docker build -t object-storage-service:latest -f cloud-object-storage-service12900/Dockerfile cloud-object-storage-service12900/'
+                        }
+
+                    }
+                }
+
                 stage('构建user-service-provider') {
                     agent none
                     when {
@@ -326,6 +342,27 @@ pipeline {
 
             }
             parallel {
+                stage('推送object-storage-service镜像') {
+                    agent none
+                    when {
+                        expression {
+                            return params.SERVICE == 'all' || params.SERVICE == 'cloud-object-storage-service12900'
+                        }
+
+                    }
+                    steps {
+                        container('maven') {
+                            withCredentials([usernamePassword(credentialsId : 'docker-io-registry' ,usernameVariable : 'DOCKER_USER_VAR' ,passwordVariable : 'DOCKER_PWD_VAR' ,)]) {
+                                sh 'echo "$DOCKER_PWD_VAR" | docker login $REGISTRY -u "$DOCKER_USER_VAR" --password-stdin'
+                                sh 'docker tag object-storage-service:latest $REGISTRY/$DOCKERHUB_NAMESPACE/object-storage-service:latest'
+                                sh 'docker push  $REGISTRY/$DOCKERHUB_NAMESPACE/object-storage-service:latest'
+                            }
+
+                        }
+
+                    }
+                }
+
                 stage('推送socket-service-provider镜像') {
                     agent none
                     when {
@@ -709,7 +746,8 @@ pipeline {
                                 'cloud-comment-service-consumer11500',
                                 'cloud-interaction-service-consumer11600',
                                 'cloud-chat-service-provider12700',
-                                'cloud-chat-service-consumer11700'
+                                'cloud-chat-service-consumer11700',
+                                'cloud-object-storage-service12900'
                         ]
                         deployServices(services)
                     } else {
@@ -732,7 +770,7 @@ pipeline {
         APP_NAME = 'devops-java-sample'
     }
     parameters {
-        choice(name: 'SERVICE', choices: ['all','cloud-gateway9257', 'cloud-uaa7000', 'cloud-socket-service-provider12800', 'cloud-user-service-provider12100', 'cloud-user-service-consumer11100', 'cloud-pet-service-provider12300', 'cloud-post-service-provider12200', 'cloud-friend-service-provider12400', 'cloud-comment-service-provider12500', 'cloud-interaction-service-provider12600', 'cloud-post-service-consumer11200', 'cloud-pet-service-consumer11300', 'cloud-friend-service-consumer11400', 'cloud-comment-service-consumer11500', 'cloud-interaction-service-consumer11600', 'cloud-chat-service-provider12700', 'cloud-chat-service-consumer11700'], description: '请选择要部署的服务')
+        choice(name: 'SERVICE', choices: ['all','cloud-object-storage-service12900','cloud-gateway9257', 'cloud-uaa7000', 'cloud-socket-service-provider12800', 'cloud-user-service-provider12100', 'cloud-user-service-consumer11100', 'cloud-pet-service-provider12300', 'cloud-post-service-provider12200', 'cloud-friend-service-provider12400', 'cloud-comment-service-provider12500', 'cloud-interaction-service-provider12600', 'cloud-post-service-consumer11200', 'cloud-pet-service-consumer11300', 'cloud-friend-service-consumer11400', 'cloud-comment-service-consumer11500', 'cloud-interaction-service-consumer11600', 'cloud-chat-service-provider12700', 'cloud-chat-service-consumer11700'], description: '请选择要部署的服务')
         booleanParam(name: 'SKIP_PUSH', defaultValue: false, description: '是否跳过推送')
     }
 }

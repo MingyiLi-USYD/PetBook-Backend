@@ -3,13 +3,17 @@ package usyd.mingyi.springcloud.controller;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import usyd.mingyi.springcloud.common.R;
 import usyd.mingyi.springcloud.component.PoConvertToDto;
 import usyd.mingyi.springcloud.dto.PetDto;
 import usyd.mingyi.springcloud.pojo.Pet;
 import usyd.mingyi.springcloud.pojo.PetImage;
+import usyd.mingyi.springcloud.service.ObjectStorageServiceFeign;
 import usyd.mingyi.springcloud.service.PetServiceFeign;
+import usyd.mingyi.springcloud.utils.BaseContext;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -18,11 +22,17 @@ public class PetController {
     @Autowired
     PetServiceFeign petServiceFeign;
     @Autowired
+    ObjectStorageServiceFeign objectStorageServiceFeign;
+    @Autowired
     PoConvertToDto poConvertToDto;
 
     @PostMapping("/pet")
-    public R<String> addPet(@RequestBody Pet pet) {
-        return R.success(petServiceFeign.addPet(pet));
+    public R<String> addPet(@Valid Pet pet, @RequestParam("avatar") MultipartFile avatar) {
+        String url = objectStorageServiceFeign.savePetImage(avatar);
+        pet.setPetAvatar(url);
+        pet.setUserId(BaseContext.getCurrentId());
+        petServiceFeign.addPet(pet);
+        return R.success("Success");
     }
 
     @PutMapping("/pet")

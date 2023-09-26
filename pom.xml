@@ -5,6 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <modules>
+        <module>cloud-api-bases</module>
         <module>cloud-api-commons</module>
         <module>cloud-gateway9257</module>
         <module>cloud-uaa7000</module>
@@ -23,8 +24,8 @@
         <module>cloud-interaction-service-consumer11600</module>
         <module>cloud-chat-service-provider12700</module>
         <module>cloud-chat-service-consumer11700</module>
-        <module>cloud-api-bases</module>
-        <module>cloud-object-storage-service</module>
+
+        <module>cloud-object-storage-service12900</module>
     </modules>
 
     <parent>

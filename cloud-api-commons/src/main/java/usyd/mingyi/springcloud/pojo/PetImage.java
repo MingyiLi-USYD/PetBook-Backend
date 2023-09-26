@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 @TableName("pet_image")
@@ -19,11 +20,10 @@ public class PetImage implements Serializable {
     @JsonFormat(shape = JsonFormat.Shape.STRING)
     Long imageId;
     @JsonFormat(shape = JsonFormat.Shape.STRING)
+    @NotNull(message = "No petId related")
     Long petId;
     @NotBlank(message = "Pet imageUrl can not be blank")
     String imageUrl;
-    @NotBlank(message = "Pet fileName can not be blank")
-    String fileName;
     @TableLogic
     Boolean isDeleted;
 }

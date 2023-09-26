@@ -31,3 +31,5 @@ seata:
     vgroup-mapping:
       mygroup: default
   data-source-proxy-mode: XA
+upload:
+  dir: /petbook/image

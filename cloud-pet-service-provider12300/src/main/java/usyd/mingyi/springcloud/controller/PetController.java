@@ -21,14 +21,11 @@ public class PetController {
 
 
     @PostMapping("/pet")
-    public R<String> addPet(@RequestBody Pet pet) {
-/*        for (int i = 0; i < 1000000; i++) {
-            petService.save(pet);
-            pet.setPetId(null);
-        }*/
+    public R<Pet> addPet(@RequestBody Pet pet) {
+
         boolean save = petService.save(pet);
         if (save){
-            return R.success("成功了");
+            return R.success(pet);
         }else {
             return R.error("插入失败");
         }

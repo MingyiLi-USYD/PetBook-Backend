@@ -10,7 +10,7 @@ import java.util.List;
 public interface PetService extends IService<Pet> {
     List<Pet> getPetList(Long userId);
     void deletePet(Long petId,Long useId);
-    PetImage saveImageForPet(Long petId, Long userId, PetImage petImage);
+    PetImage saveImageForPet(Long userId, PetImage petImage);
     void  deleteImageForPet(Long imageId);
 
 
