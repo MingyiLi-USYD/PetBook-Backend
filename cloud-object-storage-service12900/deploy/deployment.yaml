@@ -74,7 +74,7 @@ spec:
       volumes: # 定义 Volume，将宿主机目录与容器内部目录关联
         - name: nfs-petbook-image
           hostPath:
-            path: /nfs/petbook/image  # 宿主机上的目录路径
+            path: /nfs/data/petbook/image  # 宿主机上的目录路径
   strategy:
     type: RollingUpdate
     rollingUpdate:
