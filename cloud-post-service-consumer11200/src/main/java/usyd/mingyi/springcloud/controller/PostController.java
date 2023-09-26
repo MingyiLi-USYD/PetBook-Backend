@@ -20,6 +20,7 @@ import usyd.mingyi.springcloud.service.*;
 import usyd.mingyi.springcloud.utils.FieldUtils;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -43,27 +44,41 @@ public class PostController {
     @GlobalTransactional
     public R<String> addPost(@Valid Post post,
                              @RequestParam("images") MultipartFile[] images,
-                             @RequestParam("mentions") List<Long> userIds
-    ) {
+                             @RequestParam("mentions") List<Long> userIds) {
 
-        for (Long userId : userIds) {
-            int friendshipStatus = friendServiceFeign.getFriendshipStatus(userId); //检查之间是否是好友
-            if (friendshipStatus != 1) {
-                //1代表是好友 只要不上1 就不是好友 拒绝此次操作
-                throw new CustomException("提及的人存在非好友");
+        if (post.getVisible()) {
+            for (Long userId : userIds) {
+                int friendshipStatus = friendServiceFeign.getFriendshipStatus(userId); //检查之间是否是好友
+                if (friendshipStatus != 1) {
+                    //1代表是好友 只要不上1 就不是好友 拒绝此次操作
+                    throw new CustomException("提及的人存在非好友");
+                }
             }
-        }
-        if (!post.getIsDelay()) {// 表示不需要定时上传   所以说立刻发布
+            if (!post.getIsDelay()) {// 表示不需要定时上传   所以说立刻发布
+                List<String> imageUrlList = objectStorageServiceFeign.savePostImages(images);
+                post.setCoverImage(imageUrlList.get(0));
+                Post saved = postServiceFeign.upLoadPost(post);
 
-            Post saved = postServiceFeign.upLoadPost(post);
-            List<String> imageUrlList = objectStorageServiceFeign.savePostImages(images);
-            for (String s : imageUrlList) {
+                List<PostImage> postImages = new ArrayList<>();
+                for (String url : imageUrlList) {
+                    PostImage postImage = new PostImage();
+                    postImage.setImageUrl(url);
+                    postImage.setPostId(saved.getPostId());
+                    postImages.add(postImage);
+                }
+                postServiceFeign.savePostImages(postImages);
+
+            } else {//需要延迟上传 通过MQ死信队列完成
 
             }
-            System.out.println(imageUrlList);
-        } else {//需要延迟上传 通过MQ死信队列完成
+        }else {
+            //如果是私人的 就不需要通知好友 直接上传就行了
+
 
         }
+
+
+
 
         return R.success("上传成功");
     }

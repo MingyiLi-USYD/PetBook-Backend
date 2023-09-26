@@ -9,6 +9,11 @@ spring:
         locator:
           enabled: true
       routes:
+        - id: object-storage-service
+          uri: lb://object-storage-service
+          predicates:
+            - Path=/oss/download/**
+
         - id: socket-io-route
           uri: lb:ws://socket-service-provider/socket.io/
           predicates:

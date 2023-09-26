@@ -51,4 +51,7 @@ public interface PostServiceFeign {
     @DeleteMapping("/images/post/{postId}")
     String deleteImagesByPostId(@PathVariable("postId") Long postId);
 
+    @PostMapping("/images/post")
+    String savePostImages(@RequestBody List<PostImage> postImages);
+
 }

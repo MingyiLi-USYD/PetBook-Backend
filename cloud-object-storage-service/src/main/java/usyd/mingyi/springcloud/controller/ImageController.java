@@ -1,5 +1,6 @@
 package usyd.mingyi.springcloud.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
@@ -15,6 +16,7 @@ import java.io.FileInputStream;
 import java.util.List;
 
 @RestController
+@Slf4j
 public class ImageController {
     @Autowired
     ObjectStorageService objectStorageService;
@@ -24,7 +26,9 @@ public class ImageController {
 
     @PostMapping(value = "/oss/post/saveImages",consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public R<List<String>> savePostImages(@RequestPart("files") List<MultipartFile> images) {
-        return R.success(objectStorageService.saveBatch(images,ImageUtils.PostBase));
+        List<String> urls = objectStorageService.saveBatch(images, ImageUtils.PostBase);
+        log.info("上传成功");
+        return R.success(urls);
     }
 
     @PostMapping("/oss/pet/saveImage")

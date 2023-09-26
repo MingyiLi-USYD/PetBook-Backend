@@ -21,7 +21,9 @@ public class SimpleGlobalFilter implements GlobalFilter, Ordered {
         String requestPath = exchange.getRequest().getPath().toString();
 
         // 如果请求路径是以 /uaa/ 开头的，直接放行
-        if (requestPath.startsWith("/oauth")||requestPath.startsWith("/socket.io")) {
+        if (requestPath.startsWith("/oauth")
+                ||requestPath.startsWith("/socket.io")
+                ||requestPath.startsWith(("/oss/download"))) {
             return chain.filter(exchange);
         }
 

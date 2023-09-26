@@ -71,7 +71,10 @@ public class PostController {
         Post post = postService.getById(postId);
         if (post == null || !post.getUserId().equals(BaseContext.getCurrentId())) {
             throw new CustomException("没有找到");
+        }else {
+            postService.removeById(postId);
         }
+
         return R.success("Successfully delete post");
     }
 
