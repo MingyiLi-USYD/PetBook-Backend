@@ -38,7 +38,6 @@ spec:
         app: uaa
         version: v1
     spec:
-
       containers:
         - image: $REGISTRY/$DOCKERHUB_NAMESPACE/uaa:latest
           name: uaa

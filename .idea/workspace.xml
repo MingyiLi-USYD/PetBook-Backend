@@ -5,23 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c94f14d2-c5cb-4c95-82ee-9d780f0022b5" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-chat-service-consumer11700/deploy/deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-chat-service-consumer11700/deploy/deployment.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-chat-service-provider12700/deploy/deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-chat-service-provider12700/deploy/deployment.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-comment-service-consumer11500/deploy/deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-comment-service-consumer11500/deploy/deployment.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-comment-service-provider12500/deploy/deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-comment-service-provider12500/deploy/deployment.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-friend-service-provider12400/deploy/deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-friend-service-provider12400/deploy/deployment.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway9257/deploy/deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway9257/deploy/deployment.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-interaction-service-consumer11600/deploy/deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-interaction-service-consumer11600/deploy/deployment.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-interaction-service-provider12600/deploy/deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-interaction-service-provider12600/deploy/deployment.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-object-storage-service12900/deploy/deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-object-storage-service12900/deploy/deployment.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-pet-service-consumer11300/deploy/deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-pet-service-consumer11300/deploy/deployment.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-pet-service-provider12300/deploy/deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-pet-service-provider12300/deploy/deployment.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-post-service-consumer11200/deploy/deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-post-service-consumer11200/deploy/deployment.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-post-service-provider12200/deploy/deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-post-service-provider12200/deploy/deployment.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-socket-service-provider12800/deploy/deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-socket-service-provider12800/deploy/deployment.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-user-service-consumer11100/deploy/deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-user-service-consumer11100/deploy/deployment.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-user-service-provider12100/deploy/deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-user-service-provider12100/deploy/deployment.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-uaa7000/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-uaa7000/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-uaa7000/deploy/deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-uaa7000/deploy/deployment.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -257,14 +244,14 @@
     </configuration>
     <list>
       <item itemvalue="Spring Boot.ChatServiceMain11700" />
-      <item itemvalue="Spring Boot.InteractionServiceMain12600" />
-      <item itemvalue="Spring Boot.CommentServiceMain12500" />
       <item itemvalue="Spring Boot.ChatServiceMain12700" />
       <item itemvalue="Spring Boot.CommentServiceMain11500" />
+      <item itemvalue="Spring Boot.CommentServiceMain12500" />
       <item itemvalue="Spring Boot.FriendServiceMain11400" />
       <item itemvalue="Spring Boot.FriendServiceMain12400" />
       <item itemvalue="Spring Boot.GatewayMain9257" />
       <item itemvalue="Spring Boot.InteractionServiceMain11600" />
+      <item itemvalue="Spring Boot.InteractionServiceMain12600" />
       <item itemvalue="Spring Boot.PetServiceMain11300" />
       <item itemvalue="Spring Boot.PetServiceMain12300" />
       <item itemvalue="Spring Boot.PostServiceMain11200" />
@@ -354,7 +341,12 @@
       <workItem from="1695832415494" duration="8000" />
       <workItem from="1695837771657" duration="102000" />
       <workItem from="1695838734043" duration="39000" />
-      <workItem from="1695840501910" duration="428000" />
+      <workItem from="1695840501910" duration="480000" />
+      <workItem from="1695844947286" duration="417000" />
+      <workItem from="1695845799601" duration="1000" />
+      <workItem from="1695846055635" duration="564000" />
+      <workItem from="1695846882769" duration="323000" />
+      <workItem from="1695852246330" duration="72000" />
     </task>
     <servers />
   </component>
