@@ -54,7 +54,8 @@ public class LovePostServiceImp extends ServiceImpl<LovePostMapper, LovePost> im
 
     @Override
     public Long countLovePostsReceived(Long userId) {
-       return this.count(new LambdaQueryWrapper<LovePost>()
+
+       return (long) this.count(new LambdaQueryWrapper<LovePost>()
                 .eq(LovePost::getIsRead,false)
                .eq(LovePost::getPostUserId,userId)
                .ne(LovePost::getUserId,userId));

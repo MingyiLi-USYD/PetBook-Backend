@@ -1,7 +1,6 @@
 package usyd.mingyi.springcloud.controller;
 
 import lombok.extern.slf4j.Slf4j;
-import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import usyd.mingyi.springcloud.common.FriendshipHandler;
@@ -10,12 +9,9 @@ import usyd.mingyi.springcloud.dto.FriendshipDto;
 import usyd.mingyi.springcloud.entity.ServiceMessage;
 import usyd.mingyi.springcloud.entity.ServiceMessageType;
 import usyd.mingyi.springcloud.pojo.Friendship;
-import usyd.mingyi.springcloud.pojo.User;
 import usyd.mingyi.springcloud.service.ChatServiceFeign;
 import usyd.mingyi.springcloud.service.FriendServiceFeign;
-import usyd.mingyi.springcloud.service.UserServiceFeign;
 import usyd.mingyi.springcloud.utils.BaseContext;
-import usyd.mingyi.springcloud.utils.FieldUtils;
 
 import java.util.List;
 

@@ -2,10 +2,8 @@ package usyd.mingyi.springcloud.controller;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import lombok.extern.slf4j.Slf4j;
-import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import usyd.mingyi.springcloud.common.CommentHandler;
 import usyd.mingyi.springcloud.common.CustomException;
 import usyd.mingyi.springcloud.common.R;
 import usyd.mingyi.springcloud.component.PoConvertToDto;
@@ -16,14 +14,11 @@ import usyd.mingyi.springcloud.entity.ServiceMessageType;
 import usyd.mingyi.springcloud.pojo.Comment;
 import usyd.mingyi.springcloud.pojo.Post;
 import usyd.mingyi.springcloud.pojo.Subcomment;
-import usyd.mingyi.springcloud.pojo.User;
 import usyd.mingyi.springcloud.service.*;
 import usyd.mingyi.springcloud.utils.BaseContext;
-import usyd.mingyi.springcloud.utils.FieldUtils;
 
 import javax.validation.Valid;
 import java.util.List;
-import java.util.concurrent.CompletableFuture;
 
 @RestController
 @Slf4j
@@ -95,7 +90,7 @@ public class CommentController {
         return R.success("Success");
     }
 
-    @NotNull
+
     private R<Page<CommentDto>> getCommentDtoPage(Page<Comment> commentPage) {
         //发起了很多次查询 后期考虑后期加入缓存机制  或者一次性查出多条数据再合并
 

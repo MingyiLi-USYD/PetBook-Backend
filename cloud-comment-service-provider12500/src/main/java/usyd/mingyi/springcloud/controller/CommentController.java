@@ -42,7 +42,7 @@ public class CommentController {
     public R<Long> countCommentsReceived(){
         Long userId = BaseContext.getCurrentId();
 
-        Long count = commentService.count(new LambdaQueryWrapper<Comment>()
+        Long count = (long) commentService.count(new LambdaQueryWrapper<Comment>()
                 .eq(Comment::getTargetUserId, userId)
                 .eq(Comment::getIsRead,false));
         return  R.success(count);

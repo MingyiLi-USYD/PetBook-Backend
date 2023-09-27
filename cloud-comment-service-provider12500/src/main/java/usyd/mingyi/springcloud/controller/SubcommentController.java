@@ -36,7 +36,7 @@ public class SubcommentController {
 
     @GetMapping("/subcomment/count/{commentId}")
     public R<Long> countSubcommentSize(@PathVariable("commentId") Long commentId){
-        Long count = subcommentService.count(
+        Long count = (long) subcommentService.count(
                 new LambdaQueryWrapper<Subcomment>()
                         .eq(Subcomment::getCommentId, commentId)
         );
