@@ -6,15 +6,22 @@
   <component name="ChangeListManager">
     <list default="true" id="c94f14d2-c5cb-4c95-82ee-9d780f0022b5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-api-commons/src/main/java/usyd/mingyi/springcloud/pojo/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-api-commons/src/main/java/usyd/mingyi/springcloud/pojo/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-post-service-consumer11200/src/main/java/usyd/mingyi/springcloud/controller/PostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-post-service-consumer11200/src/main/java/usyd/mingyi/springcloud/controller/PostController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-uaa7000/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-uaa7000/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-uaa7000/src/main/java/usyd/mingyi/springcloud/UserAuthenticationMain7000.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-uaa7000/src/main/java/usyd/mingyi/springcloud/UserAuthenticationMain7000.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-uaa7000/src/main/java/usyd/mingyi/springcloud/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-uaa7000/src/main/java/usyd/mingyi/springcloud/controller/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-uaa7000/src/main/java/usyd/mingyi/springcloud/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-uaa7000/src/main/java/usyd/mingyi/springcloud/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-uaa7000/src/main/java/usyd/mingyi/springcloud/service/UserServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-uaa7000/src/main/java/usyd/mingyi/springcloud/service/UserServiceImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-uaa7000/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-uaa7000/src/main/resources/application-dev.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-uaa7000/src/main/resources/application-prod.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-uaa7000/src/main/resources/application-prod.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-chat-service-consumer11700/deploy/deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-chat-service-consumer11700/deploy/deployment.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-chat-service-provider12700/deploy/deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-chat-service-provider12700/deploy/deployment.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-comment-service-consumer11500/deploy/deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-comment-service-consumer11500/deploy/deployment.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-comment-service-provider12500/deploy/deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-comment-service-provider12500/deploy/deployment.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-friend-service-provider12400/deploy/deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-friend-service-provider12400/deploy/deployment.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-gateway9257/deploy/deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway9257/deploy/deployment.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-interaction-service-consumer11600/deploy/deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-interaction-service-consumer11600/deploy/deployment.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-interaction-service-provider12600/deploy/deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-interaction-service-provider12600/deploy/deployment.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-object-storage-service12900/deploy/deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-object-storage-service12900/deploy/deployment.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-pet-service-consumer11300/deploy/deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-pet-service-consumer11300/deploy/deployment.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-pet-service-provider12300/deploy/deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-pet-service-provider12300/deploy/deployment.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-post-service-consumer11200/deploy/deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-post-service-consumer11200/deploy/deployment.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-post-service-provider12200/deploy/deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-post-service-provider12200/deploy/deployment.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-socket-service-provider12800/deploy/deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-socket-service-provider12800/deploy/deployment.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-user-service-consumer11100/deploy/deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-user-service-consumer11100/deploy/deployment.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-user-service-provider12100/deploy/deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-user-service-provider12100/deploy/deployment.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -344,6 +351,10 @@
       <workItem from="1695792302730" duration="398000" />
       <workItem from="1695792741365" duration="599000" />
       <workItem from="1695794456057" duration="11303000" />
+      <workItem from="1695832415494" duration="8000" />
+      <workItem from="1695837771657" duration="102000" />
+      <workItem from="1695838734043" duration="39000" />
+      <workItem from="1695840501910" duration="428000" />
     </task>
     <servers />
   </component>
@@ -357,11 +368,6 @@
           <url>file://$PROJECT_DIR$/cloud-chat-service-provider12700/src/main/java/usyd/mingyi/springcloud/service/SocketServiceImp.java</url>
           <line>44</line>
           <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/cloud-post-service-consumer11200/src/main/java/usyd/mingyi/springcloud/controller/PostController.java</url>
-          <line>48</line>
-          <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

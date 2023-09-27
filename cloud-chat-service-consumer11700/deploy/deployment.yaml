@@ -38,6 +38,16 @@ spec:
         app: chat-service-consumer
         version: v1
     spec:
+      affinity:
+        nodeAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - weight: 1
+              preference:
+                matchExpressions:
+                  - key: memo
+                    operator: In
+                    values:
+                      - high  # 这里指定了带有 "memo=high" 标签的节点
 
       containers:
         - image: $REGISTRY/$DOCKERHUB_NAMESPACE/chat-service-consumer:latest
