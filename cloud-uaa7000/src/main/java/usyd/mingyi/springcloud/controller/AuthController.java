@@ -68,7 +68,10 @@ public class AuthController {
                     String token = JWTUtils.generateToken(newUser);
                     return R.success(token);
                 }
+            }else {
+                return R.success(JWTUtils.generateToken(user));
             }
+
         }else {
             return R.error("code not equal");
         }

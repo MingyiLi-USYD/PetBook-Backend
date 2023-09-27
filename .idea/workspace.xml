@@ -5,10 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c94f14d2-c5cb-4c95-82ee-9d780f0022b5" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jpa-buddy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-api-commons/src/main/java/usyd/mingyi/springcloud/common/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-api-commons/src/main/java/usyd/mingyi/springcloud/common/GlobalExceptionHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cloud-uaa7000/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-uaa7000/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cloud-uaa7000/deploy/deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-uaa7000/deploy/deployment.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-uaa7000/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-uaa7000/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-uaa7000/src/main/java/usyd/mingyi/springcloud/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-uaa7000/src/main/java/usyd/mingyi/springcloud/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -244,6 +248,7 @@
     </configuration>
     <list>
       <item itemvalue="Spring Boot.ChatServiceMain11700" />
+      <item itemvalue="Spring Boot.UserAuthenticationMain7000" />
       <item itemvalue="Spring Boot.ChatServiceMain12700" />
       <item itemvalue="Spring Boot.CommentServiceMain11500" />
       <item itemvalue="Spring Boot.CommentServiceMain12500" />
@@ -257,7 +262,6 @@
       <item itemvalue="Spring Boot.PostServiceMain11200" />
       <item itemvalue="Spring Boot.PostServiceMain12200" />
       <item itemvalue="Spring Boot.SocketServiceMain12800" />
-      <item itemvalue="Spring Boot.UserAuthenticationMain7000" />
       <item itemvalue="Spring Boot.UserServiceMain11100" />
       <item itemvalue="Spring Boot.UserServiceMain12100" />
       <item itemvalue="Spring Boot.ObjectStorageServiceMain12900" />
@@ -346,7 +350,10 @@
       <workItem from="1695845799601" duration="1000" />
       <workItem from="1695846055635" duration="564000" />
       <workItem from="1695846882769" duration="323000" />
-      <workItem from="1695852246330" duration="72000" />
+      <workItem from="1695852246330" duration="152000" />
+      <workItem from="1695852652001" duration="37000" />
+      <workItem from="1695852768953" duration="787000" />
+      <workItem from="1695853563707" duration="2100000" />
     </task>
     <servers />
   </component>
@@ -360,6 +367,11 @@
           <url>file://$PROJECT_DIR$/cloud-chat-service-provider12700/src/main/java/usyd/mingyi/springcloud/service/SocketServiceImp.java</url>
           <line>44</line>
           <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/cloud-uaa7000/src/main/java/usyd/mingyi/springcloud/controller/AuthController.java</url>
+          <line>53</line>
+          <option name="timeStamp" value="14" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

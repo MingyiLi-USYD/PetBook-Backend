@@ -65,7 +65,7 @@ public class GlobalExceptionHandler {
     }
     @ExceptionHandler(CustomException.class)
     public R<String> customExceptionHandler(CustomException exception){
-        log.info("存在SQL异常");
+        log.info("自定义错误");
         return R.error(exception.getMessage());
     }
 }
