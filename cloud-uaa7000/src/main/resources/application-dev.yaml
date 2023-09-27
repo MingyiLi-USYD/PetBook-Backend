@@ -11,3 +11,27 @@ spring:
     password: 123456
     url: jdbc:mysql://192.168.239.151:30002/db02?useUnicode=true&characterEncoding=utf-8
     driver-class-name: com.mysql.cj.jdbc.Driver
+
+  redis:
+    host: localhost
+    port: 6379
+    database: 0
+    timeout: 1800000
+    lettuce:
+      pool:
+        max-active: 8
+        max-wait: -1
+        max-idle: 8
+        min-idle: 0
+    password: 123456
+  mail:
+    port: 587
+    host: smtp.gmail.com
+    username: LMY741917776@gmail.com
+    password: walycwwkefhiojsm
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true

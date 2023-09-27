@@ -44,16 +44,21 @@ public class PostController {
     @GlobalTransactional
     public R<String> addPost(@Valid Post post,
                              @RequestParam("images") MultipartFile[] images,
-                             @RequestParam("mentions") List<Long> userIds) {
+                             @RequestParam(value = "mentions",required = false) List<Long> userIds) {
 
         if (post.getVisible()) {
-            for (Long userId : userIds) {
-                int friendshipStatus = friendServiceFeign.getFriendshipStatus(userId); //检查之间是否是好友
-                if (friendshipStatus != 1) {
-                    //1代表是好友 只要不上1 就不是好友 拒绝此次操作
-                    throw new CustomException("提及的人存在非好友");
+            if (userIds!=null){
+
+                for (Long userId : userIds) {
+                    int friendshipStatus = friendServiceFeign.getFriendshipStatus(userId); //检查之间是否是好友
+                    if (friendshipStatus != 1) {
+                        //1代表是好友 只要不上1 就不是好友 拒绝此次操作
+                        throw new CustomException("提及的人存在非好友");
+                    }
                 }
             }
+
+
             if (!post.getIsDelay()) {// 表示不需要定时上传   所以说立刻发布
                 List<String> imageUrlList = objectStorageServiceFeign.savePostImages(images);
                 post.setCoverImage(imageUrlList.get(0));

@@ -6,7 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="c94f14d2-c5cb-4c95-82ee-9d780f0022b5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-object-storage-service12900/deploy/deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-object-storage-service12900/deploy/deployment.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-api-commons/src/main/java/usyd/mingyi/springcloud/pojo/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-api-commons/src/main/java/usyd/mingyi/springcloud/pojo/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-post-service-consumer11200/src/main/java/usyd/mingyi/springcloud/controller/PostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-post-service-consumer11200/src/main/java/usyd/mingyi/springcloud/controller/PostController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-uaa7000/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-uaa7000/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-uaa7000/src/main/java/usyd/mingyi/springcloud/UserAuthenticationMain7000.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-uaa7000/src/main/java/usyd/mingyi/springcloud/UserAuthenticationMain7000.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-uaa7000/src/main/java/usyd/mingyi/springcloud/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-uaa7000/src/main/java/usyd/mingyi/springcloud/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-uaa7000/src/main/java/usyd/mingyi/springcloud/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-uaa7000/src/main/java/usyd/mingyi/springcloud/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-uaa7000/src/main/java/usyd/mingyi/springcloud/service/UserServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-uaa7000/src/main/java/usyd/mingyi/springcloud/service/UserServiceImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-uaa7000/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-uaa7000/src/main/resources/application-dev.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-uaa7000/src/main/resources/application-prod.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-uaa7000/src/main/resources/application-prod.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -332,6 +340,10 @@
       <workItem from="1695744907308" duration="912000" />
       <workItem from="1695752058980" duration="1357000" />
       <workItem from="1695754458585" duration="2796000" />
+      <workItem from="1695759401270" duration="3000" />
+      <workItem from="1695792302730" duration="398000" />
+      <workItem from="1695792741365" duration="599000" />
+      <workItem from="1695794456057" duration="11303000" />
     </task>
     <servers />
   </component>
@@ -347,9 +359,9 @@
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/cloud-uaa7000/src/main/java/usyd/mingyi/springcloud/controller/AuthController.java</url>
-          <line>43</line>
-          <option name="timeStamp" value="18" />
+          <url>file://$PROJECT_DIR$/cloud-post-service-consumer11200/src/main/java/usyd/mingyi/springcloud/controller/PostController.java</url>
+          <line>48</line>
+          <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
