@@ -6,12 +6,47 @@
   <component name="ChangeListManager">
     <list default="true" id="c94f14d2-c5cb-4c95-82ee-9d780f0022b5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-comment-service-consumer11500/src/main/java/usyd/mingyi/springcloud/controller/CommentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-comment-service-consumer11500/src/main/java/usyd/mingyi/springcloud/controller/CommentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-comment-service-provider12500/src/main/java/usyd/mingyi/springcloud/controller/CommentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-comment-service-provider12500/src/main/java/usyd/mingyi/springcloud/controller/CommentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-comment-service-provider12500/src/main/java/usyd/mingyi/springcloud/controller/SubcommentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-comment-service-provider12500/src/main/java/usyd/mingyi/springcloud/controller/SubcommentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-friend-service-consumer11400/src/main/java/usyd/mingyi/springcloud/controller/FriendController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-friend-service-consumer11400/src/main/java/usyd/mingyi/springcloud/controller/FriendController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-interaction-service-provider12600/src/main/java/usyd/mingyi/springcloud/service/LovePostServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-interaction-service-provider12600/src/main/java/usyd/mingyi/springcloud/service/LovePostServiceImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-interaction-service-provider12600/src/main/java/usyd/mingyi/springcloud/service/MentionServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-interaction-service-provider12600/src/main/java/usyd/mingyi/springcloud/service/MentionServiceImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-api-bases/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-api-bases/src/main/java/usyd/mingyi/springcloud/common/CustomException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-api-bases/src/main/java/usyd/mingyi/springcloud/common/R.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-api-bases/src/main/java/usyd/mingyi/springcloud/dto/CommentDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-api-bases/src/main/java/usyd/mingyi/springcloud/dto/FriendRequestDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-api-bases/src/main/java/usyd/mingyi/springcloud/dto/FriendshipDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-api-bases/src/main/java/usyd/mingyi/springcloud/dto/LovePostDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-api-bases/src/main/java/usyd/mingyi/springcloud/dto/MentionDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-api-bases/src/main/java/usyd/mingyi/springcloud/dto/PetDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-api-bases/src/main/java/usyd/mingyi/springcloud/dto/PostDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-api-bases/src/main/java/usyd/mingyi/springcloud/dto/SubcommentDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-api-bases/src/main/java/usyd/mingyi/springcloud/dto/UserDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-api-bases/src/main/java/usyd/mingyi/springcloud/entity/ChatMessage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-api-bases/src/main/java/usyd/mingyi/springcloud/entity/RequestMessage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-api-bases/src/main/java/usyd/mingyi/springcloud/entity/ResponseMessage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-api-bases/src/main/java/usyd/mingyi/springcloud/entity/ServiceMessage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-api-bases/src/main/java/usyd/mingyi/springcloud/entity/ServiceMessageType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-api-bases/src/main/java/usyd/mingyi/springcloud/entity/SystemMessage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-api-bases/src/main/java/usyd/mingyi/springcloud/entity/SystemMessageType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-api-bases/src/main/java/usyd/mingyi/springcloud/pojo/CloudMessage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-api-bases/src/main/java/usyd/mingyi/springcloud/pojo/Comment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-api-bases/src/main/java/usyd/mingyi/springcloud/pojo/FriendRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-api-bases/src/main/java/usyd/mingyi/springcloud/pojo/Friendship.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-api-bases/src/main/java/usyd/mingyi/springcloud/pojo/LovePost.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-api-bases/src/main/java/usyd/mingyi/springcloud/pojo/Mention.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-api-bases/src/main/java/usyd/mingyi/springcloud/pojo/Pet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-api-bases/src/main/java/usyd/mingyi/springcloud/pojo/PetImage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-api-bases/src/main/java/usyd/mingyi/springcloud/pojo/Post.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-api-bases/src/main/java/usyd/mingyi/springcloud/pojo/PostImage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-api-bases/src/main/java/usyd/mingyi/springcloud/pojo/ServerInfo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-api-bases/src/main/java/usyd/mingyi/springcloud/pojo/Subcomment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-api-bases/src/main/java/usyd/mingyi/springcloud/pojo/Subscription.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-api-bases/src/main/java/usyd/mingyi/springcloud/pojo/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-api-bases/src/main/java/usyd/mingyi/springcloud/utils/BaseContext.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-api-bases/src/main/java/usyd/mingyi/springcloud/utils/FieldUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-api-bases/src/main/java/usyd/mingyi/springcloud/utils/JWTUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-api-bases/src/main/java/usyd/mingyi/springcloud/utils/PasswordUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-api-bases/src/main/java/usyd/mingyi/springcloud/utils/Promise.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-api-bases/src/main/java/usyd/mingyi/springcloud/utils/ResultHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-api-commons/src/main/java/usyd/mingyi/springcloud/component/PoConvertToDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-api-commons/src/main/java/usyd/mingyi/springcloud/component/PoConvertToDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -353,7 +388,10 @@
       <workItem from="1695852652001" duration="37000" />
       <workItem from="1695852768953" duration="787000" />
       <workItem from="1695853563707" duration="2171000" />
-      <workItem from="1695855936628" duration="336000" />
+      <workItem from="1695855936628" duration="594000" />
+      <workItem from="1695861327932" duration="2680000" />
+      <workItem from="1695894170598" duration="1642000" />
+      <workItem from="1695923485203" duration="1494000" />
     </task>
     <servers />
   </component>

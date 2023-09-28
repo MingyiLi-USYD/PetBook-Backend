@@ -5,7 +5,6 @@
     <modelVersion>4.0.0</modelVersion>
 
     <modules>
-        <module>cloud-api-bases</module>
         <module>cloud-api-commons</module>
         <module>cloud-gateway9257</module>
         <module>cloud-uaa7000</module>

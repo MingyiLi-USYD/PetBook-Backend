@@ -11,7 +11,6 @@ import java.util.List;
 @Mapper(componentModel = "spring")
 public interface PoConvertToDto {
     //项目关系比较简单 所以说Dto是继承的Po  所以说不需要加映射条件
-
     //因为是继承关系
     @Mapping(target = "postId", source = "postId")
     @Mapping(target = "userId", source = "userId")
