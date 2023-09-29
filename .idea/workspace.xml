@@ -5,47 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c94f14d2-c5cb-4c95-82ee-9d780f0022b5" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/cloud-petbook-common-starter-autoconfigure/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-petbook-common-starter-autoconfigure/src/main/java/usyd/mingyi/common/auto/HandlerInterceptorAutoConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-petbook-common-starter-autoconfigure/src/main/java/usyd/mingyi/common/auto/WebConfigAutoConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-petbook-common-starter-autoconfigure/src/main/java/usyd/mingyi/common/bean/WebConfigProperties.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-petbook-common-starter-autoconfigure/src/main/java/usyd/mingyi/common/service/WebConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-petbook-common-starter-autoconfigure/src/main/java/usyd/mingyi/common/utils/BaseContext.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-petbook-common-starter-autoconfigure/src/main/java/usyd/mingyi/common/utils/FieldUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-petbook-common-starter-autoconfigure/src/main/java/usyd/mingyi/common/utils/JWTUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-petbook-common-starter-autoconfigure/src/main/java/usyd/mingyi/common/utils/PasswordUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-petbook-common-starter-autoconfigure/src/main/java/usyd/mingyi/common/utils/Promise.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-petbook-common-starter-autoconfigure/src/main/java/usyd/mingyi/common/utils/ResultHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-petbook-common-starter-autoconfigure/src/main/resources/META-INF/spring.factories" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-petbook-common-starter/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-api-bases/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-api-bases/src/main/java/usyd/mingyi/springcloud/common/CustomException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-api-bases/src/main/java/usyd/mingyi/springcloud/common/R.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-api-bases/src/main/java/usyd/mingyi/springcloud/dto/CommentDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-api-bases/src/main/java/usyd/mingyi/springcloud/dto/FriendRequestDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-api-bases/src/main/java/usyd/mingyi/springcloud/dto/FriendshipDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-api-bases/src/main/java/usyd/mingyi/springcloud/dto/LovePostDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-api-bases/src/main/java/usyd/mingyi/springcloud/dto/MentionDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-api-bases/src/main/java/usyd/mingyi/springcloud/dto/PetDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-api-bases/src/main/java/usyd/mingyi/springcloud/dto/PostDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-api-bases/src/main/java/usyd/mingyi/springcloud/dto/SubcommentDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-api-bases/src/main/java/usyd/mingyi/springcloud/dto/UserDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-api-bases/src/main/java/usyd/mingyi/springcloud/entity/ChatMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-api-bases/src/main/java/usyd/mingyi/springcloud/entity/RequestMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-api-bases/src/main/java/usyd/mingyi/springcloud/entity/ResponseMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-api-bases/src/main/java/usyd/mingyi/springcloud/entity/ServiceMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-api-bases/src/main/java/usyd/mingyi/springcloud/entity/ServiceMessageType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-api-bases/src/main/java/usyd/mingyi/springcloud/entity/SystemMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-api-bases/src/main/java/usyd/mingyi/springcloud/entity/SystemMessageType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-api-bases/src/main/java/usyd/mingyi/springcloud/pojo/CloudMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-api-bases/src/main/java/usyd/mingyi/springcloud/pojo/Comment.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-api-bases/src/main/java/usyd/mingyi/springcloud/pojo/FriendRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-api-bases/src/main/java/usyd/mingyi/springcloud/pojo/Friendship.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-api-bases/src/main/java/usyd/mingyi/springcloud/pojo/LovePost.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-api-bases/src/main/java/usyd/mingyi/springcloud/pojo/Mention.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-api-bases/src/main/java/usyd/mingyi/springcloud/pojo/Pet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-api-bases/src/main/java/usyd/mingyi/springcloud/pojo/PetImage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-api-bases/src/main/java/usyd/mingyi/springcloud/pojo/Post.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-api-bases/src/main/java/usyd/mingyi/springcloud/pojo/PostImage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-api-bases/src/main/java/usyd/mingyi/springcloud/pojo/ServerInfo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-api-bases/src/main/java/usyd/mingyi/springcloud/pojo/Subcomment.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-api-bases/src/main/java/usyd/mingyi/springcloud/pojo/Subscription.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-api-bases/src/main/java/usyd/mingyi/springcloud/pojo/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-api-bases/src/main/java/usyd/mingyi/springcloud/utils/BaseContext.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-api-bases/src/main/java/usyd/mingyi/springcloud/utils/FieldUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-api-bases/src/main/java/usyd/mingyi/springcloud/utils/JWTUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-api-bases/src/main/java/usyd/mingyi/springcloud/utils/PasswordUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-api-bases/src/main/java/usyd/mingyi/springcloud/utils/Promise.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-api-bases/src/main/java/usyd/mingyi/springcloud/utils/ResultHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-api-commons/src/main/java/usyd/mingyi/springcloud/component/PoConvertToDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-api-commons/src/main/java/usyd/mingyi/springcloud/component/PoConvertToDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-api-commons/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-api-commons/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-api-commons/src/main/java/usyd/mingyi/springcloud/config/MultipartSupportConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-api-commons/src/main/java/usyd/mingyi/springcloud/config/MultipartSupportConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-api-commons/src/main/java/usyd/mingyi/springcloud/config/MyInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-petbook-common-starter-autoconfigure/src/main/java/usyd/mingyi/common/service/MyHandlerInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-api-commons/src/main/java/usyd/mingyi/springcloud/config/WebConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-chat-service-consumer11700/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-chat-service-consumer11700/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-gateway9257/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway9257/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-user-service-consumer11100/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-user-service-consumer11100/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-user-service-consumer11100/src/main/java/usyd/mingyi/springcloud/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-user-service-consumer11100/src/main/java/usyd/mingyi/springcloud/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-user-service-consumer11100/src/main/resources/bootstrap.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-user-service-consumer11100/src/main/resources/bootstrap.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-user-service-provider12100/src/main/java/usyd/mingyi/springcloud/utils/BaseContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-user-service-provider12100/src/main/java/usyd/mingyi/springcloud/utils/BaseContext.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -89,6 +73,9 @@
       </MavenGeneralSettings>
     </option>
   </component>
+  <component name="MavenRunner">
+    <option name="skipTests" value="true" />
+  </component>
   <component name="ProjectId" id="2VeLlQ3fvWROFFDmeCUInJD3mFx" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -108,8 +95,8 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;cicd&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/WorkSpace/PetBook/cloud-object-storage-service12900&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;11&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/WorkSpace/AnimalCare&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -119,7 +106,7 @@
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;51780bce72b2d1101487b75df6ba73a2&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;d45fc9d45a26b7f3186cdb4b996a740e&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -128,13 +115,14 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\WorkSpace\PetBook\cloud-petbook-common-starter-autoconfigure\src\main\java\usyd\mingyi\common" />
       <recent name="D:\WorkSpace\PetBook\cloud-object-storage-service12900" />
       <recent name="D:\WorkSpace\PetBook\cloud-object-storage\src\main\resources" />
       <recent name="D:\WorkSpace\PetBook\cloud-api-bases\src\main\java\usyd\mingyi\springcloud" />
       <recent name="D:\WorkSpace\PetBook\cloud-api-bases\src\main\java" />
-      <recent name="D:\WorkSpace\PetBook\cloud-api-commons\src\main\java\usyd\mingyi\springcloud\utils" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="usyd.mingyi.common.service" />
       <recent name="usyd.mingyi.springcloud.utils" />
       <recent name="usyd.mingyi.springcloud.config" />
       <recent name="usyd.mingyi.springcloud.common" />
@@ -282,6 +270,7 @@
     </configuration>
     <list>
       <item itemvalue="Spring Boot.ChatServiceMain11700" />
+      <item itemvalue="Spring Boot.UserServiceMain11100" />
       <item itemvalue="Spring Boot.UserAuthenticationMain7000" />
       <item itemvalue="Spring Boot.ChatServiceMain12700" />
       <item itemvalue="Spring Boot.CommentServiceMain11500" />
@@ -296,7 +285,6 @@
       <item itemvalue="Spring Boot.PostServiceMain11200" />
       <item itemvalue="Spring Boot.PostServiceMain12200" />
       <item itemvalue="Spring Boot.SocketServiceMain12800" />
-      <item itemvalue="Spring Boot.UserServiceMain11100" />
       <item itemvalue="Spring Boot.UserServiceMain12100" />
       <item itemvalue="Spring Boot.ObjectStorageServiceMain12900" />
     </list>
@@ -391,7 +379,13 @@
       <workItem from="1695855936628" duration="594000" />
       <workItem from="1695861327932" duration="2680000" />
       <workItem from="1695894170598" duration="1642000" />
-      <workItem from="1695923485203" duration="1494000" />
+      <workItem from="1695923485203" duration="5801000" />
+      <workItem from="1695933241084" duration="1983000" />
+      <workItem from="1695935912986" duration="72000" />
+      <workItem from="1695938093425" duration="54000" />
+      <workItem from="1695975911790" duration="3180000" />
+      <workItem from="1695981970416" duration="5445000" />
+      <workItem from="1696012656512" duration="3735000" />
     </task>
     <servers />
   </component>

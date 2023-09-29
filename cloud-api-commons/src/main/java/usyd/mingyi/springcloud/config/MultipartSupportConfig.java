@@ -1,6 +1,5 @@
 package usyd.mingyi.springcloud.config;
 
-import feign.Contract;
 import feign.codec.Encoder;
 import feign.form.spring.SpringFormEncoder;
 import org.springframework.beans.factory.ObjectFactory;

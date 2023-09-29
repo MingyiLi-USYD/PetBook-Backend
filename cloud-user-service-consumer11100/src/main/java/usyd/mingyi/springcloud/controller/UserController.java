@@ -8,13 +8,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.HandlerInterceptor;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import usyd.mingyi.springcloud.common.FriendRequestHandler;
 import usyd.mingyi.springcloud.common.FriendshipHandler;
 import usyd.mingyi.springcloud.common.R;
 import usyd.mingyi.springcloud.dto.FriendRequestDto;
 import usyd.mingyi.springcloud.dto.FriendshipDto;
 import usyd.mingyi.springcloud.dto.UserDto;
-import usyd.mingyi.springcloud.pojo.FriendRequest;
 import usyd.mingyi.springcloud.pojo.Pet;
 import usyd.mingyi.springcloud.pojo.Post;
 import usyd.mingyi.springcloud.pojo.User;
@@ -45,6 +46,8 @@ public class UserController {
     FriendshipHandler friendshipHandler;
     @Autowired
     FriendRequestHandler friendRequestHandler;
+    @Autowired
+    HandlerInterceptor handlerInterceptor;
 
 
     @GetMapping("/user/{userId}")

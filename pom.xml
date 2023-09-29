@@ -25,6 +25,8 @@
         <module>cloud-chat-service-consumer11700</module>
 
         <module>cloud-object-storage-service12900</module>
+        <module>cloud-petbook-common-starter</module>
+        <module>cloud-petbook-common-starter-autoconfigure</module>
     </modules>
 
     <parent>
@@ -136,7 +138,7 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-
+<!--
     <build>
         <plugins>
             <plugin>
@@ -163,5 +165,5 @@
                 </configuration>
             </plugin>
         </plugins>
-    </build>
+    </build>-->
 </project>

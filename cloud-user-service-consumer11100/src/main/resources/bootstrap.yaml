@@ -3,4 +3,7 @@ server:
 spring:
   application:
     name: user-service-consumer
-
+mingyi:
+  hello:
+    prefix: li
+    suffix: np
