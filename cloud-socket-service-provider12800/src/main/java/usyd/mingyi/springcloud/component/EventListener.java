@@ -7,9 +7,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
-import usyd.mingyi.springcloud.entity.SystemMessage;
-import usyd.mingyi.springcloud.entity.SystemMessageType;
-import usyd.mingyi.springcloud.service.ChatServiceFeign;
+import usyd.mingyi.common.entity.SystemMessage;
+import usyd.mingyi.common.entity.SystemMessageType;
+import usyd.mingyi.common.feign.ChatServiceFeign;
 
 
 @Component
@@ -90,7 +90,7 @@ public class EventListener {
 
     public void afterSaveToCache(String userId){
         //通知好友上线
-        SystemMessage systemMessage = new SystemMessage(userId, System.currentTimeMillis(),null,SystemMessageType.FRIEND_ONLINE,null);
+        SystemMessage systemMessage = new SystemMessage(userId, System.currentTimeMillis(),null, SystemMessageType.FRIEND_ONLINE,null);
         chatServiceFeign.sendSystemMessage(systemMessage);
     }
 

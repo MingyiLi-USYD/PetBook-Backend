@@ -19,6 +19,7 @@ import usyd.mingyi.springcloud.mapstruct.PoConvertToDto;
 
 
 import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -52,6 +53,8 @@ public class CommentController {
         Comment commentRes = commentServiceFeign.addComment(comment);
         CommentDto commentDto = poConvertToDto.commentToCommentDto(commentRes);
         commentDto.setCommentUser(userServiceFeign.getCurrentUser());
+        commentDto.setSubcommentsLength(0L);
+        commentDto.setSubcommentDtos(new ArrayList<>());
 
         //socket推送消息
         Long currentId = BaseContext.getCurrentId();

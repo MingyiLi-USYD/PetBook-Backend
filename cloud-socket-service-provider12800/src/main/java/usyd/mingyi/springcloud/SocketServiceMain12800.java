@@ -7,7 +7,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-@EnableFeignClients
+@EnableFeignClients(basePackages = "usyd.mingyi.common")
 public class SocketServiceMain12800 {
     public static void main(String[] args) {
         SpringApplication.run(SocketServiceMain12800.class,args);

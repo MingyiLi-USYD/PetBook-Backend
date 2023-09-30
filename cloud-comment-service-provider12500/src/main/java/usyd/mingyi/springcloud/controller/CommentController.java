@@ -28,7 +28,7 @@ public class CommentController {
         if(!success){
             throw new CustomException("添加失败");
         }
-        return R.success(comment);
+        return R.success(commentService.getById(comment.getCommentId()));
     }
 
     @GetMapping("/comment/{commentId}")

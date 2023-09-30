@@ -6,20 +6,21 @@ import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
+import usyd.mingyi.common.entity.ChatMessage;
+import usyd.mingyi.common.entity.ResponseMessage;
+import usyd.mingyi.common.entity.ServiceMessage;
+import usyd.mingyi.common.entity.SystemMessage;
+import usyd.mingyi.common.feign.FriendServiceFeign;
+import usyd.mingyi.common.feign.UserServiceFeign;
+import usyd.mingyi.common.pojo.User;
+import usyd.mingyi.common.pojo.Friendship;
+import usyd.mingyi.common.utils.BaseContext;
 import usyd.mingyi.springcloud.component.CacheManager;
-import usyd.mingyi.springcloud.entity.ChatMessage;
-import usyd.mingyi.springcloud.entity.ResponseMessage;
-import usyd.mingyi.springcloud.entity.ServiceMessage;
-import usyd.mingyi.springcloud.entity.SystemMessage;
-import usyd.mingyi.springcloud.pojo.Friendship;
-import usyd.mingyi.springcloud.pojo.User;
-import usyd.mingyi.springcloud.service.FriendServiceFeign;
-import usyd.mingyi.springcloud.service.UserServiceFeign;
-import usyd.mingyi.springcloud.utils.BaseContext;
 import java.util.Map;
 import java.util.stream.Stream;
-import static usyd.mingyi.springcloud.entity.ServiceMessageType.FRIEND_OFFLINE;
-import static usyd.mingyi.springcloud.entity.ServiceMessageType.FRIEND_ONLINE;
+
+import static usyd.mingyi.common.entity.ServiceMessageType.FRIEND_OFFLINE;
+import static usyd.mingyi.common.entity.ServiceMessageType.FRIEND_ONLINE;
 
 @Component
 @Slf4j

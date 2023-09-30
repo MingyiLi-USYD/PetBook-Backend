@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.BoundHashOperations;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
-import usyd.mingyi.springcloud.common.CustomException;
+import usyd.mingyi.common.common.CustomException;
 
 
 @Component("redisDecorator")

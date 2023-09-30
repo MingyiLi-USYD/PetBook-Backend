@@ -40,7 +40,6 @@ public class LovePostController {
     public R<Page<LovePostDto>> LovePostsToMe(@RequestParam("current") Long current,
                                               @RequestParam("pageSize") Integer pageSize) {
         Page<LovePost> lovePostPage = interactionServiceFeign.LovePostsToMe(current, pageSize);
-
         Page<LovePostDto> lovePostDtoPage = poConvertToDto.convertLovePostPage(lovePostPage);
         lovePostDtoPage.getRecords().forEach(lovePostDto -> {
             lovePostDto.setUserInfo(userServiceFeign.getUserById(lovePostDto.getUserId()));
