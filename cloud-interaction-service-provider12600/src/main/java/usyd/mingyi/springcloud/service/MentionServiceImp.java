@@ -5,9 +5,11 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
-import usyd.mingyi.springcloud.common.CustomException;
+
+import usyd.mingyi.common.common.CustomException;
+import usyd.mingyi.common.pojo.Mention;
 import usyd.mingyi.springcloud.mapper.MentionMapper;
-import usyd.mingyi.springcloud.pojo.Mention;
+
 
 
 @Service

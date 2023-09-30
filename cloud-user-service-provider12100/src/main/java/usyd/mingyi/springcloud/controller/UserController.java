@@ -6,11 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import usyd.mingyi.springcloud.common.CustomException;
-import usyd.mingyi.springcloud.common.R;
-import usyd.mingyi.springcloud.pojo.User;
+import usyd.mingyi.common.common.CustomException;
+import usyd.mingyi.common.common.R;
+import usyd.mingyi.common.pojo.User;
+import usyd.mingyi.common.utils.BaseContext;
 import usyd.mingyi.springcloud.service.UserService;
-import usyd.mingyi.springcloud.utils.BaseContext;
+
 
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;

@@ -5,8 +5,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import usyd.mingyi.springcloud.entity.ChatMessage;
-import usyd.mingyi.springcloud.mongodb.entity.CloudMessage;
+
+import usyd.mingyi.common.entity.ChatMessage;
+
+import usyd.mingyi.common.pojo.CloudMessage;
 import usyd.mingyi.springcloud.mongodb.service.CloudMessageService;
 import usyd.mingyi.springcloud.utils.CommonUtils;
 
@@ -34,7 +36,7 @@ public class ChatServiceImp implements ChatService {
     }
 
     @Override
-    public Map<String,CloudMessage> retrieveAllDataFromMongoDB(String userId) {
+    public Map<String, CloudMessage> retrieveAllDataFromMongoDB(String userId) {
         return cloudMessageService.getChatRecords(userId);
     }
 

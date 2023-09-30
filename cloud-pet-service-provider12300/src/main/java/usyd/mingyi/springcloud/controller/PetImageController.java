@@ -5,11 +5,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import usyd.mingyi.springcloud.common.R;
-import usyd.mingyi.springcloud.pojo.PetImage;
+
+import usyd.mingyi.common.common.R;
+import usyd.mingyi.common.pojo.PetImage;
+import usyd.mingyi.common.utils.BaseContext;
 import usyd.mingyi.springcloud.service.PetImageService;
 import usyd.mingyi.springcloud.service.PetService;
-import usyd.mingyi.springcloud.utils.BaseContext;
+
 
 import javax.validation.Valid;
 import java.util.List;

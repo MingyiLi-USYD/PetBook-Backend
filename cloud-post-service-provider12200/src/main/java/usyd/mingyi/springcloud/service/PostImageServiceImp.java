@@ -4,8 +4,9 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import usyd.mingyi.common.pojo.PostImage;
 import usyd.mingyi.springcloud.mapper.PostImageMapper;
-import usyd.mingyi.springcloud.pojo.PostImage;
+
 
 import java.util.List;
 

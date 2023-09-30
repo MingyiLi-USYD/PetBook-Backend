@@ -5,11 +5,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import usyd.mingyi.springcloud.common.R;
-import usyd.mingyi.springcloud.entity.ChatMessage;
-import usyd.mingyi.springcloud.entity.RequestMessage;
-import usyd.mingyi.springcloud.entity.ServiceMessage;
-import usyd.mingyi.springcloud.entity.SystemMessage;
+
+import usyd.mingyi.common.common.R;
+import usyd.mingyi.common.entity.ChatMessage;
+import usyd.mingyi.common.entity.ServiceMessage;
+import usyd.mingyi.common.entity.SystemMessage;
 import usyd.mingyi.springcloud.service.SocketService;
 
 @Slf4j

@@ -2,8 +2,9 @@ package usyd.mingyi.springcloud.service;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
-import usyd.mingyi.springcloud.pojo.Comment;
-import usyd.mingyi.springcloud.pojo.Subcomment;
+import usyd.mingyi.common.pojo.Comment;
+import usyd.mingyi.common.pojo.Subcomment;
+
 
 public interface CommentService extends IService<Comment> {
     Page<Comment> getCommentsByPostId(Long currPage, Integer pageSize, Long postId);

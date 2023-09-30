@@ -4,15 +4,16 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import usyd.mingyi.springcloud.common.R;
-import usyd.mingyi.springcloud.component.PoConvertToDto;
-import usyd.mingyi.springcloud.dto.MentionDto;
-import usyd.mingyi.springcloud.pojo.Comment;
-import usyd.mingyi.springcloud.pojo.Mention;
-import usyd.mingyi.springcloud.service.CommentServiceFeign;
-import usyd.mingyi.springcloud.service.InteractionServiceFeign;
-import usyd.mingyi.springcloud.service.PostServiceFeign;
-import usyd.mingyi.springcloud.service.UserServiceFeign;
+import usyd.mingyi.common.common.R;
+import usyd.mingyi.common.dto.MentionDto;
+import usyd.mingyi.common.feign.CommentServiceFeign;
+import usyd.mingyi.common.feign.InteractionServiceFeign;
+import usyd.mingyi.common.feign.PostServiceFeign;
+import usyd.mingyi.common.feign.UserServiceFeign;
+import usyd.mingyi.common.pojo.Comment;
+import usyd.mingyi.common.pojo.Mention;
+import usyd.mingyi.springcloud.mapstruct.PoConvertToDto;
+
 
 import javax.validation.Valid;
 

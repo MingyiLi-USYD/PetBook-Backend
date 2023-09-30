@@ -1,6 +1,6 @@
 package usyd.mingyi.springcloud.service;
 import com.baomidou.mybatisplus.extension.service.IService;
-import usyd.mingyi.springcloud.pojo.Subcomment;
+import usyd.mingyi.common.pojo.Subcomment;
 
 import java.util.List;
 

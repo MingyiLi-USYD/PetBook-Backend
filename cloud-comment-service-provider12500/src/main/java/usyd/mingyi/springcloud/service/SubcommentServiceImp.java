@@ -4,8 +4,8 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.github.yulichang.wrapper.MPJLambdaWrapper;
 import org.springframework.stereotype.Service;
+import usyd.mingyi.common.pojo.Subcomment;
 import usyd.mingyi.springcloud.mapper.SubcommentMapper;
-import usyd.mingyi.springcloud.pojo.Subcomment;
 
 import java.util.List;
 

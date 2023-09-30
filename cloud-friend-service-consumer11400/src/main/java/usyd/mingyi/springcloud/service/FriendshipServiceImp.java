@@ -1,7 +1,8 @@
 package usyd.mingyi.springcloud.service;
 
 import org.springframework.stereotype.Service;
-import usyd.mingyi.springcloud.dto.FriendshipDto;
+import usyd.mingyi.common.dto.FriendshipDto;
+
 
 import java.util.List;
 

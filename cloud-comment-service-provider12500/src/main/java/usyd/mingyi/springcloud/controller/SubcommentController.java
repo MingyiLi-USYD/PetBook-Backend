@@ -4,11 +4,12 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import usyd.mingyi.springcloud.common.R;
-import usyd.mingyi.springcloud.dto.SubcommentDto;
-import usyd.mingyi.springcloud.pojo.Subcomment;
+
+import usyd.mingyi.common.common.R;
+import usyd.mingyi.common.pojo.Subcomment;
+import usyd.mingyi.common.utils.BaseContext;
 import usyd.mingyi.springcloud.service.SubcommentService;
-import usyd.mingyi.springcloud.utils.BaseContext;
+
 
 import java.util.List;
 

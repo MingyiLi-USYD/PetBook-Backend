@@ -5,8 +5,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.BoundHashOperations;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
-import usyd.mingyi.springcloud.entity.*;
-import usyd.mingyi.springcloud.pojo.Friendship;
+import usyd.mingyi.common.entity.ChatMessage;
+import usyd.mingyi.common.entity.ServiceMessage;
+import usyd.mingyi.common.entity.ServiceMessageType;
+import usyd.mingyi.common.entity.SystemMessage;
+import usyd.mingyi.common.feign.FriendServiceFeign;
+import usyd.mingyi.common.pojo.Friendship;
 
 import java.util.List;
 

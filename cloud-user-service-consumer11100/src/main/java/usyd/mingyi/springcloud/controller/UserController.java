@@ -1,6 +1,7 @@
 package usyd.mingyi.springcloud.controller;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import feign.RequestInterceptor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,19 +10,19 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.HandlerInterceptor;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import usyd.mingyi.common.common.R;
+import usyd.mingyi.common.dto.FriendRequestDto;
+import usyd.mingyi.common.dto.FriendshipDto;
+import usyd.mingyi.common.dto.UserDto;
+import usyd.mingyi.common.feign.*;
+import usyd.mingyi.common.pojo.Pet;
+import usyd.mingyi.common.pojo.Post;
+import usyd.mingyi.common.pojo.User;
+import usyd.mingyi.common.service.FeignInterceptor;
+import usyd.mingyi.common.utils.BaseContext;
+import usyd.mingyi.common.utils.Promise;
 import usyd.mingyi.springcloud.common.FriendRequestHandler;
 import usyd.mingyi.springcloud.common.FriendshipHandler;
-import usyd.mingyi.springcloud.common.R;
-import usyd.mingyi.springcloud.dto.FriendRequestDto;
-import usyd.mingyi.springcloud.dto.FriendshipDto;
-import usyd.mingyi.springcloud.dto.UserDto;
-import usyd.mingyi.springcloud.pojo.Pet;
-import usyd.mingyi.springcloud.pojo.Post;
-import usyd.mingyi.springcloud.pojo.User;
-import usyd.mingyi.springcloud.service.*;
-import usyd.mingyi.springcloud.utils.BaseContext;
-import usyd.mingyi.springcloud.utils.Promise;
 
 import java.util.List;
 import java.util.concurrent.ExecutionException;
@@ -46,8 +47,7 @@ public class UserController {
     FriendshipHandler friendshipHandler;
     @Autowired
     FriendRequestHandler friendRequestHandler;
-    @Autowired
-    HandlerInterceptor handlerInterceptor;
+
 
 
     @GetMapping("/user/{userId}")
@@ -115,12 +115,12 @@ public class UserController {
     @GetMapping("/user/profile/{userId}")
     public R<UserDto> userProfile(@PathVariable("userId") Long userId) throws ExecutionException, InterruptedException {
 
-        Promise<User> userPromise = Promise.buildPromise(()->userServiceFeign.getUserById(userId));
+        Promise<User> userPromise = Promise.buildPromise(() -> userServiceFeign.getUserById(userId));
 
 
-        Promise<List<Post>> postPromise = Promise.buildPromise(()->postServiceFeign.getPostsByUserId(userId));
+        Promise<List<Post>> postPromise = Promise.buildPromise(() -> postServiceFeign.getPostsByUserId(userId));
 
-        Promise<List<Pet>> petPromise = Promise.buildPromise(()->petServiceFeign.getPetList());
+        Promise<List<Pet>> petPromise = Promise.buildPromise(() -> petServiceFeign.getPetList());
 
         Promise<List<Long>> lovedPostIdsPromise = Promise.buildPromise(interactionServiceFeign::getAllLovedPostsId);
 
@@ -132,7 +132,7 @@ public class UserController {
 
         Promise.awaitAll(
                 userPromise, petPromise, postPromise,
-                lovedPostIdsPromise,subscribesPromise,subscribersPromise
+                lovedPostIdsPromise, subscribesPromise, subscribersPromise
         );
 
 
@@ -157,7 +157,7 @@ public class UserController {
     public R<Page<User>> getAllUser(@RequestParam("current") Long current
             , @RequestParam("size") Long size, @RequestParam("keywords") String keywords) {
 
-        return R.success(userServiceFeign.getAllUser(current,size,keywords));
+        return R.success(userServiceFeign.getAllUser(current, size, keywords));
     }
 
 

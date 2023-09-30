@@ -3,6 +3,7 @@ package usyd.mingyi.springcloud.utils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
+import usyd.mingyi.common.utils.BaseContext;
 
 import java.io.IOException;
 import java.nio.file.Files;

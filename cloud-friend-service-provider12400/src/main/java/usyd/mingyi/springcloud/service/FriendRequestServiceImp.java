@@ -7,17 +7,17 @@ import com.github.yulichang.wrapper.MPJLambdaWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import usyd.mingyi.springcloud.common.CustomException;
+import usyd.mingyi.common.common.CustomException;
+import usyd.mingyi.common.pojo.FriendRequest;
+import usyd.mingyi.common.pojo.Friendship;
 import usyd.mingyi.springcloud.mapper.FriendRequestMapper;
 import usyd.mingyi.springcloud.mapper.FriendshipMapper;
-import usyd.mingyi.springcloud.pojo.FriendRequest;
-import usyd.mingyi.springcloud.pojo.Friendship;
 
 import java.util.List;
 
 
 @Service
-public class FriendRequestServiceImp extends ServiceImpl<FriendRequestMapper, FriendRequest> implements FriendRequestService{
+public class FriendRequestServiceImp extends ServiceImpl<FriendRequestMapper, FriendRequest> implements FriendRequestService {
     @Autowired
     FriendRequestMapper friendRequestMapper;
     @Autowired
@@ -48,15 +48,15 @@ public class FriendRequestServiceImp extends ServiceImpl<FriendRequestMapper, Fr
     @Override
     public List<FriendRequest> getAllRequests(Long userId) {
 
-        return this.getAllRequests(userId,null);
+        return this.getAllRequests(userId, null);
     }
 
     @Override
-    public List<FriendRequest> getAllRequests(Long userId,Long[] ids) {
+    public List<FriendRequest> getAllRequests(Long userId, Long[] ids) {
         MPJLambdaWrapper<FriendRequest> query = new MPJLambdaWrapper<>();
         query.selectAll(FriendRequest.class)
                 .eq(FriendRequest::getFriendId, userId)
-                .in(ids!=null,FriendRequest::getMyId,ids);
+                .in(ids != null, FriendRequest::getMyId, ids);
         return friendRequestMapper.selectList(query);
     }
 
@@ -103,7 +103,7 @@ public class FriendRequestServiceImp extends ServiceImpl<FriendRequestMapper, Fr
     @Override
     @Transactional
     public List<FriendRequest> getAllRequestsAndMarkRead(Long userId) {
-        return   this.getAllRequestsAndMarkRead(userId,null);
+        return this.getAllRequestsAndMarkRead(userId, null);
     }
 
     @Override
@@ -111,6 +111,6 @@ public class FriendRequestServiceImp extends ServiceImpl<FriendRequestMapper, Fr
         this.update(new LambdaUpdateWrapper<FriendRequest>()
                 .set(FriendRequest::getIsRead, true)
                 .eq(FriendRequest::getFriendId, userId));
-        return this.getAllRequests(userId,ids);
+        return this.getAllRequests(userId, ids);
     }
 }

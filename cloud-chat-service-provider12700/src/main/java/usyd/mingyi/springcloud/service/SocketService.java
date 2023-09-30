@@ -1,6 +1,9 @@
 package usyd.mingyi.springcloud.service;
 
-import usyd.mingyi.springcloud.entity.*;
+
+import usyd.mingyi.common.entity.ChatMessage;
+import usyd.mingyi.common.entity.ServiceMessage;
+import usyd.mingyi.common.entity.SystemMessage;
 
 public interface SocketService {
     void asyncChatMessageToClient(ChatMessage chatMessage);

@@ -2,7 +2,8 @@ package usyd.mingyi.springcloud.service;
 
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import usyd.mingyi.springcloud.pojo.FriendRequest;
+import usyd.mingyi.common.pojo.FriendRequest;
+
 
 import java.util.List;
 

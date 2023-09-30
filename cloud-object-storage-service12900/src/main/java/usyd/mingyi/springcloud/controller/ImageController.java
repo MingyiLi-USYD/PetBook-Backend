@@ -6,7 +6,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import usyd.mingyi.springcloud.common.R;
+
+import usyd.mingyi.common.common.R;
 import usyd.mingyi.springcloud.service.ObjectStorageService;
 import usyd.mingyi.springcloud.utils.ImageUtils;
 

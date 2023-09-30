@@ -5,8 +5,8 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.support.SFunction;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
+import usyd.mingyi.common.pojo.Subscription;
 import usyd.mingyi.springcloud.mapper.SubscriptionMapper;
-import usyd.mingyi.springcloud.pojo.Subscription;
 
 import java.util.List;
 import java.util.stream.Collectors;

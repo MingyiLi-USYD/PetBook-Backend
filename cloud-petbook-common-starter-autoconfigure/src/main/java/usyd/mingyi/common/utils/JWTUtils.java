@@ -1,4 +1,3 @@
-/*
 package usyd.mingyi.common.utils;
 
 import com.auth0.jwt.JWT;
@@ -7,8 +6,9 @@ import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import org.springframework.http.HttpHeaders;
-import usyd.mingyi.springcloud.common.CustomException;
-import usyd.mingyi.springcloud.pojo.User;
+import usyd.mingyi.common.common.CustomException;
+import usyd.mingyi.common.pojo.User;
+
 
 import java.util.Calendar;
 
@@ -81,4 +81,3 @@ public class JWTUtils {
 
 
 }
-*/

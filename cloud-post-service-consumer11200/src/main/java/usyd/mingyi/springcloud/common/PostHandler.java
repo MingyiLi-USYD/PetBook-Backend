@@ -1,9 +1,10 @@
 package usyd.mingyi.springcloud.common;
 
-import usyd.mingyi.springcloud.dto.PostDto;
-import usyd.mingyi.springcloud.pojo.Post;
-import usyd.mingyi.springcloud.pojo.User;
-import usyd.mingyi.springcloud.utils.ResultHandler;
+
+import usyd.mingyi.common.dto.PostDto;
+import usyd.mingyi.common.pojo.Post;
+import usyd.mingyi.common.pojo.User;
+import usyd.mingyi.common.utils.ResultHandler;
 
 import java.util.List;
 

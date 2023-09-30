@@ -1,13 +1,15 @@
 package usyd.mingyi.springcloud.controller;
 
+
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import usyd.mingyi.springcloud.common.R;
-import usyd.mingyi.springcloud.pojo.PetImage;
-import usyd.mingyi.springcloud.service.ObjectStorageServiceFeign;
-import usyd.mingyi.springcloud.service.PetServiceFeign;
+import usyd.mingyi.common.common.R;
+import usyd.mingyi.common.feign.ObjectStorageServiceFeign;
+import usyd.mingyi.common.feign.PetServiceFeign;
+import usyd.mingyi.common.pojo.PetImage;
+
 
 @RestController
 @Slf4j
@@ -26,7 +28,7 @@ public class PetImageController {
 
     @PostMapping("/pet/image/{petId}")
     public R<PetImage> uploadImage(@PathVariable("petId") Long petId,
-                                 @RequestParam("image") MultipartFile image) {
+                                   @RequestParam("image") MultipartFile image) {
         String url = objectStorageServiceFeign.savePetImage(image);
         PetImage petImage = new PetImage();
         petImage.setPetId(petId);

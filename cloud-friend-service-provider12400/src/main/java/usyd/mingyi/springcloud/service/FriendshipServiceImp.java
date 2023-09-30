@@ -6,10 +6,11 @@ import com.github.yulichang.wrapper.MPJLambdaWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import usyd.mingyi.common.pojo.FriendRequest;
+import usyd.mingyi.common.pojo.Friendship;
 import usyd.mingyi.springcloud.mapper.FriendRequestMapper;
 import usyd.mingyi.springcloud.mapper.FriendshipMapper;
-import usyd.mingyi.springcloud.pojo.FriendRequest;
-import usyd.mingyi.springcloud.pojo.Friendship;
+
 
 import java.util.List;
 

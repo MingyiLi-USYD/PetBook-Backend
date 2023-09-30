@@ -3,17 +3,18 @@ package usyd.mingyi.springcloud.controller;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import usyd.mingyi.springcloud.common.CustomException;
-import usyd.mingyi.springcloud.common.R;
+
+import usyd.mingyi.common.common.CustomException;
+import usyd.mingyi.common.common.R;
+import usyd.mingyi.common.dto.SubcommentDto;
+import usyd.mingyi.common.feign.CommentServiceFeign;
+import usyd.mingyi.common.feign.UserServiceFeign;
+import usyd.mingyi.common.pojo.Comment;
+import usyd.mingyi.common.pojo.Subcomment;
+import usyd.mingyi.common.pojo.User;
 import usyd.mingyi.springcloud.common.SubcommentHandler;
-import usyd.mingyi.springcloud.component.PoConvertToDto;
-import usyd.mingyi.springcloud.dto.SubcommentDto;
-import usyd.mingyi.springcloud.pojo.Comment;
-import usyd.mingyi.springcloud.pojo.Subcomment;
-import usyd.mingyi.springcloud.pojo.User;
-import usyd.mingyi.springcloud.service.CommentServiceFeign;
-import usyd.mingyi.springcloud.service.UserServiceFeign;
-import usyd.mingyi.springcloud.utils.FieldUtils;
+import usyd.mingyi.springcloud.mapstruct.PoConvertToDto;
+
 
 import javax.validation.Valid;
 import java.util.List;
@@ -28,7 +29,7 @@ public class SubcommentController {
     @Autowired
     PoConvertToDto poConvertToDto;
     @PostMapping("/subcomment")
-    public R<SubcommentDto> addSubcomment( @RequestBody @Valid Subcomment subcomment){
+    public R<SubcommentDto> addSubcomment(@RequestBody @Valid Subcomment subcomment){
         Comment commentByCommentId = commentServiceFeign.getCommentByCommentId(subcomment.getCommentId());
         if(commentByCommentId==null){
             throw new CustomException("不存在此comment");

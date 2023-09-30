@@ -1,11 +1,11 @@
 package usyd.mingyi.springcloud.common;
 
-import usyd.mingyi.springcloud.dto.CommentDto;
-import usyd.mingyi.springcloud.dto.SubcommentDto;
-import usyd.mingyi.springcloud.pojo.Comment;
-import usyd.mingyi.springcloud.pojo.Subcomment;
-import usyd.mingyi.springcloud.pojo.User;
-import usyd.mingyi.springcloud.utils.ResultHandler;
+
+
+import usyd.mingyi.common.dto.SubcommentDto;
+import usyd.mingyi.common.pojo.Subcomment;
+import usyd.mingyi.common.pojo.User;
+import usyd.mingyi.common.utils.ResultHandler;
 
 import java.util.List;
 

@@ -1,8 +1,8 @@
 package usyd.mingyi.springcloud.service;
 
+import usyd.mingyi.common.entity.ChatMessage;
+import usyd.mingyi.common.pojo.CloudMessage;
 
-import usyd.mingyi.springcloud.entity.ChatMessage;
-import usyd.mingyi.springcloud.mongodb.entity.CloudMessage;
 
 import java.util.List;
 import java.util.Map;

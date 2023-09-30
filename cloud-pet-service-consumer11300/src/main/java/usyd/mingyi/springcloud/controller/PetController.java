@@ -4,14 +4,15 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import usyd.mingyi.springcloud.common.R;
-import usyd.mingyi.springcloud.component.PoConvertToDto;
-import usyd.mingyi.springcloud.dto.PetDto;
-import usyd.mingyi.springcloud.pojo.Pet;
-import usyd.mingyi.springcloud.pojo.PetImage;
-import usyd.mingyi.springcloud.service.ObjectStorageServiceFeign;
-import usyd.mingyi.springcloud.service.PetServiceFeign;
-import usyd.mingyi.springcloud.utils.BaseContext;
+import usyd.mingyi.common.common.R;
+import usyd.mingyi.common.dto.PetDto;
+import usyd.mingyi.common.feign.ObjectStorageServiceFeign;
+import usyd.mingyi.common.feign.PetServiceFeign;
+import usyd.mingyi.common.pojo.Pet;
+import usyd.mingyi.common.pojo.PetImage;
+import usyd.mingyi.common.utils.BaseContext;
+import usyd.mingyi.springcloud.mapstruct.PoConvertToDto;
+
 
 import javax.validation.Valid;
 import java.util.List;

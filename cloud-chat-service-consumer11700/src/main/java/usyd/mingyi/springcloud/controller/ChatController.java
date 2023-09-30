@@ -3,18 +3,18 @@ package usyd.mingyi.springcloud.controller;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import usyd.mingyi.springcloud.common.CustomException;
-import usyd.mingyi.springcloud.common.R;
-import usyd.mingyi.springcloud.entity.ChatMessage;
-import usyd.mingyi.springcloud.pojo.CloudMessage;
-import usyd.mingyi.springcloud.pojo.Friendship;
-import usyd.mingyi.springcloud.pojo.User;
+
+import usyd.mingyi.common.common.CustomException;
+import usyd.mingyi.common.common.R;
+import usyd.mingyi.common.entity.ChatMessage;
+import usyd.mingyi.common.feign.ChatServiceFeign;
+import usyd.mingyi.common.feign.FriendServiceFeign;
+import usyd.mingyi.common.feign.UserServiceFeign;
+import usyd.mingyi.common.pojo.CloudMessage;
+import usyd.mingyi.common.pojo.User;
+import usyd.mingyi.common.utils.BaseContext;
 import usyd.mingyi.springcloud.service.ChatService;
-import usyd.mingyi.springcloud.service.ChatServiceFeign;
-import usyd.mingyi.springcloud.service.FriendServiceFeign;
-import usyd.mingyi.springcloud.service.UserServiceFeign;
-import usyd.mingyi.springcloud.utils.BaseContext;
-import usyd.mingyi.springcloud.utils.FieldUtils;
+
 
 import java.util.List;
 import java.util.Map;

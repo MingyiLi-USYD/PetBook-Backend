@@ -10,10 +10,10 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import usyd.mingyi.common.bean.WebConfigProperties;
+import usyd.mingyi.common.feign.UserServiceFeign;
 import usyd.mingyi.common.service.WebConfig;
 
 @Configuration
-@ComponentScan(basePackages = "usyd.mingyi.common")
 @EnableConfigurationProperties(value = {WebConfigProperties.class})
 @ConditionalOnProperty(name = "myapp.webconfig.enabled", havingValue = "true", matchIfMissing = true)
 @Slf4j

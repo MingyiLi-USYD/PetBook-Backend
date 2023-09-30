@@ -1,13 +1,10 @@
 package usyd.mingyi.springcloud.common;
 
 import org.springframework.stereotype.Component;
-import usyd.mingyi.springcloud.dto.CommentDto;
-import usyd.mingyi.springcloud.dto.FriendshipDto;
-import usyd.mingyi.springcloud.pojo.Comment;
-import usyd.mingyi.springcloud.pojo.Friendship;
-import usyd.mingyi.springcloud.pojo.User;
-import usyd.mingyi.springcloud.utils.FieldUtils;
-import usyd.mingyi.springcloud.utils.ResultHandler;
+import usyd.mingyi.common.dto.CommentDto;
+import usyd.mingyi.common.pojo.Comment;
+import usyd.mingyi.common.pojo.User;
+import usyd.mingyi.common.utils.ResultHandler;
 
 import java.util.List;
 

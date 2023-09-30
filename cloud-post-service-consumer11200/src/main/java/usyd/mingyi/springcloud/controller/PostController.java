@@ -1,6 +1,7 @@
 package usyd.mingyi.springcloud.controller;
 
 
+
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.seata.spring.annotation.GlobalTransactional;
 import lombok.extern.slf4j.Slf4j;
@@ -8,16 +9,17 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import usyd.mingyi.springcloud.common.CustomException;
+
+import usyd.mingyi.common.common.CustomException;
+import usyd.mingyi.common.common.R;
+import usyd.mingyi.springcloud.mapstruct.PoConvertToDto;
+import usyd.mingyi.common.dto.PostDto;
+import usyd.mingyi.common.feign.*;
+import usyd.mingyi.common.pojo.Post;
+import usyd.mingyi.common.pojo.PostImage;
+import usyd.mingyi.common.pojo.User;
+import usyd.mingyi.common.utils.FieldUtils;
 import usyd.mingyi.springcloud.common.PostHandler;
-import usyd.mingyi.springcloud.common.R;
-import usyd.mingyi.springcloud.component.PoConvertToDto;
-import usyd.mingyi.springcloud.dto.PostDto;
-import usyd.mingyi.springcloud.pojo.Post;
-import usyd.mingyi.springcloud.pojo.PostImage;
-import usyd.mingyi.springcloud.pojo.User;
-import usyd.mingyi.springcloud.service.*;
-import usyd.mingyi.springcloud.utils.FieldUtils;
 
 import javax.validation.Valid;
 import java.util.ArrayList;

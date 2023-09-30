@@ -4,12 +4,11 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import usyd.mingyi.springcloud.common.CustomException;
-import usyd.mingyi.springcloud.common.R;
-import usyd.mingyi.springcloud.pojo.Post;
+import usyd.mingyi.common.common.CustomException;
+import usyd.mingyi.common.common.R;
+import usyd.mingyi.common.pojo.Post;
+import usyd.mingyi.common.utils.BaseContext;
 import usyd.mingyi.springcloud.service.PostService;
-import usyd.mingyi.springcloud.utils.BaseContext;
-
 import javax.validation.Valid;
 import java.util.List;
 
@@ -71,7 +70,7 @@ public class PostController {
         Post post = postService.getById(postId);
         if (post == null || !post.getUserId().equals(BaseContext.getCurrentId())) {
             throw new CustomException("没有找到");
-        }else {
+        } else {
             postService.removeById(postId);
         }
 
@@ -80,10 +79,7 @@ public class PostController {
 
 
     @GetMapping("/posts")
-    public R<Page<Post>> selectPage(@RequestParam("current") Long current,
-                                    @RequestParam("pageSize") Integer pageSize,
-                                    @RequestParam(value = "order", required = false) Integer order,
-                                    @RequestParam(value = "keywords", required = false) String keywords) {
+    public R<Page<Post>> selectPage(@RequestParam("current") Long current, @RequestParam("pageSize") Integer pageSize, @RequestParam(value = "order", required = false) Integer order, @RequestParam(value = "keywords", required = false) String keywords) {
         Page<Post> allPosts = postService.getAllPosts(current, pageSize, order, keywords);
         return R.success(allPosts);
     }

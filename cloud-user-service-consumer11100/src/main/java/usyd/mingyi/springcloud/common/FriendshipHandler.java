@@ -2,12 +2,13 @@ package usyd.mingyi.springcloud.common;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import usyd.mingyi.springcloud.dto.FriendshipDto;
-import usyd.mingyi.springcloud.pojo.Friendship;
-import usyd.mingyi.springcloud.pojo.User;
-import usyd.mingyi.springcloud.service.UserServiceFeign;
-import usyd.mingyi.springcloud.utils.FieldUtils;
-import usyd.mingyi.springcloud.utils.ResultHandler;
+import usyd.mingyi.common.dto.FriendshipDto;
+import usyd.mingyi.common.feign.UserServiceFeign;
+import usyd.mingyi.common.pojo.Friendship;
+import usyd.mingyi.common.pojo.User;
+import usyd.mingyi.common.utils.FieldUtils;
+import usyd.mingyi.common.utils.ResultHandler;
+
 
 import java.util.List;
 

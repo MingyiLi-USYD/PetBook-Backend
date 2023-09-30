@@ -6,12 +6,13 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import usyd.mingyi.springcloud.common.CustomException;
-import usyd.mingyi.springcloud.common.R;
-import usyd.mingyi.springcloud.pojo.Comment;
-import usyd.mingyi.springcloud.pojo.Subcomment;
+
+import usyd.mingyi.common.common.CustomException;
+import usyd.mingyi.common.common.R;
+import usyd.mingyi.common.pojo.Comment;
+import usyd.mingyi.common.pojo.Subcomment;
+import usyd.mingyi.common.utils.BaseContext;
 import usyd.mingyi.springcloud.service.CommentService;
-import usyd.mingyi.springcloud.utils.BaseContext;
 
 @RestController
 @Slf4j
