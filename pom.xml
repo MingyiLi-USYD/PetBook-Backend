@@ -22,7 +22,6 @@
         <module>cloud-interaction-service-consumer11600</module>
         <module>cloud-chat-service-provider12700</module>
         <module>cloud-chat-service-consumer11700</module>
-
         <module>cloud-object-storage-service12900</module>
         <module>cloud-petbook-common-starter</module>
         <module>cloud-petbook-common-starter-autoconfigure</module>
