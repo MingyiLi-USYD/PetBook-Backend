@@ -7,8 +7,9 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
+import usyd.mingyi.common.pojo.User;
 import usyd.mingyi.springcloud.mapper.UserMapper;
-import usyd.mingyi.springcloud.pojo.User;
+
 
 
 @Service

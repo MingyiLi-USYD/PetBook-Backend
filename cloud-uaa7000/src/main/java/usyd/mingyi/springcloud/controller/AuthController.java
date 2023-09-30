@@ -9,13 +9,13 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
-import usyd.mingyi.springcloud.common.CustomException;
-import usyd.mingyi.springcloud.common.R;
+import usyd.mingyi.common.common.CustomException;
+import usyd.mingyi.common.common.R;
+import usyd.mingyi.common.pojo.User;
+import usyd.mingyi.common.utils.JWTUtils;
+import usyd.mingyi.common.utils.PasswordUtils;
 import usyd.mingyi.springcloud.config.GoogleTokenInfoResponse;
-import usyd.mingyi.springcloud.pojo.User;
 import usyd.mingyi.springcloud.service.UserService;
-import usyd.mingyi.springcloud.utils.JWTUtils;
-import usyd.mingyi.springcloud.utils.PasswordUtils;
 
 import javax.validation.constraints.Email;
 import java.util.concurrent.TimeUnit;
