@@ -32,4 +32,5 @@ public class Subcomment implements Serializable {
     private Boolean isReply;
     @JsonFormat(shape = JsonFormat.Shape.STRING)
     private Long replyUserId;
+
 }
