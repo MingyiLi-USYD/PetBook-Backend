@@ -29,6 +29,15 @@ public interface CommentServiceFeign {
     @GetMapping("/comment/read/{id}")
     String markCommentAsRead(@PathVariable("id") Long commentId);
 
+    @GetMapping("/comment/love/{commentId}")
+    String increaseCommentLove(@PathVariable("commentId") Long commentId);
+
+    @DeleteMapping("/comment/love/{commentId}")
+    String decreaseCommentLove(@PathVariable("commentId") Long commentId);
+
+
+    //-----------------------------------------------------------------------------------------
+
     @PostMapping("/subcomment")
     Subcomment addSubcomment(@RequestBody Subcomment subcomment);
 
@@ -41,4 +50,12 @@ public interface CommentServiceFeign {
 
     @GetMapping("/subcomment/count/{commentId}")
     Long countSubcommentSize(@PathVariable("commentId") Long commentId);
+
+
+    @GetMapping("/subcomment/love/{subcommentId}")
+    String increaseSubcommentLove(@PathVariable("subcommentId") Long subcommentId);
+
+    @DeleteMapping("/subcomment/love/{subcommentId}")
+    String decreaseSubcommentLove(@PathVariable("subcommentId") Long subcommentId);
+
 }

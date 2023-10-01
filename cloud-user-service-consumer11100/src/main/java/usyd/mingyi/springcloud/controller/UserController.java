@@ -1,14 +1,12 @@
 package usyd.mingyi.springcloud.controller;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import feign.Param;
 import feign.RequestInterceptor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.HandlerInterceptor;
 import usyd.mingyi.common.common.R;
 import usyd.mingyi.common.dto.FriendRequestDto;
@@ -18,9 +16,11 @@ import usyd.mingyi.common.feign.*;
 import usyd.mingyi.common.pojo.Pet;
 import usyd.mingyi.common.pojo.Post;
 import usyd.mingyi.common.pojo.User;
+import usyd.mingyi.common.pojo.UserInfo;
 import usyd.mingyi.common.service.FeignInterceptor;
 import usyd.mingyi.common.utils.BaseContext;
 import usyd.mingyi.common.utils.Promise;
+import usyd.mingyi.common.utils.UserUtils;
 import usyd.mingyi.springcloud.common.FriendRequestHandler;
 import usyd.mingyi.springcloud.common.FriendshipHandler;
 
@@ -120,7 +120,7 @@ public class UserController {
 
         Promise<List<Post>> postPromise = Promise.buildPromise(() -> postServiceFeign.getPostsByUserId(userId));
 
-        Promise<List<Pet>> petPromise = Promise.buildPromise(() -> petServiceFeign.getPetList());
+        Promise<List<Pet>> petPromise = Promise.buildPromise(() -> petServiceFeign.getPetListByUserId(userId));
 
         Promise<List<Long>> lovedPostIdsPromise = Promise.buildPromise(interactionServiceFeign::getAllLovedPostsId);
 
@@ -159,6 +159,33 @@ public class UserController {
 
         return R.success(userServiceFeign.getAllUser(current, size, keywords));
     }
+
+    @GetMapping("/user/userInfo")
+    public R<UserInfo> getUserInfo() {
+        UserInfo userInfo = userServiceFeign.getUserInfo();
+
+        return R.success(userInfo);
+    }
+
+
+    @PostMapping("/user/changeUser/{userId}")
+    public R<String> changeUser(@PathVariable("userId")Long userId,
+                                @RequestParam("role") String role,
+                                @RequestParam("status")byte status) {
+        User currentUser = userServiceFeign.getCurrentUser();
+        User userById = userServiceFeign.getUserById(userId);
+        if (currentUser.getStatus().equals((byte)1)
+          && UserUtils.canModify(currentUser,userById,role)
+        && UserUtils.isRightStatus(status)) {
+            userById.setRole(role);
+            userById.setStatus(status);
+            userServiceFeign.changeUserRoleAndStatus(userById);
+            return R.success("success");
+        }
+
+       return R.error("No right");
+    }
+
 
 
 }

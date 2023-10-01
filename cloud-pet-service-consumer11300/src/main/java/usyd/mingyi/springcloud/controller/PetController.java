@@ -39,7 +39,6 @@ public class PetController {
     @PutMapping("/pet")
     public R<String> updatePet(@RequestBody Pet pet) {
         return R.success(petServiceFeign.updatePet(pet));
-
     }
 
     @GetMapping("/pets/my")

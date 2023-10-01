@@ -50,4 +50,17 @@ public class SubcommentController {
         return R.success(subcommentDtos);
     }
 
+    @GetMapping("/subcomment/love/{subcommentId}")
+    public R<String> increaseSubcommentLove(@PathVariable("subcommentId")Long subcommentId) {
+        subcommentService.increaseLoveOfSubcomment(subcommentId);
+        return R.success("Success");
+    }
+
+    @DeleteMapping("/subcomment/love/{subcommentId}")
+    public R<String> decreaseSubcommentLove(@PathVariable("subcommentId")Long subcommentId) {
+        subcommentService.decreaseLoveOfSubcomment(subcommentId);
+        return R.success("Success");
+    }
+
+
 }

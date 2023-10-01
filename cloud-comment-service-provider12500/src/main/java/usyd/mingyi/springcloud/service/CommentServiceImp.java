@@ -20,7 +20,10 @@ import usyd.mingyi.springcloud.mapper.SubcommentMapper;
 @Slf4j
 public class CommentServiceImp extends ServiceImpl<CommentMapper, Comment> implements CommentService {
     @Autowired
+    CommentMapper commentMapper;
+    @Autowired
     SubcommentMapper subcommentMapper;
+
 
 
     @Override
@@ -59,6 +62,19 @@ public class CommentServiceImp extends ServiceImpl<CommentMapper, Comment> imple
         this.markAsRead(subcomment.getCommentId(),subcomment.getUserId());
     }
 
+    @Override
+    public void increaseLoveOfComment(Long commentId) {
+        if (commentMapper.updateCommentLove(commentId,1)==0) {
+            throw new CustomException("点赞失败");
+        }
+    }
+
+    @Override
+    public void decreaseLoveOfComment(Long commentId) {
+        if (commentMapper.updateCommentLove(commentId,-1)==0) {
+            throw new CustomException("取消点赞失败");
+        }
+    }
 
 
 }

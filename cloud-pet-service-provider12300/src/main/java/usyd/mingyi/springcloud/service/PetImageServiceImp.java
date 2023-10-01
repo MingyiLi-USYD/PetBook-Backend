@@ -21,10 +21,10 @@ public class PetImageServiceImp extends ServiceImpl<PetImageMapper, PetImage> im
     PetMapper petMapper;
     @Override
     public List<PetImage> getAllPetImages(Long petId) {
-        Pet pet = petMapper.selectById(petId);
+/*        Pet pet = petMapper.selectById(petId);
         if(pet==null||!pet.getUserId().equals(BaseContext.getCurrentId())){
             throw new CustomException("No pet found");
-        }
+        }*/
         return this.list(new LambdaQueryWrapper<PetImage>().eq(PetImage::getPetId,petId));
     }
 }

@@ -73,8 +73,8 @@
             <artifactId>mybatis-plus-boot-starter</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.github.yulichang</groupId>
-            <artifactId>mybatis-plus-join-boot-starter</artifactId>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-commons</artifactId>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>

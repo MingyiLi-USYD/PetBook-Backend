@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import usyd.mingyi.common.common.CustomException;
 import usyd.mingyi.common.pojo.Post;
+import usyd.mingyi.common.utils.BaseContext;
 import usyd.mingyi.springcloud.mapper.PostMapper;
 
 
@@ -38,7 +39,9 @@ public class PostServiceImp extends ServiceImpl<PostMapper, Post> implements Pos
 
     @Override
     public List<Post> getPostsByUserIdVisible(Long userId) {
-        return this.list(new LambdaQueryWrapper<Post>().eq(Post::getUserId,userId).eq(Post::getVisible,true));
+        return this.list(new LambdaQueryWrapper<Post>()
+                .eq(Post::getUserId,userId)
+                .eq(!BaseContext.getCurrentId().equals(userId),Post::getVisible,true));
     }
 
     @Override

@@ -1,5 +1,6 @@
 package usyd.mingyi.springcloud.controller;
 
+import io.seata.spring.annotation.GlobalTransactional;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -54,6 +55,24 @@ public class SubcommentController {
             }
         });
         return R.success(subcommentDtos);
+    }
+
+
+    @GetMapping("/subcomment/love/{subcommentId}")
+    @GlobalTransactional
+    public R<String> loveComment(@PathVariable("subcommentId")Long subcommentId) {
+        commentServiceFeign.increaseSubcommentLove(subcommentId);
+        userServiceFeign.addLovedSubcommentId(subcommentId);
+        return R.success("Success");
+    }
+
+
+    @DeleteMapping("/subcomment/love/{subcommentId}")
+    @GlobalTransactional
+    public R<String> cancelLoveComment(@PathVariable("subcommentId")Long subcommentId) {
+        commentServiceFeign.decreaseSubcommentLove(subcommentId);
+        userServiceFeign.removeLovedSubcommentId(subcommentId);
+        return R.success("Success");
     }
 
 

@@ -13,17 +13,8 @@ public interface CommentService extends IService<Comment> {
     void markAsRead(Long commentId,Long userId);
     void saveSubcommentAndMarkAsRead(Subcomment subcomment);
 
-    //void saveSubcommentAndMarkAsRead(Subcomment subcomment);
-/*
-    CommentDto saveAndGet(Comment comment);
+    void increaseLoveOfComment(Long commentId);
+    void decreaseLoveOfComment(Long commentId);
 
-    Page<CommentDto> getAllComments(Long userId,Long current,Integer pageSize);
-
-
-
-
-
-    Integer countCommentsReceived(Long userId);
-*/
 
 }

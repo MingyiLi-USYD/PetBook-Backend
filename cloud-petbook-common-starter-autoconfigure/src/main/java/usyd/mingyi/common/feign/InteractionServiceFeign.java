@@ -54,4 +54,11 @@ public interface InteractionServiceFeign {
     @GetMapping("/subscription/subscriber/ids")
     List<String> getAllSubscribersInIds();
 
+    @GetMapping("/subscribe/{userId}")
+    String subscribeUser(@PathVariable("userId") Long userId);
+
+    @DeleteMapping("/subscribe/{userId}")
+    String unsubscribeUser(@PathVariable("userId") Long userId);
+
+
 }

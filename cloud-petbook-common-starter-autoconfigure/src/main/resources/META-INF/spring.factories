@@ -3,5 +3,6 @@ usyd.mingyi.common.auto.WebConfigAutoConfiguration,\
 usyd.mingyi.common.auto.HandlerInterceptorAutoConfiguration,\
 usyd.mingyi.common.auto.FeignInterceptorAutoConfiguration,\
 usyd.mingyi.common.auto.MultipartSupportConfigAutoConfiguration,\
-usyd.mingyi.common.auto.GlobalExceptionHandlerAutoConfiguration        
+usyd.mingyi.common.auto.GlobalExceptionHandlerAutoConfiguration,\
+usyd.mingyi.common.auto.MybatisPlusInterceptorAutoConfiguration          
 

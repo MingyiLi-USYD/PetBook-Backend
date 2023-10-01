@@ -6,8 +6,7 @@ import java.util.List;
 
 public interface SubcommentService extends IService<Subcomment> {
     List<Subcomment> getSubcomments(Long commentId, Boolean limit);
-/*
-    Integer getSubcommentsSize(Long commentId);
-    SubcommentDto saveAndGet(SubcommentDto subcomment);
-    void saveSubcomment(SubcommentDto subcommentDto);*/
+    void increaseLoveOfSubcomment(Long subcommentId);
+    void decreaseLoveOfSubcomment(Long subcommentId);
+
 }

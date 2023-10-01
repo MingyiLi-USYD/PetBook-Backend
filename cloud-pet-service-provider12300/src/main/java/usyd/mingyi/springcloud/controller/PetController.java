@@ -56,8 +56,11 @@ public class PetController {
     public R<Pet> getPet(@PathVariable("petId") Long petId) {
         Long userId = BaseContext.getCurrentId();
         Pet pet = petService.getById(petId);
-         if(pet==null||!pet.getUserId().equals(userId)){
+         if(pet==null){
              throw new CustomException("没有这个宠物");
+         }
+         if(!pet.getUserId().equals(userId)&&!pet.getPetVisible()){
+             throw new CustomException("Can not access this pet");
          }
          return R.success(pet);
     }

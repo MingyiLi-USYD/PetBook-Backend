@@ -56,6 +56,8 @@ public class CommentController {
     }
 
 
+
+
     @GetMapping("/comments")
     public R<Page<Comment>> getAllCommentsToMyPost(@RequestParam("current") Long current,
                                                       @RequestParam("pageSize") Integer pageSize){
@@ -71,7 +73,6 @@ public class CommentController {
     }
 
     @PostMapping("/comment/reply")
-    @ResponseBody
     public R<String> replyComment(@RequestBody Subcomment subcommentDto){
         Long id = BaseContext.getCurrentId();
         subcommentDto.setUserId(id);
@@ -79,6 +80,19 @@ public class CommentController {
         commentService.saveSubcommentAndMarkAsRead(subcommentDto);
         return R.success("Success");
     }
+
+    @GetMapping("/comment/love/{commentId}")
+    public R<String> increaseCommentLove(@PathVariable("commentId")Long commentId) {
+        commentService.increaseLoveOfComment(commentId);
+        return R.success("Success");
+    }
+
+    @DeleteMapping("/comment/love/{commentId}")
+    public R<String> decreaseCommentLove(@PathVariable("commentId")Long commentId) {
+        commentService.decreaseLoveOfComment(commentId);
+        return R.success("Success");
+    }
+
 
 
 
