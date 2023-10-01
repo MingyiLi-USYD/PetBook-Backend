@@ -5,43 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c94f14d2-c5cb-4c95-82ee-9d780f0022b5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/cloud-petbook-common-starter-autoconfigure/src/main/java/usyd/mingyi/common/auto/MybatisPlusInterceptorAutoConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cloud-petbook-common-starter-autoconfigure/src/main/java/usyd/mingyi/common/pojo/UserInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cloud-petbook-common-starter-autoconfigure/src/main/java/usyd/mingyi/common/service/MybatisPlusMetaObjectHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cloud-petbook-common-starter-autoconfigure/src/main/java/usyd/mingyi/common/utils/UserUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cloud-user-service-provider12100/src/main/java/usyd/mingyi/springcloud/mongodb/repository/UserInfoRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cloud-user-service-provider12100/src/main/java/usyd/mingyi/springcloud/mongodb/service/UserInfoService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-chat-service-provider12700/src/main/resources/bootstrap-dev.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-chat-service-provider12700/src/main/resources/bootstrap-prod.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-uaa7000/src/main/resources/bootstrap-dev.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-uaa7000/src/main/resources/bootstrap-prod.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-user-service-provider12100/src/main/resources/bootstrap-dev.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-user-service-provider12100/src/main/resources/bootstrap-prod.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-comment-service-consumer11500/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-comment-service-consumer11500/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-comment-service-consumer11500/src/main/java/usyd/mingyi/springcloud/controller/CommentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-comment-service-consumer11500/src/main/java/usyd/mingyi/springcloud/controller/CommentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-comment-service-consumer11500/src/main/java/usyd/mingyi/springcloud/controller/SubcommentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-comment-service-consumer11500/src/main/java/usyd/mingyi/springcloud/controller/SubcommentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-comment-service-provider12500/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-comment-service-provider12500/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-comment-service-provider12500/src/main/java/usyd/mingyi/springcloud/controller/CommentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-comment-service-provider12500/src/main/java/usyd/mingyi/springcloud/controller/CommentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-comment-service-provider12500/src/main/java/usyd/mingyi/springcloud/controller/SubcommentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-comment-service-provider12500/src/main/java/usyd/mingyi/springcloud/controller/SubcommentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-comment-service-provider12500/src/main/java/usyd/mingyi/springcloud/mapper/CommentMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-comment-service-provider12500/src/main/java/usyd/mingyi/springcloud/mapper/CommentMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-comment-service-provider12500/src/main/java/usyd/mingyi/springcloud/mapper/SubcommentMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-comment-service-provider12500/src/main/java/usyd/mingyi/springcloud/mapper/SubcommentMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-comment-service-provider12500/src/main/java/usyd/mingyi/springcloud/service/CommentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-comment-service-provider12500/src/main/java/usyd/mingyi/springcloud/service/CommentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-comment-service-provider12500/src/main/java/usyd/mingyi/springcloud/service/CommentServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-comment-service-provider12500/src/main/java/usyd/mingyi/springcloud/service/CommentServiceImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-comment-service-provider12500/src/main/java/usyd/mingyi/springcloud/service/SubcommentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-comment-service-provider12500/src/main/java/usyd/mingyi/springcloud/service/SubcommentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-comment-service-provider12500/src/main/java/usyd/mingyi/springcloud/service/SubcommentServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-comment-service-provider12500/src/main/java/usyd/mingyi/springcloud/service/SubcommentServiceImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-interaction-service-consumer11600/src/main/java/usyd/mingyi/springcloud/controller/SubscriptionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-interaction-service-consumer11600/src/main/java/usyd/mingyi/springcloud/controller/SubscriptionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-interaction-service-provider12600/src/main/java/usyd/mingyi/springcloud/controller/SubscriptionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-interaction-service-provider12600/src/main/java/usyd/mingyi/springcloud/controller/SubscriptionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-pet-service-consumer11300/src/main/java/usyd/mingyi/springcloud/controller/PetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-pet-service-consumer11300/src/main/java/usyd/mingyi/springcloud/controller/PetController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-pet-service-provider12300/src/main/java/usyd/mingyi/springcloud/controller/PetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-pet-service-provider12300/src/main/java/usyd/mingyi/springcloud/controller/PetController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-pet-service-provider12300/src/main/java/usyd/mingyi/springcloud/service/PetImageServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-pet-service-provider12300/src/main/java/usyd/mingyi/springcloud/service/PetImageServiceImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-petbook-common-starter-autoconfigure/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-petbook-common-starter-autoconfigure/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-petbook-common-starter-autoconfigure/src/main/java/usyd/mingyi/common/config/MybatisPlusMetaObjectHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-petbook-common-starter-autoconfigure/src/main/java/usyd/mingyi/common/config/MybatisPlusMetaObjectHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-petbook-common-starter-autoconfigure/src/main/java/usyd/mingyi/common/feign/CommentServiceFeign.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-petbook-common-starter-autoconfigure/src/main/java/usyd/mingyi/common/feign/CommentServiceFeign.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-petbook-common-starter-autoconfigure/src/main/java/usyd/mingyi/common/feign/InteractionServiceFeign.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-petbook-common-starter-autoconfigure/src/main/java/usyd/mingyi/common/feign/InteractionServiceFeign.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-petbook-common-starter-autoconfigure/src/main/java/usyd/mingyi/common/feign/UserServiceFeign.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-petbook-common-starter-autoconfigure/src/main/java/usyd/mingyi/common/feign/UserServiceFeign.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-petbook-common-starter-autoconfigure/src/main/java/usyd/mingyi/common/pojo/CloudMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-petbook-common-starter-autoconfigure/src/main/java/usyd/mingyi/common/pojo/CloudMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-petbook-common-starter-autoconfigure/src/main/resources/META-INF/spring.factories" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-petbook-common-starter-autoconfigure/src/main/resources/META-INF/spring.factories" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-post-service-provider12200/src/main/java/usyd/mingyi/springcloud/service/PostServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-post-service-provider12200/src/main/java/usyd/mingyi/springcloud/service/PostServiceImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-uaa7000/src/main/java/usyd/mingyi/springcloud/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-uaa7000/src/main/java/usyd/mingyi/springcloud/mapper/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-user-service-consumer11100/src/main/java/usyd/mingyi/springcloud/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-user-service-consumer11100/src/main/java/usyd/mingyi/springcloud/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-user-service-provider12100/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-user-service-provider12100/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-user-service-provider12100/src/main/java/usyd/mingyi/springcloud/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-user-service-provider12100/src/main/java/usyd/mingyi/springcloud/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-user-service-provider12100/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-user-service-provider12100/src/main/resources/application-dev.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-chat-service-consumer11700/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-chat-service-consumer11700/src/main/resources/application-dev.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-chat-service-provider12700/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-chat-service-provider12700/src/main/resources/application-dev.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-chat-service-provider12700/src/main/resources/application-prod.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-chat-service-provider12700/src/main/resources/application-prod.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-chat-service-provider12700/src/main/resources/application.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-chat-service-provider12700/src/main/resources/bootstrap.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-chat-service-provider12700/src/main/resources/bootstrap.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-uaa7000/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-uaa7000/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-uaa7000/src/main/java/usyd/mingyi/springcloud/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-uaa7000/src/main/java/usyd/mingyi/springcloud/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-uaa7000/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-uaa7000/src/main/resources/application-dev.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-uaa7000/src/main/resources/application-prod.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-uaa7000/src/main/resources/application-prod.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-uaa7000/src/main/resources/application.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-uaa7000/src/main/resources/bootstrap.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-uaa7000/src/main/resources/bootstrap.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-user-service-provider12100/src/main/resources/application.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-user-service-provider12100/src/main/resources/bootstrap.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-user-service-provider12100/src/main/resources/bootstrap.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,42 +79,42 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;cicd&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;11&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/WorkSpace/AnimalCare&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;0e4fb111bad4ab913c97f989f49ce060&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "cicd",
+    "jdk.selected.JAVA_MODULE": "11",
+    "last_opened_file_path": "D:/WorkSpace/PetBook/cloud-user-service-provider12100/src/main/resources",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "spring.configuration.checksum": "0e4fb111bad4ab913c97f989f49ce060",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\WorkSpace\PetBook\cloud-user-service-provider12100\src\main\resources" />
+      <recent name="D:\WorkSpace\PetBook\cloud-chat-service-provider12700\src\main\resources" />
       <recent name="D:\WorkSpace\PetBook\cloud-petbook-common-starter-autoconfigure\src\main\java\usyd\mingyi\common\feign" />
       <recent name="D:\WorkSpace\PetBook\cloud-petbook-common-starter-autoconfigure\src\main\java\usyd\mingyi\common" />
       <recent name="D:\WorkSpace\PetBook\cloud-object-storage-service12900" />
-      <recent name="D:\WorkSpace\PetBook\cloud-object-storage\src\main\resources" />
-      <recent name="D:\WorkSpace\PetBook\cloud-api-bases\src\main\java\usyd\mingyi\springcloud" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="usyd.mingyi.common.component" />
@@ -412,6 +396,12 @@
       <workItem from="1696066947545" duration="12417000" />
       <workItem from="1696104475493" duration="583000" />
       <workItem from="1696105065521" duration="14757000" />
+      <workItem from="1696125577953" duration="698000" />
+      <workItem from="1696126372402" duration="2623000" />
+      <workItem from="1696129461945" duration="6943000" />
+      <workItem from="1696137920017" duration="1809000" />
+      <workItem from="1696141865904" duration="311000" />
+      <workItem from="1696142191123" duration="4046000" />
     </task>
     <servers />
   </component>
@@ -421,11 +411,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/cloud-uaa7000/src/main/java/usyd/mingyi/springcloud/controller/AuthController.java</url>
-          <line>53</line>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/cloud-user-service-provider12100/src/main/java/usyd/mingyi/springcloud/mongodb/service/UserInfoService.java</url>
           <line>53</line>

@@ -1,10 +1,18 @@
 server:
   port: 7000
 
-
 spring:
   application:
     name: user-authentication-service
+  profiles:
+    active: dev
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
 myapp:
   webconfig:
     enabled: false

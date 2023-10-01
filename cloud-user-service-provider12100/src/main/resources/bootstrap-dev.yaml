@@ -1,0 +1,11 @@
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.239.151:31500
+      config:
+        server-addr: 192.168.239.151:31500
+        file-extension: yaml
+#  data:
+#    mongodb:
+#      uri: XXXXXXXXXX  in nacos

@@ -1,15 +1,4 @@
 spring:
-  data:
-    mongodb:
-      uri: mongodb+srv://lmy741917776:520569@petbookdb.brkjt0d.mongodb.net/?retryWrites=true&w=majority
-      database: db01
-  cloud:
-    nacos:
-      config:
-        server-addr: 192.168.239.151:31500
-        file-extension: yaml
-      discovery:
-        server-addr: 192.168.239.151:31500
   datasource:
     username: root
     password: 123456

@@ -1,11 +1,48 @@
 spring:
-  cloud:
-    nacos:
-      config:
-        server-addr: 192.168.239.151:31500
-        file-extension: yaml
-      discovery:
-        server-addr: 192.168.239.151:31500
+#  shardingsphere:
+#    datasource:
+#      names: master,slave
+#      master:
+#        type: com.alibaba.druid.pool.DruidDataSource
+#        driver-class-name: com.mysql.cj.jdbc.Driver
+#        url: jdbc:mysql://192.168.239.151:30002/db02?useUnicode=true&characterEncoding=utf-8
+#        username: root
+#        password: 123456
+#        druid:
+#          maxActive: 10
+#          initialSize: 5
+#          maxWait: 30000
+#          timeBetweenEvictionRunsMillis: 60000
+#          minEvictableIdleTimeMillis: 300000
+#          testWhileIdle: true
+#          testOnBorrow: false
+#          testOnReturn: false
+#          poolPreparedStatements: true
+#          maxPoolPreparedStatementPerConnectionSize: 20
+#          filters: stat,wall,log4j
+#      slave:
+#        type: com.alibaba.druid.pool.DruidDataSource
+#        driver-class-name: com.mysql.cj.jdbc.Driver
+#        url: jdbc:mysql://192.168.239.151:30003/db02?useUnicode=true&characterEncoding=utf-8
+#        username: root
+#        password: 123456
+#        druid:
+#          maxActive: 10
+#          initialSize: 5
+#          maxWait: 30000
+#          timeBetweenEvictionRunsMillis: 60000
+#          minEvictableIdleTimeMillis: 300000
+#          testWhileIdle: true
+#          testOnBorrow: false
+#          testOnReturn: false
+#          poolPreparedStatements: true
+#          maxPoolPreparedStatementPerConnectionSize: 20
+#          filters: stat,wall,log4j
+#    masterslave:
+#      name: ms-ds
+#      masterDataSourceName: master
+#      slaveDataSourceNames: slave
+#      loadBalanceAlgorithmType: ROUND_ROBIN
   datasource:
     username: root
     password: 123456
@@ -24,14 +61,4 @@ spring:
         max-idle: 8
         min-idle: 0
     password: 123456
-  mail:
-    port: 587
-    host: smtp.gmail.com
-    username: LMY741917776@gmail.com
-    password: walycwwkefhiojsm
-    properties:
-      mail:
-        smtp:
-          auth: true
-          starttls:
-            enable: true
+

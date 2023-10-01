@@ -3,6 +3,7 @@ package usyd.mingyi.springcloud.controller;
 import cn.hutool.core.lang.UUID;
 import cn.hutool.core.util.RandomUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.validation.annotation.Validated;
@@ -29,6 +30,8 @@ public class AuthController {
     RestTemplate restTemplate;
     @Autowired
     RedisTemplate<String, String> redisTemplate;
+
+
 
 
     @PostMapping("/oauth/login/password")

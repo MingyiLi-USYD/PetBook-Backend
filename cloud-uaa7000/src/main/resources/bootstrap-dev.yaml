@@ -1,0 +1,19 @@
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.239.151:31500
+      config:
+        server-addr: 192.168.239.151:31500
+        file-extension: yaml
+#  mail:
+#    port: 587
+#    host: smtp.gmail.com
+#    username: LMY741917776@gmail.com
+#    password: nacos   //put security info in nacos
+#    properties:
+#      mail:
+#        smtp:
+#          auth: true
+#          starttls:
+#            enable: true
