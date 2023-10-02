@@ -6,8 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="c94f14d2-c5cb-4c95-82ee-9d780f0022b5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/xa_tx0.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/transaction-logs/tmlog4.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-chat-service-consumer11700/src/main/resources/application-prod.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-chat-service-consumer11700/src/main/resources/application-prod.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-chat-service-provider12700/src/main/resources/application-prod.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-chat-service-provider12700/src/main/resources/application-prod.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-socket-service-provider12800/src/main/resources/application-prod.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-socket-service-provider12800/src/main/resources/application-prod.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-uaa7000/src/main/resources/application-prod.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-uaa7000/src/main/resources/application-prod.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -392,6 +394,7 @@
       <workItem from="1696218149369" duration="42000" />
       <workItem from="1696220398967" duration="24000" />
       <workItem from="1696220705892" duration="37000" />
+      <workItem from="1696222096491" duration="1119000" />
     </task>
     <servers />
   </component>
