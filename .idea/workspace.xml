@@ -5,131 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c94f14d2-c5cb-4c95-82ee-9d780f0022b5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/cloud-chat-service-consumer11700/src/main/resources/bootstrap-dev.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cloud-chat-service-consumer11700/src/main/resources/bootstrap-prod.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cloud-comment-service-consumer11500/src/main/resources/bootstrap-dev.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cloud-comment-service-consumer11500/src/main/resources/bootstrap-prod.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cloud-comment-service-provider12500/src/main/resources/bootstrap-dev.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cloud-comment-service-provider12500/src/main/resources/bootstrap-prod.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cloud-friend-service-consumer11400/src/main/resources/bootstrap-dev.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cloud-friend-service-consumer11400/src/main/resources/bootstrap-prod.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cloud-friend-service-provider12400/src/main/resources/bootstrap-dev.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cloud-friend-service-provider12400/src/main/resources/bootstrap-prod.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cloud-interaction-service-consumer11600/src/main/resources/bootstrap-dev.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cloud-interaction-service-consumer11600/src/main/resources/bootstrap-prod.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cloud-interaction-service-provider12600/src/main/resources/bootstrap-dev.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cloud-interaction-service-provider12600/src/main/resources/bootstrap-prod.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cloud-object-storage-service12900/src/main/resources/bootstrap-dev.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cloud-object-storage-service12900/src/main/resources/bootstrap-prod.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cloud-pet-service-consumer11300/src/main/resources/bootstrap-dev.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cloud-pet-service-consumer11300/src/main/resources/bootstrap-prod.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cloud-pet-service-provider12300/src/main/resources/bootstrap-dev.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cloud-pet-service-provider12300/src/main/resources/bootstrap-prod.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cloud-post-service-consumer11200/src/main/resources/bootstrap-dev.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cloud-post-service-consumer11200/src/main/resources/bootstrap-prod.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cloud-post-service-provider12200/src/main/resources/bootstrap-dev.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cloud-post-service-provider12200/src/main/resources/bootstrap-prod.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cloud-socket-service-provider12800/src/main/resources/bootstrap-dev.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cloud-socket-service-provider12800/src/main/resources/bootstrap-prod.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cloud-user-service-consumer11100/src/main/resources/bootstrap-dev.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cloud-user-service-consumer11100/src/main/resources/bootstrap-prod.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-petbook-common-starter-autoconfigure/src/main/java/usyd/mingyi/common/aop/FeignClientAspect.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-petbook-common-starter-autoconfigure/src/main/java/usyd/mingyi/common/auto/JpaConfigAutoConfiguration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-chat-service-consumer11700/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-chat-service-consumer11700/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-chat-service-consumer11700/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-chat-service-consumer11700/src/main/resources/application-dev.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-chat-service-consumer11700/src/main/resources/application-prod.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-chat-service-consumer11700/src/main/resources/application-prod.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-chat-service-consumer11700/src/main/resources/application.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-chat-service-consumer11700/src/main/resources/bootstrap.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-chat-service-consumer11700/src/main/resources/bootstrap.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-chat-service-provider12700/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-chat-service-provider12700/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-chat-service-provider12700/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-chat-service-provider12700/src/main/resources/application-dev.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-chat-service-provider12700/src/main/resources/application-prod.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-chat-service-provider12700/src/main/resources/application-prod.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-chat-service-provider12700/src/main/resources/bootstrap-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-chat-service-provider12700/src/main/resources/bootstrap-dev.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-comment-service-consumer11500/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-comment-service-consumer11500/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-comment-service-consumer11500/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-comment-service-consumer11500/src/main/resources/application-dev.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-comment-service-consumer11500/src/main/resources/application-prod.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-comment-service-consumer11500/src/main/resources/application-prod.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-comment-service-consumer11500/src/main/resources/application.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-comment-service-consumer11500/src/main/resources/bootstrap.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-comment-service-consumer11500/src/main/resources/bootstrap.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-comment-service-provider12500/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-comment-service-provider12500/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-comment-service-provider12500/src/main/java/usyd/mingyi/springcloud/mapper/CommentMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-comment-service-provider12500/src/main/java/usyd/mingyi/springcloud/mapper/CommentMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-comment-service-provider12500/src/main/java/usyd/mingyi/springcloud/mapper/SubcommentMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-comment-service-provider12500/src/main/java/usyd/mingyi/springcloud/mapper/SubcommentMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-comment-service-provider12500/src/main/java/usyd/mingyi/springcloud/service/SubcommentServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-comment-service-provider12500/src/main/java/usyd/mingyi/springcloud/service/SubcommentServiceImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-comment-service-provider12500/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-comment-service-provider12500/src/main/resources/application-dev.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-comment-service-provider12500/src/main/resources/application-prod.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-comment-service-provider12500/src/main/resources/application-prod.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-comment-service-provider12500/src/main/resources/application.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-comment-service-provider12500/src/main/resources/bootstrap.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-comment-service-provider12500/src/main/resources/bootstrap.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-friend-service-consumer11400/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-friend-service-consumer11400/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-friend-service-consumer11400/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-friend-service-consumer11400/src/main/resources/application-dev.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-friend-service-consumer11400/src/main/resources/application-prod.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-friend-service-consumer11400/src/main/resources/application-prod.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-friend-service-consumer11400/src/main/resources/application.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-friend-service-consumer11400/src/main/resources/bootstrap.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-friend-service-consumer11400/src/main/resources/bootstrap.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-friend-service-provider12400/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-friend-service-provider12400/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-friend-service-provider12400/src/main/java/usyd/mingyi/springcloud/mapper/FriendRequestMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-friend-service-provider12400/src/main/java/usyd/mingyi/springcloud/mapper/FriendRequestMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-friend-service-provider12400/src/main/java/usyd/mingyi/springcloud/mapper/FriendshipMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-friend-service-provider12400/src/main/java/usyd/mingyi/springcloud/mapper/FriendshipMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-friend-service-provider12400/src/main/java/usyd/mingyi/springcloud/service/FriendRequestServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-friend-service-provider12400/src/main/java/usyd/mingyi/springcloud/service/FriendRequestServiceImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-friend-service-provider12400/src/main/java/usyd/mingyi/springcloud/service/FriendshipServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-friend-service-provider12400/src/main/java/usyd/mingyi/springcloud/service/FriendshipServiceImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-friend-service-provider12400/src/main/resources/application.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-friend-service-provider12400/src/main/resources/bootstrap.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-friend-service-provider12400/src/main/resources/bootstrap.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-friend-service-provider12400/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-friend-service-provider12400/src/main/resources/application-dev.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-friend-service-provider12400/src/main/resources/application-prod.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-friend-service-provider12400/src/main/resources/application-prod.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cloud-interaction-service-consumer11600/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-interaction-service-consumer11600/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-interaction-service-consumer11600/src/main/java/usyd/mingyi/springcloud/InteractionServiceMain11600.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-interaction-service-consumer11600/src/main/java/usyd/mingyi/springcloud/InteractionServiceMain11600.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-interaction-service-consumer11600/src/main/java/usyd/mingyi/springcloud/controller/LovePostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-interaction-service-consumer11600/src/main/java/usyd/mingyi/springcloud/controller/LovePostController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cloud-interaction-service-consumer11600/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-interaction-service-consumer11600/src/main/resources/application-dev.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-interaction-service-consumer11600/src/main/resources/application-prod.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-interaction-service-consumer11600/src/main/resources/application-prod.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-interaction-service-consumer11600/src/main/resources/application.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-interaction-service-consumer11600/src/main/resources/bootstrap.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-interaction-service-consumer11600/src/main/resources/bootstrap.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cloud-interaction-service-provider12600/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-interaction-service-provider12600/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-interaction-service-provider12600/src/main/java/usyd/mingyi/springcloud/controller/LovePostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-interaction-service-provider12600/src/main/java/usyd/mingyi/springcloud/controller/LovePostController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-interaction-service-provider12600/src/main/java/usyd/mingyi/springcloud/mapper/LovePostMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-interaction-service-provider12600/src/main/java/usyd/mingyi/springcloud/mapper/LovePostMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-interaction-service-provider12600/src/main/java/usyd/mingyi/springcloud/mapper/MentionMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-interaction-service-provider12600/src/main/java/usyd/mingyi/springcloud/mapper/MentionMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-interaction-service-provider12600/src/main/java/usyd/mingyi/springcloud/mapper/SubscriptionMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-interaction-service-provider12600/src/main/java/usyd/mingyi/springcloud/mapper/SubscriptionMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cloud-interaction-service-provider12600/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-interaction-service-provider12600/src/main/resources/application-dev.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-interaction-service-provider12600/src/main/resources/application-prod.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-interaction-service-provider12600/src/main/resources/application-prod.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-interaction-service-provider12600/src/main/resources/application.yaml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/cloud-interaction-service-provider12600/src/main/resources/bootstrap.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-interaction-service-provider12600/src/main/resources/bootstrap.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-object-storage-service12900/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-object-storage-service12900/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-object-storage-service12900/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-object-storage-service12900/src/main/resources/application-dev.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-object-storage-service12900/src/main/resources/application-prod.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-object-storage-service12900/src/main/resources/application-prod.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-object-storage-service12900/src/main/resources/application.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-object-storage-service12900/src/main/resources/bootstrap.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-object-storage-service12900/src/main/resources/bootstrap.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-pet-service-consumer11300/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-pet-service-consumer11300/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-pet-service-consumer11300/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-pet-service-consumer11300/src/main/resources/application-dev.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-pet-service-consumer11300/src/main/resources/application-prod.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-pet-service-consumer11300/src/main/resources/application-prod.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-pet-service-consumer11300/src/main/resources/application.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-pet-service-consumer11300/src/main/resources/bootstrap.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-pet-service-consumer11300/src/main/resources/bootstrap.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-pet-service-provider12300/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-pet-service-provider12300/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-pet-service-provider12300/src/main/java/usyd/mingyi/springcloud/mapper/PetMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-pet-service-provider12300/src/main/java/usyd/mingyi/springcloud/mapper/PetMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-pet-service-provider12300/src/main/java/usyd/mingyi/springcloud/service/PetServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-pet-service-provider12300/src/main/java/usyd/mingyi/springcloud/service/PetServiceImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-pet-service-provider12300/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-pet-service-provider12300/src/main/resources/application-dev.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-pet-service-provider12300/src/main/resources/application-prod.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-pet-service-provider12300/src/main/resources/application-prod.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-pet-service-provider12300/src/main/resources/application.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-pet-service-provider12300/src/main/resources/bootstrap.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-pet-service-provider12300/src/main/resources/bootstrap.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-petbook-common-starter-autoconfigure/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-petbook-common-starter-autoconfigure/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-post-service-consumer11200/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-post-service-consumer11200/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-post-service-consumer11200/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-post-service-consumer11200/src/main/resources/application-dev.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-post-service-consumer11200/src/main/resources/application-prod.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-post-service-consumer11200/src/main/resources/application-prod.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-post-service-consumer11200/src/main/resources/application.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-post-service-consumer11200/src/main/resources/bootstrap.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-post-service-consumer11200/src/main/resources/bootstrap.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-petbook-common-starter-autoconfigure/src/main/java/usyd/mingyi/common/auto/FeignInterceptorAutoConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-petbook-common-starter-autoconfigure/src/main/java/usyd/mingyi/common/auto/FeignInterceptorAutoConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-petbook-common-starter-autoconfigure/src/main/resources/META-INF/spring.factories" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-petbook-common-starter-autoconfigure/src/main/resources/META-INF/spring.factories" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cloud-post-service-provider12200/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-post-service-provider12200/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-post-service-provider12200/src/main/java/usyd/mingyi/springcloud/controller/PostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-post-service-provider12200/src/main/java/usyd/mingyi/springcloud/controller/PostController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-post-service-provider12200/src/main/java/usyd/mingyi/springcloud/mapper/PostMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-post-service-provider12200/src/main/java/usyd/mingyi/springcloud/mapper/PostMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cloud-post-service-provider12200/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-post-service-provider12200/src/main/resources/application-dev.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-post-service-provider12200/src/main/resources/application-prod.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-post-service-provider12200/src/main/resources/application-prod.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-post-service-provider12200/src/main/resources/application.yaml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/cloud-post-service-provider12200/src/main/resources/bootstrap.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-post-service-provider12200/src/main/resources/bootstrap.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-socket-service-provider12800/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-socket-service-provider12800/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-socket-service-provider12800/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-socket-service-provider12800/src/main/resources/application-dev.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-socket-service-provider12800/src/main/resources/application-prod.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-socket-service-provider12800/src/main/resources/application-prod.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-socket-service-provider12800/src/main/resources/application.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-socket-service-provider12800/src/main/resources/bootstrap.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-socket-service-provider12800/src/main/resources/bootstrap.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-uaa7000/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-uaa7000/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-uaa7000/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-uaa7000/src/main/resources/application-dev.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-user-service-consumer11100/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-user-service-consumer11100/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-user-service-consumer11100/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-user-service-consumer11100/src/main/resources/application-dev.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-user-service-consumer11100/src/main/resources/application-prod.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-user-service-consumer11100/src/main/resources/application-prod.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-user-service-consumer11100/src/main/resources/application.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-user-service-consumer11100/src/main/resources/bootstrap.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-user-service-consumer11100/src/main/resources/bootstrap.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-user-service-provider12100/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-user-service-provider12100/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-user-service-provider12100/src/main/java/usyd/mingyi/springcloud/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-user-service-provider12100/src/main/java/usyd/mingyi/springcloud/mapper/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-user-service-provider12100/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-user-service-provider12100/src/main/resources/application-dev.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-user-service-provider12100/src/main/resources/application-prod.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-user-service-provider12100/src/main/resources/application-prod.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -195,7 +87,7 @@
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "cicd",
     "jdk.selected.JAVA_MODULE": "11",
-    "last_opened_file_path": "D:/WorkSpace/PetBook/cloud-user-service-consumer11100/src/main/resources",
+    "last_opened_file_path": "D:/WorkSpace/PetBook/cloud-post-service-provider12200/src/main/resources",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -214,11 +106,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\WorkSpace\PetBook\cloud-user-service-consumer11100\src\main\resources" />
       <recent name="D:\WorkSpace\PetBook\cloud-post-service-provider12200\src\main\resources" />
-      <recent name="D:\WorkSpace\PetBook\cloud-socket-service-provider12800\src\main\resources" />
-      <recent name="D:\WorkSpace\PetBook\cloud-post-service-consumer11200\src\main\resources" />
-      <recent name="D:\WorkSpace\PetBook\cloud-pet-service-provider12300\src\main\resources" />
+      <recent name="D:\WorkSpace\PetBook\cloud-interaction-service-provider12600\src\main\resources" />
+      <recent name="D:\WorkSpace\PetBook\cloud-petbook-common-starter-autoconfigure\src\main\java\usyd\mingyi\common\auto" />
+      <recent name="D:\WorkSpace\PetBook\cloud-petbook-common-starter-autoconfigure\src\main\java\usyd\mingyi\common" />
+      <recent name="D:\WorkSpace\PetBook\cloud-user-service-consumer11100\src\main\resources" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="usyd.mingyi.common.component" />
@@ -507,7 +399,7 @@
       <workItem from="1696141865904" duration="311000" />
       <workItem from="1696142191123" duration="4046000" />
       <workItem from="1696206940033" duration="4027000" />
-      <workItem from="1696211858548" duration="1696000" />
+      <workItem from="1696211858548" duration="5456000" />
     </task>
     <servers />
   </component>
@@ -526,11 +418,6 @@
           <url>file://$PROJECT_DIR$/cloud-pet-service-consumer11300/src/main/java/usyd/mingyi/springcloud/controller/PetController.java</url>
           <line>51</line>
           <option name="timeStamp" value="23" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/cloud-interaction-service-consumer11600/src/main/java/usyd/mingyi/springcloud/controller/LovePostController.java</url>
-          <line>60</line>
-          <option name="timeStamp" value="24" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

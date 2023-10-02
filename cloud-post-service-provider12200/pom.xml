@@ -19,6 +19,7 @@
     <dependencies>
 
 
+
         <dependency>
             <groupId>usyd.mingyi.springcloud</groupId>
             <artifactId>cloud-petbook-common-starter</artifactId>

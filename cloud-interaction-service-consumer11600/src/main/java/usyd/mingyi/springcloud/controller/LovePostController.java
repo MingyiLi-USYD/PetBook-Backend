@@ -18,9 +18,6 @@ import usyd.mingyi.common.pojo.Post;
 import usyd.mingyi.common.utils.BaseContext;
 import usyd.mingyi.springcloud.mapstruct.PoConvertToDto;
 
-
-import java.util.List;
-
 @RestController
 @Slf4j
 public class LovePostController {
@@ -59,21 +56,22 @@ public class LovePostController {
     public R<String> love(@PathVariable("postId") Long postId) {
 
         Post post = postServiceFeign.getPostByPostId(postId);
-        postServiceFeign.changeLoveOfPostOptimistic(postId,1);
+        postServiceFeign.changeLoveOfPostOptimistic(postId, 1);
         String res = interactionServiceFeign.love(postId, post.getUserId());
 
         //socket推送消息
         Long currentId = BaseContext.getCurrentId();
-        ServiceMessage serviceMessage = new ServiceMessage(currentId,System.currentTimeMillis(),
+        ServiceMessage serviceMessage = new ServiceMessage(currentId, System.currentTimeMillis(),
                 post.getUserId(), ServiceMessageType.NEW_LIKE);
         chatServiceFeign.sendServiceMessage(serviceMessage);
         return R.success(res);
     }
+
     @DeleteMapping("/lovePost/{postId}")
     @GlobalTransactional
     public R<String> cancelLove(@PathVariable("postId") Long postId) {
         Post post = postServiceFeign.getPostByPostId(postId);
-        postServiceFeign.changeLoveOfPostOptimistic(postId,-1);
+        postServiceFeign.changeLoveOfPostOptimistic(postId, -1);
         return R.success(interactionServiceFeign.cancelLove(postId, post.getUserId()));
     }
 }

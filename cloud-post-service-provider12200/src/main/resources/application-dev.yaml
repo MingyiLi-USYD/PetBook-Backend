@@ -1,4 +1,30 @@
 spring:
+#  shardingsphere:
+#    datasource:
+#      names: master,slave
+#
+#      master:
+#        type: com.zaxxer.hikari.HikariDataSource
+#        driver-class-name: com.mysql.cj.jdbc.Driver
+#        jdbc-url: jdbc:mysql://192.168.239.151:30002/db02?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF8
+#        username: root
+#        password: 123456
+#
+#      slave:
+#        type: com.zaxxer.hikari.HikariDataSource
+#        driver-class-name: com.mysql.cj.jdbc.Driver
+#        jdbc-url: jdbc:mysql://192.168.239.151:30003/db02?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF8
+#        username: root
+#        password: 123456
+#    sharding:
+#      master-slave-rules:
+#        master:
+#          # 主库
+#          masterDataSourceName: master
+#          # 从库
+#          slaveDataSourceNames:
+#            - slave
+#          loadBalanceAlgorithmType: ROUND_ROBIN
   datasource:
     username: root
     password: 123456
