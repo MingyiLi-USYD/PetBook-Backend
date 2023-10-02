@@ -3,7 +3,6 @@ package usyd.mingyi.springcloud.service;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.github.yulichang.wrapper.MPJLambdaWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -53,9 +52,8 @@ public class FriendRequestServiceImp extends ServiceImpl<FriendRequestMapper, Fr
 
     @Override
     public List<FriendRequest> getAllRequests(Long userId, Long[] ids) {
-        MPJLambdaWrapper<FriendRequest> query = new MPJLambdaWrapper<>();
-        query.selectAll(FriendRequest.class)
-                .eq(FriendRequest::getFriendId, userId)
+        LambdaQueryWrapper<FriendRequest> query = new LambdaQueryWrapper<>();
+        query.eq(FriendRequest::getFriendId, userId)
                 .in(ids != null, FriendRequest::getMyId, ids);
         return friendRequestMapper.selectList(query);
     }

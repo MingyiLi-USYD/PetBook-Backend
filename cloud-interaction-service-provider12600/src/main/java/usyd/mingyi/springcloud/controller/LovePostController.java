@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
+import usyd.mingyi.common.common.CustomException;
 import usyd.mingyi.common.common.R;
 import usyd.mingyi.common.pojo.LovePost;
 import usyd.mingyi.common.utils.BaseContext;
@@ -46,18 +47,18 @@ public class LovePostController {
     }
 
     @GetMapping("/love/{postId}")
-    @Transactional //分支事务
     public R<String> love(@PathVariable("postId") Long postId,@RequestParam("postUserId") Long postUserId) {
-        Long userId = BaseContext.getCurrentId();
-        lovePostService.lovePost(userId,postId,postUserId);
-        return R.success("success");
+        throw new CustomException("demo");
+//        Long userId = BaseContext.getCurrentId();
+//        lovePostService.lovePost(userId,postId,postUserId);
+//        return R.success("success");
     }
 
     @DeleteMapping("/love/{postId}")
     public R<String> cancelLove(@PathVariable("postId") Long postId,@RequestParam("postUserId") Long postUserId) {
-        Long userId = BaseContext.getCurrentId();
-        lovePostService.cancelLovePost(userId,postId,postUserId);
-
-        return R.success("success");
+        throw new CustomException("demo");
+//        Long userId = BaseContext.getCurrentId();
+//        lovePostService.cancelLovePost(userId,postId,postUserId);
+//        return R.success("success");
     }
 }

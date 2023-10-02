@@ -3,3 +3,10 @@ server:
 spring:
   application:
     name: friend-service-consumer
+  profiles:
+    active: dev
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

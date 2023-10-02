@@ -3,3 +3,16 @@ server:
 spring:
   application:
     name: post-service-consumer
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+  profiles:
+    active: dev
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

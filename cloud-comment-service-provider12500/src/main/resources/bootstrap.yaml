@@ -1,7 +1,13 @@
 server:
   port: 12500
 
-
 spring:
   application:
     name: comment-service-provider
+  profiles:
+    active: dev
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

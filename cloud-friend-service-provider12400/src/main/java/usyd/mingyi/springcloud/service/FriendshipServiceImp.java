@@ -2,7 +2,6 @@ package usyd.mingyi.springcloud.service;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.github.yulichang.wrapper.MPJLambdaWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -75,7 +74,7 @@ public class FriendshipServiceImp extends ServiceImpl<FriendshipMapper, Friendsh
     }
 
     public Friendship getFriendship(Long userId, Long friendId){
-        MPJLambdaWrapper<Friendship> query = new MPJLambdaWrapper<>();
+        LambdaQueryWrapper<Friendship> query = new LambdaQueryWrapper<>();
         query
                 .eq(Friendship::getMyId,userId)
                 .eq(Friendship::getFriendId,friendId);

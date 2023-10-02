@@ -1,8 +1,8 @@
 package usyd.mingyi.springcloud.service;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.github.yulichang.wrapper.MPJLambdaWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -30,7 +30,7 @@ public class PetServiceImp extends ServiceImpl<PetMapper, Pet> implements PetSer
 
     @Override
     public List<Pet> getPetList(Long userId) {
-        MPJLambdaWrapper<Pet> wrapper = new MPJLambdaWrapper<>();
+        LambdaQueryWrapper<Pet> wrapper = new LambdaQueryWrapper<>();
         wrapper.eq(Pet::getUserId,userId)
                 .eq(!userId.equals(BaseContext.getCurrentId())
                         ,Pet::getPetVisible,true);//非本人调用此方法就需要满足宠物没有被隐藏的前提

@@ -3,6 +3,7 @@ package usyd.mingyi.springcloud.controller;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import usyd.mingyi.common.common.CustomException;
 import usyd.mingyi.common.common.R;
@@ -105,6 +106,7 @@ public class PostController {
     }
 
     @GetMapping("/post/changeLove")
+    @Transactional
     public R<Post> changeLoveOfPostOptimistic(@RequestParam("postId") Long postId, @RequestParam("delta") Integer delta) {
         return R.success(postService.changeLoveNumber(postId, delta));
     }

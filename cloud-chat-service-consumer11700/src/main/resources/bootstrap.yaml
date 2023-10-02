@@ -4,3 +4,10 @@ server:
 spring:
   application:
     name: chat-service-consumer
+  profiles:
+    active: dev
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

@@ -5,3 +5,10 @@ server:
 spring:
   application:
     name: pet-service-provider
+  profiles:
+    active: dev
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

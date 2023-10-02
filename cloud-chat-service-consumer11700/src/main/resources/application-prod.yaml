@@ -1,11 +1,4 @@
 spring:
-  cloud:
-    nacos:
-      config:
-        server-addr: nacos-headless.petbook:8848
-        file-extension: yaml
-      discovery:
-        server-addr: nacos-headless.petbook:8848
   datasource:
     username: root
     password: 123456

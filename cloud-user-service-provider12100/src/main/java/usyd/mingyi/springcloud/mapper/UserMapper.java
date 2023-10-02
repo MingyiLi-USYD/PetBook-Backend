@@ -1,13 +1,11 @@
 package usyd.mingyi.springcloud.mapper;
 
-
-
-import com.github.yulichang.base.MPJBaseMapper;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 import usyd.mingyi.common.pojo.User;
 
 
 @Mapper
-public interface UserMapper extends MPJBaseMapper<User> {
+public interface UserMapper extends BaseMapper<User> {
 
 }

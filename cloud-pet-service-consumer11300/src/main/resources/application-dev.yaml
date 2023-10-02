@@ -1,11 +1,4 @@
 spring:
-  cloud:
-    nacos:
-      config:
-        server-addr: 192.168.239.151:31500
-        file-extension: yaml
-      discovery:
-        server-addr: 192.168.239.151:31500
   datasource:
     username: root
     password: 123456

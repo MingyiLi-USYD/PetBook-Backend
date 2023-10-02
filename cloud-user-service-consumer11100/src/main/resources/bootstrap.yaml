@@ -3,4 +3,10 @@ server:
 spring:
   application:
     name: user-service-consumer
-
+  profiles:
+    active: dev
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
