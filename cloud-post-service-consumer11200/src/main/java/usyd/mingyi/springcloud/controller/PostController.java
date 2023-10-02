@@ -59,28 +59,12 @@ public class PostController {
                     }
                 }
             }
+            handleUpload(post, images);
 
 
-            if (!post.getIsDelay()) {// 表示不需要定时上传   所以说立刻发布
-                List<String> imageUrlList = objectStorageServiceFeign.savePostImages(images);
-                post.setCoverImage(imageUrlList.get(0));
-                Post saved = postServiceFeign.upLoadPost(post);
-
-                List<PostImage> postImages = new ArrayList<>();
-                for (String url : imageUrlList) {
-                    PostImage postImage = new PostImage();
-                    postImage.setImageUrl(url);
-                    postImage.setPostId(saved.getPostId());
-                    postImages.add(postImage);
-                }
-                postServiceFeign.savePostImages(postImages);
-
-            } else {//需要延迟上传 通过MQ死信队列完成
-
-            }
         }else {
             //如果是私人的 就不需要通知好友 直接上传就行了
-
+            handleUpload(post, images);
 
         }
 
@@ -88,6 +72,26 @@ public class PostController {
 
 
         return R.success("上传成功");
+    }
+
+    private void handleUpload(@Valid Post post, @RequestParam("images") MultipartFile[] images) {
+        if (!post.getIsDelay()) {// 表示不需要定时上传   所以说立刻发布
+            List<String> imageUrlList = objectStorageServiceFeign.savePostImages(images);
+            post.setCoverImage(imageUrlList.get(0));
+            Post saved = postServiceFeign.upLoadPost(post);
+
+            List<PostImage> postImages = new ArrayList<>();
+            for (String url : imageUrlList) {
+                PostImage postImage = new PostImage();
+                postImage.setImageUrl(url);
+                postImage.setPostId(saved.getPostId());
+                postImages.add(postImage);
+            }
+            postServiceFeign.savePostImages(postImages);
+
+        } else {//需要延迟上传 通过MQ死信队列完成
+
+        }
     }
 
     @GetMapping("/post/{postId}")
