@@ -25,4 +25,4 @@ seata:
       mygroup: default
   data-source-proxy-mode: XA
 upload:
-  dir: /petbook/image
+  dir: /petbook/image/
