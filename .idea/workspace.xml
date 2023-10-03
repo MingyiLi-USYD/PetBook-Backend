@@ -6,30 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="c94f14d2-c5cb-4c95-82ee-9d780f0022b5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-chat-service-consumer11700/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-chat-service-consumer11700/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-chat-service-consumer11700/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-chat-service-consumer11700/src/main/resources/application-dev.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-chat-service-consumer11700/src/main/resources/application-prod.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-chat-service-consumer11700/src/main/resources/application-prod.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-chat-service-consumer11700/src/main/java/usyd/mingyi/springcloud/controller/ChatController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-chat-service-consumer11700/src/main/java/usyd/mingyi/springcloud/controller/ChatController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cloud-chat-service-provider12700/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-chat-service-provider12700/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-comment-service-consumer11500/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-comment-service-consumer11500/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-comment-service-consumer11500/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-comment-service-consumer11500/src/main/resources/application-dev.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-comment-service-consumer11500/src/main/resources/application-prod.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-comment-service-consumer11500/src/main/resources/application-prod.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-friend-service-consumer11400/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-friend-service-consumer11400/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-friend-service-consumer11400/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-friend-service-consumer11400/src/main/resources/application-dev.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-friend-service-consumer11400/src/main/resources/application-prod.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-friend-service-consumer11400/src/main/resources/application-prod.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-interaction-service-consumer11600/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-interaction-service-consumer11600/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-interaction-service-consumer11600/src/main/java/usyd/mingyi/springcloud/InteractionServiceMain11600.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-interaction-service-consumer11600/src/main/java/usyd/mingyi/springcloud/InteractionServiceMain11600.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-interaction-service-consumer11600/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-interaction-service-consumer11600/src/main/resources/application-dev.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-interaction-service-consumer11600/src/main/resources/application-prod.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-interaction-service-consumer11600/src/main/resources/application-prod.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-pet-service-consumer11300/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-pet-service-consumer11300/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-pet-service-consumer11300/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-pet-service-consumer11300/src/main/resources/application-dev.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-pet-service-consumer11300/src/main/resources/application-prod.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-pet-service-consumer11300/src/main/resources/application-prod.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-post-service-consumer11200/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-post-service-consumer11200/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-post-service-consumer11200/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-post-service-consumer11200/src/main/resources/application-dev.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-post-service-consumer11200/src/main/resources/application-prod.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-post-service-consumer11200/src/main/resources/application-prod.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-user-service-consumer11100/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-user-service-consumer11100/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-user-service-consumer11100/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-user-service-consumer11100/src/main/resources/application-dev.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-user-service-consumer11100/src/main/resources/application-prod.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-user-service-consumer11100/src/main/resources/application-prod.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-chat-service-provider12700/src/main/java/usyd/mingyi/springcloud/controller/ChatController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-chat-service-provider12700/src/main/java/usyd/mingyi/springcloud/controller/ChatController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-chat-service-provider12700/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-chat-service-provider12700/src/main/resources/application-dev.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-chat-service-provider12700/src/main/resources/application-prod.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-chat-service-provider12700/src/main/resources/application-prod.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -425,7 +406,7 @@
       <workItem from="1696293501745" duration="3117000" />
       <workItem from="1696297349070" duration="731000" />
       <workItem from="1696306354075" duration="1249000" />
-      <workItem from="1696307972444" duration="4775000" />
+      <workItem from="1696307972444" duration="7601000" />
     </task>
     <servers />
   </component>

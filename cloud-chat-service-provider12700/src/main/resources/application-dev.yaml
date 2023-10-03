@@ -1,27 +1,4 @@
 spring:
-  datasource:
-    hikari:
-      minimum-idle: 4
-      maximum-pool-size: 16
-      connection-timeout: 10000
-      idle-timeout: 30000
-    dynamic:
-      seata: true
-      seata-mode: xa
-      primary: master
-      strict: false
-      datasource:
-        master:
-          driver-class-name: com.mysql.cj.jdbc.Driver
-          url: jdbc:mysql://192.168.239.151:30002/db02?useUnicode=true&characterEncoding=UTF-8&rewriteBatchedStatements=true&allowMultiQueries=true&serverTimezone=Australia/Sydney
-          username: root
-          password: 123456
-        slave:
-          driver-class-name: com.mysql.cj.jdbc.Driver
-          url: jdbc:mysql://192.168.239.151:30003/db02?useUnicode=true&characterEncoding=UTF-8&rewriteBatchedStatements=true&allowMultiQueries=true&serverTimezone=Australia/Sydney
-          username: root
-          password: 123456
-
   redis:
     host: localhost
     port: 6379
@@ -61,5 +38,3 @@ seata:
     vgroup-mapping:
       mygroup: default
   data-source-proxy-mode: XA
-  enable-auto-data-source-proxy: false
-  enabled: true

@@ -1,7 +1,9 @@
 package usyd.mingyi.springcloud.controller;
 
+import io.seata.core.context.RootContext;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import usyd.mingyi.common.common.CustomException;
 import usyd.mingyi.common.common.R;
@@ -30,6 +32,7 @@ public class ChatController {
             throw new CustomException("no right");
         }
         chatService.saveMsgInCloud(message);
+
         return R.success("成功发送");
     }
 

@@ -1,9 +1,9 @@
 package usyd.mingyi.springcloud.controller;
 
+import io.seata.spring.annotation.GlobalTransactional;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import usyd.mingyi.common.common.CustomException;
 import usyd.mingyi.common.common.R;
 import usyd.mingyi.common.entity.ChatMessage;
@@ -13,9 +13,6 @@ import usyd.mingyi.common.feign.UserServiceFeign;
 import usyd.mingyi.common.pojo.CloudMessage;
 import usyd.mingyi.common.pojo.User;
 import usyd.mingyi.common.utils.BaseContext;
-import usyd.mingyi.springcloud.service.ChatService;
-
-
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -38,6 +35,7 @@ public class ChatController {
 
 
     @PostMapping("/chat/message")
+    @GlobalTransactional
     public R<String> pushToUser(@RequestBody ChatMessage message) {
         Long currentId = BaseContext.getCurrentId();
         //还要检查是否是朋友
@@ -46,6 +44,7 @@ public class ChatController {
             throw new CustomException("no right");
         }
         chatServiceFeign.saveChatMessage(message);
+
         chatServiceFeign.sendChatMessage(message);
         return R.success("成功发送");
     }
@@ -57,7 +56,7 @@ public class ChatController {
 
     @GetMapping("/chat/retrieve/all")
     public R<Map<String,CloudMessage>> getAllMessages(){
-        Long currentId = BaseContext.getCurrentId();
+
         Map<String,CloudMessage> cloudMessages = chatServiceFeign.getAllMessages();
 
         for (Map.Entry<String, CloudMessage> entry : cloudMessages.entrySet()) {
@@ -70,7 +69,6 @@ public class ChatController {
     }
     @PostMapping("/chat/retrieve/partly")
     public R<Map<String,CloudMessage>> getPartly(@RequestBody Map<String,Long> localStorage){
-        Long currentId = BaseContext.getCurrentId();
 
         //先查本地有的
         Map<String,CloudMessage> cloudMessages = chatServiceFeign.getPartly(localStorage);
