@@ -57,6 +57,7 @@ public class LovePostController {
 
         Post post = postServiceFeign.getPostByPostId(postId);
         postServiceFeign.changeLoveOfPostOptimistic(postId, 1);
+
         String res = interactionServiceFeign.love(postId, post.getUserId());
 
         //socket推送消息

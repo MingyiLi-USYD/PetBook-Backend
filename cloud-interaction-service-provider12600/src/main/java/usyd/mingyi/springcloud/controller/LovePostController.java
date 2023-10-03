@@ -49,6 +49,7 @@ public class LovePostController {
     @GetMapping("/love/{postId}")
     public R<String> love(@PathVariable("postId") Long postId,@RequestParam("postUserId") Long postUserId) {
 
+
         Long userId = BaseContext.getCurrentId();
         lovePostService.lovePost(userId,postId,postUserId);
         return R.success("success");

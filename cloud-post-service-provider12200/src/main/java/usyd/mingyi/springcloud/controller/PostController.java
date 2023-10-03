@@ -1,6 +1,8 @@
 package usyd.mingyi.springcloud.controller;
 
+import com.baomidou.dynamic.datasource.annotation.DS;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import io.seata.core.context.RootContext;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
@@ -10,6 +12,7 @@ import usyd.mingyi.common.common.R;
 import usyd.mingyi.common.pojo.Post;
 import usyd.mingyi.common.utils.BaseContext;
 import usyd.mingyi.springcloud.service.PostService;
+
 import javax.validation.Valid;
 import java.util.List;
 
@@ -18,6 +21,7 @@ import java.util.List;
 public class PostController {
     @Autowired
     PostService postService;
+
 
     @PostMapping("/post")
     public R<Post> upLoadPost(@RequestBody @Valid Post post) {
@@ -42,7 +46,9 @@ public class PostController {
     }
 
     @GetMapping("/post/{postId}")
+    @DS("slave")
     public R<Post> getPost(@PathVariable("postId") Long postId) {
+
         Post post = postService.getById(postId);
         if (!post.getVisible() && !post.getUserId().equals(BaseContext.getCurrentId())) {
             throw new CustomException("This post is currently invisible");
@@ -101,11 +107,13 @@ public class PostController {
 
     @GetMapping("/posts/ids")
     public R<List<Post>> getPostsByIds(@RequestBody List<Long> ids) {
+
         List<Post> postsByIds = postService.getPostsByIds(ids);
         return R.success(postsByIds);
     }
 
     @GetMapping("/post/changeLove")
+    @DS("master")
     @Transactional
     public R<Post> changeLoveOfPostOptimistic(@RequestParam("postId") Long postId, @RequestParam("delta") Integer delta) {
         return R.success(postService.changeLoveNumber(postId, delta));

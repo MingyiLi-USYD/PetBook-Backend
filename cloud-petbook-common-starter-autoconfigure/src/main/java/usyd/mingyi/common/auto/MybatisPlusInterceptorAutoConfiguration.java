@@ -6,12 +6,14 @@ import com.baomidou.mybatisplus.extension.plugins.inner.OptimisticLockerInnerInt
 import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import usyd.mingyi.common.service.MybatisPlusMetaObjectHandler;
 
 @Configuration
 @Slf4j
+@ConditionalOnProperty(name = "petbook.mybatisplus.enabled", havingValue = "true", matchIfMissing = true)
 public class MybatisPlusInterceptorAutoConfiguration {
 
     @Bean

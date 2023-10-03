@@ -18,6 +18,11 @@
     </properties>
     <dependencies>
 
+<!--        <dependency>-->
+<!--            <groupId>com.baomidou</groupId>-->
+<!--            <artifactId>dynamic-datasource-spring-boot-starter</artifactId>-->
+<!--            <version>3.4.1</version>-->
+<!--        </dependency>-->
 
         <dependency>
             <groupId>usyd.mingyi.springcloud</groupId>

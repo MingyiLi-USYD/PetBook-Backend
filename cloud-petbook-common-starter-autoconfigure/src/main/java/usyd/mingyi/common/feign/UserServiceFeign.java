@@ -3,12 +3,9 @@ package usyd.mingyi.common.feign;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
-import usyd.mingyi.common.common.R;
 import usyd.mingyi.common.component.FeignConfig;
 import usyd.mingyi.common.pojo.User;
 import usyd.mingyi.common.pojo.UserInfo;
-import usyd.mingyi.common.utils.BaseContext;
-
 
 import java.util.Collection;
 import java.util.List;
