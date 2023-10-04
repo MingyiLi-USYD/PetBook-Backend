@@ -43,6 +43,9 @@ public class CommentController {
 
     @Autowired
     UserServiceFeign userServiceFeign;
+
+    @Autowired
+    UserBaseServiceFeign userBaseServiceFeign;
 ;
 
     @PostMapping("/comment")
@@ -124,7 +127,7 @@ public class CommentController {
     @GlobalTransactional
     public R<String> loveComment(@PathVariable("commentId")Long commentId) {
         commentServiceFeign.increaseCommentLove(commentId);
-        userServiceFeign.addLovedCommentId(commentId);
+        userBaseServiceFeign.addLovedCommentId(commentId);
         return R.success("Success");
     }
 
@@ -132,7 +135,7 @@ public class CommentController {
     @GlobalTransactional
     public R<String> cancelLoveComment(@PathVariable("commentId")Long commentId) {
         commentServiceFeign.decreaseCommentLove(commentId);
-        userServiceFeign.removeLovedCommentId(commentId);
+        userBaseServiceFeign.removeLovedCommentId(commentId);
         return R.success("Success");
     }
 

@@ -34,6 +34,8 @@ public class UserController {
     @Autowired
     UserServiceFeign userServiceFeign;
     @Autowired
+    UserBaseServiceFeign userBaseServiceFeign;
+    @Autowired
     FriendServiceFeign friendServiceFeign;
     @Autowired
     PostServiceFeign postServiceFeign;
@@ -162,8 +164,7 @@ public class UserController {
 
     @GetMapping("/user/userInfo")
     public R<UserInfo> getUserInfo() {
-        UserInfo userInfo = userServiceFeign.getUserInfo();
-
+        UserInfo userInfo = userBaseServiceFeign.getUserInfo();
         return R.success(userInfo);
     }
 

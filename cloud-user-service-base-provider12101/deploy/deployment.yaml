@@ -1,0 +1,88 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: user-service-base-provider
+  namespace: petbook
+  labels:
+    app: user-service-base-provider
+    version: v1
+spec:
+  ports:
+    - name: http
+      protocol: TCP
+      port: 8080
+      targetPort: 8080
+  selector:
+    app: user-service-base-provider
+  type: ClusterIP
+  sessionAffinity: None
+---
+
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: user-service-base-provider
+  namespace: petbook
+  labels:
+    app: user-service-base-provider
+    version: v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: user-service-base-provider
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: user-service-base-provider
+        version: v1
+    spec:
+      affinity:
+        nodeAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - weight: 1
+              preference:
+                matchExpressions:
+                  - key: memo
+                    operator: In
+                    values:
+                      - high  # 这里指定了带有 "memo=high" 标签的节点
+
+      containers:
+        - image: $REGISTRY/$DOCKERHUB_NAMESPACE/user-service-base-provider:latest
+          name: user-service-base-provider
+          livenessProbe:
+            httpGet:
+              path: /actuator/health
+              port: 8080
+            initialDelaySeconds: 30
+            timeoutSeconds: 5
+            failureThreshold: 5
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /actuator/health
+              port: 8080
+            initialDelaySeconds: 30
+            timeoutSeconds: 5
+            failureThreshold: 5
+            periodSeconds: 10
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          imagePullPolicy: Always
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      schedulerName: default-scheduler
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 25%
+      maxSurge: 25%
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 600

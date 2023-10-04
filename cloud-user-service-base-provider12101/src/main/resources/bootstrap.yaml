@@ -1,0 +1,12 @@
+server:
+  port: 12101
+spring:
+  application:
+    name: user-service-base-provider
+  profiles:
+    active: dev
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

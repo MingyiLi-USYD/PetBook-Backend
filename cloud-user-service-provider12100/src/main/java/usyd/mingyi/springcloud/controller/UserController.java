@@ -9,9 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import usyd.mingyi.common.common.CustomException;
 import usyd.mingyi.common.common.R;
 import usyd.mingyi.common.pojo.User;
-import usyd.mingyi.common.pojo.UserInfo;
 import usyd.mingyi.common.utils.BaseContext;
-import usyd.mingyi.springcloud.mongodb.service.UserInfoService;
 import usyd.mingyi.springcloud.service.UserService;
 
 import javax.validation.constraints.NotNull;
@@ -27,9 +25,6 @@ import java.util.List;
 public class UserController {
     @Autowired
     UserService userService;
-    @Autowired
-    UserInfoService userInfoService;
-
 
     @GetMapping("/user/{userId}")
     public R<User> getUserById(@PathVariable("userId") Long userId) {
@@ -78,58 +73,6 @@ public class UserController {
             throw new CustomException("Login first");
         }
         return R.success(user);
-    }
-
-    @GetMapping("/comment/love/{commentId}")
-    public R<String> addLovedCommentId(@PathVariable("commentId") Long commentId) {
-
-        if (userInfoService.addCommentToLovedComments(BaseContext.getCurrentId(), commentId)) {
-
-            return R.error("插入失败");
-        }
-
-        return R.success("插入成功");
-
-    }
-
-    @DeleteMapping("/comment/love/{commentId}")
-    public R<String> removeLovedCommentId(@PathVariable("commentId") Long commentId) {
-
-        if (userInfoService.removeCommentFromLovedComments(BaseContext.getCurrentId(), commentId)) {
-
-            return R.error("移除失败");
-        }
-
-        return R.success("移除成功");
-    }
-
-
-    @GetMapping("/subcomment/love/{subcommentId}")
-    public R<String> addLovedSubcommentId(@PathVariable("subcommentId") Long subcommentId) {
-
-        if (userInfoService.addSubCommentToLovedSubcomments(BaseContext.getCurrentId(), subcommentId)) {
-
-            return R.error("插入失败");
-        }
-
-        return R.success("插入成功");
-
-    }
-
-    @DeleteMapping("/subcomment/love/{subcommentId}")
-    public R<String> removeLovedSubcommentId(@PathVariable("subcommentId") Long subcommentId) {
-
-        if (userInfoService.removeSubcommentFromLovedSubcomments(BaseContext.getCurrentId(), subcommentId)) {
-
-            return R.error("移除失败");
-        }
-
-        return R.success("移除成功");
-    }
-
-    @GetMapping("/user/userInfo")
-    public R<UserInfo> getUserInfo() {
-          return R.success(userInfoService.getUserInfoByUserId(BaseContext.getCurrentId()));
     }
 
 

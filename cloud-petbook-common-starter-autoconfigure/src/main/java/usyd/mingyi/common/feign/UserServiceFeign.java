@@ -33,18 +33,4 @@ public interface UserServiceFeign {
     @GetMapping("/currentUser") // 与UserController中的映射一致
     User getCurrentUser();
 
-    @GetMapping("/comment/love/{commentId}")
-    String addLovedCommentId(@PathVariable("commentId") Long commentId);
-
-    @DeleteMapping("/comment/love/{commentId}")
-    String removeLovedCommentId(@PathVariable("commentId") Long commentId);
-
-    @GetMapping("/subcomment/love/{subcommentId}")
-    String addLovedSubcommentId(@PathVariable("subcommentId") Long subcommentId);
-
-    @DeleteMapping("/subcomment/love/{subcommentId}")
-    String removeLovedSubcommentId(@PathVariable("subcommentId") Long subcommentId);
-
-    @GetMapping("/user/userInfo")
-    UserInfo getUserInfo();
 }

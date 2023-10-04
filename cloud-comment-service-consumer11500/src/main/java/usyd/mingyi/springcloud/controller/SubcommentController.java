@@ -9,6 +9,7 @@ import usyd.mingyi.common.common.CustomException;
 import usyd.mingyi.common.common.R;
 import usyd.mingyi.common.dto.SubcommentDto;
 import usyd.mingyi.common.feign.CommentServiceFeign;
+import usyd.mingyi.common.feign.UserBaseServiceFeign;
 import usyd.mingyi.common.feign.UserServiceFeign;
 import usyd.mingyi.common.pojo.Comment;
 import usyd.mingyi.common.pojo.Subcomment;
@@ -27,6 +28,8 @@ public class SubcommentController {
     CommentServiceFeign commentServiceFeign;
     @Autowired
     UserServiceFeign userServiceFeign;
+    @Autowired
+    UserBaseServiceFeign userBaseServiceFeign;
     @Autowired
     PoConvertToDto poConvertToDto;
     @PostMapping("/subcomment")
@@ -62,7 +65,7 @@ public class SubcommentController {
     @GlobalTransactional
     public R<String> loveComment(@PathVariable("subcommentId")Long subcommentId) {
         commentServiceFeign.increaseSubcommentLove(subcommentId);
-        userServiceFeign.addLovedSubcommentId(subcommentId);
+        userBaseServiceFeign.addLovedSubcommentId(subcommentId);
         return R.success("Success");
     }
 
@@ -71,7 +74,7 @@ public class SubcommentController {
     @GlobalTransactional
     public R<String> cancelLoveComment(@PathVariable("subcommentId")Long subcommentId) {
         commentServiceFeign.decreaseSubcommentLove(subcommentId);
-        userServiceFeign.removeLovedSubcommentId(subcommentId);
+        userBaseServiceFeign.removeLovedSubcommentId(subcommentId);
         return R.success("Success");
     }
 

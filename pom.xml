@@ -9,6 +9,7 @@
         <module>cloud-uaa7000</module>
         <module>cloud-socket-service-provider12800</module>
         <module>cloud-user-service-provider12100</module>
+        <module>cloud-user-service-base-provider12101</module>
         <module>cloud-user-service-consumer11100</module>
         <module>cloud-pet-service-provider12300</module>
         <module>cloud-post-service-provider12200</module>
@@ -25,6 +26,7 @@
         <module>cloud-object-storage-service12900</module>
         <module>cloud-petbook-common-starter</module>
         <module>cloud-petbook-common-starter-autoconfigure</module>
+
     </modules>
 
     <parent>

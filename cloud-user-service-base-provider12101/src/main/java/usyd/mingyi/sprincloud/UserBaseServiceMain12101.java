@@ -1,15 +1,14 @@
-package usyd.mingyi.springcloud;
+package usyd.mingyi.sprincloud;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-public class UserServiceMain12100 {
+public class UserBaseServiceMain12101 {
     public static void main(String[] args) {
-        SpringApplication.run(UserServiceMain12100.class,args);
+        SpringApplication.run(UserBaseServiceMain12101.class,args);
 
     }
-
 }

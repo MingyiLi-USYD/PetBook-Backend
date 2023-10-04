@@ -123,6 +123,23 @@ pipeline {
                     }
                 }
 
+                stage('构建user-service-base-provider') {
+                    agent none
+                    when {
+                        expression {
+                            return params.SERVICE == 'all' || params.SERVICE == 'cloud-user-service-base-provider12101'
+                        }
+
+                    }
+                    steps {
+                        container('maven') {
+                            sh 'docker build -t user-service-base-provider:latest -f cloud-user-service-base-provider12101/Dockerfile cloud-user-service-base-provider12101/'
+                        }
+
+                    }
+                }
+
+
                 stage('构建user-service-consumer') {
                     agent none
                     when {
@@ -404,6 +421,28 @@ pipeline {
 
                     }
                 }
+
+                stage('推送user-service-base-provider镜像') {
+                    agent none
+                    when {
+                        expression {
+                            return params.SERVICE == 'all' || params.SERVICE == 'cloud-user-service-base-provider12101'
+                        }
+
+                    }
+                    steps {
+                        container('maven') {
+                            withCredentials([usernamePassword(credentialsId: 'docker-io-registry', usernameVariable: 'DOCKER_USER_VAR', passwordVariable: 'DOCKER_PWD_VAR')]) {
+                                sh 'echo "$DOCKER_PWD_VAR" | docker login $REGISTRY -u "$DOCKER_USER_VAR" --password-stdin'
+                                sh 'docker tag user-service-base-provider:latest $REGISTRY/$DOCKERHUB_NAMESPACE/user-service-base-provider:latest'
+                                sh 'docker push $REGISTRY/$DOCKERHUB_NAMESPACE/user-service-base-provider:latest'
+                            }
+
+                        }
+
+                    }
+                }
+
 
                 stage('推送user-service-consumer镜像') {
                     agent none
@@ -732,6 +771,7 @@ pipeline {
                         def services = [
                                 'cloud-gateway9257',
                                 'cloud-uaa7000',
+                                'cloud-user-service-base-provider12101',
                                 'cloud-socket-service-provider12800',
                                 'cloud-user-service-provider12100',
                                 'cloud-user-service-consumer11100',
@@ -770,7 +810,7 @@ pipeline {
         APP_NAME = 'devops-java-sample'
     }
     parameters {
-        choice(name: 'SERVICE', choices: ['all','cloud-object-storage-service12900','cloud-gateway9257', 'cloud-uaa7000', 'cloud-socket-service-provider12800', 'cloud-user-service-provider12100', 'cloud-user-service-consumer11100', 'cloud-pet-service-provider12300', 'cloud-post-service-provider12200', 'cloud-friend-service-provider12400', 'cloud-comment-service-provider12500', 'cloud-interaction-service-provider12600', 'cloud-post-service-consumer11200', 'cloud-pet-service-consumer11300', 'cloud-friend-service-consumer11400', 'cloud-comment-service-consumer11500', 'cloud-interaction-service-consumer11600', 'cloud-chat-service-provider12700', 'cloud-chat-service-consumer11700'], description: '请选择要部署的服务')
+        choice(name: 'SERVICE', choices: ['all','cloud-user-service-base-provider12101','cloud-object-storage-service12900','cloud-gateway9257', 'cloud-uaa7000', 'cloud-socket-service-provider12800', 'cloud-user-service-provider12100', 'cloud-user-service-consumer11100', 'cloud-pet-service-provider12300', 'cloud-post-service-provider12200', 'cloud-friend-service-provider12400', 'cloud-comment-service-provider12500', 'cloud-interaction-service-provider12600', 'cloud-post-service-consumer11200', 'cloud-pet-service-consumer11300', 'cloud-friend-service-consumer11400', 'cloud-comment-service-consumer11500', 'cloud-interaction-service-consumer11600', 'cloud-chat-service-provider12700', 'cloud-chat-service-consumer11700'], description: '请选择要部署的服务')
         booleanParam(name: 'SKIP_PUSH', defaultValue: false, description: '是否跳过推送')
     }
 }
