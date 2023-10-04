@@ -48,8 +48,6 @@ public class LovePostController {
 
     @GetMapping("/love/{postId}")
     public R<String> love(@PathVariable("postId") Long postId,@RequestParam("postUserId") Long postUserId) {
-
-
         Long userId = BaseContext.getCurrentId();
         lovePostService.lovePost(userId,postId,postUserId);
         return R.success("success");
@@ -57,6 +55,7 @@ public class LovePostController {
 
     @DeleteMapping("/love/{postId}")
     public R<String> cancelLove(@PathVariable("postId") Long postId,@RequestParam("postUserId") Long postUserId) {
+
 
         Long userId = BaseContext.getCurrentId();
         lovePostService.cancelLovePost(userId,postId,postUserId);

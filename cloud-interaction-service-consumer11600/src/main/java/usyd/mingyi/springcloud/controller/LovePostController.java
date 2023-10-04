@@ -57,6 +57,7 @@ public class LovePostController {
 
         Post post = postServiceFeign.getPostByPostId(postId);
         postServiceFeign.changeLoveOfPostOptimistic(postId, 1);
+        log.info("准备出异常");
 
         String res = interactionServiceFeign.love(postId, post.getUserId());
 

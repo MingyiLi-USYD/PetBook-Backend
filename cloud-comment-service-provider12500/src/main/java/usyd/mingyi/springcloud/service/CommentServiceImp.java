@@ -36,7 +36,11 @@ public class CommentServiceImp extends ServiceImpl<CommentMapper, Comment> imple
     @Override
     public Page<Comment> getCommentsToMe(Long userId, Long current, Integer pageSize) {
         Page<Comment> page = new Page<>(current, pageSize);
-        this.page(page, new LambdaQueryWrapper<Comment>().eq(Comment::getTargetUserId, userId));
+        this.page(page, new LambdaQueryWrapper<Comment>()
+                .eq(Comment::getTargetUserId, userId)
+                .ne(Comment::getUserId,userId)
+                .eq(Comment::getIsRead,false)
+        );
         return page;
     }
 

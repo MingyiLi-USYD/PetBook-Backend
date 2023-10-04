@@ -46,6 +46,8 @@ public class CommentController {
 
     @Autowired
     UserBaseServiceFeign userBaseServiceFeign;
+
+
 ;
 
     @PostMapping("/comment")
@@ -82,7 +84,8 @@ public class CommentController {
                                                       @RequestParam("pageSize") Integer pageSize) {
 
         Page<Comment> commentPage = commentServiceFeign.getAllCommentsToMyPost(current, pageSize);
-        return getCommentDtoPage(commentPage);
+
+        return getCommentDtoPage(commentPage,false);
     }
 
     @GetMapping("/comment/read/{id}")
@@ -99,12 +102,17 @@ public class CommentController {
     }
 
 
-    private R<Page<CommentDto>> getCommentDtoPage(Page<Comment> commentPage) {
+    private R<Page<CommentDto>> getCommentDtoPage(Page<Comment> commentPage,boolean ignorePostInfo) {
         //发起了很多次查询 后期考虑后期加入缓存机制  或者一次性查出多条数据再合并
 
-        Page<CommentDto> commentDtoPage = poConvertToDto.convertPage(commentPage);
+        Page<CommentDto> commentDtoPage = poConvertToDto.convertCommentPage(commentPage);
         commentDtoPage.getRecords().forEach(commentDto -> {
             commentDto.setCommentUser(userServiceFeign.getUserById(commentDto.getUserId()));
+
+            if (!ignorePostInfo) {
+                commentDto.setRelevantPost(postServiceFeign.getPostByPostId(commentDto.getPostId()));
+            }
+
             List<Subcomment> subcomments =
                     commentServiceFeign.getSubcommentsByCommentIdLimit(commentDto.getCommentId());
             List<SubcommentDto> subcommentDtos = poConvertToDto.subcommentsToSubcommentDtos(subcomments);
@@ -121,6 +129,10 @@ public class CommentController {
         });
 
         return R.success(commentDtoPage);
+    }
+
+    private R<Page<CommentDto>> getCommentDtoPage(Page<Comment> commentPage){
+        return this.getCommentDtoPage(commentPage,true);
     }
 
     @GetMapping("/comment/love/{commentId}")

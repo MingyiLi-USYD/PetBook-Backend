@@ -17,6 +17,6 @@ seata:
   service:
     vgroup-mapping:
       mygroup: default
-  data-source-proxy-mode: XA
+  data-source-proxy-mode: AT
 upload:
   dir: D:/petbook/

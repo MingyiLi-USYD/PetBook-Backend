@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.HandlerInterceptor;
 import usyd.mingyi.common.common.R;
+import usyd.mingyi.common.common.UnauthorizedException;
 import usyd.mingyi.common.dto.FriendRequestDto;
 import usyd.mingyi.common.dto.FriendshipDto;
 import usyd.mingyi.common.dto.UserDto;
@@ -152,6 +153,9 @@ public class UserController {
     @GetMapping("/user/currentUser")
     public R<User> getCurrentUser() {
         User user = userServiceFeign.getCurrentUser();
+        if (user == null) {
+            throw new UnauthorizedException("Login first");
+        }
         return R.success(user);
     }
 

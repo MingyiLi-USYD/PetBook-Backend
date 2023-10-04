@@ -8,6 +8,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import usyd.mingyi.common.common.CustomException;
 import usyd.mingyi.common.common.R;
+import usyd.mingyi.common.common.UnauthorizedException;
 import usyd.mingyi.common.pojo.User;
 import usyd.mingyi.common.utils.BaseContext;
 import usyd.mingyi.springcloud.service.UserService;
@@ -69,9 +70,7 @@ public class UserController {
 
         Long currentId = BaseContext.getCurrentId();
         User user = userService.getById(currentId);
-        if (user == null) {
-            throw new CustomException("Login first");
-        }
+
         return R.success(user);
     }
 

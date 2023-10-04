@@ -1,6 +1,8 @@
 package usyd.mingyi.common.service;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import usyd.mingyi.common.common.CustomException;
 import usyd.mingyi.common.common.R;
+import usyd.mingyi.common.common.UnauthorizedException;
 
 import javax.validation.ConstraintViolationException;
 import java.sql.SQLIntegrityConstraintViolationException;
@@ -20,6 +23,13 @@ import java.util.List;
 @ResponseBody
 @Slf4j
 public class GlobalExceptionHandler {
+
+    @ExceptionHandler(UnauthorizedException.class)
+    public ResponseEntity<String> unauthorizedExceptionHandler(UnauthorizedException exception) {
+        log.info("token异常");
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).body(exception.getMessage());
+    }
+
 
     @ExceptionHandler(SQLIntegrityConstraintViolationException.class)
     public R<String> sqlExceptionHandler(SQLIntegrityConstraintViolationException exception) {

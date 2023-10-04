@@ -25,12 +25,14 @@ public interface PoConvertToDto {
     PetDto petToPetDto(Pet pet);
 
     CommentDto commentToCommentDto(Comment comment);
+    List<CommentDto> commentsToCommentDtos(List<Comment> comment);
+
+    Page<CommentDto> convertCommentPage(Page<Comment> commentPage);
 
     SubcommentDto subcommentToSubcommentDto(Subcomment subcomment);
 
     List<SubcommentDto> subcommentsToSubcommentDtos(List<Subcomment> subcomments);
 
-    Page<CommentDto> convertPage(Page<Comment> commentPage);
 
     //LovePost 与 LovePostDto转化
     LovePostDto lovePostToLovePostDto(LovePost lovePost);
