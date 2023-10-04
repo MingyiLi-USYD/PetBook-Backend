@@ -1,9 +1,26 @@
 spring:
   datasource:
-    username: root
-    password: 123456
-    url: jdbc:mysql://mysql-write.petbook:3306/db02?useUnicode=true&characterEncoding=utf-8
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      minimum-idle: 4
+      maximum-pool-size: 16
+      connection-timeout: 10000
+      idle-timeout: 30000
+    dynamic:
+      seata: true
+      seata-mode: at
+      primary: master
+      strict: false
+      datasource:
+        master:
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          url: jdbc:mysql://mysql-write.petbook:3306/comment?useUnicode=true&characterEncoding=UTF-8&rewriteBatchedStatements=true&allowMultiQueries=true&serverTimezone=Australia/Sydney
+          username: root
+          password: 123456
+        slave:
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          url: jdbc:mysql://mysql-read.petbook.3306/comment?useUnicode=true&characterEncoding=UTF-8&rewriteBatchedStatements=true&allowMultiQueries=true&serverTimezone=Australia/Sydney
+          username: root
+          password: 123456
 seata:
   config:
     type: nacos
@@ -23,4 +40,6 @@ seata:
   service:
     vgroup-mapping:
       mygroup: default
-  data-source-proxy-mode: XA
+  data-source-proxy-mode: AT
+  enable-auto-data-source-proxy: false
+  enabled: true
