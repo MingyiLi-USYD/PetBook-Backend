@@ -19,7 +19,7 @@ spring:
 
   rabbitmq:
     port: 5672
-    host: rabbitmq.petbook
+    host: rabbitmq-0.rabbitmq-headless.petbook.svc.cluster.local,rabbitmq-1.rabbitmq-headless.petbook.svc.cluster.local,rabbitmq-2.rabbitmq-headless.petbook.svc.cluster.local
     username: mingyi
     password: mingyi
     publisher-confirm-type: correlated
