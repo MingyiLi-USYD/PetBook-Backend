@@ -27,4 +27,7 @@ public class MybatisPlusMetaObjectHandler implements MetaObjectHandler {
         metaObject.setValue(UPDATE_TIME, LocalDateTime.now());
         metaObject.setValue(UPDATE_USER, BaseContext.getCurrentId());
     }
+
+
+
 }

@@ -1,8 +1,10 @@
 package usyd.mingyi.springcloud.service;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +16,10 @@ import usyd.mingyi.springcloud.mapper.LovePostMapper;
 import java.util.List;
 
 @Service
+@Slf4j
 public class LovePostServiceImp extends ServiceImpl<LovePostMapper, LovePost> implements LovePostService {
+    @Autowired
+    LovePostMapper lovePostMapper;
 
 
     @Override
@@ -64,6 +69,7 @@ public class LovePostServiceImp extends ServiceImpl<LovePostMapper, LovePost> im
     }
 
     @Override
+
     public Boolean lovePost(Long userId, Long postId, Long postUserId) {
         //返回值 表明是否是第一次点赞 用于决定是否socket通知
         LambdaQueryWrapper<LovePost> query = new LambdaQueryWrapper<>();
@@ -84,13 +90,16 @@ public class LovePostServiceImp extends ServiceImpl<LovePostMapper, LovePost> im
             }
         }else {
             //证明不是第一次点赞了
-            exist.setIsCanceled(false);
-            if (this.updateById(exist)) {
-                return false;
-            }else {
-                throw new CustomException("点赞失败");
+            if(exist.getIsCanceled()){
+                exist.setIsCanceled(false);
+                if (lovePostMapper.update(exist,new LambdaUpdateWrapper<LovePost>().eq(
+                        LovePost::getLoveId,exist.getLoveId()
+                ).eq(LovePost::getIsCanceled,true))>0) {
+                    return true;
+                }
             }
         }
+        throw new CustomException("点过赞了");
 
     }
 
@@ -106,9 +115,16 @@ public class LovePostServiceImp extends ServiceImpl<LovePostMapper, LovePost> im
         if (exist == null) {
             throw new CustomException("never love this post before");
         } else {
-            exist.setIsCanceled(true);
-            this.updateById(exist);
+            if(!exist.getIsCanceled()){
+                exist.setIsCanceled(true);
+                if (lovePostMapper.update(exist,new LambdaUpdateWrapper<LovePost>().eq(
+                        LovePost::getLoveId,exist.getLoveId()
+                ).eq(LovePost::getIsCanceled,false))>0) {
+                    return;
+                }
+            }
         }
+        throw new CustomException("没有点过赞");
     }
 
 
