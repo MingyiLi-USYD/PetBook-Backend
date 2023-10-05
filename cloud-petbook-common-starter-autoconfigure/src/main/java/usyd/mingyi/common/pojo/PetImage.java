@@ -1,9 +1,8 @@
 package usyd.mingyi.common.pojo;
 
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableLogic;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,6 +10,7 @@ import lombok.NoArgsConstructor;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 @TableName("pet_image")
 @Data
@@ -27,4 +27,17 @@ public class PetImage implements Serializable {
     String imageUrl;
     @TableLogic
     Boolean isDeleted;
+
+    @TableField(fill = FieldFill.INSERT)
+    @JsonIgnore
+    private LocalDateTime createTime;
+    @TableField(fill = FieldFill.INSERT_UPDATE)
+    @JsonIgnore
+    private LocalDateTime updateTime;
+    @TableField(fill = FieldFill.INSERT)
+    @JsonIgnore
+    private Long createUser;
+    @TableField(fill = FieldFill.INSERT_UPDATE)
+    @JsonIgnore
+    private Long updateUser;
 }
