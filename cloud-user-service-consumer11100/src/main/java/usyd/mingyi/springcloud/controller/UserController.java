@@ -6,6 +6,7 @@ import feign.RequestInterceptor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.HandlerInterceptor;
 import usyd.mingyi.common.common.R;
@@ -25,12 +26,16 @@ import usyd.mingyi.common.utils.UserUtils;
 import usyd.mingyi.springcloud.common.FriendRequestHandler;
 import usyd.mingyi.springcloud.common.FriendshipHandler;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.stream.Collectors;
 
 @RestController
 @Slf4j
+@Validated
 public class UserController {
     @Autowired
     UserServiceFeign userServiceFeign;
@@ -149,6 +154,19 @@ public class UserController {
         userDto.setSubscriberIdList(subscribersPromise.get());
         return R.success(userDto);
     }
+
+    @PutMapping("/user/profile")
+    public R<String> updateUserProfile(@RequestParam("nickname") @NotBlank(message = "Nickname is required")
+                                     @Size(min = 3, max = 10, message = "Nickname must be between 3 and 10 characters")
+                                     String nickname,
+                                     @RequestParam("description")
+                                     @NotBlank(message = "Nickname is required")
+                                     @Size(min = 1, max = 100, message = "Nickname must be between 3 and 10 characters")
+                                     String description) {
+             userServiceFeign.updateUserProfile(nickname,description);
+             return R.success("Success");
+    }
+
 
     @GetMapping("/user/currentUser")
     public R<User> getCurrentUser() {

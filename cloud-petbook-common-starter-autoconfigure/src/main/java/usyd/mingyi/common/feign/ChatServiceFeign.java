@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import usyd.mingyi.common.common.R;
 import usyd.mingyi.common.component.FeignConfig;
 import usyd.mingyi.common.entity.ChatMessage;
 import usyd.mingyi.common.entity.ServiceMessage;
@@ -42,4 +43,7 @@ public interface ChatServiceFeign {
 
     @PostMapping("/chat/retrieve/unread")
     Map<String,CloudMessage> getUnread(@RequestBody List<String> ids);
+
+    @GetMapping("/chat/read/{userId}")
+    String read(@PathVariable("userId")Long userId);
 }

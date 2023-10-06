@@ -3,6 +3,7 @@ package usyd.mingyi.common.feign;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
+import usyd.mingyi.common.common.R;
 import usyd.mingyi.common.component.FeignConfig;
 import usyd.mingyi.common.pojo.User;
 import usyd.mingyi.common.pojo.UserInfo;
@@ -32,5 +33,8 @@ public interface UserServiceFeign {
 
     @GetMapping("/currentUser") // 与UserController中的映射一致
     User getCurrentUser();
+
+    @PutMapping("/user/profile")
+    String updateUserProfile(@RequestParam("nickname") String nickname,@RequestParam("description") String description);
 
 }

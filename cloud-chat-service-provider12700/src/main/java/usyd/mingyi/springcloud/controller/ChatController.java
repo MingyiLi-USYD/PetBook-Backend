@@ -67,4 +67,10 @@ public class ChatController {
         return R.success(new HashMap<>());
     }
 
+    @GetMapping("/chat/read/{userId}")
+    public R<String> read(@PathVariable("userId")Long userId){
+        chatService.readMessage(String.valueOf(userId));
+        return R.success("read");
+    }
+
 }

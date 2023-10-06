@@ -64,7 +64,6 @@ public class UserInfoService implements TCCService {
         // 创建查询条件，userId匹配的文档
 
         mongoService.removeComment(userId,commentId);
-
         CommentFreeze commentFreeze = new CommentFreeze();
         commentFreeze.setState(CommentFreeze.TRY);
         commentFreeze.setUserId(userId);
@@ -79,37 +78,9 @@ public class UserInfoService implements TCCService {
         log.info("add成功");
         String xid = context.getXid();
         return commentFreezeMapper.deleteById(xid) == 1;
-
     }
 
-    @Override
-    public boolean cancelAdd(BusinessActionContext context) {
-        log.info("add回滚");
 
-        String xid = context.getXid();
-        Long userId = (Long) context.getActionContext("userId");
-        Long commentId = (Long) context.getActionContext("commentId");
-
-        CommentFreeze commentFreeze = commentFreezeMapper.selectById(xid);
-        if (commentFreeze==null){
-              //空回滚
-            commentFreeze = new CommentFreeze();
-            commentFreeze.setUserId(userId);
-            commentFreeze.setCommentId(commentId);
-            commentFreeze.setXid(xid);
-            commentFreeze.setState(CommentFreeze.CANCEL);
-            commentFreezeMapper.insert(commentFreeze);
-            return true;
-        }
-        if (commentFreeze.getState().equals(CommentFreeze.CANCEL)){
-            return true;
-        }
-
-        mongoService.removeComment(commentFreeze.getUserId(),commentFreeze.getCommentId());
-        commentFreeze.setState(CommentFreeze.CANCEL);
-        return commentFreezeMapper.updateById(commentFreeze)==1;
-
-    }
 
 
 
@@ -120,34 +91,55 @@ public class UserInfoService implements TCCService {
         return commentFreezeMapper.deleteById(xid) == 1;
     }
 
-    @Override
-    public boolean cancelRemove(BusinessActionContext context) {
-        log.info("remove回滚");
 
+    private CommentFreeze getOrCreateCommentFreeze(BusinessActionContext context) {
         String xid = context.getXid();
         Long userId = (Long) context.getActionContext("userId");
         Long commentId = (Long) context.getActionContext("commentId");
 
         CommentFreeze commentFreeze = commentFreezeMapper.selectById(xid);
-        if (commentFreeze==null){
-            //空回滚
+        if (commentFreeze == null) {
+            // 空回滚
             commentFreeze = new CommentFreeze();
             commentFreeze.setUserId(userId);
             commentFreeze.setCommentId(commentId);
             commentFreeze.setXid(xid);
             commentFreeze.setState(CommentFreeze.CANCEL);
             commentFreezeMapper.insert(commentFreeze);
-            return true;
         }
-        if (commentFreeze.getState().equals(CommentFreeze.CANCEL)){
-            return true;
-        }
-
-        mongoService.insertComment(commentFreeze.getUserId(),commentFreeze.getCommentId());
-        commentFreeze.setState(CommentFreeze.CANCEL);
-        return commentFreezeMapper.updateById(commentFreeze)==1;
-
+        return commentFreeze;
     }
+
+    @Override
+    public boolean cancelAdd(BusinessActionContext context) {
+        log.info("add回滚");
+
+        CommentFreeze commentFreeze = getOrCreateCommentFreeze(context);
+
+        if (commentFreeze.getState().equals(CommentFreeze.CANCEL)) {
+            return true;
+        }
+
+        mongoService.removeComment(commentFreeze.getUserId(), commentFreeze.getCommentId());
+        commentFreeze.setState(CommentFreeze.CANCEL);
+        return commentFreezeMapper.updateById(commentFreeze) == 1;
+    }
+
+    @Override
+    public boolean cancelRemove(BusinessActionContext context) {
+        log.info("remove回滚");
+
+        CommentFreeze commentFreeze = getOrCreateCommentFreeze(context);
+
+        if (commentFreeze.getState().equals(CommentFreeze.CANCEL)) {
+            return true;
+        }
+
+        mongoService.insertComment(commentFreeze.getUserId(), commentFreeze.getCommentId());
+        commentFreeze.setState(CommentFreeze.CANCEL);
+        return commentFreezeMapper.updateById(commentFreeze) == 1;
+    }
+
 
 
 

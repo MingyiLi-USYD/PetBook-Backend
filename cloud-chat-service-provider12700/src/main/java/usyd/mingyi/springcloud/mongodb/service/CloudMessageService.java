@@ -1,16 +1,19 @@
 package usyd.mingyi.springcloud.mongodb.service;
 
+import org.bson.Document;
+import org.checkerframework.checker.units.qual.A;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoTemplate;
-import org.springframework.data.mongodb.core.aggregation.Aggregation;
-import org.springframework.data.mongodb.core.aggregation.AggregationOperation;
-import org.springframework.data.mongodb.core.aggregation.TypedAggregation;
+import org.springframework.data.mongodb.core.aggregation.*;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import usyd.mingyi.common.common.CustomException;
+import usyd.mingyi.common.common.R;
 import usyd.mingyi.common.entity.ChatMessage;
 import usyd.mingyi.common.pojo.CloudMessage;
 import usyd.mingyi.springcloud.mongodb.dao.CloudMessageRepository;
@@ -86,10 +89,15 @@ public class CloudMessageService {
         List<CloudMessage> res = new ArrayList<>();
         for (String friendId : localStorage.keySet()) {
             Long lastTime = localStorage.get(friendId);
-            AggregationOperation unwindOperation = Aggregation.unwind("chatList");
             AggregationOperation filterOperation = Aggregation.match(Criteria.where("chatList.date").gt(lastTime));
-            CloudMessage oneChatRecord = this.getOneChatRecord(userId, friendId, unwindOperation, filterOperation);
+            CloudMessage oneChatRecord = this.getOneChatRecord(userId, friendId, filterOperation);
+
             if (oneChatRecord != null) {
+                oneChatRecord.setChatList(
+                        oneChatRecord.getChatList().stream()
+                                .filter(chatMessage -> chatMessage.getDate()>lastTime)
+                                .collect(Collectors.toList()));
+
                 res.add(oneChatRecord);
             }
         }
@@ -102,6 +110,7 @@ public class CloudMessageService {
         for (String friendId : friendIds) {
             CloudMessage oneChatRecord = this.getOneChatRecord(userId, friendId);
             if (oneChatRecord != null) {
+
                 res.add(oneChatRecord);
             }
         }
@@ -147,6 +156,18 @@ public class CloudMessageService {
             }
         }
         return mapCloudMessage;
+    }
+
+
+    public void read(String userId,String targetId){
+
+        String combinedId = CommonUtils.combineId(userId, targetId);
+        if (existsCloudMessageById(combinedId)) {
+            Query query = Query.query(Criteria.where("id").is(combinedId));
+            Update update = new Update()
+                .set("participates." + userId, 0L);
+            mongoTemplate.updateFirst(query, update, CloudMessage.class);
+        }
     }
 
 }

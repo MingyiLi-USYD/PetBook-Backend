@@ -89,10 +89,18 @@ public class ChatController {
             String friendId = entry.getKey();
             User friend = userServiceFeign.getUserById(Long.valueOf(friendId));
             entry.getValue().setChatUser(friend);
+         
         }
 
         return R.success(mergedCloudMessages);
 
+    }
+
+
+    @GetMapping("/chat/read/{userId}")
+    public R<String> read(@PathVariable("userId")Long userId){
+              chatServiceFeign.read(userId);
+              return R.success("read");
     }
 
     private Map<String,CloudMessage> mergeMapCloudMessage(Map<String,CloudMessage> source,Map<String,CloudMessage> target){

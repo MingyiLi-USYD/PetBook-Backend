@@ -1,5 +1,6 @@
 package usyd.mingyi.common.service;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 import usyd.mingyi.common.utils.BaseContext;
@@ -7,7 +8,7 @@ import usyd.mingyi.common.utils.BaseContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
+@Slf4j
 public class MyHandlerInterceptor implements HandlerInterceptor {
 
 
@@ -18,6 +19,7 @@ public class MyHandlerInterceptor implements HandlerInterceptor {
         String userId = request.getHeader("X-UserId");
         if (username == null || userId == null) {
             //处理错误
+            //log.info("no userId found");
         }
         if(userId!=null){
             BaseContext.setCurrentId(Long.valueOf(userId));

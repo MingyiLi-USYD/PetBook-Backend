@@ -24,7 +24,6 @@ public class UserLovedController {
     @GetMapping("/comment/love/{commentId}")
     public R<String> addLovedCommentId(@PathVariable("commentId") Long commentId) {
 
-
         userInfoService.addCommentToLovedComments(BaseContext.getCurrentId(), commentId);
 
         return R.success("插入成功");

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import usyd.mingyi.common.entity.ChatMessage;
 
 import usyd.mingyi.common.pojo.CloudMessage;
+import usyd.mingyi.common.utils.BaseContext;
 import usyd.mingyi.springcloud.mongodb.service.CloudMessageService;
 import usyd.mingyi.springcloud.utils.CommonUtils;
 
@@ -48,6 +49,11 @@ public class ChatServiceImp implements ChatService {
     @Override
     public Map<String,CloudMessage> retrieveUnreadDataFromMongoDB(String userId, List<String> friendIds) {
         return cloudMessageService.getChatRecordsUnread(userId,friendIds);
+    }
+
+    @Override
+    public void readMessage(String targetId) {
+        cloudMessageService.read(String.valueOf(BaseContext.getCurrentId()),targetId);
     }
 
 

@@ -1,5 +1,6 @@
 package usyd.mingyi.springcloud.controller;
 
+import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +14,9 @@ import usyd.mingyi.common.pojo.User;
 import usyd.mingyi.common.utils.BaseContext;
 import usyd.mingyi.springcloud.service.UserService;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -73,6 +76,22 @@ public class UserController {
 
         return R.success(user);
     }
+
+    @PutMapping("/user/profile")
+    public R<String> updateUserProfile(@RequestParam("nickname") String nickname,
+                                     @RequestParam("description") String description) {
+        if (userService.update(
+                new LambdaUpdateWrapper<User>()
+                        .set(User::getNickname,nickname)
+                        .set(User::getDescription,description)
+                .eq(User::getUserId, BaseContext.getCurrentId())
+        )) {
+            return R.success("Success to update");
+        }
+
+          throw new CustomException("Fail to update");
+    }
+
 
 
 }
