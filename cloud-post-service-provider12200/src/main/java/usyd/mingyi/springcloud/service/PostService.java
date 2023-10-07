@@ -17,6 +17,7 @@ public interface PostService extends IService<Post>  {
     List<Post> getPostsByUserId(Long userId);
 
     List<Post> getPostsByIds(Collection<Long> postIds);
+    Page<Post> getPostsByIdsWithPage(Collection<Long> postIds,Long current,Integer pageSize);
 
     Post changeLoveNumber(Long postId, Integer delta);
 

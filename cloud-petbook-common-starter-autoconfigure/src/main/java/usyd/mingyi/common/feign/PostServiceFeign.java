@@ -3,6 +3,7 @@ package usyd.mingyi.common.feign;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
+import usyd.mingyi.common.common.R;
 import usyd.mingyi.common.component.FeignConfig;
 import usyd.mingyi.common.pojo.Post;
 import usyd.mingyi.common.pojo.PostImage;
@@ -36,6 +37,10 @@ public interface PostServiceFeign {
 
     @GetMapping("/posts/ids")
     List<Post> getPostsByIds(@RequestBody List<Long> ids);
+
+    @PostMapping("/posts/page/ids")
+    Page<Post> getPostsByIdsWithPage(@RequestBody List<Long> ids, @RequestParam("current") Long current,
+                                               @RequestParam("pageSize") Integer pageSize);
 
 
     @GetMapping("/post/changeLove")

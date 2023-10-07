@@ -54,6 +54,14 @@ public class PostServiceImp extends ServiceImpl<PostMapper, Post> implements Pos
         return this.listByIds(postIds);
     }
 
+    @Override
+    public Page<Post> getPostsByIdsWithPage(Collection<Long> postIds, Long current, Integer pageSize) {
+
+        return this.page(new Page<>(current, pageSize),
+                new LambdaQueryWrapper<Post>().in(Post::getPostId,postIds));
+
+    }
+
 
     @Override
     @Transactional(propagation = Propagation.REQUIRED )

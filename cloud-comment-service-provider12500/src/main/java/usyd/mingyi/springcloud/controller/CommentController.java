@@ -45,7 +45,8 @@ public class CommentController {
 
         Long count = (long) commentService.count(new LambdaQueryWrapper<Comment>()
                 .eq(Comment::getTargetUserId, userId)
-                .eq(Comment::getIsRead,false));
+                .eq(Comment::getIsRead,false)
+                .ne(Comment::getUserId,userId));
         return  R.success(count);
     }
 
@@ -92,9 +93,6 @@ public class CommentController {
         commentService.decreaseLoveOfComment(commentId);
         return R.success("Success");
     }
-
-
-
 
 
 

@@ -111,6 +111,12 @@ public class PostController {
         List<Post> postsByIds = postService.getPostsByIds(ids);
         return R.success(postsByIds);
     }
+    @PostMapping("/posts/page/ids")
+    public R<Page<Post>> getPostsByIdsWithPage(@RequestBody List<Long> ids,@RequestParam("current") Long current,
+                                               @RequestParam("pageSize") Integer pageSize) {
+
+        return R.success(postService.getPostsByIdsWithPage(ids,current,pageSize));
+    }
 
     @GetMapping("/post/changeLove")
     @DS("master")

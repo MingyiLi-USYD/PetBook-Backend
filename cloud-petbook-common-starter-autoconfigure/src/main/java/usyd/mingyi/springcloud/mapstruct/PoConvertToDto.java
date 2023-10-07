@@ -16,11 +16,15 @@ public interface PoConvertToDto {
     //因为是继承关系
     PostDto postToPostDto(Post post);
 
+    List<PostDto> postToPostDto(List<Post> post);
+
+    Page<PostDto> convertPostPage(Page<Post> postPage);
+
     FriendshipDto friendshipToFriendshipDto(Friendship friendship);
 
     FriendRequestDto friendRequestToFriendRequestDto(FriendRequest friendRequest);
 
-    List<PostDto> postToPostDto(List<Post> post);
+
 
     PetDto petToPetDto(Pet pet);
 

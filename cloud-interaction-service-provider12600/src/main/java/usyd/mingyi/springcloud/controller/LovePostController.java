@@ -35,7 +35,6 @@ public class LovePostController {
     public R<List<Long>> getAllLovedPostsId() {
 
         Long currentId = BaseContext.getCurrentId();
-        log.info(currentId.toString());
         return R.success(lovePostService.getLovePosts(currentId)
                 .stream().map(LovePost::getPostId).collect(Collectors.toList()));
     }

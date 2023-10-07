@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import usyd.mingyi.common.common.R;
 import usyd.mingyi.common.dto.LovePostDto;
+import usyd.mingyi.common.dto.PostDto;
 import usyd.mingyi.common.entity.ServiceMessage;
 import usyd.mingyi.common.entity.ServiceMessageType;
 import usyd.mingyi.common.feign.ChatServiceFeign;
@@ -17,6 +18,8 @@ import usyd.mingyi.common.pojo.LovePost;
 import usyd.mingyi.common.pojo.Post;
 import usyd.mingyi.common.utils.BaseContext;
 import usyd.mingyi.springcloud.mapstruct.PoConvertToDto;
+
+import java.util.List;
 
 @RestController
 @Slf4j
@@ -43,6 +46,15 @@ public class LovePostController {
             lovePostDto.setRelevantPost(postServiceFeign.getPostByPostId(lovePostDto.getPostId()));
         });
         return R.success(lovePostDtoPage);
+    }
+
+    @GetMapping("/lovePost/myLove")
+    public R<Page<Post>> getLovedPosts(@RequestParam("current") Long current,
+                                              @RequestParam("pageSize") Integer pageSize) {
+
+        List<Long> allLovedPostsId = interactionServiceFeign.getAllLovedPostsId();
+        Page<Post> postPage = postServiceFeign.getPostsByIdsWithPage(allLovedPostsId, current, pageSize);
+        return R.success(postPage);
     }
 
     @GetMapping("/lovePost/read/{id}")
