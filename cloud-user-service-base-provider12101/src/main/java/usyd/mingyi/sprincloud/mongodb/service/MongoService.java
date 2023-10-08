@@ -36,8 +36,8 @@ public class MongoService {
 
         // 执行更新操作，如果找不到匹配条件的文档，就会创建一个新的文档
         UpdateResult updateResult = mongoTemplate.upsert(query, update, UserInfo.class);
-        if (updateResult.getModifiedCount()==0||!updateResult.wasAcknowledged()) {
 
+        if (updateResult.getMatchedCount() > 0 && updateResult.getModifiedCount() == 0) {
             throw new CustomException("Already loved");
         }
 
@@ -53,7 +53,7 @@ public class MongoService {
         // 执行更新操作
         UpdateResult updateResult = mongoTemplate.updateFirst(query, update, UserInfo.class);
 
-        if (updateResult.getModifiedCount()==0||!updateResult.wasAcknowledged()) {
+        if (updateResult.getMatchedCount() > 0 && updateResult.getModifiedCount() == 0) {
 
             throw new CustomException("Never loved before");
         }
